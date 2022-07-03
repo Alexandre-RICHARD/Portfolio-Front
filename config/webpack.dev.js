@@ -1,14 +1,13 @@
-require('dotenv').config();
 const common = require("./webpack.common.js");
 const { merge } = require("webpack-merge");
-const port = process.env.PORT;
+const port = 8080;
 
 module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   module: {
     rules: [
-      //! Styles loader
+      // Styles loader
       {
         test: /\.(s?css)$/,
         use: [

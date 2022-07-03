@@ -38,7 +38,7 @@ module.exports = {
 
   module: {
     rules: [
-      //! Javascript loader
+      // Javascript loader
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -49,7 +49,7 @@ module.exports = {
           },
         }, ],
       },
-      //! Fonts loader
+      // Fonts loader
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
         loader: "file-loader",
@@ -57,7 +57,7 @@ module.exports = {
           outputPath: "fonts/",
         },
       },
-      //! Images loader
+      // Images loader
       {
         test: /\.(ico|gif|png|jpe?g|webp|svg)$/i,
         use: [{
