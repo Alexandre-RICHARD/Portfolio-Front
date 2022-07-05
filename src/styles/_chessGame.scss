@@ -1,0 +1,75 @@
+$size-pieces: 75px;
+$external-layout-size: 50px;
+$size-board-margin: 75px;
+$text-size: 18px;
+$external-border-size: 3px;
+$internal-border-size: 3px;
+$first-color: #6A3425;
+$second-color: #ECDDC9;
+
+.board-container {
+  height: calc(8*$size-pieces + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
+  width: calc(8*$size-pieces + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
+  background-color: $first-color;
+  display: flex;
+  flex-wrap: wrap;
+  margin: $size-board-margin auto;
+  border: solid $external-border-size $second-color;
+
+  .board-text {
+    font-weight: 500;
+    font-size: $text-size;
+    color: $second-color;
+  }
+
+  .corner {
+    width: $external-layout-size + $internal-border-size;
+    height: $external-layout-size;
+  }
+  
+  .lettersBox {
+    height: $external-layout-size;
+    width: calc(8*$size-pieces);
+    display: flex;
+    flex-wrap: wrap;
+    .letter {
+      width: $size-pieces;
+      height: $external-layout-size;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  .numbersBox {
+    width: $external-layout-size;
+    height: calc(8*$size-pieces);
+    .number {
+      height: $size-pieces;
+      width: $external-layout-size;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  .piecesBox {
+    width: calc(8*$size-pieces + 2*$internal-border-size);
+    height: calc(8*$size-pieces + 2*$internal-border-size);
+    border: solid $internal-border-size $second-color;
+    display: flex;
+    flex-wrap: wrap;
+
+    .case {
+      width: $size-pieces;
+      height: $size-pieces;
+
+      &--white {
+        background-color: $second-color;
+      }
+    }
+  }
+}
+

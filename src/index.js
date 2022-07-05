@@ -1,5 +1,7 @@
-const testFunction = () => {
-  document.querySelector("#app").innerHTML = ("<p>Je voudrai bien démarrer s'il vous plait</p>");
+import { chessGame } from "./js/chessGame/chessGame.js";
+
+const app = () => {
+  chessGame.init();
 };
 
-testFunction();
+document.addEventListener("DOMContentLoaded", app);
