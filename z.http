@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:3000
+
+### Route GET /test
+GET {{baseUrl}}/test
+
+### Route GET /board/data pour obtenir les données des pièces
+GET {{baseUrl}}/board/data

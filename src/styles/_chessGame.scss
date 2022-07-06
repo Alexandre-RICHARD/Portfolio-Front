@@ -1,15 +1,20 @@
-$size-pieces: 75px;
-$external-layout-size: 50px;
-$size-board-margin: 75px;
-$text-size: 18px;
+$size-case: 95px;
+$external-layout-size: calc($size-case*2/3);
+$size-board-margin: 20px;
+$text-size: calc($size-case/3);
 $external-border-size: 3px;
 $internal-border-size: 3px;
 $first-color: #6A3425;
-$second-color: #ECDDC9;
+$second-color: #c0a79f;
+$white-piece-color: #bbbbbb;
+$white-piece-border-color: #3a3a3a;
+$black-piece-color: #000000;
+$black-piece-border-color: #3a3a3a;
+$piece-stroke-width: calc($size-case/3.75);
 
 .board-container {
-  height: calc(8*$size-pieces + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
-  width: calc(8*$size-pieces + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
+  height: calc(8*$size-case + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
+  width: calc(8*$size-case + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
   background-color: $first-color;
   display: flex;
   flex-wrap: wrap;
@@ -26,14 +31,15 @@ $second-color: #ECDDC9;
     width: $external-layout-size + $internal-border-size;
     height: $external-layout-size;
   }
-  
+
   .lettersBox {
     height: $external-layout-size;
-    width: calc(8*$size-pieces);
+    width: calc(8*$size-case);
     display: flex;
     flex-wrap: wrap;
+
     .letter {
-      width: $size-pieces;
+      width: $size-case;
       height: $external-layout-size;
       text-align: center;
       display: flex;
@@ -41,12 +47,13 @@ $second-color: #ECDDC9;
       justify-content: center;
     }
   }
-  
+
   .numbersBox {
     width: $external-layout-size;
-    height: calc(8*$size-pieces);
+    height: calc(8*$size-case);
+
     .number {
-      height: $size-pieces;
+      height: $size-case;
       width: $external-layout-size;
       text-align: center;
       display: flex;
@@ -54,22 +61,54 @@ $second-color: #ECDDC9;
       justify-content: center;
     }
   }
-  
+
   .piecesBox {
-    width: calc(8*$size-pieces + 2*$internal-border-size);
-    height: calc(8*$size-pieces + 2*$internal-border-size);
+    width: calc(8*$size-case + 2*$internal-border-size);
+    height: calc(8*$size-case + 2*$internal-border-size);
     border: solid $internal-border-size $second-color;
     display: flex;
     flex-wrap: wrap;
 
     .case {
-      width: $size-pieces;
-      height: $size-pieces;
+      width: $size-case;
+      height: $size-case;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
 
       &--white {
         background-color: $second-color;
       }
+
+      &--black {
+        background-color: $first-color;
+      }
+
+      svg {
+        margin-bottom: 4%;
+        height: 94%;
+        stroke-width: $piece-stroke-width;
+        stroke-width: max(25px);
+
+        .unclickable {
+          pointer-events: none;
+        }
+      }
+
+      .pawn {
+        height: 82%;
+      }
+
+    }
+    
+    .pc--white {
+      color: $white-piece-color;
+      stroke: $white-piece-border-color;
+    }
+    
+    .pc--black {
+      color: $black-piece-color;
+      stroke: $black-piece-border-color;
     }
   }
 }
-

@@ -7,3 +7,4 @@
 0.2.0 - Réflexion intense et installation quasi complète de tous les outils me semblant nécessaire du react-modèle. Les deux projets (front/back) sont prêts à être commencés, l'environnement de travail est terminé.
 0.2.1 - Petit patch, retrait de dotenv sur le front et légère correction de commentaires
 0.3.0 - Début du projet, fin de la construction du plateau d'échecs terminé. Tout est en javascript commun
+0.4.0 - Plateau terminé avec chaque pièce placé au bon endroit avec des SVG. Récupération de données depuis le back. fichier http et baseUrl crées. Prochaine étape, les mouvements des pièces

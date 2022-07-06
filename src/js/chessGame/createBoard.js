@@ -1,9 +1,12 @@
+import { base_Url } from "./baseUrl.js";
+
 export const createBoard = {
   stepbystepConstruction: () => {
     createBoard.createLayout();
     createBoard.createLetters();
     createBoard.createNumbers();
     createBoard.createCases();
+    return Promise.resolve();
   },
   
   createLayout: () => {    
@@ -73,18 +76,36 @@ export const createBoard = {
     }
   },
 
-  createCases: () => {
+  async getChessBoardData() {
+    try {
+      let data = await fetch(base_Url.api_url + "/board/data");
+      let boardData = await data.json();
+      console.log(boardData);
+      return boardData;
+    }
+    catch (error) {
+      console.trace(error);
+    }
+  },
+
+  async createCases () {
+    const boardData = await createBoard.getChessBoardData();
     let z = 0;
     for (let x = 0; x < 8; x++) {
       for (let y = 0; y < 8; y++) {
+        const currentCase = (boardData[x*8 + y]);
         const boardCase = document.createElement("div");
-        if (z % 2 === 0) {
-          boardCase.classList.add("case", "case--white");
-        }
-        else {
-          boardCase.classList.add("case", "case--black");
-        }
+        boardCase.classList.add("case", z % 2 === 0 ? "case--white" : "case--black");
+        boardCase.id = currentCase.x + currentCase.y;
         z++;
+
+        if (currentCase.piece_name !== null) {
+          boardCase.classList.add(`pc--${currentCase.piece_color}`, `${currentCase.piece_name}`);
+          const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
+          boardCase.appendChild(clone);
+          boardCase.setAttribute("piece_id", currentCase.piece_id);
+        }
+
         document.querySelector(".piecesBox").appendChild(boardCase);
       }
       z++;
