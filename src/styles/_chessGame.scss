@@ -18,7 +18,8 @@ $piece-stroke-width: calc($size-case/3.75);
   background-color: $first-color;
   display: flex;
   flex-wrap: wrap;
-  margin: $size-board-margin auto;
+  // margin: $size-board-margin auto;
+  margin: 0 auto;
   border: solid $external-border-size $second-color;
 
   .board-text {
@@ -68,6 +69,21 @@ $piece-stroke-width: calc($size-case/3.75);
     border: solid $internal-border-size $second-color;
     display: flex;
     flex-wrap: wrap;
+    //! TEMPORAIRE LE TEMPS D'AVOIR UN VRAI MÉCANISME DE LANCEMENT DE PARTIE
+    align-items: center;
+    justify-content: center;
+
+    .resetButton {
+      height: 100px;
+      width: 300px;
+      font-size: 35px;
+      font-weight: 700;
+      background-color: #000000;
+      color: #bbbbbb;
+      border-radius: 15px;
+      border: 4px solid #dac511;
+    }
+    //! =====================================================================
 
     .case {
       width: $size-case;

@@ -8,3 +8,4 @@
 0.2.1 - Petit patch, retrait de dotenv sur le front et légère correction de commentaires
 0.3.0 - Début du projet, fin de la construction du plateau d'échecs terminé. Tout est en javascript commun
 0.4.0 - Plateau terminé avec chaque pièce placé au bon endroit avec des SVG. Récupération de données depuis le back. fichier http et baseUrl crées. Prochaine étape, les mouvements des pièces
+0.5.0 - Début de la gestion des mouvements de chaque pièces. Normalement pions terminées => 1/6. Quelques morceaux temporaires ajoutés. À pas oublier. Début de la construction des events et de la récupération des mouvements possibles.

@@ -1,16 +1,27 @@
+import { caseSelectionAndMoves } from "./caseSelectionAndMoves.js";
 import { base_Url } from "./baseUrl.js";
 
 export const createBoard = {
   stepbystepConstruction: () => {
+    createBoard.initBoard();
     createBoard.createLayout();
     createBoard.createLetters();
     createBoard.createNumbers();
     createBoard.createCases();
-    return Promise.resolve();
+    caseSelectionAndMoves.movesAndEventHandling();
+  },
+
+  initBoard: () => {
+    document.querySelector("#app").innerHTML = "";
   },
   
   createLayout: () => {    
     const app = document.querySelector("#app");
+    //! TEMP
+    const p = document.createElement("p");
+    p.classList.add("currentPlayer");
+    app.appendChild(p);
+    //! TEMP
     const board = document.createElement("div");
     board.classList.add("board-container");
 
@@ -79,9 +90,7 @@ export const createBoard = {
   async getChessBoardData() {
     try {
       let data = await fetch(base_Url.api_url + "/board/data");
-      let boardData = await data.json();
-      console.log(boardData);
-      return boardData;
+      return await data.json();
     }
     catch (error) {
       console.trace(error);
@@ -90,25 +99,50 @@ export const createBoard = {
 
   async createCases () {
     const boardData = await createBoard.getChessBoardData();
-    let z = 0;
-    for (let x = 0; x < 8; x++) {
-      for (let y = 0; y < 8; y++) {
-        const currentCase = (boardData[x*8 + y]);
-        const boardCase = document.createElement("div");
-        boardCase.classList.add("case", z % 2 === 0 ? "case--white" : "case--black");
-        boardCase.id = currentCase.x + currentCase.y;
-        z++;
-
-        if (currentCase.piece_name !== null) {
-          boardCase.classList.add(`pc--${currentCase.piece_color}`, `${currentCase.piece_name}`);
-          const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
-          boardCase.appendChild(clone);
-          boardCase.setAttribute("piece_id", currentCase.piece_id);
+    //! DÉBUT TEMPORAIRE
+    if (typeof boardData !== "string") {
+    //! FIN TEMPORAIRE
+      let z = 0;
+      for (let y = 8; y > 0; y--) {
+        for (let x = 1; x < 9; x++) {
+          const currentCase = (boardData.find(element => element.x === x && element.y === y));
+          const boardCase = document.createElement("div");
+          boardCase.classList.add("case", z % 2 === 0 ? "case--white" : "case--black");
+          boardCase.id = `${currentCase.x}${currentCase.y}`;
+          z++;
+  
+          if (currentCase.piece_name !== null) {
+            boardCase.classList.add(`pc--${currentCase.piece_color}`, `${currentCase.piece_name}`);
+            const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
+            boardCase.appendChild(clone);
+            boardCase.setAttribute("piece_id", currentCase.piece_id);
+            boardCase.setAttribute("case_name", currentCase.case_name);
+          }
+  
+          document.querySelector(".piecesBox").appendChild(boardCase);
         }
-
-        document.querySelector(".piecesBox").appendChild(boardCase);
+        z++;
       }
-      z++;
+    //! DÉBUT TEMPORAIRE
+    }
+    else {
+      const resetButton = document.createElement("button");
+      resetButton.classList.add("resetButton");
+      resetButton.textContent = "Appuies pour commencer";
+      resetButton.addEventListener("click", createBoard.resetBoardData);
+      document.querySelector(".piecesBox").appendChild(resetButton);
+    }
+    //! FIN TEMPORAIRE
+  },
+
+  async resetBoardData() {
+    try {
+      let data = await fetch(base_Url.api_url + "/board/reset");
+      createBoard.stepbystepConstruction();
+      return await data.json();
+    }
+    catch (error) {
+      console.trace(error);
     }
   }
 };

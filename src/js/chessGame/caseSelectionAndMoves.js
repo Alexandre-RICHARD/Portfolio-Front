@@ -1,8 +1,35 @@
+import { base_Url } from "./baseUrl.js";
+
 export const caseSelectionAndMoves = {
 
-  possibleMovementData: {},
+  possibleMovesData: {},
 
-  firstStep: () => {
-    console.log("On fera la sélection ici avec les moves mais plus tard");
-  }
+  movesAndEventHandling: () => {
+    caseSelectionAndMoves.getPossibleMovesData();
+    // caseSelectionAndMoves.enableSelectPiece();
+    // caseSelectionAndMoves.showPossibleMoves();
+    // caseSelectionAndMoves.deselectPiece();
+  },
+
+  async getPossibleMovesData () {
+    try {
+      let data = await fetch(base_Url.api_url + "/moves/data");
+      caseSelectionAndMoves.possibleMovesData = await data.json();
+      console.log(caseSelectionAndMoves.possibleMovesData);
+    }
+    catch (error) {
+      console.trace(error);
+    }
+  },
+  
+  enableSelectPiece: () => {
+  },
+
+  showPossibleMoves: () => {
+
+  },
+
+  deselectPiece: () => {
+
+  },
 };
