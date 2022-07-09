@@ -1,16 +1,22 @@
-$size-case: 95px;
+$size-case: 92px;
+$border-size-enabled-case: 3px;
 $external-layout-size: calc($size-case*2/3);
-$size-board-margin: 20px;
 $text-size: calc($size-case/3);
 $external-border-size: 3px;
 $internal-border-size: 3px;
 $first-color: #6A3425;
 $second-color: #c0a79f;
+$first-color-highlight: #33150d;
+$second-color-highlight: #5f4339;
 $white-piece-color: #bbbbbb;
 $white-piece-border-color: #3a3a3a;
 $black-piece-color: #000000;
 $black-piece-border-color: #3a3a3a;
 $piece-stroke-width: calc($size-case/3.75);
+$selected-case-color: #8d6e1a;
+$selected-case-border: #cacaca;
+$possible-moves-color: #185868;
+$possible-moves-border: #a7a7a7;
 
 .board-container {
   height: calc(8*$size-case + 2*$external-layout-size + 2*$external-border-size + 2*$internal-border-size);
@@ -18,7 +24,6 @@ $piece-stroke-width: calc($size-case/3.75);
   background-color: $first-color;
   display: flex;
   flex-wrap: wrap;
-  // margin: $size-board-margin auto;
   margin: 0 auto;
   border: solid $external-border-size $second-color;
 
@@ -51,7 +56,7 @@ $piece-stroke-width: calc($size-case/3.75);
 
   .numbersBox {
     width: $external-layout-size;
-    height: calc(8*$size-case);
+    height: calc(8*$size-case) + 2 * $internal-border-size;
 
     .number {
       height: $size-case;
@@ -60,6 +65,10 @@ $piece-stroke-width: calc($size-case/3.75);
       display: flex;
       align-items: center;
       justify-content: center;
+
+    }
+    [y="8"], [y="1"] {
+      height: $size-case + $internal-border-size;
     }
   }
 
@@ -69,21 +78,6 @@ $piece-stroke-width: calc($size-case/3.75);
     border: solid $internal-border-size $second-color;
     display: flex;
     flex-wrap: wrap;
-    //! TEMPORAIRE LE TEMPS D'AVOIR UN VRAI MÉCANISME DE LANCEMENT DE PARTIE
-    align-items: center;
-    justify-content: center;
-
-    .resetButton {
-      height: 100px;
-      width: 300px;
-      font-size: 35px;
-      font-weight: 700;
-      background-color: #000000;
-      color: #bbbbbb;
-      border-radius: 15px;
-      border: 4px solid #dac511;
-    }
-    //! =====================================================================
 
     .case {
       width: $size-case;
@@ -94,10 +88,20 @@ $piece-stroke-width: calc($size-case/3.75);
 
       &--white {
         background-color: $second-color;
+
+        &.piece-can-moves {
+          background: radial-gradient(circle, $second-color-highlight 0%, $second-color 100%);
+          cursor: pointer;
+        }
       }
 
       &--black {
         background-color: $first-color;
+
+        &.piece-can-moves {
+          background: radial-gradient(circle, $first-color-highlight 0%, $first-color 100%);
+          cursor: pointer;
+        }
       }
 
       svg {
@@ -105,26 +109,41 @@ $piece-stroke-width: calc($size-case/3.75);
         height: 94%;
         stroke-width: $piece-stroke-width;
         stroke-width: max(25px);
+      }
 
-        .unclickable {
-          pointer-events: none;
-        }
+      .unclickable {
+        pointer-events: none;
       }
 
       .pawn {
         height: 82%;
       }
-
     }
-    
+
     .pc--white {
       color: $white-piece-color;
       stroke: $white-piece-border-color;
     }
-    
+
     .pc--black {
       color: $black-piece-color;
       stroke: $black-piece-border-color;
     }
+
+    .selectedCase {
+      background-color: $selected-case-color;
+      border: $border-size-enabled-case solid $selected-case-border;
+      border-radius: calc(0.1 * $size-case);
+    }
+
+    .possibleMove {
+      background-color: $possible-moves-color;
+      border: $border-size-enabled-case solid $possible-moves-border;
+      border-radius: calc(0.1 * $size-case);
+      cursor: pointer;
+    }
   }
 }
+
+
+

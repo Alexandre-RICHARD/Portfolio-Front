@@ -8,3 +8,16 @@ GET {{baseUrl}}/board/data
 
 ### Pour reset le board
 GET {{baseUrl}}/board/reset
+
+### Test censé être faux pour effectuer un move
+POST {{baseUrl}}/move/verif
+Content-Type: application/json
+
+{
+    "order": "2",
+    "piece_id": "p1w",
+    "originCase": "a2",
+    "destinationCase": "a5",
+    "killingMove": false,
+    "killCase": null
+}

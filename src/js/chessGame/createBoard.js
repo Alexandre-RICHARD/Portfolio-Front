@@ -7,8 +7,9 @@ export const createBoard = {
     createBoard.createLayout();
     createBoard.createLetters();
     createBoard.createNumbers();
-    createBoard.createCases();
-    caseSelectionAndMoves.movesAndEventHandling();
+    createBoard.createCases().then(() => {
+      caseSelectionAndMoves.movesAndEventHandling();
+    });
   },
 
   initBoard: () => {
@@ -17,11 +18,35 @@ export const createBoard = {
   
   createLayout: () => {    
     const app = document.querySelector("#app");
+    
     //! TEMP
-    const p = document.createElement("p");
-    p.classList.add("currentPlayer");
-    app.appendChild(p);
+    const settingsBox = document.createElement("div");
+    settingsBox.classList.add("settingsBox");
+
+    const resetButton = document.createElement("button");
+    resetButton.classList.add("resetButton");
+    resetButton.textContent = "Reset le board";
+    resetButton.addEventListener("click", createBoard.resetBoardData);
+
+    const movesCounter = document.createElement("p");
+    movesCounter.classList.add("movesCounter");
+
+    const checkShowsLabel = document.createElement("label");
+    checkShowsLabel.textContent = "Mettre en surbrillance les pièces pouvant bouger";
+    checkShowsLabel.classList.add("checkShows-label");
+    
+    const checkShowsInput = document.createElement("input");
+    checkShowsInput.classList.add("checkShows-input");
+    checkShowsInput.addEventListener("change", caseSelectionAndMoves.highlightPiecesCanMove);
+    checkShowsInput.setAttribute("type", "checkbox");
+    checkShowsLabel.appendChild(checkShowsInput);
+
+    settingsBox.appendChild(resetButton);
+    settingsBox.appendChild(movesCounter);
+    settingsBox.appendChild(checkShowsLabel);
+    app.appendChild(settingsBox);
     //! TEMP
+
     const board = document.createElement("div");
     board.classList.add("board-container");
 
@@ -78,6 +103,7 @@ export const createBoard = {
       for (let y = 0; y < 8; y++) {
         const number = document.createElement("div");
         number.classList.add("number");
+        number.setAttribute("y", 8-y);
         const p = document.createElement("p");
         p.classList.add("board-text");
         p.textContent = 8 - y;
@@ -99,9 +125,7 @@ export const createBoard = {
 
   async createCases () {
     const boardData = await createBoard.getChessBoardData();
-    //! DÉBUT TEMPORAIRE
     if (typeof boardData !== "string") {
-    //! FIN TEMPORAIRE
       let z = 0;
       for (let y = 8; y > 0; y--) {
         for (let x = 1; x < 9; x++) {
@@ -109,6 +133,7 @@ export const createBoard = {
           const boardCase = document.createElement("div");
           boardCase.classList.add("case", z % 2 === 0 ? "case--white" : "case--black");
           boardCase.id = `${currentCase.x}${currentCase.y}`;
+          boardCase.setAttribute("case_name", currentCase.case_name);
           z++;
   
           if (currentCase.piece_name !== null) {
@@ -116,23 +141,15 @@ export const createBoard = {
             const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
             boardCase.appendChild(clone);
             boardCase.setAttribute("piece_id", currentCase.piece_id);
-            boardCase.setAttribute("case_name", currentCase.case_name);
           }
   
           document.querySelector(".piecesBox").appendChild(boardCase);
         }
         z++;
       }
-    //! DÉBUT TEMPORAIRE
+      createBoard.buildTable(boardData);
     }
-    else {
-      const resetButton = document.createElement("button");
-      resetButton.classList.add("resetButton");
-      resetButton.textContent = "Appuies pour commencer";
-      resetButton.addEventListener("click", createBoard.resetBoardData);
-      document.querySelector(".piecesBox").appendChild(resetButton);
-    }
-    //! FIN TEMPORAIRE
+    Promise.resolve("ok");
   },
 
   async resetBoardData() {
@@ -144,5 +161,47 @@ export const createBoard = {
     catch (error) {
       console.trace(error);
     }
-  }
+  },
+
+
+
+  //! TEMPORAIRE DE OUF
+  buildTable: (boardData) => {
+    const app = document.querySelector("#app");
+    const tableBox = document.createElement("div");
+    tableBox.classList.add("tableBox");
+    // Création et remplissage du thead à l'aide de for in qui récupère le nom des propriétés
+    const thead = document.createElement("thead");
+    const tr1 = document.createElement("tr");
+    for (const property in boardData[0]) {
+      const prop = document.createElement("th");
+      prop.textContent = property;
+      tr1.appendChild(prop);
+    }
+    thead.appendChild(tr1);
+    tableBox.appendChild(thead);
+    // Création du body qui utilise un for each pour récupérer chaque "ligne" de la base de donnée puis un for in element[...] pour avoir la valeur de chaque clé
+    const tbody = document.createElement("thead");
+    boardData.forEach(element => {
+      const tr2 = document.createElement("tr");
+      for (const key in element) {
+        const td = document.createElement("td");
+        if (element[key] !== null) {
+          td.textContent = element[key];
+        }
+        else {
+          td.classList.add("emptyTD");
+        }
+        tr2.appendChild(td);
+      }
+      tbody.appendChild(tr2);
+    });
+    tableBox.appendChild(tbody);
+    app.appendChild(tableBox);
+  },
+  //! TEMPORAIRE DE OUF
+
+
+
+
 };
