@@ -10,7 +10,6 @@ export const caseSelectionAndMoves = {
   isSelectedCase: false,
 
   async movesAndEventHandling(gameData) {
-    console.log(gameData);
     caseSelectionAndMoves.gameData = gameData;
     caseSelectionAndMoves.isSelectedCase = false;
     caseSelectionAndMoves.enableSelectPiece();

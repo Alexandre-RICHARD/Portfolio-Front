@@ -8,6 +8,7 @@ import {
 export const createBoard = {
   async stepbystepConstruction() {
     const gameData = await createBoard.getChessGameData();
+    console.log(gameData); //! Temporaire
     document.querySelector("#app").innerHTML = "";
     createBoard.createLayout();
     createBoard.createLetters();
