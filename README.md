@@ -10,3 +10,5 @@
 0.4.0 - Plateau terminé avec chaque pièce placé au bon endroit avec des SVG. Récupération de données depuis le back. fichier http et baseUrl crées. Prochaine étape, les mouvements des pièces
 0.5.0 - Début de la gestion des mouvements de chaque pièces. Normalement pions terminées => 1/6. Quelques morceaux temporaires ajoutés. À pas oublier. Début de la construction des events et de la récupération des mouvements possibles.
 0.6.0 - Jeux d'échecs fonctionnel visuellement parlant. Reste encore des règles à implémenter. Prochaine étape, rangement, coup de propre. Gros progrès, grosse fierté
+0.6.1 - Beaucoup de micro-correction, de factorisation (avec un peu de dynamisme), optimisation des appels d'API et mise en forme
+0.6.2 - Le précédent Readme n'avait pas été enregistré. C'est tout.
