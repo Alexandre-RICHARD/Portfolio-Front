@@ -3,14 +3,14 @@
 ### Route GET /test
 GET {{baseUrl}}/test
 
-### Route GET /board/data pour obtenir les données des pièces
-GET {{baseUrl}}/board/data
+### Pour obtenir les données du jeu
+GET {{baseUrl}}/chess/game/data
 
 ### Pour reset le board
-GET {{baseUrl}}/board/reset
+GET {{baseUrl}}/chess/board/reset
 
 ### Test censé être faux pour effectuer un move
-POST {{baseUrl}}/move/verif
+POST {{baseUrl}}/chess/move/verif
 Content-Type: application/json
 
 {

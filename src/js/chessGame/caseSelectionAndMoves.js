@@ -1,58 +1,25 @@
-import { base_Url } from "./baseUrl.js";
-import { chessGame } from "./chessGame.js";
+import {
+  base_Url
+} from "./baseUrl.js";
+import {
+  chessGame
+} from "./chessGame.js";
 
 export const caseSelectionAndMoves = {
-
-  possibleMovesData: {},
   gameData: {},
   isSelectedCase: false,
 
-  async movesAndEventHandling () {
-    caseSelectionAndMoves.possibleMovesData = await caseSelectionAndMoves.getPossibleMovesData();
-    caseSelectionAndMoves.gameData = await caseSelectionAndMoves.getGameData();
+  async movesAndEventHandling(gameData) {
+    console.log(gameData);
+    caseSelectionAndMoves.gameData = gameData;
     caseSelectionAndMoves.isSelectedCase = false;
-    document.querySelector(".movesCounter").textContent = `Tour des ${caseSelectionAndMoves.gameData.currentPlayerColor === "white" ? "blancs" : "noirs"} : ${caseSelectionAndMoves.possibleMovesData.totalNumberPossibleMoves} coups possibles`;
     caseSelectionAndMoves.enableSelectPiece();
-  },
-
-  highlightPiecesCanMove: () => {
-    for (let [key, value] of Object.entries(caseSelectionAndMoves.possibleMovesData.moves)) {
-      if (value !== null) {
-        const x = document.querySelector(`[piece_id=${key}]`);
-        if (caseSelectionAndMoves.isSelectedCase === false && document.querySelector(".checkShows-input").checked === true) {
-          x.classList.add("piece-can-moves");
-        }
-        else {
-          x.classList.remove("piece-can-moves");
-        }
-      }
-    }
-  },
-
-  async getPossibleMovesData () {
-    try {
-      const data = await fetch(base_Url.api_url + "/moves/data");
-      return data.json();
-    }
-    catch (error) {
-      console.trace(error);
-    }
-  },
-
-  async getGameData() {
-    try {
-      const data = await fetch(base_Url.api_url + "/game/data");
-      return data.json();
-    }
-    catch (error) {
-      console.trace(error);
-    }
   },
 
   getCaseWithCurrentColorPieces: () => {
     return document.querySelectorAll(`.pc--${caseSelectionAndMoves.gameData.currentPlayerColor}`);
   },
-  
+
   enableSelectPiece: () => {
     caseSelectionAndMoves.getCaseWithCurrentColorPieces().forEach(element => element.addEventListener("click", caseSelectionAndMoves.selection, false));
   },
@@ -67,18 +34,6 @@ export const caseSelectionAndMoves = {
     selectedCase.addEventListener("click", caseSelectionAndMoves.deselectPiece, false);
   },
 
-  showPossibleMoves: (selectedCase) => {
-    const piece_id = selectedCase.getAttribute("piece_id");
-    const selectedCasePossiblesMoves = caseSelectionAndMoves.possibleMovesData.moves[piece_id];
-    if (selectedCasePossiblesMoves) {
-      for (let [, value] of Object.entries(selectedCasePossiblesMoves)) {
-        const oneMove = document.querySelector(`[case_name=${value.destinationCase}]`);
-        oneMove.classList.add("possibleMove");
-        oneMove.addEventListener("click", caseSelectionAndMoves.sendMoveToVerif, false);
-      }
-    }
-  },
-
   deselectPiece: (event) => {
     const deselectedCase = event.target;
     deselectedCase.classList.remove("selectedCase");
@@ -89,17 +44,42 @@ export const caseSelectionAndMoves = {
     if (showMove) {
       showMove.forEach(element => {
         element.classList.remove("possibleMove");
+        element.removeEventListener("click", caseSelectionAndMoves.sendMoveToVerif, false);
       });
     }
     caseSelectionAndMoves.enableSelectPiece();
   },
 
-  async sendMoveToVerif (event) {
-    let move = {};
+  highlightPiecesCanMove: () => {
+    for (let [key, value] of Object.entries(caseSelectionAndMoves.gameData.currentColorMovesData.moves)) {
+      if (value !== null) {
+        const x = document.querySelector(`[piece_id=${key}]`);
+        if (caseSelectionAndMoves.isSelectedCase === false && document.querySelector(".checkShows-input").checked === true) {
+          x.classList.add("piece-can-moves");
+        } else {
+          x.classList.remove("piece-can-moves");
+        }
+      }
+    }
+  },
 
+  showPossibleMoves: (selectedCase) => {
+    const piece_id = selectedCase.getAttribute("piece_id");
+    const selectedCasePossiblesMoves = caseSelectionAndMoves.gameData.currentColorMovesData.moves[piece_id];
+    if (selectedCasePossiblesMoves) {
+      for (let [, value] of Object.entries(selectedCasePossiblesMoves)) {
+        const oneMove = document.querySelector(`[case_name=${value.destinationCase}]`);
+        oneMove.classList.add("possibleMove");
+        oneMove.addEventListener("click", caseSelectionAndMoves.sendMoveToVerif, false);
+      }
+    }
+  },
+
+  async sendMoveToVerif(event) {
+    let move = {};
     const piece_id = document.querySelector(".selectedCase").getAttribute("piece_id");
-    const ourPieceMoves = caseSelectionAndMoves.possibleMovesData.moves[piece_id];
-    
+    const ourPieceMoves = caseSelectionAndMoves.gameData.currentColorMovesData.moves[piece_id];
+
     for (let [key, value] of Object.entries(ourPieceMoves)) {
       if (value.destinationCase === event.target.getAttribute("case_name")) {
         move = {
@@ -113,7 +93,7 @@ export const caseSelectionAndMoves = {
       }
     }
     try {
-      const response = await fetch(base_Url.api_url + "/move/verif", {
+      const response = await fetch(base_Url.api_url + "/chess/move/verif", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -124,8 +104,7 @@ export const caseSelectionAndMoves = {
       if (response.ok) {
         chessGame.init();
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.trace(error);
     }
   }

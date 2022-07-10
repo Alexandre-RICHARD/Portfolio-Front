@@ -1,4 +1,4 @@
-$size-case: 92px;
+$size-case: 90px;
 $border-size-enabled-case: 3px;
 $external-layout-size: calc($size-case*2/3);
 $text-size: calc($size-case/3);
@@ -24,7 +24,7 @@ $possible-moves-border: #a7a7a7;
   background-color: $first-color;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 10px auto;
   border: solid $external-border-size $second-color;
 
   .board-text {
@@ -67,7 +67,9 @@ $possible-moves-border: #a7a7a7;
       justify-content: center;
 
     }
-    [y="8"], [y="1"] {
+
+    [y="8"],
+    [y="1"] {
       height: $size-case + $internal-border-size;
     }
   }
@@ -144,6 +146,3 @@ $possible-moves-border: #a7a7a7;
     }
   }
 }
-
-
-

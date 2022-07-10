@@ -13,7 +13,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  .resetButton, .movesCounter, .checkShows-label {
+  .resetButton,
+  .movesCounter,
+  .checkShows-label {
     background-color: #ffffff;
     color: #000000;
     width: fit-content;
@@ -26,13 +28,14 @@ body {
     .checkShows-input {
       width: 25px;
       height: 25px;
-      margin-left: 10px;  
+      margin-left: 10px;
     }
   }
 }
 
 .tableBox {
-  margin: 50px;
+  width: fit-content;
+  margin: 10px auto;
 }
 
 th,
@@ -60,4 +63,5 @@ tr:nth-child(2n+1) {
 .emptyTD {
   background-color: #242424;
 }
+
 //! TEMPORAIRE DE OUF

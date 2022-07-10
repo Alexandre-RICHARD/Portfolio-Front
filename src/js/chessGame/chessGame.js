@@ -1,4 +1,6 @@
-import { createBoard } from "./createBoard.js";
+import {
+  createBoard
+} from "./createBoard.js";
 
 export const chessGame = {
   init: () => {

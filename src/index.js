@@ -1,4 +1,6 @@
-import { chessGame } from "./js/chessGame/chessGame.js";
+import {
+  chessGame
+} from "./js/chessGame/chessGame.js";
 
 const app = () => {
   chessGame.init();

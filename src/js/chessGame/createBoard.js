@@ -1,58 +1,57 @@
-import { caseSelectionAndMoves } from "./caseSelectionAndMoves.js";
-import { base_Url } from "./baseUrl.js";
+import {
+  caseSelectionAndMoves
+} from "./caseSelectionAndMoves.js";
+import {
+  base_Url
+} from "./baseUrl.js";
 
 export const createBoard = {
-  stepbystepConstruction: () => {
-    createBoard.initBoard();
+  async stepbystepConstruction() {
+    const gameData = await createBoard.getChessGameData();
+    document.querySelector("#app").innerHTML = "";
     createBoard.createLayout();
     createBoard.createLetters();
     createBoard.createNumbers();
-    createBoard.createCases().then(() => {
-      caseSelectionAndMoves.movesAndEventHandling();
-    });
+    createBoard.temporaryParts1(gameData); //! Temporaire
+    if (typeof gameData === "object") {
+      createBoard.createCases(gameData);
+      caseSelectionAndMoves.movesAndEventHandling(gameData);
+      createBoard.temporaryParts2(gameData); //! Temporaire
+    }
   },
 
-  initBoard: () => {
-    document.querySelector("#app").innerHTML = "";
+  async getChessGameData() {
+    try {
+      let gameData = await fetch(base_Url.api_url + "/chess/game/data");
+      return gameData.json();
+    } catch (error) {
+      console.trace(error);
+    }
   },
-  
-  createLayout: () => {    
+
+  async resetBoardData() {
+    try {
+      await fetch(base_Url.api_url + "/chess/board/reset");
+      createBoard.stepbystepConstruction();
+      return Promise.resolve();
+    } catch (error) {
+      console.trace(error);
+    }
+  },
+
+  createLayout: () => {
     const app = document.querySelector("#app");
-    
-    //! TEMP
-    const settingsBox = document.createElement("div");
-    settingsBox.classList.add("settingsBox");
 
-    const resetButton = document.createElement("button");
-    resetButton.classList.add("resetButton");
-    resetButton.textContent = "Reset le board";
-    resetButton.addEventListener("click", createBoard.resetBoardData);
-
-    const movesCounter = document.createElement("p");
-    movesCounter.classList.add("movesCounter");
-
-    const checkShowsLabel = document.createElement("label");
-    checkShowsLabel.textContent = "Mettre en surbrillance les pièces pouvant bouger";
-    checkShowsLabel.classList.add("checkShows-label");
-    
-    const checkShowsInput = document.createElement("input");
-    checkShowsInput.classList.add("checkShows-input");
-    checkShowsInput.addEventListener("change", caseSelectionAndMoves.highlightPiecesCanMove);
-    checkShowsInput.setAttribute("type", "checkbox");
-    checkShowsLabel.appendChild(checkShowsInput);
-
-    settingsBox.appendChild(resetButton);
-    settingsBox.appendChild(movesCounter);
-    settingsBox.appendChild(checkShowsLabel);
-    app.appendChild(settingsBox);
-    //! TEMP
-
+    const settingsBox = document.createElement("div"); //! Temporaire
+    settingsBox.classList.add("settingsBox"); //! Temporaire
     const board = document.createElement("div");
     board.classList.add("board-container");
+    const tableBox = document.createElement("div"); //! Temporaire
+    tableBox.classList.add("tableBox"); //! Temporaire
 
     const cornerBox = document.createElement("div");
     cornerBox.classList.add("corner");
-    
+
     const lettersUp = document.createElement("div");
     const numbersLeft = document.createElement("div");
     const numbersRight = document.createElement("div");
@@ -69,7 +68,7 @@ export const createBoard = {
 
     const piecesBox = document.createElement("div");
     piecesBox.classList.add("piecesBox");
-    
+
     board.appendChild(cornerBox.cloneNode(true));
     board.appendChild(lettersUp);
     board.appendChild(cornerBox.cloneNode(true));
@@ -79,8 +78,10 @@ export const createBoard = {
     board.appendChild(cornerBox.cloneNode(true));
     board.appendChild(lettersDown);
     board.appendChild(cornerBox.cloneNode(true));
-    
+
+    app.appendChild(settingsBox); //! Temporaire
     app.appendChild(board);
+    app.appendChild(tableBox); //! Temporaire
   },
 
   createLetters: () => {
@@ -103,7 +104,7 @@ export const createBoard = {
       for (let y = 0; y < 8; y++) {
         const number = document.createElement("div");
         number.classList.add("number");
-        number.setAttribute("y", 8-y);
+        number.setAttribute("y", 8 - y);
         const p = document.createElement("p");
         p.classList.add("board-text");
         p.textContent = 8 - y;
@@ -113,83 +114,78 @@ export const createBoard = {
     }
   },
 
-  async getChessBoardData() {
-    try {
-      let data = await fetch(base_Url.api_url + "/board/data");
-      return await data.json();
-    }
-    catch (error) {
-      console.trace(error);
-    }
-  },
-
-  async createCases () {
-    const boardData = await createBoard.getChessBoardData();
-    if (typeof boardData !== "string") {
-      let z = 0;
-      for (let y = 8; y > 0; y--) {
-        for (let x = 1; x < 9; x++) {
-          const currentCase = (boardData.find(element => element.x === x && element.y === y));
-          const boardCase = document.createElement("div");
-          boardCase.classList.add("case", z % 2 === 0 ? "case--white" : "case--black");
-          boardCase.id = `${currentCase.x}${currentCase.y}`;
-          boardCase.setAttribute("case_name", currentCase.case_name);
-          z++;
-  
-          if (currentCase.piece_name !== null) {
-            boardCase.classList.add(`pc--${currentCase.piece_color}`, `${currentCase.piece_name}`);
-            const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
-            boardCase.appendChild(clone);
-            boardCase.setAttribute("piece_id", currentCase.piece_id);
-          }
-  
-          document.querySelector(".piecesBox").appendChild(boardCase);
-        }
+  async createCases(gameData) {
+    let z = 0;
+    for (let y = 8; y > 0; y--) {
+      for (let x = 1; x < 9; x++) {
+        const currentCase = (gameData.boardData.find(element => element.x === x && element.y === y));
+        const boardCase = document.createElement("div");
+        boardCase.classList.add("case", z % 2 === 0 ? "case--white" : "case--black");
+        boardCase.id = `${currentCase.x}${currentCase.y}`;
+        boardCase.setAttribute("case_name", currentCase.case_name);
         z++;
+        if (currentCase.piece_name !== null) {
+          boardCase.classList.add(`pc--${currentCase.piece_color}`, `${currentCase.piece_name}`);
+          const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
+          boardCase.appendChild(clone);
+          boardCase.setAttribute("piece_id", currentCase.piece_id);
+        }
+        document.querySelector(".piecesBox").appendChild(boardCase);
       }
-      createBoard.buildTable(boardData);
-    }
-    Promise.resolve("ok");
-  },
-
-  async resetBoardData() {
-    try {
-      let data = await fetch(base_Url.api_url + "/board/reset");
-      createBoard.stepbystepConstruction();
-      return await data.json();
-    }
-    catch (error) {
-      console.trace(error);
+      z++;
     }
   },
-
-
 
   //! TEMPORAIRE DE OUF
-  buildTable: (boardData) => {
-    const app = document.querySelector("#app");
-    const tableBox = document.createElement("div");
-    tableBox.classList.add("tableBox");
-    // Création et remplissage du thead à l'aide de for in qui récupère le nom des propriétés
+  temporaryParts1: (gameData) => {
+    const settingsBox = document.querySelector(".settingsBox");
+
+    const resetButton = document.createElement("button");
+    resetButton.classList.add("resetButton");
+    resetButton.textContent = "Reset le board";
+    resetButton.addEventListener("click", createBoard.resetBoardData);
+
+    const movesCounter = document.createElement("p");
+    movesCounter.classList.add("movesCounter");
+
+
+    const checkShowsLabel = document.createElement("label");
+    checkShowsLabel.textContent = "Mettre en surbrillance les pièces pouvant bouger";
+    checkShowsLabel.classList.add("checkShows-label");
+
+    const checkShowsInput = document.createElement("input");
+    checkShowsInput.classList.add("checkShows-input");
+    checkShowsInput.addEventListener("change", caseSelectionAndMoves.highlightPiecesCanMove);
+    checkShowsInput.setAttribute("type", "checkbox");
+    checkShowsLabel.appendChild(checkShowsInput);
+
+    settingsBox.appendChild(resetButton);
+    if (typeof gameData === "object") {
+      movesCounter.textContent = `Tour des ${gameData.currentPlayerColor === "white" ? "blancs" : "noirs"} : ${gameData.currentColorMovesData.totalNumberPossibleMoves} coups possibles`;
+      settingsBox.appendChild(movesCounter);
+      settingsBox.appendChild(checkShowsLabel);
+    }
+  },
+
+  temporaryParts2: (gameData) => {
+    const tableBox = document.querySelector(".tableBox");
     const thead = document.createElement("thead");
     const tr1 = document.createElement("tr");
-    for (const property in boardData[0]) {
+    for (const property in gameData.boardData[0]) {
       const prop = document.createElement("th");
       prop.textContent = property;
       tr1.appendChild(prop);
     }
     thead.appendChild(tr1);
     tableBox.appendChild(thead);
-    // Création du body qui utilise un for each pour récupérer chaque "ligne" de la base de donnée puis un for in element[...] pour avoir la valeur de chaque clé
     const tbody = document.createElement("thead");
-    boardData.forEach(element => {
+    gameData.boardData.forEach(element => {
       const tr2 = document.createElement("tr");
       for (const key in element) {
         const td = document.createElement("td");
         if (element[key] !== null) {
           td.textContent = element[key];
-        }
-        else {
+        } else {
           td.classList.add("emptyTD");
         }
         tr2.appendChild(td);
@@ -197,11 +193,6 @@ export const createBoard = {
       tbody.appendChild(tr2);
     });
     tableBox.appendChild(tbody);
-    app.appendChild(tableBox);
-  },
+  }
   //! TEMPORAIRE DE OUF
-
-
-
-
 };
