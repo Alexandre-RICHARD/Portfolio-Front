@@ -92,7 +92,7 @@ $possible-moves-border: #a7a7a7;
         background-color: $second-color;
 
         &.piece-can-moves {
-          background: radial-gradient(circle, $second-color-highlight 0%, $second-color 100%);
+          background: radial-gradient(circle, $second-color 26%, $second-color-highlight 38%, $second-color 100%);
           cursor: pointer;
         }
       }
@@ -101,7 +101,7 @@ $possible-moves-border: #a7a7a7;
         background-color: $first-color;
 
         &.piece-can-moves {
-          background: radial-gradient(circle, $first-color-highlight 0%, $first-color 100%);
+          background: radial-gradient(circle, $first-color 26%, $first-color-highlight 38%, $first-color 100%);
           cursor: pointer;
         }
       }

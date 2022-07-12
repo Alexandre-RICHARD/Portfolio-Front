@@ -34,7 +34,7 @@ export const createBoard = {
     try {
       await fetch(base_Url.api_url + "/chess/board/reset");
       createBoard.stepbystepConstruction();
-      return Promise.resolve();
+      return;
     } catch (error) {
       console.trace(error);
     }
@@ -115,7 +115,7 @@ export const createBoard = {
     }
   },
 
-  async createCases(gameData) {
+  createCases: (gameData) => {
     let z = 0;
     for (let y = 8; y > 0; y--) {
       for (let x = 1; x < 9; x++) {
@@ -158,6 +158,7 @@ export const createBoard = {
     checkShowsInput.classList.add("checkShows-input");
     checkShowsInput.addEventListener("change", caseSelectionAndMoves.highlightPiecesCanMove);
     checkShowsInput.setAttribute("type", "checkbox");
+    checkShowsInput.setAttribute("checked", "false");
     checkShowsLabel.appendChild(checkShowsInput);
 
     settingsBox.appendChild(resetButton);

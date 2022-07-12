@@ -13,3 +13,4 @@
 0.6.1 - Beaucoup de micro-correction, de factorisation (avec un peu de dynamisme), optimisation des appels d'API et mise en forme
 0.6.2 - Le précédent Readme n'avait pas été enregistré. C'est tout.
 0.6.3 - Encore un peu de factorisation et fonction unique pour la gestion des mouvements
+0.6.4 - Quelques modifs, ajout d'un check définitif des cases Highlight si besoin, et tri des async/await/promise/then

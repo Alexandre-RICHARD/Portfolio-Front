@@ -9,9 +9,10 @@ export const caseSelectionAndMoves = {
   gameData: {},
   isSelectedCase: false,
 
-  async movesAndEventHandling(gameData) {
+  movesAndEventHandling: (gameData) => {
     caseSelectionAndMoves.gameData = gameData;
     caseSelectionAndMoves.isSelectedCase = false;
+    caseSelectionAndMoves.highlightPiecesCanMove();
     caseSelectionAndMoves.enableSelectPiece();
   },
 
