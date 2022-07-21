@@ -8,6 +8,7 @@ import {
 export const caseSelectionAndMoves = {
   gameData: {},
   isSelectedCase: false,
+  move: {},
 
   movesAndEventHandling: (gameData) => {
     caseSelectionAndMoves.gameData = gameData;
@@ -44,7 +45,7 @@ export const caseSelectionAndMoves = {
     if (showMove) {
       showMove.forEach(element => {
         element.classList.remove("possibleMove");
-        element.removeEventListener("click", caseSelectionAndMoves.sendMoveToVerif, false);
+        element.removeEventListener("click", caseSelectionAndMoves.testBeforeSendMove, false);
       });
     }
     caseSelectionAndMoves.enableSelectPiece();
@@ -70,28 +71,44 @@ export const caseSelectionAndMoves = {
       for (let [, value] of Object.entries(selectedCasePossiblesMoves)) {
         const oneMove = document.querySelector(`[case_name=${value.destinationCase}]`);
         oneMove.classList.add("possibleMove");
-        oneMove.addEventListener("click", caseSelectionAndMoves.sendMoveToVerif, false);
+        oneMove.addEventListener("click", caseSelectionAndMoves.testBeforeSendMove, false);
       }
     }
   },
 
-  async sendMoveToVerif(event) {
-    let move = {};
-    const piece_id = document.querySelector(".selectedCase").getAttribute("piece_id");
-    const ourPieceMoves = caseSelectionAndMoves.gameData.currentColorMovesData.moves[piece_id];
+  testBeforeSendMove: (event) => {
+    if (["knight", "bishop", "rook", "queen"].indexOf(event.target.getAttribute("pieceType")) >= 0) {
+      caseSelectionAndMoves.move = {
+        ...caseSelectionAndMoves.move,
+        pawnTransformationPieceType: event.target.getAttribute("pieceType"),
+      };
+      caseSelectionAndMoves.sendMoveToVerif(caseSelectionAndMoves.move);
+    } else {
+      const piece_id = document.querySelector(".selectedCase").getAttribute("piece_id");
+      const ourMove = caseSelectionAndMoves.gameData.currentColorMovesData.moves[piece_id][event.target.getAttribute("case_name")];
+      caseSelectionAndMoves.move = {};
+    
+      const destinationCase = document.querySelector(`[case_name="${ourMove.destinationCase}"]`).getAttribute("case_name");
+      const isPawn = Object.values(document.querySelector(".selectedCase").classList).indexOf("pawn") >= 0 ? true : false;
+      const pieceColor = (Object.values(document.querySelector(".selectedCase").getAttribute("piece_id")))[2] === "w" ? "white" : "black";
+      
+      caseSelectionAndMoves.move = {
+        piece_id: piece_id,
+        originCase: ourMove.originCase,
+        destinationCase: ourMove.destinationCase,
+        killingMove: ourMove.killingMove,
+        killCase: ourMove.killCase,
+      };
 
-    for (let [key, value] of Object.entries(ourPieceMoves)) {
-      if (value.destinationCase === event.target.getAttribute("case_name")) {
-        move = {
-          order: key,
-          piece_id: piece_id,
-          originCase: ourPieceMoves[key].originCase,
-          destinationCase: ourPieceMoves[key].destinationCase,
-          killingMove: ourPieceMoves[key].killingMove,
-          killCase: ourPieceMoves[key].killCase,
-        };
+      if (isPawn === true && ((destinationCase.charAt(1) === "8" && pieceColor === "white") || (destinationCase.charAt(1) === "1" && pieceColor === "black"))) {
+        document.querySelector("#pawnTransformationModal").classList.remove("invisible");
+      } else {
+        caseSelectionAndMoves.sendMoveToVerif(caseSelectionAndMoves.move);
       }
     }
+  },
+
+  async sendMoveToVerif(move) {
     try {
       const response = await fetch(base_Url.api_url + "/chess/move/verif", {
         method: "POST",
@@ -99,7 +116,6 @@ export const caseSelectionAndMoves = {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(move),
-
       });
       if (response.ok) {
         chessGame.init();

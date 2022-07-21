@@ -8,16 +8,17 @@ import {
 export const createBoard = {
   async stepbystepConstruction() {
     const gameData = await createBoard.getChessGameData();
-    console.log(gameData); //! Temporaire
+    console.log(gameData); //! TEMPORAIRE DE OUF
     document.querySelector("#app").innerHTML = "";
     createBoard.createLayout();
+    createBoard.createPawnModal();
     createBoard.createLetters();
     createBoard.createNumbers();
-    createBoard.temporaryParts1(gameData); //! Temporaire
+    createBoard.temporaryParts1(gameData); //! TEMPORAIRE DE OUF
     if (typeof gameData === "object") {
       createBoard.createCases(gameData);
       caseSelectionAndMoves.movesAndEventHandling(gameData);
-      createBoard.temporaryParts2(gameData); //! Temporaire
+      createBoard.temporaryParts2(gameData); //! TEMPORAIRE DE OUF
     }
   },
 
@@ -43,12 +44,12 @@ export const createBoard = {
   createLayout: () => {
     const app = document.querySelector("#app");
 
-    const settingsBox = document.createElement("div"); //! Temporaire
-    settingsBox.classList.add("settingsBox"); //! Temporaire
+    const settingsBox = document.createElement("div"); //! TEMPORAIRE DE OUF
+    settingsBox.classList.add("settingsBox"); //! TEMPORAIRE DE OUF
     const board = document.createElement("div");
     board.classList.add("board-container");
-    const tableBox = document.createElement("div"); //! Temporaire
-    tableBox.classList.add("tableBox"); //! Temporaire
+    const tableBox = document.createElement("div"); //! TEMPORAIRE DE OUF
+    tableBox.classList.add("tableBox"); //! TEMPORAIRE DE OUF
 
     const cornerBox = document.createElement("div");
     cornerBox.classList.add("corner");
@@ -80,9 +81,50 @@ export const createBoard = {
     board.appendChild(lettersDown);
     board.appendChild(cornerBox.cloneNode(true));
 
-    app.appendChild(settingsBox); //! Temporaire
+    app.appendChild(settingsBox); //! TEMPORAIRE DE OUF
     app.appendChild(board);
-    app.appendChild(tableBox); //! Temporaire
+    app.appendChild(tableBox); //! TEMPORAIRE DE OUF
+  },
+
+  createPawnModal: () => {
+    const pawnTransformationModal = document.createElement("div");
+    pawnTransformationModal.id = "pawnTransformationModal";
+    pawnTransformationModal.classList.add("invisible");
+
+    const pawnChoiceBoxTL = document.createElement("div");
+    pawnChoiceBoxTL.classList.add("pawnChoiceBoxTL", "piecechoiceBox");
+    pawnChoiceBoxTL.addEventListener("click", caseSelectionAndMoves.testBeforeSendMove, false);
+    pawnChoiceBoxTL.setAttribute("pieceType", "knight");
+    const knightSVG = document.importNode(document.querySelector("#knightSVG").content, true);
+    pawnChoiceBoxTL.appendChild(knightSVG);
+    pawnTransformationModal.appendChild(pawnChoiceBoxTL);
+
+    const pawnChoiceBoxTR = document.createElement("div");
+    pawnChoiceBoxTR.classList.add("pawnChoiceBoxTR", "piecechoiceBox");
+    pawnChoiceBoxTR.addEventListener("click", caseSelectionAndMoves.testBeforeSendMove, false);
+    pawnChoiceBoxTR.setAttribute("pieceType", "bishop");
+    const bishopSVG = document.importNode(document.querySelector("#bishopSVG").content, true);
+    pawnChoiceBoxTR.appendChild(bishopSVG);
+    pawnTransformationModal.appendChild(pawnChoiceBoxTR);
+
+    const pawnChoiceBoxBL = document.createElement("div");
+    pawnChoiceBoxBL.classList.add("pawnChoiceBoxBL", "piecechoiceBox");
+    pawnChoiceBoxBL.addEventListener("click", caseSelectionAndMoves.testBeforeSendMove, false);
+    pawnChoiceBoxBL.setAttribute("pieceType", "rook");
+    const rookSVG = document.importNode(document.querySelector("#rookSVG").content, true);
+    pawnChoiceBoxBL.appendChild(rookSVG);
+    pawnTransformationModal.appendChild(pawnChoiceBoxBL);
+
+    const pawnChoiceBoxBR = document.createElement("div");
+    pawnChoiceBoxBR.classList.add("pawnChoiceBoxBR", "piecechoiceBox");
+    pawnChoiceBoxBR.addEventListener("click", caseSelectionAndMoves.testBeforeSendMove, false);
+    pawnChoiceBoxBR.setAttribute("pieceType", "queen");
+    const queenSVG = document.importNode(document.querySelector("#queenSVG").content, true);
+    pawnChoiceBoxBR.appendChild(queenSVG);
+    pawnTransformationModal.appendChild(pawnChoiceBoxBR);
+
+
+    document.querySelector(".board-container").appendChild(pawnTransformationModal);
   },
 
   createLetters: () => {
@@ -127,7 +169,7 @@ export const createBoard = {
         z++;
         if (currentCase.piece_name !== null) {
           boardCase.classList.add(`pc--${currentCase.piece_color}`, `${currentCase.piece_name}`);
-          const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}`).content, true);
+          const clone = document.importNode(document.querySelector(`#${currentCase.piece_name}SVG`).content, true);
           boardCase.appendChild(clone);
           boardCase.setAttribute("piece_id", currentCase.piece_id);
         }
@@ -151,7 +193,7 @@ export const createBoard = {
 
 
     const checkShowsLabel = document.createElement("label");
-    checkShowsLabel.textContent = "Mettre en surbrillance les pièces pouvant bouger";
+    checkShowsLabel.textContent = "Surligner les pièces pouvant bouger";
     checkShowsLabel.classList.add("checkShows-label");
 
     const checkShowsInput = document.createElement("input");

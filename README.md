@@ -57,3 +57,12 @@
 ### 0.6.7 ```19 juillet 2022```
 - Rattrapage des versionning du back
 - Modification de la manière de construire les Readme
+
+### 0.6.8 ```21 juillet 2022```
+- Retrait des liens dans les SVGs des pièces.
+- Renommage des IDs des SVG
+- Création et stylisation de la modal pour le choix de la pièce lors de la transformation du pion
+- Diverses changements et applications de variables dans le SASS
+- Rajout d'une fonction intermédiaire avant l'envoi d'un moves au back pour gérer le choix de la pièce lors de la transformation du pion
+- Changement dans l'obtention du mouvement concerné par le choix effectué par le joueur. Plus simple, plus de boucle.
+- Gestion de la récupération du choix de pièce et rajout à l'objet envoyé au back
