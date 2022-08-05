@@ -66,3 +66,6 @@
 - Rajout d'une fonction intermédiaire avant l'envoi d'un moves au back pour gérer le choix de la pièce lors de la transformation du pion
 - Changement dans l'obtention du mouvement concerné par le choix effectué par le joueur. Plus simple, plus de boucle.
 - Gestion de la récupération du choix de pièce et rajout à l'objet envoyé au back
+
+### 0.6.9 ```6 août 2022```
+- Très léger changement du checked true permettant de surligner les cases par défaut.

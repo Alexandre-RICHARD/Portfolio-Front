@@ -200,7 +200,7 @@ export const createBoard = {
     checkShowsInput.classList.add("checkShows-input");
     checkShowsInput.addEventListener("change", caseSelectionAndMoves.highlightPiecesCanMove);
     checkShowsInput.setAttribute("type", "checkbox");
-    checkShowsInput.setAttribute("checked", "false");
+    checkShowsInput.setAttribute("checked", "");
     checkShowsLabel.appendChild(checkShowsInput);
 
     settingsBox.appendChild(resetButton);
