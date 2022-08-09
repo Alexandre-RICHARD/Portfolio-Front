@@ -1,3 +1,4 @@
+const paths = require("./paths");
 const common = require("./webpack.common.js");
 const {
   merge
@@ -8,6 +9,11 @@ const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
+  output: {
+    path: paths.build,
+    publicPath: "./",
+    filename: "js/[name].[contenthash].js",
+  },
   devtool: false,
   plugins: [
     new MiniCssExtractPlugin({
@@ -17,6 +23,7 @@ module.exports = merge(common, {
 
   module: {
     rules: [{
+      // Styles loader
       test: /\.(s?css)$/,
       use: [{
           loader: MiniCssExtractPlugin.loader,

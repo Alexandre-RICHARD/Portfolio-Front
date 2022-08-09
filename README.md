@@ -69,3 +69,14 @@
 
 ### 0.6.9 ```6 août 2022```
 - Très léger changement du checked true permettant de surligner les cases par défaut.
+
+### 0.6.10 ```9 août 2022```
+- Rajout du plugin "syntax jsx" pour babel
+- Rajout du parser vue.js pour Eslint
+- Rajout du loader pour vue.js dans la config webpack
+- Changement et dispatch de l'output de Webpack pour régler le problème de compilation et insertion des fichiers
+- Complétion du plugin HtmlWebpackPlugin
+- Rajout de la règle pour le JSX pour la prise en compte des différents types de fichiers
+- Création d'un point de départ pour le projet en vue.js
+- Changement dans la prise en compte du favicon pour qu'il soit reconnu partout
+- Rajout de l'URL online à rendre unique à chaque upload

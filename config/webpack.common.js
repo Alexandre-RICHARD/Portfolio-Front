@@ -1,7 +1,9 @@
 const paths = require("./paths");
+
 const {
   CleanWebpackPlugin
 } = require("clean-webpack-plugin");
+const { VueLoaderPlugin } = require('vue-loader')
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -10,11 +12,6 @@ module.exports = {
     paths.src + "/styles/index.scss",
     paths.src + "/index.js",
   ],
-  output: {
-    path: paths.build,
-    publicPath: "/",
-    filename: "js/[name].[contenthash].js",
-  },
   resolve: {
     alias: {
       src: paths.src,
@@ -22,6 +19,7 @@ module.exports = {
     },
   },
   plugins: [
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{
@@ -31,13 +29,23 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      favicon: paths.assets + "/favicon.png",
-      template: paths.assets + "/index.html",
+      filename: "index.html",
+      template: "index.html",
+      favicon: "./src/assets/favicon.ico",
+      template: "./src/assets/index.html",
+      inject: true,
     }),
   ],
 
   module: {
-    rules: [{
+    rules: [
+      // JSX loader
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      // Javascript loader
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [{
@@ -47,6 +55,7 @@ module.exports = {
           },
         }, ],
       },
+      // Fonts loader
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
         loader: "file-loader",
@@ -54,6 +63,7 @@ module.exports = {
           outputPath: "fonts/",
         },
       },
+      // Images loader
       {
         test: /\.(ico|gif|png|jpe?g|webp|svg)$/i,
         use: [{
