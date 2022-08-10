@@ -87,3 +87,6 @@
 - Remise en vue.js du projet
 - Déplacement des premiers fichiers vue en vue ^^ de faire une organisation propre
 - Création d'un fichier SCSS temporaire afin de rassembler les styles du jeu d'échecs temporaires
+
+### 0.6.12 ```10 août 2022```
+- Modification de l'indentation générale du projet avec 12 pour les fichiers et 4 dedans.
