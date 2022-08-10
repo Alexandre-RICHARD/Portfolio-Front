@@ -1,6 +1,6 @@
 {
   "name": "tryhard-but-slowrun-front",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "description": "Projet TryHard but SlowRun par Alexandre Richard. Projet à but auto-formatif.",
   "main": "webpack.config.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "pinia": "^2.0.17",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
     "resolve-url-loader": "^5.0.0",

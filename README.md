@@ -80,3 +80,10 @@
 - Création d'un point de départ pour le projet en vue.js
 - Changement dans la prise en compte du favicon pour qu'il soit reconnu partout
 - Rajout de l'URL online à rendre unique à chaque upload
+
+### 0.6.11 ```10 août 2022```
+- Débuggage d'EsLint qui ne fonctionnait plus après l'ajout de vue-eslint-parser
+- Ajout des sourceMap pour sass-loader
+- Remise en vue.js du projet
+- Déplacement des premiers fichiers vue en vue ^^ de faire une organisation propre
+- Création d'un fichier SCSS temporaire afin de rassembler les styles du jeu d'échecs temporaires

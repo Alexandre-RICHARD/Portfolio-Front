@@ -43,6 +43,7 @@ module.exports = merge(common, {
           loader: "sass-loader",
           options: {
             implementation: require("sass"),
+            sourceMap: true,
           },
         },
       ],

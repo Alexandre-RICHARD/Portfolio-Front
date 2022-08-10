@@ -1,22 +1,21 @@
 {
     "parser": "vue-eslint-parser",
-    "env": {
-        "browser": true,
-        "es2021": true
+    "parserOptions": {
+        "parser": "@babel/eslint-parser",
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
     "extends": [
         "eslint:recommended",
         "plugin:vue/vue3-recommended"
     ],
-    "parserOptions": {
-        "parser": "@babel/plugin-syntax-jsx",
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
     "plugins": [
-        "vue",
-        "@babel/eslint-parser"
+        "vue"
     ],
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
     "rules": {
         "brace-style": [
             "error",
