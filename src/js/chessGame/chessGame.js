@@ -1,9 +1,9 @@
 import {
-  createBoard
+    createBoard
 } from "./createBoard.js";
 
 export const chessGame = {
-  init: () => {
-    createBoard.stepbystepConstruction();
-  }
+    init: () => {
+        createBoard.stepbystepConstruction();
+    }
 };

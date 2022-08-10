@@ -1,9 +1,9 @@
 import {
-  chessGame
+    chessGame
 } from "./js/chessGame/chessGame.js";
 
 const app = () => {
-  chessGame.init();
+    chessGame.init();
 };
 
 document.addEventListener("DOMContentLoaded", app);
