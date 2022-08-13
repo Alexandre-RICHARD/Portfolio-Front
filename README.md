@@ -87,3 +87,18 @@
 - Remise en vue.js du projet
 - Déplacement des premiers fichiers vue en vue ^^ de faire une organisation propre
 - Création d'un fichier SCSS temporaire afin de rassembler les styles du jeu d'échecs temporaires
+
+### 0.6.12 ```10 août 2022```
+- Modification de l'indentation générale du projet avec 12 pour les fichiers et 4 dedans.
+
+### 0.7.1 ```10 août 2022```
+- Passage en Version 0.7 car l'installation de vue me permet de passer à la seconde grosse partie
+- Rajout de config et vue.config.js dans l'Eslint ignore
+- Changement de la commande serve pour être compatible avec le reload et vue router
+- Les fichiers webpack ont une indentation de 4
+- Rajout de HistoryAPIFallBack true dans le dev config
+- Rajout de vue router
+- Création des futurs logos du site
+- Création des vues qui seront centrales et légères stylisations primaires
+- Router terminés et fonctionnelles pour les routes primaires
+- Création du store avec VueX, nouvellement appelé Penia et intégration des liens avec
