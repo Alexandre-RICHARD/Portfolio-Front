@@ -12,9 +12,6 @@ module.exports = merge(common, {
         publicPath: "/",
         filename: "js/[name].[contenthash].js",
     },
-    devServer: {
-        historyApiFallback: true,
-      },
     devtool: "inline-source-map",
     module: {
         rules: [
@@ -50,6 +47,7 @@ module.exports = merge(common, {
 
     devServer: {
         open: true,
+        historyApiFallback: true,
         port,
     },
 });

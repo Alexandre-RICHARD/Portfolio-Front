@@ -15,7 +15,7 @@ defineProps({
 <template>
   <router-link
     class="top-link"
-    :to="link"
+    :to="'/portfolio/' + link"
   >
     {{ title }}
   </router-link>

@@ -1,6 +1,6 @@
 <script setup>
-import topLinks from "../Parts/HeaderLink.vue";
-import { usePortfolioStore } from "../../store/Portfolio";
+import topLinks from "../../Parts/PortfolioHeaderLink.vue";
+import { usePortfolioStore } from "../../../store/Portfolio";
 const PortfolioStore = usePortfolioStore();
 const { headerLinks } = PortfolioStore;
 </script>

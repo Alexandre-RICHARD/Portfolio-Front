@@ -91,7 +91,7 @@
 ### 0.6.12 ```10 août 2022```
 - Modification de l'indentation générale du projet avec 12 pour les fichiers et 4 dedans.
 
-### 0.7.1 ```10 août 2022```
+### 0.7.0 / 0.7.1 ```14 août 2022```
 - Passage en Version 0.7 car l'installation de vue me permet de passer à la seconde grosse partie
 - Rajout de config et vue.config.js dans l'Eslint ignore
 - Changement de la commande serve pour être compatible avec le reload et vue router
@@ -102,3 +102,21 @@
 - Création des vues qui seront centrales et légères stylisations primaires
 - Router terminés et fonctionnelles pour les routes primaires
 - Création du store avec VueX, nouvellement appelé Penia et intégration des liens avec
+
+### 0.7.2 ```14 août 2022```
+- Déplacement et renommage du fichier z.http -> requestTest.http dans un dossier temporaire pour les fichiers qui seront utiles plus tard lors du rassemblement de tous les morceaux de projets
+- Déplacement des fichiers scss du jeu d'échecs en zone temporaire
+- Déplacements des deux logos en zone temporaire
+- Déplacement des 5 fichiers .js et du fichiers html gérant le jeu d'échec en zone temporaire
+- Déplacement de "HistoryAPIFallBack" de webpack.dev.config.js ailleurs pour éviter le doublon de dev-server
+- Début des annotations dans index.js (entrée de l'application), index.html, le router, l'index.scss et du PortfolioStore
+- Le fichier index.scss, point d'entrée des styles utilisés précédemment comporte des importations qui ne seront plus utiles et qui ont été indiquées
+- Renommage du mainRouter en router. Gestion de toutes les routes améliorées avec l'ajout de la notion de children et des routers nommés
+- Réorganisation des vues. Renommage du dossier components en dossier views.
+- Création de sous-dossiers :
+    - Primary qui regroupent les 4 pages principales : Home ; Portfolio ; Try Hard but Slow Run et 404 (Not Found)
+    - Portfolio qui va regoruper les 4 vues différentes
+    - TryHard qui regroupera toutes ses vues
+    - Parts qui regroupent tous les sous-composants réutilisables
+- Création de la vue HomePage pour permettre la redirection vers soit le protfolio, soit le projet TryHard but SlowRun
+- Création des pages principales pour les deux parties du site
