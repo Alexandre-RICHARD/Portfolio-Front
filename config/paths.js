@@ -1,3 +1,4 @@
+// Ces chemins servent de raccourcis lors de la configuration de webpack
 const path = require("path");
 
 module.exports = {

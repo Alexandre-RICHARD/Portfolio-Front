@@ -1,15 +1,15 @@
 const paths = require("./paths");
 const common = require("./webpack.common.js");
-const {
-    merge
-} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
+        // Configuration spécifique au mode développement, donc npm run build
     mode: "production",
     output: {
+        // L'output est indiqué ici et dans le mode développement car l'importation des fichiers dans le html n'était pas bon sinon
         path: paths.build,
         publicPath: "./",
         filename: "js/[name].[contenthash].js",
@@ -23,7 +23,7 @@ module.exports = merge(common, {
 
     module: {
         rules: [{
-            // Styles loader
+            // Styles loader et tous les loader impliqués. On demande les sourceMap
             test: /\.(s?css)$/,
             use: [{
                 loader: MiniCssExtractPlugin.loader,
@@ -49,7 +49,7 @@ module.exports = merge(common, {
             ],
         }],
     },
-
+    // Des plugins visant à améliorer la vitesse de compilation en plus d'en améliorer l'optimisation et la taille
     optimization: {
         minimizer: [
             new TerserPlugin({

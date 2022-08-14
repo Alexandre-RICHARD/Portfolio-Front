@@ -1,13 +1,12 @@
+// Importation des package et méthodes nécessaires
 const paths = require("./paths");
-
-const {
-  CleanWebpackPlugin
-} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { VueLoaderPlugin } = require('vue-loader')
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+// Les deux points d'entrées de l'application. Le html n'est pas indiqué car il n'est pas un point d'entrée, il sera utilisé différemment
   entry: [
     paths.src + "/styles/index.scss",
     paths.src + "/index.js",
@@ -19,6 +18,7 @@ module.exports = {
     },
   },
   plugins: [
+    // Utilisation des plugins pour charger vue, pour vider dist/ avant de build et pour copier les fichiers statiques
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
@@ -28,6 +28,7 @@ module.exports = {
       }],
     }),
 
+    // Plugin servant à faciliter la création du fichier HTML avec toutes les ressources dont il aura besoin
     new HtmlWebpackPlugin({
       filename: "index.html",
       favicon: "./src/assets/favicon.ico",

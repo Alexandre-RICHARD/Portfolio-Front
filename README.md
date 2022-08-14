@@ -120,3 +120,7 @@
     - Parts qui regroupent tous les sous-composants réutilisables
 - Création de la vue HomePage pour permettre la redirection vers soit le protfolio, soit le projet TryHard but SlowRun
 - Création des pages principales pour les deux parties du site
+
+### 0.7.3 ```14 août 2022```
+- Supression de vue.congfig.js qui ne servait visiblement à rien
+- Achèvement d'annoter tous les fichiers qui le méritait
