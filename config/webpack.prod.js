@@ -6,7 +6,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
-        // Configuration spécifique au mode développement, donc npm run build
+    // Configuration spécifique au mode développement, donc npm run build
     mode: "production",
     output: {
         // L'output est indiqué ici et dans le mode développement car l'importation des fichiers dans le html n'était pas bon sinon
@@ -22,32 +22,35 @@ module.exports = merge(common, {
     ],
 
     module: {
-        rules: [{
-            // Styles loader et tous les loader impliqués. On demande les sourceMap
-            test: /\.(s?css)$/,
-            use: [{
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                    publicPath: "../"
-                },
-            },
+        rules: [
             {
-                loader: "css-loader",
-                options: {
-                    importLoaders: 3
-                },
+                // Styles loader et tous les loader impliqués. On demande les sourceMap
+                test: /\.(s?css)$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: "../",
+                        },
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 3,
+                        },
+                    },
+                    "postcss-loader",
+                    "resolve-url-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require("sass"),
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
-            "postcss-loader",
-            "resolve-url-loader",
-            {
-                loader: "sass-loader",
-                options: {
-                    implementation: require("sass"),
-                    sourceMap: true,
-                },
-            },
-            ],
-        }],
+        ],
     },
     // Des plugins visant à améliorer la vitesse de compilation en plus d'en améliorer l'optimisation et la taille
     optimization: {
@@ -56,7 +59,7 @@ module.exports = merge(common, {
                 minify: TerserPlugin.esbuildMinify,
                 terserOptions: {},
             }),
-            new OptimizeCSSAssetsPlugin({})
+            new OptimizeCSSAssetsPlugin({}),
         ],
         runtimeChunk: "single",
         splitChunks: {

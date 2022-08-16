@@ -1,5 +1,3 @@
 <template>
-  <router-view name="mainRouter" />
-</template>;
-
-
+    <router-view name="mainRouter" />
+</template>

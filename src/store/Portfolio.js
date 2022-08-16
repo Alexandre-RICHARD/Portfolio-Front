@@ -7,10 +7,10 @@ export const usePortfolioStore = defineStore("Portfolio", {
     state: () => ({
         headerLinks: [
             // Un ID pour différencier dans le for in, le contenu indiqué sur le lien et le lien
-            {id: 0, content: "Accueil", link: "PortfolioHome"},
-            {id: 1, content: "Curriculum", link: "PortfolioCurriculum"},
-            {id: 2, content: "Projets", link: "PortfolioProject"},
-            {id: 3, content: "Contact", link: "PortfolioContact"}
+            { id: 0, content: "Accueil", link: "PortfolioHome" },
+            { id: 1, content: "Curriculum", link: "PortfolioCurriculum" },
+            { id: 2, content: "Projets", link: "PortfolioProject" },
+            { id: 3, content: "Contact", link: "PortfolioContact" },
         ],
     }),
 });

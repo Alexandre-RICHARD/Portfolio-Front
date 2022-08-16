@@ -5,45 +5,28 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:vue/vue3-recommended"
-    ],
-    "plugins": [
-        "vue"
-    ],
+    "extends": ["eslint:recommended", "plugin:vue/vue3-recommended"],
+    "plugins": ["vue"],
     "env": {
         "browser": true,
         "es2021": true
     },
     "rules": {
-        "brace-style": [
-            "error",
-            "1tbs"
-        ],
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+        "brace-style": ["error", "1tbs"],
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "windows"],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "vue/script-indent": ["error", 4],
+        "vue/html-indent": ["error", 4],
         "vue/max-attributes-per-line": [
-            "error", {
+            "error",
+            {
                 "singleline": {
-                    "max": 1
-                  }, 
+                    "max": 4
+                },
                 "multiline": {
-                    "max": 1
+                    "max": 4
                 }
             }
         ]
