@@ -155,3 +155,7 @@
 
 - Rajout d'un SVG pour faire un boutton Revenir à l'accueil en permanance
 - Configuration et utilisation de Prettier sur tous le projet
+
+### 0.7.6 `16 août 2022`
+
+- Test et début d'apprivoisement du SVG en template

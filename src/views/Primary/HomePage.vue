@@ -1,10 +1,14 @@
+<script setup>
+import homeIcon from "../Parts/homeIcon.vue";
+</script>
+
 <template>
     <div class="home-container">
         <router-link class="home-button" :to="{ name: 'Home' }">
-            <img
-                class="home-button-icon"
-                src="../../assets/icons/home-icon.svg"
-            >
+            <homeIcon class="home-icon" />
+            <h1 class="home-button-title">
+                Alexandre Richard
+            </h1>
         </router-link>
         <div class="FirstNavTop primary-container">
             <router-link class="FirstNavTop-link" :to="{ name: 'Portfolio' }">
@@ -22,11 +26,31 @@
 
 <style>
 .home-container {
-    background-color: #1f437a;
+    background-color: #232946;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.home-button-icon {
-    width: 40px;
+.home-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-icon {
+    transform: scale(0.8);
+}
+
+#home-icon-path {
+    fill: #ffffff;
+}
+
+.home-button-title {
+    font-size: 40px;
+    font-weight: 500;
+    font-style: italic;
+    color: #ffffff;
 }
 
 .FirstNavTop {
@@ -39,7 +63,7 @@
 }
 
 .FirstNavTop-link {
-    background-color: #d4cbcb;
+    background-color: #b8c1ec;
     width: 200px;
     height: 200px;
     display: flex;
