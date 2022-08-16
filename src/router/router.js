@@ -15,7 +15,7 @@ import ProjectsTop from "../views/Portfolio/ProjectsTop.vue";
 // On liste toutes les routes qui seront gérées par le router principal 
 const routes = [
     {path: "", name: "Home", components: {mainRouter: HomePage}, meta: {title: "Alexandre Richard"}},
-    {path: "/portfolio", name: "PortfolioHome", components: {mainRouter: PortfolioPage}, meta: {title: "Portfolio"},
+    {path: "/portfolio", name: "Portfolio", components: {mainRouter: PortfolioPage}, meta: {title: "Portfolio"},
         children: [
             // On range dans le children de portfolio toutes les routes qui lui seront liées pour afficher la vue PortfolioPage qui contient le PortfolioRouter. Ça évite une tonne de répétition
             {path: "", name: "PortfolioHome", components: {portfolioRouter: HomeTop}, meta: {title: "Curriculum"}},
@@ -23,7 +23,7 @@ const routes = [
             {path: "project", name: "PortfolioProject", components: {portfolioRouter: ProjectsTop}, meta: {title: "Projets"}},
             {path: "contact", name: "PortfolioContact", components: {portfolioRouter: ContactTop}, meta: {title: "Contact"}},
         ]},
-    {path: "/tryhard/slowrun", name: "TryHardSlowRun", components: {mainRouter: TryHardSlowRun}, meta: {title: "Try Hard but Slow Run"}},
+    {path: "/tryhard/slowrun", name: "TryHardSlowRunHome", components: {mainRouter: TryHardSlowRun}, meta: {title: "Try Hard but Slow Run"}},
     // Gestion des pages non trouvées
     {path: "/:pathMatch(.*)*", name: "404", components: {mainRouter: NotFoundTop}, meta: {title: "404"}},
 

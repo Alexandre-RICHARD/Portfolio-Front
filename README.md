@@ -124,3 +124,6 @@
 ### 0.7.3 ```14 août 2022```
 - Supression de vue.congfig.js qui ne servait visiblement à rien
 - Achèvement d'annoter tous les fichiers qui le méritait
+
+### 0.7.4 ```16 août 2022```
+- Changement dans les liens créé par les router-link avec l'abandon des paths et l'utilisation direct des noms des routes

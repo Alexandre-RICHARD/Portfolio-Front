@@ -2,13 +2,13 @@
   <div class="FirstNavTop primary-container">
     <router-link
       class="FirstNavTop-link"
-      to="/portfolio"
+      :to="{ name: 'Portfolio' }"
     >
       Portfolio
     </router-link>
     <router-link
       class="FirstNavTop-link"
-      to="/tryhard/slowrun"
+      :to="{ name: 'TryHardSlowRunHome' }"
     >
       Try Hard but Slow Run
     </router-link>
