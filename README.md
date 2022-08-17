@@ -172,3 +172,8 @@
 - Toutes la refonte du style pour s'adapter à la nouvelle hiérarchie des fichiers
 - Création des icones en svg nécessaires à l'affichage du responsive
 - Nombreux changements dans les vues visant à reprendre au fur et à mesure la nouvelle façon de créer le site (aller on prie pour que cette idée soit pas mal)
+
+### 0.8.0 `17 août 2022`
+
+- Oops, failli faire un giga fail avec les commit/push mais c'est rattrapé. Rajout d'une clé GPG pour vérifié les commits
+- Mise en git ignore des fichiers non nécessaires sur Github
