@@ -163,3 +163,12 @@
 ### 0.7.7 `17 août 2022`
 
 - Rassemblement de tous les styles des views dans un même nouveau fichier portfolio.scss
+
+### 0.7.8 `17 août 2022`
+
+- Changement d'une règle EsLint
+- Mise en gitignore du dossier .temp/ contenant les fichiers temporaires ou inutiles
+- Quelques changements d'organisations dans les fichiers scss
+- Toutes la refonte du style pour s'adapter à la nouvelle hiérarchie des fichiers
+- Création des icones en svg nécessaires à l'affichage du responsive
+- Nombreux changements dans les vues visant à reprendre au fur et à mesure la nouvelle façon de créer le site (aller on prie pour que cette idée soit pas mal)

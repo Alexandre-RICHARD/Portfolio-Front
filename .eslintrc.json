@@ -19,6 +19,7 @@
         "semi": ["error", "always"],
         "vue/script-indent": ["error", 4],
         "vue/html-indent": ["error", 4],
+        "vue/singleline-html-element-content-newline": "off",
         "vue/max-attributes-per-line": [
             "error",
             {

@@ -1,8 +1,4 @@
-<script setup>
-import HeaderTop from "../Portfolio/Secondary/HeaderTop.vue";
-</script>
-
 <template>
-    <HeaderTop />
+    <h1>PORTFOLIO</h1>
     <router-view name="portfolioRouter" />
 </template>

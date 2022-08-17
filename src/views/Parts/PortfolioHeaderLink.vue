@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-    <router-link class="top-link" :to="{ name: link }">
+    <router-link :to="{ name: link }">
         {{ title }}
     </router-link>
 </template>
