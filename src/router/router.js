@@ -3,61 +3,62 @@ import { createRouter, createWebHistory } from "vue-router";
 
 // On importe toutes les vues qui seront utilisés par notre router principal
 import HomePage from "../views/Primary/HomePage.vue";
-import PortfolioPage from "../views/Primary/PortfolioPage.vue";
-import TryHardSlowRun from "../views/Primary/TryHardSlowRun.vue";
 import NotFoundTop from "../views/Primary/NotFoundTop.vue";
 
-import HomeTop from "../views/Portfolio/HomeTop.vue";
-import ContactTop from "../views/Portfolio/ContactTop.vue";
-import CurriculumTop from "../views/Portfolio/CurriculumTop.vue";
-import ProjectsTop from "../views/Portfolio/ProjectsTop.vue";
+import pfHome from "../views/Portfolio/pfHome.vue";
+import pfCurriculum from "../views/Portfolio/pfCurriculum.vue";
+import pfProjects from "../views/Portfolio/pfProjects.vue";
+import pfContact from "../views/Portfolio/pfContact.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
     {
+        // Notre page principale qui fera office de point d'entrée après app en gérant le header et tous les router
         path: "",
         name: "Home",
         components: { mainRouter: HomePage },
         meta: { title: "Alexandre Richard" },
-    },
-    {
-        path: "/portfolio",
-        name: "Portfolio",
-        components: { mainRouter: PortfolioPage },
-        meta: { title: "Portfolio" },
         children: [
-            // On range dans le children de portfolio toutes les routes qui lui seront liées pour afficher la vue PortfolioPage qui contient le PortfolioRouter. Ça évite une tonne de répétition
             {
-                path: "",
-                name: "PortfolioHome",
-                components: { portfolioRouter: HomeTop },
-                meta: { title: "Curriculum" },
+                // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
+                path: "/portfolio",
+                children: [
+                    {
+                        path: "",
+                        name: "PortfolioHome",
+                        components: { portfolioRouter: pfHome },
+                        meta: { title: "Alexandre Richard" },
+                    },
+                    {
+                        path: "curriculum",
+                        name: "PortfolioCurriculum",
+                        components: { portfolioRouter: pfCurriculum },
+                        meta: { title: "Curriculum" },
+                    },
+                    {
+                        path: "project",
+                        name: "PortfolioProject",
+                        components: { portfolioRouter: pfProjects },
+                        meta: { title: "Projets" },
+                    },
+                    {
+                        path: "contact",
+                        name: "PortfolioContact",
+                        components: { portfolioRouter: pfContact },
+                        meta: { title: "Contact" },
+                    },
+                ],
             },
-            {
-                path: "curriculum",
-                name: "PortfolioCurriculum",
-                components: { portfolioRouter: CurriculumTop },
-                meta: { title: "Curriculum" },
-            },
-            {
-                path: "project",
-                name: "PortfolioProject",
-                components: { portfolioRouter: ProjectsTop },
-                meta: { title: "Projets" },
-            },
-            {
-                path: "contact",
-                name: "PortfolioContact",
-                components: { portfolioRouter: ContactTop },
-                meta: { title: "Contact" },
-            },
+            // {
+            //     path: "/tryhard/slowrun",
+            //     children: [{
+            //         path: "/tryhard/slowrun",
+            //         name: "TryHardSlowRunHome",
+            //         components: { mainRouter: HomePage },
+            //         meta: { title: "Try Hard but Slow Run" },
+            //     }]
+            // }
         ],
-    },
-    {
-        path: "/tryhard/slowrun",
-        name: "TryHardSlowRunHome",
-        components: { mainRouter: TryHardSlowRun },
-        meta: { title: "Try Hard but Slow Run" },
     },
     // Gestion des pages non trouvées
     {

@@ -1,9 +1,9 @@
 <script setup>
-import HeaderMenuIcon from "../../Parts/HeaderMenuIcon.vue";
-import LoginIcon from "../../Parts/LoginIcon.vue";
-import RegisterIcon from "../../Parts/RegisterIcon.vue";
-import topLinks from "../../Parts/PortfolioHeaderLink.vue";
-import { usePortfolioStore } from "../../../store/Portfolio";
+import HeaderMenuIcon from "../Parts/HeaderMenuIcon.vue";
+import LoginIcon from "../Parts/LoginIcon.vue";
+import RegisterIcon from "../Parts/RegisterIcon.vue";
+import topLinks from "../Parts/PortfolioHeaderLink.vue";
+import { usePortfolioStore } from "../../store/Portfolio";
 const PortfolioStore = usePortfolioStore();
 const { headerLinks } = PortfolioStore;
 </script>

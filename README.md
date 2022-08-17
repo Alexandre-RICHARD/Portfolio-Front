@@ -153,27 +153,38 @@
 
 ### 0.7.5 `16 août 2022`
 
-- Rajout d'un SVG pour faire un boutton Revenir à l'accueil en permanance
-- Configuration et utilisation de Prettier sur tous le projet
+-   Rajout d'un SVG pour faire un boutton Revenir à l'accueil en permanance
+-   Configuration et utilisation de Prettier sur tous le projet
 
 ### 0.7.6 `16 août 2022`
 
-- Test et début d'apprivoisement du SVG en template
+-   Test et début d'apprivoisement du SVG en template
 
 ### 0.7.7 `17 août 2022`
 
-- Rassemblement de tous les styles des views dans un même nouveau fichier portfolio.scss
+-   Rassemblement de tous les styles des views dans un même nouveau fichier portfolio.scss
 
 ### 0.7.8 `17 août 2022`
 
-- Changement d'une règle EsLint
-- Mise en gitignore du dossier .temp/ contenant les fichiers temporaires ou inutiles
-- Quelques changements d'organisations dans les fichiers scss
-- Toutes la refonte du style pour s'adapter à la nouvelle hiérarchie des fichiers
-- Création des icones en svg nécessaires à l'affichage du responsive
-- Nombreux changements dans les vues visant à reprendre au fur et à mesure la nouvelle façon de créer le site (aller on prie pour que cette idée soit pas mal)
+-   Changement d'une règle EsLint
+-   Mise en gitignore du dossier .temp/ contenant les fichiers temporaires ou inutiles
+-   Quelques changements d'organisations dans les fichiers scss
+-   Toutes la refonte du style pour s'adapter à la nouvelle hiérarchie des fichiers
+-   Création des icones en svg nécessaires à l'affichage du responsive
+-   Nombreux changements dans les vues visant à reprendre au fur et à mesure la nouvelle façon de créer le site (aller on prie pour que cette idée soit pas mal)
 
 ### 0.8.0 `17 août 2022`
 
-- Oops, failli faire un giga fail avec les commit/push mais c'est rattrapé. Rajout d'une clé GPG pour vérifié les commits
-- Mise en git ignore des fichiers non nécessaires sur Github
+-   Oops, failli faire un giga fail avec les commit/push mais c'est rattrapé. Rajout d'une clé GPG pour vérifié les commits
+-   Mise en git ignore des fichiers non nécessaires sur Github
+
+### 0.8.1 `17 août 2022`
+
+-   Supression d'un commentaire dans le html original pour ne pas qu'il apparassent dans le chrome dev
+-   Gros changement dans le router. Il n'y aura plus de page intermédiaire pour tryhard ou portfolio et les router se situeront dans la home page
+-   Renommmage de quelques fichiers pour encore améliorer la lisibilité de l'arborescence 
+-   Le reset.css est devenu un fichier scss
+-   Supression du portfolio.scss. Il est à présent divisé en 5 partie, le header et les 4 parties différentes du portfolio
+-   Remise de la font dans l'index.scss de base, ça ne sert à rien de l'indiquer ailleurs
+-   Le fichier app.vue contient désormais le header ainsi que le router principal qui lui servira à diriger vers les grandes zones, au nombre de 3 pour l'instant
+-   Le header est fini. Les liens login et register ne fonctionnent pas encore, et la modal responsive n'est pas faite
