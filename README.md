@@ -159,3 +159,7 @@
 ### 0.7.6 `16 août 2022`
 
 - Test et début d'apprivoisement du SVG en template
+
+### 0.7.7 `17 août 2022`
+
+- Rassemblement de tous les styles des views dans un même nouveau fichier portfolio.scss

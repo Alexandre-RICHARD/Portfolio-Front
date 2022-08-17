@@ -17,21 +17,3 @@ const { headerLinks } = PortfolioStore;
         </div>
     </header>
 </template>
-
-<style>
-.header {
-    height: 100px;
-    width: 100%;
-}
-
-.nav-list-box {
-    height: 100px;
-    width: 100%;
-    background-color: #2e2b27;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 10;
-}
-</style>

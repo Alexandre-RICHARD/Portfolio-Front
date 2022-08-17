@@ -1,0 +1,115 @@
+.home-container {
+    background-color: #232946;
+}
+
+.contact {
+    background-color: #0caf06;
+}
+
+.curriculum {
+    background-color: #c8ff00;
+}
+
+.home {
+    background-color: #00ffff;
+}
+
+.projects {
+    background-color: #ff4800;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+}
+
+.nav-list-box {
+    height: 100px;
+    width: 100%;
+    background-color: #2e2b27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-icon {
+    transform: scale(0.8);
+}
+
+#home-icon-path {
+    fill: #ffffff;
+}
+
+.home-button-title {
+    font-size: 40px;
+    font-weight: 500;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.FirstNavTop {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.FirstNavTop-link {
+    background-color: #b8c1ec;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    white-space: pre-line;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 600px) {
+    .FirstNavTop {
+        flex-direction: row;
+    }
+
+    .FirstNavTop-link-box {
+        margin: 8%;
+    }
+}
+
+.not-found {
+    background-color: #4b2344;
+}
+
+.top-link {
+    font-weight: 600;
+    padding: 10px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 20px;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.4s;
+}
+
+.top-link:hover {
+    background-color: #14d0f1;
+    color: #000;
+}

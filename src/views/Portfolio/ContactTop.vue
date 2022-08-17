@@ -3,9 +3,3 @@
         <h1>contact</h1>
     </div>
 </template>
-
-<style>
-.contact {
-    background-color: #0caf06;
-}
-</style>
