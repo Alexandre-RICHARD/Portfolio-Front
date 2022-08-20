@@ -1,6 +1,14 @@
 # TryHard but SlowRun - Le front
 
+Bonjour, bienvenue sur mon gros projet. J'avais envie de réunir tous mes projets sur un seul site, de tout rendre tout bien, tout joli, en plus de m'en faire un portfolio. À l'heure où j'écris ces lignes, la partie portfolio n'est pas encore fini mais ça avance bien et cela me permet de me confronter à tellement de problématique et donc d'apprentissage que je me sens progressé vite.
+
+Voici [le site](http://alexandre-richard.fr) en question
+
 ## Historique des version
+
+### Version 0
+
+<details>
 
 ### 0.0.1 `1er juillet 2022`
 
@@ -202,3 +210,9 @@
 -   Suppression du console.log inutile
 -   Sur index.scss, min-width mis en 400px
 -   Correction d'un léger bug du BreadCrumb et mise d'un name sur la route intermédiaire du portfolio
+
+### 0.8.4 `20 août 2022`
+
+-   Petite amélioration du Readme.md
+
+</details>
