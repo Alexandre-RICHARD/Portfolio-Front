@@ -17,35 +17,36 @@ const routes = [
         path: "",
         name: "Home",
         components: { mainRouter: HomePage },
-        meta: { title: "Alexandre Richard" },
+        meta: { title: "Alexandre Richard", path: "Page d'accueil" },
         children: [
             {
                 // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
                 path: "/portfolio",
+                meta: {path: "Portfolio" },
                 children: [
                     {
-                        path: "",
+                        path: "home",
                         name: "PortfolioHome",
                         components: { portfolioRouter: pfHome },
-                        meta: { title: "Alexandre Richard" },
+                        meta: { title: "Alexandre Richard", path: "Accueil" },
                     },
                     {
                         path: "curriculum",
                         name: "PortfolioCurriculum",
                         components: { portfolioRouter: pfCurriculum },
-                        meta: { title: "Curriculum" },
+                        meta: { title: "Curriculum", path: "Curriculum" },
                     },
                     {
                         path: "project",
                         name: "PortfolioProject",
                         components: { portfolioRouter: pfProjects },
-                        meta: { title: "Projets" },
+                        meta: { title: "Projets", path: "Projets" },
                     },
                     {
                         path: "contact",
                         name: "PortfolioContact",
                         components: { portfolioRouter: pfContact },
-                        meta: { title: "Contact" },
+                        meta: { title: "Contact", path: "Contact" },
                     },
                 ],
             },
@@ -55,7 +56,7 @@ const routes = [
             //         path: "/tryhard/slowrun",
             //         name: "TryHardSlowRunHome",
             //         components: { mainRouter: HomePage },
-            //         meta: { title: "Try Hard but Slow Run" },
+            //         meta: { title: "TryHard but SlowRun", path: "TryHard but SlowRun" },
             //     }]
             // }
         ],

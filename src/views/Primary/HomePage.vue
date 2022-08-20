@@ -1,5 +1,11 @@
+<script setup>
+import BreadCrumb from "../Parts/BreadCrumb.vue";
+</script>
+
 <template>
-    <h1>PAGE PRINCIPALE</h1>
-    <router-view name="portfolioRouter" />
-    <router-view name="tryHardSlowRunRouter" />
+    <div class="page-container">
+        <BreadCrumb />
+        <router-view name="portfolioRouter" />
+        <router-view name="tryHardSlowRunRouter" />
+    </div>
 </template>

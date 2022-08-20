@@ -188,3 +188,9 @@
 -   Remise de la font dans l'index.scss de base, ça ne sert à rien de l'indiquer ailleurs
 -   Le fichier app.vue contient désormais le header ainsi que le router principal qui lui servira à diriger vers les grandes zones, au nombre de 3 pour l'instant
 -   Le header est fini. Les liens login et register ne fonctionnent pas encore, et la modal responsive n'est pas faite
+
+### 0.8.2 `20 août 2022`
+
+-   Rajout d'une variable path dans la meta des routes pour être affiché dans le BreadCrumb
+-   Déplacement de toutes les variables SCSS dans un fichier séparé
+-   Création du BreadCrumb qui se fait automatiquement et stylisation
