@@ -22,6 +22,7 @@ const routes = [
             {
                 // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
                 path: "/portfolio",
+                name: "Portfolio",
                 meta: {path: "Portfolio" },
                 children: [
                     {

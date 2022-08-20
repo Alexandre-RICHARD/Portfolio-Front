@@ -56,6 +56,14 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.pdf$/,
+                loader: "file-loader",
+                options: {
+                    outputPath: "pdf/",
+                    name: '[name].[ext]'
+                },
+            },
             // Fonts loader
             {
                 test: /\.(woff2?|eot|ttf|otf)$/,

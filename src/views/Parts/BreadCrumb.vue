@@ -1,9 +1,6 @@
 <script setup>
 import { useRoute } from "vue-router";
 const route = useRoute();
-route.matched.forEach(element => {
-    console.log(element);
-});
 </script>
 
 <template>

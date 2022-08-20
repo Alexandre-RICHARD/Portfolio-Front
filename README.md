@@ -194,3 +194,11 @@
 -   Rajout d'une variable path dans la meta des routes pour être affiché dans le BreadCrumb
 -   Déplacement de toutes les variables SCSS dans un fichier séparé
 -   Création du BreadCrumb qui se fait automatiquement et stylisation
+
+### 0.8.3 `20 août 2022`
+
+-   Rajout du loader pour pdf
+-   Finition de la page d'accueil du portfolio mais non stylisé encore
+-   Suppression du console.log inutile
+-   Sur index.scss, min-width mis en 400px
+-   Correction d'un léger bug du BreadCrumb et mise d'un name sur la route intermédiaire du portfolio
