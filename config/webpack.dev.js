@@ -2,6 +2,7 @@ const paths = require("./paths");
 const common = require("./webpack.common.js");
 const { merge } = require("webpack-merge");
 const port = 8080;
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common, {
     // Configuration spécifique au mode développement, donc npm run serve
@@ -13,6 +14,14 @@ module.exports = merge(common, {
         filename: "js/[name].[contenthash].js",
     },
     devtool: "inline-source-map",
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            favicon: "./src/assets/favicon.ico",
+            template: "./src/assets/index.html",
+            inject: true,
+        }),
+    ],
     module: {
         rules: [
             // Styles loader et tous les loader impliqués. On demande les sourceMap

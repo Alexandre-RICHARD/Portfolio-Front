@@ -26,14 +26,6 @@ module.exports = {
                 },
             ],
         }),
-
-        // Plugin servant à faciliter la création du fichier HTML avec toutes les ressources dont il aura besoin
-        new HtmlWebpackPlugin({
-            filename: "index.html",
-            favicon: "./src/assets/favicon.ico",
-            template: "./src/assets/index.html",
-            inject: true,
-        }),
     ],
 
     module: {
