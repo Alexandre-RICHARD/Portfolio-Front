@@ -215,9 +215,14 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Petite amélioration du Readme.md
 
-### 0.8.5 `20 août 2022`
+### 0.8.5 `23 août 2022`
 
 -   Résolution du problème du white screen au recharhement de la page avec un lien avancé
 -   Ajout d'un fichier .htaccess qui sert à paramétrer le serveur en partie, à redirigé le http vers https, à inscrire le html/index.html comme point d'entrée et à rediriger toutes les requêtes de html vers ce fichier (très très content d'avoir trouvé la réponse à ce problème problématique)
+
+### 0.8.6 `24 août 2022`
+
+-   Stylisation et correction de la page pfHome
+-   Rajout d'une div page-background pour avoir un bon background en ayant notre contenu à 1000px
 
 </details>
