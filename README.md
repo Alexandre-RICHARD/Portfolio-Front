@@ -238,4 +238,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Mise en fonction du bouton pour Copier le lien Discord
 -   Changement du nom du composant TopLinks
 
+### 0.8.8 `27 août 2022`
+
+-   Rajout d'une petite inscription du build et de la version directement sur la page
+
 </details>
