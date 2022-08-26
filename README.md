@@ -225,4 +225,17 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Stylisation et correction de la page pfHome
 -   Rajout d'une div page-background pour avoir un bon background en ayant notre contenu à 1000px
 
+### 0.8.7 `27 août 2022`
+
+-   Rajout du .htaccess dans le gitignore
+-   Modification d'un commentaire dans la config Webpack
+-   Mise en dossier du fichier html et favicon d'origine.
+-   Remplacement des 3 projets mis en avant par des vrais données et vraies images
+-   Suppression de la partie commentées du Router
+-   Changement dans le Store pour prendre en compte les liens et les boutons/modals dans les liens
+-   Léger changement dans le style du Header
+-   Changement dans le style de la page, mise en appliation des variables
+-   Mise en fonction du bouton pour Copier le lien Discord
+-   Changement du nom du composant TopLinks
+
 </details>

@@ -51,15 +51,6 @@ const routes = [
                     },
                 ],
             },
-            // {
-            //     path: "/tryhard/slowrun",
-            //     children: [{
-            //         path: "/tryhard/slowrun",
-            //         name: "TryHardSlowRunHome",
-            //         components: { mainRouter: HomePage },
-            //         meta: { title: "TryHard but SlowRun", path: "TryHard but SlowRun" },
-            //     }]
-            // }
         ],
     },
     // Gestion des pages non trouvées

@@ -1,5 +1,9 @@
 <script setup>
 defineProps({
+    type: {
+        type: String,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
@@ -12,7 +16,10 @@ defineProps({
 </script>
 
 <template>
-    <router-link :to="{ name: link }">
+    <router-link v-if="type === 'link'" :to="{ name: link }">
         {{ title }}
     </router-link>
+    <button v-else-if="type === 'modal'" @click="link">
+        {{ title }}
+    </button>
 </template>

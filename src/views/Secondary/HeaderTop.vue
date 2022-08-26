@@ -2,7 +2,7 @@
 import HeaderMenuIcon from "../Parts/HeaderMenuIcon.vue";
 import LoginIcon from "../Parts/LoginIcon.vue";
 import RegisterIcon from "../Parts/RegisterIcon.vue";
-import topLinks from "../Parts/PortfolioHeaderLink.vue";
+import PortfolioHeaderLink from "../Parts/PortfolioHeaderLink.vue";
 import { usePortfolioStore } from "../../store/Portfolio";
 const PortfolioStore = usePortfolioStore();
 const { headerLinks } = PortfolioStore;
@@ -22,21 +22,14 @@ const { headerLinks } = PortfolioStore;
         </div>
 
         <div class="header-sub-container">
-            <topLinks
+            <PortfolioHeaderLink
                 v-for="link in headerLinks"
                 :key="link.id"
+                :type="link.type"
                 :title="link.content"
                 :link="link.link"
                 class="header-link"
             />
-        </div>
-        <div class="header-sub-container">
-            <router-link :to="{ name: 'Home' }">
-                <p class="header-link">Se connecter</p>
-            </router-link>
-            <router-link :to="{ name: 'Home' }">
-                <p class="header-link">S'inscrire</p>
-            </router-link>
         </div>
 
         <div class="responsive-icon-link">

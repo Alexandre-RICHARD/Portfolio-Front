@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    // Les deux points d'entrées de l'application. Le html n'est pas indiqué car il n'est pas un point d'entrée, il sera utilisé différemment
+    // Les deux points d'entrées JavaScript de l'application
     entry: [paths.src + "/styles/index.scss", paths.src + "/index.js"],
     resolve: {
         alias: {

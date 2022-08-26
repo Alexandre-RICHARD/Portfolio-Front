@@ -2,6 +2,15 @@
 const age = Math.round(
     (Date.now() - new Date(1999, 5, 24)) / 1000 / 365 / 24 / 60 / 60
 );
+
+const copy = () => {
+    try {
+        navigator.clipboard.writeText(document.querySelector("#discordId").getAttribute("toCopy"));
+    } catch (error) {
+        console.log(error);
+    }
+};
+const discordId="Shadowmere#5754";
 </script>
 
 <template>
@@ -40,7 +49,7 @@ const age = Math.round(
         >Télécharger mon CV</a>
     </div>
 
-    <h2 class="categories">Mes projets</h2>
+    <h2 class="categories">Mes projets (cette page n'est pas encore tout à fait fonctionnelle)</h2>
     <div class="promote-project-box">
         <div class="one-project">
             <img
@@ -48,9 +57,9 @@ const age = Math.round(
                 alt="Visuel du projet 1"
                 class="one-project-image"
             >
-            <h3 class="one-project-title">PROJET 1</h3>
+            <h3 class="one-project-title">Portfolio</h3>
             <p class="one-project-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam labore repudiandae, consectetur quidem sed incidunt. Fugiat ut quis impedit tenetur.
+                Ce même portfolio sur lequel vous vous situez, je suis assez ambitieux sur la suite du projet et des sous-partie très différentes et nouvelles.
             </p>
         </div>
         <div class="one-project">
@@ -59,9 +68,9 @@ const age = Math.round(
                 alt="Visuel du projet 2"
                 class="one-project-image"
             >
-            <h3 class="one-project-title">PROJET 2</h3>
+            <h3 class="one-project-title">Intro to Blockchain</h3>
             <p class="one-project-description">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia tenetur quaerat impedit ipsa, quisquam doloribus cum a sint deleniti quae?
+                Mon projet de fin d'étude, réalisé en groupe de 4, dans des conditions voulues pour se rapprochées d'un environnement professionnel.
             </p>
         </div>
         <div class="one-project">
@@ -70,9 +79,9 @@ const age = Math.round(
                 alt="Visuel du projet 3"
                 class="one-project-image"
             >
-            <h3 class="one-project-title">PROJET 3</h3>
+            <h3 class="one-project-title">Crypto Récap</h3>
             <p class="one-project-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aperiam expedita veritatis facilis hic temporibus. Sapiente blanditiis quisquam dolor eius.
+                Un outil que j'avais fait quand je m'intéressais aux cryptomonnaies.
             </p>
         </div>
     </div>
@@ -98,7 +107,9 @@ const age = Math.round(
             >LinkedIn</a>
         </div>
         <div class="link-box">
-            <p class="contact-link">Shadowmere#5754</p>
+            <button class="contact-link button-copy" @click="copy">
+                <p id="discordId" :toCopy="discordId">Discord</p>
+            </button>
         </div>
     </div>
 

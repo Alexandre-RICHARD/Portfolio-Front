@@ -72,7 +72,6 @@
     .one-project {
         max-width: 250px;
         min-width: 160px;
-        // background-color: #e4e4e4;
         border-radius: 15px;
         border: 3px solid #ff8906;
         margin: 20px;
@@ -87,7 +86,7 @@
 
         &-description {
             padding: 0 5px 15px 5px;
-            color: #ffffff;
+            color: $white-color;
             text-align: justify;
         }
     }
@@ -102,11 +101,33 @@
         margin: 10px;
 
         .contact-link {
+            display: block;
             color: #fffffe;
             background-color: #242230;
-            padding: 6px;
+            padding: 10px;
             margin: 10px;
+            font-size: 16px;
+            line-height: 16px;
             border-radius: 7px;
+
+
+        }
+
+        .button-copy {
+            display: flex;
+            
+            #discordId {
+                background-color: #242230;
+                color: $white-color;
+            }
+            
+            .displayed {                
+                display: block;
+            }
+            
+            .undisplayed {
+                display: none;
+            }
         }
     }
 }
