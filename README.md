@@ -258,4 +258,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Le props link n'est plus indispensable et a une valeur par défaut
 -   La div représentant le contenu de la page principale est désormais une balise "main"
 
+### 0.8.10 `27 août 2022`
+
+-   Rétablissement du .htaccess car impossible de le supprimer du projet en l'ignorant de git
+
 </details>
