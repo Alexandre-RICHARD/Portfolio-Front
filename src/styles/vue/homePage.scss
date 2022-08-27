@@ -1,0 +1,14 @@
+@import "../base/variables";
+
+.page-background {
+    background-color: $dark1-color;
+    width: 100%;
+
+    .page-container {
+        max-width: 1000px;
+        width: 100%;
+        min-height: calc(100vh - $header-height-size);
+        padding: 15px 50px;
+        margin: auto;
+    }
+}

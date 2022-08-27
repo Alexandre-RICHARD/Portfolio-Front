@@ -85,15 +85,26 @@ u,
 ul,
 var,
 video {
+    color: inherit;
+    background-color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
     margin: 0;
     padding: 0;
     border: 0;
     outline: none;
-    font-size: 1rem;
     font-weight: 300;
     text-decoration: none;
     line-height: normal;
     vertical-align: baseline;
+    appearance: none;
+    font-style: normal;
+    font-variant: normal;
+    font-family: inherit;
+    text-rendering: inherit;
+    text-indent: 0;
+    text-transform: none;
+    transition: inherit;
 }
 
 html {
@@ -137,26 +148,10 @@ table {
     border-spacing: 0;
 }
 
-a {
-    color: inherit;
-}
-
+a,
 label,
 button {
     cursor: pointer;
-}
-
-input,
-button {
-    outline: 0;
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-    content: "";
-    content: none;
 }
 
 *,

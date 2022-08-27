@@ -1,4 +1,4 @@
-@import "variables";
+@import "../base/variables";
 
 .home-first-container {
     width: 100%;
@@ -26,62 +26,62 @@
 }
 
 .paragraph {
-    color: #a7a9be;
+    color: $grey-color;
     padding: 3px 0;
     text-align: justify;
 }
 
 .main-skills {
-    color: #fffffe;
+    color: $white-color;
 }
 
 .page-title {
-    color: #fffffe;
+    color: $white-color;
     font-weight: 500;
     font-size: 35px;
     line-height: 35px;
 }
 
 .categories {
-    color: #fffffe;
+    color: $white-color;
     padding-top: 15px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: $big-font-size;
 }
 
 .link-to-more {
-    display: block;
+    background-color: $link-color;
+    color: $white-color;
     width: fit-content;
     padding: 6px;
     margin: 10px auto;
     border-radius: 7px;
-    background-color: #ff8906;
-    color: #fffffe;
+    display: block;
 
     &.curriculum-pdf {
-        background-color: #e53170;
+        background-color: $button-color;
     }
 }
 
 .promote-project-box {
+    padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 20px 0;
     
     .one-project {
         max-width: 250px;
         min-width: 160px;
         border-radius: 15px;
-        border: 3px solid #ff8906;
+        border: 3px solid $link-color;
         margin: 20px;
         overflow: hidden;
         
         &-title {
-            color: #ff8906;
+            color: $link-color;
             padding: 0 5px;
             font-weight: 400;
-            font-size: 20px;
+            font-size: $big-font-size;
         }
 
         &-description {
@@ -101,23 +101,21 @@
         margin: 10px;
 
         .contact-link {
-            display: block;
-            color: #fffffe;
-            background-color: #242230;
+            background-color: $dark2-color;
+            color: $white-color;
+            font-size: $normal-font-size;
+            line-height: 16px;
             padding: 10px;
             margin: 10px;
-            font-size: 16px;
-            line-height: 16px;
             border-radius: 7px;
-
-
+            display: block;
         }
 
         .button-copy {
             display: flex;
             
             #discordId {
-                background-color: #242230;
+                background-color: $dark2-color;
                 color: $white-color;
             }
             

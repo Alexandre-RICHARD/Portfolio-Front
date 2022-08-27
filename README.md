@@ -238,4 +238,24 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Mise en fonction du bouton pour Copier le lien Discord
 -   Changement du nom du composant TopLinks
 
+### 0.8.8 `27 août 2022`
+
+-   Rajout d'une petite inscription du build et de la version directement sur la page
+
+### 0.8.9 `27 août 2022`
+
+-   Déplacement et rangement de tous les fichiers de styles et mise à jour des importations
+-   Mise dans le store des liens pour les modals
+-   Amélioration du reset.scss pour avoir encore plus de contrôle sur le style de certains élements
+-   Mise en variables de toutes les couleurs utilisés dans le style
+-   Mise en variables de certaines tailles de texte
+-   Révision du style pour le header
+-   Les transitions sont désormais hérités à tous le projets pour avoir des changements plus fluides (0.4s)
+-   Le header change quand on scroll vers le bas
+-   Mise en "temporaire" donc suppression des icônes non utilisés
+-   Suppression de quelques div et règles CSS non utilisées
+-   Les liens de modals générés par composant ne portent plus la fonction, ce qui générait une erreur mais une valeurs qui sera appliquée à une seule fonction commune.
+-   Le props link n'est plus indispensable et a une valeur par défaut
+-   La div représentant le contenu de la page principale est désormais une balise "main"
+
 </details>

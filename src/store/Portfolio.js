@@ -11,8 +11,11 @@ export const usePortfolioStore = defineStore("Portfolio", {
             { id: 1, type: "link", content: "Curriculum", link: "PortfolioCurriculum" },
             { id: 2, type: "link", content: "Projets", link: "PortfolioProject" },
             { id: 3, type: "link", content: "Contact", link: "PortfolioContact" },
-            { id: 4, type: "modal", content: "Se Connecter", link: "ModalConnect" },
-            { id: 5, type: "modal", content: "S'inscrire", link: "ModalRegister" },
+        ],
+        headerModals: [
+            // Un ID pour différencier dans le for in, le contenu indiqué sur le lien et le lien
+            { id: 4, type: "modal", content: "Connexion", link: "loginModal" },
+            { id: 5, type: "modal", content: "Inscription", link: "registerModal" },
         ],
     }),
 });
