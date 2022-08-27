@@ -24,6 +24,10 @@ module.exports = {
                     from: paths.static,
                     to: "",
                 },
+                {
+                    from: paths.copy,
+                    to: "",
+                },
             ],
         }),
     ],

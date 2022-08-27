@@ -262,4 +262,9 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Rétablissement du .htaccess car impossible de le supprimer du projet en l'ignorant de git
 
+### 0.8.11 `27 août 2022`
+
+-   Ressuppression et mise en gitignore de .htaccess car nouvelle idée
+-   Rajout d'un dossier .copy pour les potentiels fichiers type "public" mais qui doivent être ignorés sur le commit
+
 </details>
