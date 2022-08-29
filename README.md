@@ -274,4 +274,9 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Factorisation et nombreux changements dans le portfolio.scss
 -   Quelques changements dans le portfolioHome
 
+### 0.8.13 `29 août 2022`
+
+-   Stylisation des différents boutons en hover avec utilisation d'un faux contenu en before pour que les boutons/liens ne changent pas de taille après
+-   Ajout d'attribut title pour chaque afin de faire correspondre le contenu en CSS
+
 </details>

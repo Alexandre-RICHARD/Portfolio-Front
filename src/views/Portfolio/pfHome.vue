@@ -46,6 +46,7 @@ const discordId = "Shadowmere#5754";
 
         <div class="presentation-link-box">
             <router-link
+                title="En savoir un peu plus"
                 class="link-to-more"
                 :to="{ name: 'PortfolioCurriculum' }"
             >
@@ -53,6 +54,7 @@ const discordId = "Shadowmere#5754";
             </router-link>
 
             <a
+                title="Télécharger mon CV"
                 class="link-to-more curriculum-pdf"
                 href="https://drive.google.com/file/d/1Y59Y01e8_Jpww_9pva8av-APP1dgvxkO/view?usp=sharing"
                 target="_blank"
@@ -102,7 +104,11 @@ const discordId = "Shadowmere#5754";
                 </p>
             </div>
         </div>
-        <router-link class="link-to-more" :to="{ name: 'PortfolioProject' }">
+        <router-link
+            title="Voir tous mes autres projets"
+            class="link-to-more"
+            :to="{ name: 'PortfolioProject' }"
+        >
             Voir tous mes autres projets
         </router-link>
 
@@ -110,28 +116,31 @@ const discordId = "Shadowmere#5754";
         <h2 class="categories">Mes contacts principaux</h2>
 
         <div class="primary-contact-box">
-            <div class="link-box">
-                <a
-                    class="contact-link"
-                    href="https://github.com/Alexandre-RICHARD"
-                    target="_blank"
-                >Github</a>
-            </div>
-            <div class="link-box">
-                <a
-                    class="contact-link"
-                    href="https://linkedin.com/in/alexandre-richard-dev4/"
-                    target="_blank"
-                >LinkedIn</a>
-            </div>
-            <div class="link-box">
-                <button class="contact-link" @click="copy">
-                    <p id="discordId" :toCopy="discordId">Discord</p>
-                </button>
-            </div>
+            <a
+                title="Github"
+                class="contact-link"
+                href="https://github.com/Alexandre-RICHARD"
+                target="_blank"
+            >Github</a>
+            <a
+                title="LinkedIn"
+                class="contact-link"
+                href="https://linkedin.com/in/alexandre-richard-dev4/"
+                target="_blank"
+            >LinkedIn</a>
+            <button
+                id="discordId" title="Discord" :toCopy="discordId" class="contact-link"
+                content="Discord" @click="copy"
+            >
+                Discord
+            </button>
         </div>
 
-        <router-link class="link-to-more" :to="{ name: 'PortfolioContact' }">
+        <router-link
+            title="Me retrouver partout"
+            class="link-to-more"
+            :to="{ name: 'PortfolioContact' }"
+        >
             Me retrouver partout
         </router-link>
     </div>

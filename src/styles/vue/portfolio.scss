@@ -43,9 +43,7 @@
     .presentation-link-box {
         display: flex;
         justify-content: space-evenly;
-
     }
-    
 
     .link-to-more {
         background-color: $link-color;
@@ -55,6 +53,7 @@
         margin: 10px auto;
         border-radius: 7px;
         display: block;
+        text-align: center;
 
         &.curriculum-pdf {
             background-color: $button-color;
@@ -94,18 +93,45 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        .link-box {
+        .contact-link {
+            text-align: center;
+            background-color: $dark2-color;
+            color: $white-color;
+            font-size: $normal-font-size;
+            padding: 8px 12px;
             margin: 10px;
+            border-radius: 7px;
+            display: block;
+        }
+    }
 
-            .contact-link {
-                background-color: $dark2-color;
-                color: $white-color;
-                font-size: $normal-font-size;
-                padding: 8px 12px;
-                margin: 10px;
-                border-radius: 7px;
-                display: block;
-            }
+    .link-to-more, .contact-link {
+        &::before {
+            display: block;
+            content: attr(title);
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+
+    .link-to-more {
+        &::before {
+            font-weight: 600;
+        }
+        &:hover {
+            font-weight: 600;
+        }
+    }
+
+    .contact-link {
+        &::before {
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
+        &:hover {
+            font-weight: 700;
+            letter-spacing: 1.2px;
         }
     }
 }
