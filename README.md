@@ -279,4 +279,9 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Stylisation des différents boutons en hover avec utilisation d'un faux contenu en before pour que les boutons/liens ne changent pas de taille après
 -   Ajout d'attribut title pour chaque afin de faire correspondre le contenu en CSS
 
+### 0.8.14 `29 août 2022`
+
+-   Création d'un début de modal dynamique à l'aide de Pinia. Elle s'ouvre dans 3 cas et se ferme en cliquant à côté
+-   Changement du nom des modals dans le store d'origine et création d'un nouveau store
+
 </details>

@@ -1,13 +1,22 @@
 <script setup>
+
 import HeaderMenuIcon from "../Parts/HeaderMenuIcon.vue";
 import PortfolioHeaderLink from "../Parts/PortfolioHeaderLink.vue";
+
 import { usePortfolioStore } from "../../store/Portfolio";
+import { useGlobalStore } from "../../store/Global";
+
 const PortfolioStore = usePortfolioStore();
-const { headerLinks } = PortfolioStore;
-const { headerModals } = PortfolioStore;
+const { headerLinks, headerModals } = PortfolioStore;
+
+const GlobalStore = useGlobalStore();
+const { modalData } = GlobalStore;
 
 const accountModal = (test) => {
     console.log("Une modal a été activé : " + test);
+    modalData.open = true;
+    modalData.type = test;
+    console.log( modalData.open + " + " + modalData.type );
 };
 
 window.addEventListener("scroll", () => {
@@ -55,7 +64,7 @@ window.addEventListener("scroll", () => {
         </div>
 
         <!-- L'icone de menu qui apparait en responsive -->
-        <button class="reponsive-header-button" :to="{ name: 'Home' }" @click="accountModal('menuModal')">
+        <button class="reponsive-header-button" :to="{ name: 'Home' }" @click="accountModal('menu')">
             <HeaderMenuIcon class="reponsive-header-icon" />
         </button>
     </header>

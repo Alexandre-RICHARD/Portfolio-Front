@@ -14,8 +14,8 @@ export const usePortfolioStore = defineStore("Portfolio", {
         ],
         headerModals: [
             // Un ID pour différencier dans le for in, le contenu indiqué sur le lien et le lien
-            { id: 4, type: "modal", content: "Connexion", link: "loginModal" },
-            { id: 5, type: "modal", content: "Inscription", link: "registerModal" },
+            { id: 4, type: "modal", content: "Connexion", link: "login" },
+            { id: 5, type: "modal", content: "Inscription", link: "register" },
         ],
     }),
 });
