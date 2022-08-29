@@ -267,4 +267,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Ressuppression et mise en gitignore de .htaccess car nouvelle idée
 -   Rajout d'un dossier .copy pour les potentiels fichiers type "public" mais qui doivent être ignorés sur le commit
 
+### 0.8.12 `29 août 2022`
+
+-   Tentative de trouver d'autres couleurs agréables changeables facilement grace au variables SCSS. À suivre
+-   Le padding de la page est réduit en dessous de 700px de large
+-   Factorisation et nombreux changements dans le portfolio.scss
+-   Quelques changements dans le portfolioHome
+
 </details>

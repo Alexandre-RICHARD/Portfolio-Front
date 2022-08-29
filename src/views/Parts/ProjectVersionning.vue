@@ -1,5 +1,5 @@
 <template>
     <p class="versionning">
-        build 39 ; V-0.8.11
+        build 40 ; V-0.8.12
     </p>
 </template>
