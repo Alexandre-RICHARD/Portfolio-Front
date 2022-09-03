@@ -4,13 +4,9 @@ const age = Math.round(
 );
 
 const copy = () => {
-    try {
-        navigator.clipboard.writeText(
-            document.querySelector("#discordId").getAttribute("toCopy")
-        );
-    } catch (error) {
-        console.log(error);
-    }
+    navigator.clipboard.writeText(
+        document.querySelector("#discordId").getAttribute("toCopy")
+    );
 };
 const discordId = "Shadowmere#5754";
 </script>
@@ -56,7 +52,7 @@ const discordId = "Shadowmere#5754";
             <a
                 title="Télécharger mon CV"
                 class="link-to-more curriculum-pdf"
-                href="https://drive.google.com/file/d/1Y59Y01e8_Jpww_9pva8av-APP1dgvxkO/view?usp=sharing"
+                href="https://drive.google.com/file/d/1FdHFjZ57ShkzJEui6oKj8c0xwiLWilaG/view?usp=sharing"
                 target="_blank"
             >Télécharger mon CV</a>
         </div>

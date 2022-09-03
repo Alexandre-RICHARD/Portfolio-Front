@@ -284,4 +284,14 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Création d'un début de modal dynamique à l'aide de Pinia. Elle s'ouvre dans 3 cas et se ferme en cliquant à côté
 -   Changement du nom des modals dans le store d'origine et création d'un nouveau store
 
+### 0.8.15 `3 septembre 2022`
+
+-   Suppression du try/catch(error) pour le copy en clipboard
+-   Mise à jour du CV et donc du lien
+-   Création de la modal du Menu avec les liens dedans
+-   Gestion de l'ouverture et de la fermeture de la menuModal
+-   Factorisation et amélioration de l'ouverture et de la fermeture des accountModal
+-   Léger Hover sur le SVG du Menu
+-   Stylisation de la modal du Menu
+
 </details>

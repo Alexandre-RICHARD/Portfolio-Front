@@ -70,6 +70,7 @@
 
     // L'icone du menu qui apparait à la réduction de la page
     .reponsive-header-button {
+        background-color: $header-color;
         width: 35px;
         height: 35px;
 
@@ -80,6 +81,10 @@
                 transform: scale(0.35);
                 fill: $white-color;
             }
+        }
+
+        &:hover {
+            transform: scale(1.3);
         }
     }
 
@@ -97,6 +102,10 @@
                     background-color: $dark2-color;
                 }
             }
+        }
+
+        .reponsive-header-button {
+            background-color: $dark1-color;
         }
     }
 }

@@ -1,7 +1,7 @@
 <script setup>
-
 import HeaderMenuIcon from "../Parts/HeaderMenuIcon.vue";
 import PortfolioHeaderLink from "../Parts/PortfolioHeaderLink.vue";
+import MenuModal from "../Parts/MenuModal.vue";
 
 import { usePortfolioStore } from "../../store/Portfolio";
 import { useGlobalStore } from "../../store/Global";
@@ -12,22 +12,56 @@ const { headerLinks, headerModals } = PortfolioStore;
 const GlobalStore = useGlobalStore();
 const { modalData } = GlobalStore;
 
-const accountModal = (test) => {
-    console.log("Une modal a été activé : " + test);
-    modalData.open = true;
-    modalData.type = test;
-    console.log( modalData.open + " + " + modalData.type );
+const accountModal = (open, type) => {
+    modalData.open = open;
+    modalData.type = type;
 };
 
 window.addEventListener("scroll", () => {
-    if(window.scrollY >= 1) {
-        document.querySelector(".header-container").classList.add("header-container-shrink");
+    if (window.scrollY >= 1) {
+        document
+            .querySelector(".header-container")
+            .classList.add("header-container-shrink");
     } else {
-        document.querySelector(".header-container").classList.remove("header-container-shrink");
+        document
+            .querySelector(".header-container")
+            .classList.remove("header-container-shrink");
     }
 });
-</script>
 
+const openAndHandleModalMenu = () => {
+    const outsideMenuClickHandler = (event) => {
+        const menuButton = document.querySelector(".reponsive-header-button");
+        const menuModal = document.querySelector(".menu-modal");
+
+        if (menuModal) {
+            if (
+                !menuButton.contains(event.target) &&
+                !menuModal.contains(event.target)
+            ) {
+                accountModal(false, null);
+                eventListenerHandler(0);
+            }
+        }
+    };
+
+    const eventListenerHandler = (type) => {
+        if (type === 1) {
+            document.addEventListener("click", outsideMenuClickHandler, false);
+        } else if (type === 0) {
+            document.removeEventListener("click", outsideMenuClickHandler, false);
+        }
+    };
+
+    if (modalData.type === "menu") {
+        accountModal(false, null);
+        eventListenerHandler(0);
+    } else {
+        accountModal(true, "menu");
+        eventListenerHandler(1);
+    }
+};
+</script>
 
 <template>
     <header class="header-container">
@@ -40,7 +74,7 @@ window.addEventListener("scroll", () => {
             </div>
             <span class="header-logo-bracket">}</span>
         </router-link>
-        
+
         <!-- Zone avec les différents liens de navigation -->
         <div class="header-nav-container responsive-hide-700">
             <PortfolioHeaderLink
@@ -59,13 +93,19 @@ window.addEventListener("scroll", () => {
                 :type="modal.type"
                 :title="modal.content"
                 class="header-nav header-nav-modal"
-                @click="accountModal(modal.link)"
+                @click="accountModal(true, modal.link)"
             />
         </div>
 
         <!-- L'icone de menu qui apparait en responsive -->
-        <button class="reponsive-header-button" :to="{ name: 'Home' }" @click="accountModal('menu')">
+        <button
+            class="reponsive-header-button"
+            :to="{ name: 'Home' }"
+            @click="openAndHandleModalMenu"
+        >
             <HeaderMenuIcon class="reponsive-header-icon" />
         </button>
+
+        <MenuModal />
     </header>
 </template>
