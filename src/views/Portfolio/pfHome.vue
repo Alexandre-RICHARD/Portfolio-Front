@@ -4,9 +4,14 @@ const age = Math.round(
 );
 
 const copy = () => {
+    const copyAlert = document.querySelector(".copy-confirm-alert");
     navigator.clipboard.writeText(
         document.querySelector("#discordId").getAttribute("toCopy")
     );
+    copyAlert.classList.toggle("hidden");
+    setTimeout(() => {
+        copyAlert.classList.toggle("hidden");
+    }, 1500);
 };
 const discordId = "Shadowmere#5754";
 </script>
@@ -124,12 +129,19 @@ const discordId = "Shadowmere#5754";
                 href="https://linkedin.com/in/alexandre-richard-dev4/"
                 target="_blank"
             >LinkedIn</a>
-            <button
-                id="discordId" title="Discord" :toCopy="discordId" class="contact-link"
-                content="Discord" @click="copy"
-            >
-                Discord
-            </button>
+            <div class="discord-container">
+                <button
+                    id="discordId"
+                    title="Discord"
+                    :toCopy="discordId"
+                    class="contact-link"
+                    content="Discord"
+                    @click="copy"
+                >
+                    Discord
+                </button>
+                <span class="copy-confirm-alert hidden">Copié !</span>
+            </div>
         </div>
 
         <router-link

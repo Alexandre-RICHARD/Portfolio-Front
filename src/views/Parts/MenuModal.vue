@@ -1,12 +1,12 @@
 <script setup>
 import PortfolioHeaderLink from "../Parts/PortfolioHeaderLink.vue";
-    
+
 import { usePortfolioStore } from "../../store/Portfolio";
 import { useGlobalStore } from "../../store/Global";
-    
+
 const PortfolioStore = usePortfolioStore();
 const { headerLinks } = PortfolioStore;
-    
+
 const GlobalStore = useGlobalStore();
 const { modalData } = GlobalStore;
 </script>

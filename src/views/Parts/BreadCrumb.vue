@@ -5,7 +5,11 @@ const route = useRoute();
 
 <template>
     <div class="bread-crumb">
-        <div v-for="partPath in route.matched" :key="partPath.name" class="one-path-box">
+        <div
+            v-for="partPath in route.matched"
+            :key="partPath.name"
+            class="one-path-box"
+        >
             <span class="guillemet">></span>
             <router-link class="link" :to="{ name: partPath.name }">
                 {{ partPath.meta.path }}

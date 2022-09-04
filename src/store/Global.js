@@ -8,6 +8,6 @@ export const useGlobalStore = defineStore("Global", {
         modalData: {
             open: false,
             type: null,
-        }
+        },
     }),
 });

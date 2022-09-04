@@ -294,4 +294,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Léger Hover sur le SVG du Menu
 -   Stylisation de la modal du Menu
 
+### 0.8.16 `4 septembre 2022`
+
+-   Rajout d'un petit message "copié" quand on clique sur le boutton du Discord pour copier le pseudo
+
 </details>

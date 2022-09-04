@@ -94,6 +94,7 @@
         flex-wrap: wrap;
 
         .contact-link {
+            height: fit-content;
             text-align: center;
             background-color: $dark2-color;
             color: $white-color;
@@ -103,9 +104,26 @@
             border-radius: 7px;
             display: block;
         }
+
+        .discord-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+
+            .copy-confirm-alert {
+                position: absolute;
+                top: -10px;
+                width: fit-content;
+                background-color: $button-color;
+                padding: 3px 8px;
+                border-radius: 4px;
+            }
+        }
     }
 
-    .link-to-more, .contact-link {
+    .link-to-more,
+    .contact-link {
         &::before {
             display: block;
             content: attr(title);
