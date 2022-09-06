@@ -298,4 +298,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Rajout d'un petit message "copié" quand on clique sur le boutton du Discord pour copier le pseudo
 
+### 0.8.17 `7 septembre 2022`
+
+-   Reprise de la structure du projet pour y implémenterma nouvelle manière de voir le site, ces deux facettes et ainsi mieux reprendre la création de celui-ci car cela commençait à bloquer
+-   Mise en .temp, donc sortis du projet tous les fichiers sauf ceux nécessaire à une reprise à zéro du projet
+-   Retrait de .htaccess du dossier .copy et remise dans le dossier public. Effectivement, je suis parevenu à le .gitignorer
+-   Renommmagede ces quelques fichiers initiaux pour qu'ils soient plus clairs et ainsi moins me perdre dans la suite (mine de rien, l'organisation des fichiers est un petit casse-tête)
+
 </details>

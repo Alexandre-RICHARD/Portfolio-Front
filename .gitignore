@@ -1,6 +1,6 @@
-.copy/
 .vscode/
 .temp/
 dist/
 node_modules/
+public/.htaccess
 .prettierrc.js

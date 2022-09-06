@@ -2,13 +2,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // On importe toutes les vues qui seront utilisés par notre router principal
-import HomePage from "../views/Primary/HomePage.vue";
-import NotFoundTop from "../views/Primary/NotFoundTop.vue";
-
-import pfHome from "../views/Portfolio/pfHome.vue";
-import pfCurriculum from "../views/Portfolio/pfCurriculum.vue";
-import pfProjects from "../views/Portfolio/pfProjects.vue";
-import pfContact from "../views/Portfolio/pfContact.vue";
+import HomePage from "../views/Page/HomePage.vue";
+import NotFound from "../views/Page/NotFound.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
@@ -18,47 +13,13 @@ const routes = [
         name: "Home",
         components: { mainRouter: HomePage },
         meta: { title: "Alexandre Richard", path: "Page d'accueil" },
-        children: [
-            {
-                // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
-                path: "/portfolio",
-                name: "Portfolio",
-                meta: { path: "Portfolio" },
-                children: [
-                    {
-                        path: "home",
-                        name: "PortfolioHome",
-                        components: { portfolioRouter: pfHome },
-                        meta: { title: "Alexandre Richard", path: "Accueil" },
-                    },
-                    {
-                        path: "curriculum",
-                        name: "PortfolioCurriculum",
-                        components: { portfolioRouter: pfCurriculum },
-                        meta: { title: "Curriculum", path: "Curriculum" },
-                    },
-                    {
-                        path: "project",
-                        name: "PortfolioProject",
-                        components: { portfolioRouter: pfProjects },
-                        meta: { title: "Projets", path: "Projets" },
-                    },
-                    {
-                        path: "contact",
-                        name: "PortfolioContact",
-                        components: { portfolioRouter: pfContact },
-                        meta: { title: "Contact", path: "Contact" },
-                    },
-                ],
-            },
-        ],
     },
-    // Gestion des pages non trouvées
     {
+        // Gestion des pages non trouvées
         path: "/:pathMatch(.*)*",
         name: "404",
-        components: { mainRouter: NotFoundTop },
-        meta: { title: "404" },
+        components: { mainRouter: NotFound },
+        meta: { title: "Le coin 404", path: "Le coin 404" },
     },
 ];
 
