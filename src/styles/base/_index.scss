@@ -3,6 +3,9 @@
 // On importe nos différentes feuilles de styles
 @use "../Page/HomePage";
 
+@use "../Page/Portfolio/pfHome";
+@use "../Page/Portfolio/pfContact";
+
 @use "../Parts/AccountModal";
 @use "../Parts/BreadCrumb";
 @use "../Parts/ProjectVersionning";

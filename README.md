@@ -325,4 +325,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Remise en place de tous les composants d'avant sauf la page PortfolioHome
 -   Instauration des fichiers de composants pour les futures pages
 
+### 0.9.1 `9 septembre 2022`
+
+-   Remise des images utilisé dans pfHome
+-   Remise de pfHome et le début de pfContact que j'avais commencé
+-   Adaptation des styles pour correspondre au nouvelles variables de couleurs
+-   Rajout d'une animation pour le petit span "copié" qui apparait à la suite du clic sur un boutton de copie
+
 </details>

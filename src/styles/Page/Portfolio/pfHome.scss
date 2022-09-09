@@ -1,0 +1,174 @@
+@import "../../Base/variables";
+
+//? Les élements réutilisés plusieurs fois
+.paragraph {
+    color: var(--textColor);
+    padding: 3px 0;
+    text-align: justify;
+}
+
+.categories {
+    color: var(--titleColor);
+    padding-top: 15px;
+    font-weight: 400;
+    font-size: $big-font-size;
+}
+//? Les élements réutilisés plusieurs fois
+
+.home-first-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .page-title {
+        color: var(--titleColor);
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 35px;
+    }
+
+    .main-skills {
+        color: var(--titleColor);
+    }
+
+    .illustration {
+        width: calc(100% - 320px);
+        object-fit: cover;
+        padding-left: 40px;
+    }
+}
+
+.presentation-link-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.link-to-more {
+    background-color: var(--buttonColorOne);
+    color: var(--titleColor);
+    width: fit-content;
+    padding: 6px;
+    margin: 10px auto;
+    border-radius: 7px;
+    display: block;
+    text-align: center;
+
+    &.curriculum-pdf {
+        background-color: var(--buttonColorTwo);
+    }
+}
+
+.promote-project-box {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .one-project {
+        width: 250px;
+        border-radius: 15px;
+        border: 3px solid var(--buttonColorOne);
+        margin: 20px;
+        overflow: hidden;
+
+        &-title {
+            color: var(--buttonColorOne);
+            padding: 0 5px;
+            font-weight: 400;
+            font-size: $big-font-size;
+        }
+
+        &-description {
+            padding: 0 5px 15px 5px;
+            color: var(--titleColor);
+            text-align: justify;
+        }
+    }
+}
+
+.home-contact-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .contact-link {
+        height: fit-content;
+        text-align: center;
+        background-color: var(--smoothBackgroundColor);
+        color: var(--titleColor);
+        font-size: $normal-font-size;
+        padding: 8px 12px;
+        margin: 10px;
+        border-radius: 7px;
+        display: block;
+    }
+
+    .discord-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        .copy-confirm-alert {
+            position: absolute;
+            top: -10px;
+            width: fit-content;
+            background-color: var(--buttonColorTwo);
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: none;
+
+            &.displayed {
+                display: block;
+                animation: myAnim 2s ease normal;
+            }
+
+            @keyframes myAnim {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-25px);
+                }
+            
+                50% {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateX(25px);
+                }
+            }
+        }
+    }
+}
+
+.link-to-more,
+.contact-link {
+    &::before {
+        display: block;
+        content: attr(title);
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+.link-to-more {
+    &::before {
+        font-weight: 600;
+    }
+    &:hover {
+        font-weight: 600;
+    }
+}
+
+.contact-link {
+    &::before {
+        font-weight: 700;
+        letter-spacing: 1.2px;
+    }
+    &:hover {
+        font-weight: 700;
+        letter-spacing: 1.2px;
+    }
+}
