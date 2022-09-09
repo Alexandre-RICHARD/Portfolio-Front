@@ -1,3 +1,3 @@
 <template>
-    <p class="versionning">build 47 ; V-0.9.1</p>
+    <p class="versionning">build 48 ; V-0.9.2</p>
 </template>

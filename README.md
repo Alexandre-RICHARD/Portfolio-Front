@@ -332,4 +332,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Adaptation des styles pour correspondre au nouvelles variables de couleurs
 -   Rajout d'une animation pour le petit span "copié" qui apparait à la suite du clic sur un boutton de copie
 
+### 0.9.2 `10 septembre 2022`
+
+-   Petit correctif pour mettre les couleurs de Background et de title sur chaque couche d'élément qui avait besoin pour ne pas être en retard lors des transition
+
 </details>

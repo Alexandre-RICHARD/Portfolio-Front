@@ -2,12 +2,14 @@
 
 //? Les élements réutilisés plusieurs fois
 .paragraph {
+    background-color: var(--backgroundColor);
     color: var(--textColor);
     padding: 3px 0;
     text-align: justify;
 }
 
 .categories {
+    background-color: var(--backgroundColor);
     color: var(--titleColor);
     padding-top: 15px;
     font-weight: 400;
@@ -15,160 +17,174 @@
 }
 //? Les élements réutilisés plusieurs fois
 
-.home-first-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
+.portfolio-home {
+    background-color: var(--backgroundColor);
+    .home-first-container {
+        background-color: var(--backgroundColor);
+        width: 100%;
+        display: flex;
+        align-items: center;
 
-    .page-title {
-        color: var(--titleColor);
-        font-weight: 500;
-        font-size: 35px;
-        line-height: 35px;
-    }
-
-    .main-skills {
-        color: var(--titleColor);
-    }
-
-    .illustration {
-        width: calc(100% - 320px);
-        object-fit: cover;
-        padding-left: 40px;
-    }
-}
-
-.presentation-link-box {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.link-to-more {
-    background-color: var(--buttonColorOne);
-    color: var(--titleColor);
-    width: fit-content;
-    padding: 6px;
-    margin: 10px auto;
-    border-radius: 7px;
-    display: block;
-    text-align: center;
-
-    &.curriculum-pdf {
-        background-color: var(--buttonColorTwo);
-    }
-}
-
-.promote-project-box {
-    padding: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-    .one-project {
-        width: 250px;
-        border-radius: 15px;
-        border: 3px solid var(--buttonColorOne);
-        margin: 20px;
-        overflow: hidden;
-
-        &-title {
-            color: var(--buttonColorOne);
-            padding: 0 5px;
-            font-weight: 400;
-            font-size: $big-font-size;
-        }
-
-        &-description {
-            padding: 0 5px 15px 5px;
+        .page-title {
+            background-color: var(--backgroundColor);
             color: var(--titleColor);
-            text-align: justify;
+            font-weight: 500;
+            font-size: 35px;
+            line-height: 35px;
+        }
+
+        .main-skills {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+        }
+
+        .illustration {
+            background-color: var(--backgroundColor);
+            width: calc(100% - 320px);
+            object-fit: cover;
+            padding-left: 40px;
         }
     }
-}
 
-.home-contact-box {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    .presentation-link-box {
+        background-color: var(--backgroundColor);
+        display: flex;
+        justify-content: space-evenly;
+    }
 
-    .contact-link {
-        height: fit-content;
-        text-align: center;
-        background-color: var(--smoothBackgroundColor);
+    .link-to-more {
+        background-color: var(--buttonColorOne);
         color: var(--titleColor);
-        font-size: $normal-font-size;
-        padding: 8px 12px;
-        margin: 10px;
+        width: fit-content;
+        padding: 6px;
+        margin: 10px auto;
         border-radius: 7px;
         display: block;
+        text-align: center;
+
+        &.curriculum-pdf {
+            background-color: var(--buttonColorTwo);
+        }
     }
 
-    .discord-container {
+    .promote-project-box {
+        background-color: var(--backgroundColor);
+        padding: 20px 0;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
+        flex-wrap: wrap;
+        justify-content: space-around;
 
-        .copy-confirm-alert {
-            position: absolute;
-            top: -10px;
-            width: fit-content;
-            background-color: var(--buttonColorTwo);
-            padding: 3px 8px;
-            border-radius: 4px;
-            display: none;
+        .one-project {
+            background-color: var(--backgroundColor);
+            width: 250px;
+            border-radius: 15px;
+            border: 3px solid var(--buttonColorOne);
+            margin: 20px;
+            overflow: hidden;
 
-            &.displayed {
-                display: block;
-                animation: myAnim 2s ease normal;
+            &-title {
+                background-color: var(--backgroundColor);
+                color: var(--buttonColorOne);
+                padding: 0 5px;
+                font-weight: 400;
+                font-size: $big-font-size;
             }
 
-            @keyframes myAnim {
-                0% {
-                    opacity: 0;
-                    transform: translateX(-25px);
+            &-description {
+                background-color: var(--backgroundColor);
+                padding: 0 5px 15px 5px;
+                color: var(--titleColor);
+                text-align: justify;
+            }
+        }
+    }
+
+    .home-contact-box {
+        background-color: var(--backgroundColor);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .contact-link {
+            height: fit-content;
+            text-align: center;
+            background-color: var(--smoothBackgroundColor);
+            color: var(--titleColor);
+            font-size: $normal-font-size;
+            padding: 8px 12px;
+            margin: 10px;
+            border-radius: 7px;
+            display: block;
+        }
+
+        .discord-container {
+            background-color: var(--backgroundColor);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+
+            .copy-confirm-alert {
+                position: absolute;
+                top: -10px;
+                width: fit-content;
+                background-color: var(--buttonColorTwo);
+                padding: 3px 8px;
+                border-radius: 4px;
+                display: none;
+
+                &.displayed {
+                    display: block;
+                    animation: myAnim 2s ease normal;
                 }
-            
-                50% {
-                    opacity: 1;
-                    transform: translateX(0px);
-                }
-                100% {
-                    opacity: 0;
-                    transform: translateX(25px);
+
+                @keyframes myAnim {
+                    0% {
+                        opacity: 0;
+                        transform: translateX(-25px);
+                    }
+
+                    50% {
+                        opacity: 1;
+                        transform: translateX(0px);
+                    }
+                    100% {
+                        opacity: 0;
+                        transform: translateX(25px);
+                    }
                 }
             }
         }
     }
-}
 
-.link-to-more,
-.contact-link {
-    &::before {
-        display: block;
-        content: attr(title);
-        height: 0;
-        overflow: hidden;
-        visibility: hidden;
+    .link-to-more,
+    .contact-link {
+        &::before {
+            display: block;
+            content: attr(title);
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
     }
-}
 
-.link-to-more {
-    &::before {
-        font-weight: 600;
+    .link-to-more {
+        &::before {
+            font-weight: 600;
+        }
+        &:hover {
+            font-weight: 600;
+        }
     }
-    &:hover {
-        font-weight: 600;
-    }
-}
 
-.contact-link {
-    &::before {
-        font-weight: 700;
-        letter-spacing: 1.2px;
-    }
-    &:hover {
-        font-weight: 700;
-        letter-spacing: 1.2px;
+    .contact-link {
+        &::before {
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
+        &:hover {
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
     }
 }
