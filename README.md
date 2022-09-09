@@ -305,4 +305,24 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Retrait de .htaccess du dossier .copy et remise dans le dossier public. Effectivement, je suis parevenu à le .gitignorer
 -   Renommmagede ces quelques fichiers initiaux pour qu'ils soient plus clairs et ainsi moins me perdre dans la suite (mine de rien, l'organisation des fichiers est un petit casse-tête)
 
+### 0.9.0 `9 septembre 2022`
+
+-   Dossier styles/base renommé Base
+-   Grosse refonte du site en repartant de zéro et en remettant ce qui a déjà été fait en l'adaptant
+-   Instauration d'un site en 3 parties avec Home, Portfolio et TryHard
+-   Restructuration du Header pour s'y adapter
+-   Rajout d'une variable section dans la meta des routes pour identifier quelle section du site est utilisée
+-   Mise en place d'une partie pour changer le thème du site
+-   Pour cela, le header comporte des petits boutons sur la gauche et dans le futur, dans la modalMenu pour les petits écrans
+-   Aussi, le store comporte les différentes variables de thème de couleur et les variables en css pure (pas en scss) sont changés
+-   Séparation des données de liens en 3. POur les 3 parties différentes comme cela, les liens du header correspondent à la partie mais avec toujours la possibilité de revenir au menu de 2 manières
+-   Mise dans une pseudo-classe :root les variables d'origine. Peut-être le futur fera que le choix du thème sera enregistré dans un cookie
+-   Remplacement de toutes les appels de variales scss par les nouvelles en css var(--###)
+-   Quelques animations sur le header
+-   Refonte des @media-queries et ajustement
+-   accountModal déplacé dans le fichier App.vue d'origine
+-   Rajout de la fonction sectionChanger pour gérer le changement de section du site avec les différents Router-Link
+-   Remise en place de tous les composants d'avant sauf la page PortfolioHome
+-   Instauration des fichiers de composants pour les futures pages
+
 </details>

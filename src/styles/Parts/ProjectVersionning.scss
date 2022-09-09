@@ -1,0 +1,11 @@
+@import "../Base/variables";
+
+.versionning {
+    background-color: var(--smoothBackgroundColor);
+    color: var(--textColor);
+    font-size: 12px;
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

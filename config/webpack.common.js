@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     // Les deux points d'entrées JavaScript de l'application
-    entry: [paths.src + "/styles/base/_index.scss", paths.src + "/index.js"],
+    entry: [paths.src + "/styles/Base/_index.scss", paths.src + "/index.js"],
     resolve: {
         alias: {
             src: paths.src,

@@ -5,6 +5,13 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/Page/HomePage.vue";
 import NotFound from "../views/Page/NotFound.vue";
 
+import pfHome from "../views/Portfolio/pfHome.vue";
+import pfCurriculum from "../views/Portfolio/pfCurriculum.vue";
+import pfProjects from "../views/Portfolio/pfProjects.vue";
+import pfContact from "../views/Portfolio/pfContact.vue";
+
+import thsrHome from "../views/TryHardSlowRun/thsrHome.vue";
+
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
     {
@@ -12,8 +19,57 @@ const routes = [
         path: "",
         name: "Home",
         components: { mainRouter: HomePage },
-        meta: { title: "Alexandre Richard", path: "Page d'accueil" },
+        meta: { title: "Alexandre Richard", path: "Page d'accueil", section: "Home" },
+        children: [
+            {
+                // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
+                path: "/portfolio",
+                name: "Portfolio",
+                meta: { path: "Portfolio", section: "Portfolio" },
+                children: [
+                    {
+                        path: "home",
+                        name: "PortfolioHome",
+                        components: { portfolioRouter: pfHome },
+                        meta: { title: "Alexandre Richard", path: "Accueil", section: "Portfolio" },
+                    },
+                    {
+                        path: "curriculum",
+                        name: "PortfolioCurriculum",
+                        components: { portfolioRouter: pfCurriculum },
+                        meta: { title: "Curriculum", path: "Curriculum", section: "Portfolio" },
+                    },
+                    {
+                        path: "project",
+                        name: "PortfolioProject",
+                        components: { portfolioRouter: pfProjects },
+                        meta: { title: "Projets", path: "Projets", section: "Portfolio" },
+                    },
+                    {
+                        path: "contact",
+                        name: "PortfolioContact",
+                        components: { portfolioRouter: pfContact },
+                        meta: { title: "Contact", path: "Contact", section: "Portfolio" },
+                    },
+                ],
+            },
+            {
+                // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
+                path: "/tryhard/slowrun",
+                name: "TryHard",
+                meta: { path: "TryHard SlowRun", section: "TryHard" },
+                children: [
+                    {
+                        path: "home",
+                        name: "TryHardHome",
+                        components: { tryhardRouter: thsrHome },
+                        meta: { title: "TryHard but SlowRun", path: "Accueil", section: "TryHard" },
+                    },
+                ],
+            },
+        ],
     },
+    // Gestion des pages non trouvées
     {
         // Gestion des pages non trouvées
         path: "/:pathMatch(.*)*",

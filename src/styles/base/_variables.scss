@@ -1,17 +1,21 @@
 // On stocke quelques variables CSS ici
 $header-height-size: 75px;
+$header-theme-choice-size: 28px;
 $menu-modal-size: 300px;
 
 $small-font-size: 12px;
 $normal-font-size: 16px;
-$big-font-size: 20px;
+$big-font-size: 18px;
 
-$header-color: #f25f4c;
-$link-color: #ff8906;
-$button-color: #e53170;
-$white-color: #ffffff;
-$black-color: #000000;
-$grey-color: #a7a9be;
-$dark1-color: #0f0e17;
-$dark2-color: #242230;
-$text-shadow-color: #0f0e178e;
+$transparent: #ffffff33;
+
+:root {
+    --backgroundColor: #0f0e17;
+    --smoothBackgroundColor: #242230;
+    --titleColor: #ffffff;
+    --textColor: #a7a9be;
+    --textShadowColor: #0f0e178e;
+    --headerColor: #f25f4c;
+    --buttonColorOne: #ff8906;
+    --buttonColorTwo: #e53170;
+}
