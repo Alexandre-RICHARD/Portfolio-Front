@@ -3,14 +3,14 @@ import { createRouter, createWebHistory } from "vue-router";
 
 // On importe toutes les vues qui seront utilisés par notre router principal
 import HomePage from "../views/Page/HomePage.vue";
-import NotFound from "../views/Page/NotFound.vue";
+import NotFound from "../views/Page/Other/NotFound.vue";
 
-import pfHome from "../views/Portfolio/pfHome.vue";
-import pfCurriculum from "../views/Portfolio/pfCurriculum.vue";
-import pfProjects from "../views/Portfolio/pfProjects.vue";
-import pfContact from "../views/Portfolio/pfContact.vue";
+import pfHome from "../views/Page/Portfolio/pfHome.vue";
+import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
+import pfProjects from "../views/Page/Portfolio/pfProjects.vue";
+import pfContact from "../views/Page/Portfolio/pfContact.vue";
 
-import thsrHome from "../views/TryHardSlowRun/thsrHome.vue";
+import thsrHome from "../views/Page/TryHardSlowRun/thsrHome.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
@@ -74,7 +74,7 @@ const routes = [
         // Gestion des pages non trouvées
         path: "/:pathMatch(.*)*",
         name: "404",
-        components: { mainRouter: NotFound },
+        components: { otherRouter: NotFound },
         meta: { title: "Le coin 404", path: "Le coin 404" },
     },
 ];

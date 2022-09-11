@@ -336,4 +336,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Petit correctif pour mettre les couleurs de Background et de title sur chaque couche d'élément qui avait besoin pour ne pas être en retard lors des transition
 
+### 0.9.3 `11 septembre 2022`
+
+-   Synchronisation entre les noms de fichiers vue et des fichiers scss ainsi que leur organisation
+-   Mise du NotFound dans un 4ème router-view nommé Other
+-   Retrait de deux lignes dans la template SVG du menu-header-icon
+-   Tentative de faire un habillage avec des vagues animés, bien avancé mais remis à plus tard
+
 </details>
