@@ -377,4 +377,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Utilisation de Prettier sur tous les fichiers du projets pour unformiser le code et avoir un projet plus propre
 -   Préservation du index.scss de base mais déplacement à la racine du dossier source pour avoir html/js/css au même endroit
 
+### 0.9.8 `14 septembre 2022`
+
+-   Petite modification dans le background image du fire (NotFound) pour que la hauteur soit de 15px, avec le repeat et la proportion conservé
+
 </details>

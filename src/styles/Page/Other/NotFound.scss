@@ -34,10 +34,11 @@
         margin-left: 57px;
         align-self: flex-start;
         position: relative;
-        top: -15px;
+        top: -18px;
         width: 0px;
         height: 15px;
-        background: url("./images/fire.png") repeat-x left/contain;
+        background: url("./images/fire.png") repeat-x left;
+        background-size: auto 15px;
 
         &.animate {
             animation: backToTheFuturFire 1 2.5s ease;
