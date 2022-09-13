@@ -16,8 +16,8 @@ const { modalData } = MainStore;
     <!-- <WaveDecoration class="wave-decoration" /> -->
     <div class="page-background">
         <div class="page-container">
+            <router-view name="notFoundRouter" />
             <router-view name="mainRouter" />
-            <router-view name="otherRouter" />
         </div>
     </div>
 </template>

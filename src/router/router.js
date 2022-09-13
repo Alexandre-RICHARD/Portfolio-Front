@@ -74,7 +74,7 @@ const routes = [
         // Gestion des pages non trouvées
         path: "/:pathMatch(.*)*",
         name: "404",
-        components: { otherRouter: NotFound },
+        components: { notFoundRouter: NotFound },
         meta: { title: "Le coin 404", path: "Le coin 404" },
     },
 ];

@@ -30,8 +30,9 @@ const discordId = "Shadowmere#5754";
                 </h3>
             </div>
             <img
+                alt="illustration représentant du code javascript"
                 class="illustration"
-                src="../../../assets/images/code-illustration.png"
+                src="../../../images/code-illustration.png"
             >
         </div>
 
@@ -68,7 +69,7 @@ const discordId = "Shadowmere#5754";
         <div class="promote-project-box">
             <div class="one-project">
                 <img
-                    src="../../../assets/images/project1-view.png"
+                    src="../../../images/project1-view.png"
                     alt="Visuel du projet 1"
                     class="one-project-image"
                 >
@@ -81,7 +82,7 @@ const discordId = "Shadowmere#5754";
             </div>
             <div class="one-project">
                 <img
-                    src="../../../assets/images/project2-view.png"
+                    src="../../../images/project2-view.png"
                     alt="Visuel du projet 2"
                     class="one-project-image"
                 >
@@ -94,7 +95,7 @@ const discordId = "Shadowmere#5754";
             </div>
             <div class="one-project">
                 <img
-                    src="../../../assets/images/project3-view.png"
+                    src="../../../images/project3-view.png"
                     alt="Visuel du projet 3"
                     class="one-project-image"
                 >
