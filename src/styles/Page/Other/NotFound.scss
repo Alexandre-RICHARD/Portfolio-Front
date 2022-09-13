@@ -1,6 +1,7 @@
 @import "../../Base/variables";
 
 .page404page {
+    padding: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -14,7 +15,6 @@
         color: var(--titleColor);
     }
     .page404text {
-        text-align: center;
         font-size: 20px;
         font-weight: 400;
         letter-spacing: 1px;
@@ -24,15 +24,24 @@
     .dolorean {
         padding-top: 24vh;
         cursor: pointer;
-        // animation: backToTheFutur 2s infinite ease;
+        
+        &.animate {
+            animation: backToTheFutur 1 2.5s ease;
+        }
     }
 
     .fire {
+        margin-left: 57px;
+        align-self: flex-start;
         position: relative;
         top: -15px;
-        width: 100px;
+        width: 0px;
         height: 15px;
-        background: url("../images/fire.png") repeat left/contain;
+        background: url("../images/fire.png") repeat-x left/contain;
+
+        &.animate {
+            animation: backToTheFuturFire 1 2.5s ease;
+        }
     }
 
     @keyframes backToTheFutur {
@@ -40,11 +49,11 @@
         }
 
         30% {
-            transform: translateX(-100%);
+            transform: translateX(calc(-50vw + 115px));
         }
 
         100% {
-            transform: translateX(900%);
+            transform: translateX(245vw);
         }
     }
 
@@ -58,7 +67,7 @@
         }
 
         100% {
-            width: 1000%;
+            width: 282vw;
         }
     }
 }

@@ -365,4 +365,12 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Push de deux fichier non validé par erreur
 
+### 0.9.6 `13 septembre 2022`
+
+-   La hauteur minimal n'est plus sur le page-container mais sur le page-background maintenant
+-   Déplacement du NotFound sur le bloc supérieur, dans le page-background
+-   Stylisation finie de la transition 404 > Other
+-   Mise en place du toggle lors du clic de la Dolorean
+-   
+
 </details>

@@ -2,11 +2,16 @@
 import { useRouter } from "vue-router";
 const router = useRouter();
 
-const returnonSite = () => {
+const returnOnSite = () => {
+    const dolorean = document.querySelector(".dolorean");
+    const fire = document.querySelector(".fire");
+    dolorean.classList.toggle("animate");
+    fire.classList.toggle("animate");
     setTimeout(() => {
-        console.log("hihi");
+        dolorean.classList.toggle("animate");
+        fire.classList.toggle("animate");
         router.push({ name: "Home" });
-    }, 2000);
+    }, 1250);
 };
 </script>
 
@@ -21,7 +26,7 @@ const returnonSite = () => {
             class="dolorean"
             alt="Une dolorean de retour vers le futur pour retourner en arrière"
             src="../../../images/Dolorean.png"
-            @click="returnonSite"
+            @click="returnOnSite"
         >
         <div class="fire" />
     </div>
