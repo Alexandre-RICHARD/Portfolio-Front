@@ -19,7 +19,11 @@ const routes = [
         path: "",
         name: "Home",
         components: { mainRouter: HomePage },
-        meta: { title: "Alexandre Richard", path: "Page d'accueil", section: "Home" },
+        meta: {
+            title: "Alexandre Richard",
+            path: "Page d'accueil",
+            section: "Home",
+        },
         children: [
             {
                 // Un simple intermédiaire pour dire que tous les enfants auront cette base d'URL là
@@ -31,25 +35,41 @@ const routes = [
                         path: "home",
                         name: "PortfolioHome",
                         components: { portfolioRouter: pfHome },
-                        meta: { title: "Alexandre Richard", path: "Accueil", section: "Portfolio" },
+                        meta: {
+                            title: "Alexandre Richard",
+                            path: "Accueil",
+                            section: "Portfolio",
+                        },
                     },
                     {
                         path: "curriculum",
                         name: "PortfolioCurriculum",
                         components: { portfolioRouter: pfCurriculum },
-                        meta: { title: "Curriculum", path: "Curriculum", section: "Portfolio" },
+                        meta: {
+                            title: "Curriculum",
+                            path: "Curriculum",
+                            section: "Portfolio",
+                        },
                     },
                     {
                         path: "project",
                         name: "PortfolioProject",
                         components: { portfolioRouter: pfProjects },
-                        meta: { title: "Projets", path: "Projets", section: "Portfolio" },
+                        meta: {
+                            title: "Projets",
+                            path: "Projets",
+                            section: "Portfolio",
+                        },
                     },
                     {
                         path: "contact",
                         name: "PortfolioContact",
                         components: { portfolioRouter: pfContact },
-                        meta: { title: "Contact", path: "Contact", section: "Portfolio" },
+                        meta: {
+                            title: "Contact",
+                            path: "Contact",
+                            section: "Portfolio",
+                        },
                     },
                 ],
             },
@@ -63,7 +83,11 @@ const routes = [
                         path: "home",
                         name: "TryHardHome",
                         components: { tryhardRouter: thsrHome },
-                        meta: { title: "TryHard but SlowRun", path: "Accueil", section: "TryHard" },
+                        meta: {
+                            title: "TryHard but SlowRun",
+                            path: "Accueil",
+                            section: "TryHard",
+                        },
                     },
                 ],
             },

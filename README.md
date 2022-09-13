@@ -190,7 +190,7 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Supression d'un commentaire dans le html original pour ne pas qu'il apparassent dans le chrome dev
 -   Gros changement dans le router. Il n'y aura plus de page intermédiaire pour tryhard ou portfolio et les router se situeront dans la home page
--   Renommmage de quelques fichiers pour encore améliorer la lisibilité de l'arborescence 
+-   Renommmage de quelques fichiers pour encore améliorer la lisibilité de l'arborescence
 -   Le reset.css est devenu un fichier scss
 -   Supression du portfolio.scss. Il est à présent divisé en 5 partie, le header et les 4 parties différentes du portfolio
 -   Remise de la font dans l'index.scss de base, ça ne sert à rien de l'indiquer ailleurs
@@ -371,6 +371,10 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Déplacement du NotFound sur le bloc supérieur, dans le page-background
 -   Stylisation finie de la transition 404 > Other
 -   Mise en place du toggle lors du clic de la Dolorean
--   
+
+### 0.9.7 `13 septembre 2022`
+
+-   Utilisation de Prettier sur tous les fichiers du projets pour unformiser le code et avoir un projet plus propre
+-   Préservation du index.scss de base mais déplacement à la racine du dossier source pour avoir html/js/css au même endroit
 
 </details>

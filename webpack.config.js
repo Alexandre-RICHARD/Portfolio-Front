@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
     mode: mode,
     // Les deux points d'entrées JavaScript de l'application
-    entry: ["./src/styles/index.scss", "./src/index.js"],
+    entry: ["./src/index.scss", "./src/index.js"],
     performance: performance,
     devtool: devtool,
     devServer: {
@@ -40,11 +40,11 @@ module.exports = {
         hot: true,
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, "dist"),
         publicPath: publicPath,
-        filename: 'js/[name].[contenthash].js',
+        filename: "js/[name].[contenthash].js",
         assetModuleFilename: "images/[hash][ext][query]",
-      },
+    },
     plugins: [
         // Utilisation des plugins pour charger vue, pour vider dist/ avant de build et pour copier les fichiers statiques
         new VueLoaderPlugin(),
@@ -128,7 +128,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: "../"
+                            publicPath: "../",
                         },
                     },
                     {

@@ -1,9 +1,7 @@
 <script setup>
-
 const randomizer = (min, max) => {
-    return (min + Math.round(Math.random() * (max - min)));
+    return min + Math.round(Math.random() * (max - min));
 };
-
 
 const njd = `
 M0,64
@@ -54,9 +52,8 @@ C50.5,320,25,320,13,320
 
 L0,320Z`;
 
-
 let connerie = [];
-let temp ="";
+let temp = "";
 
 const pointNumber = 10;
 const height = 1440;
@@ -66,12 +63,21 @@ for (let i = 0; i < pointNumber; i++) {
     for (let j = 0; j < 3; j++) {
         if (j === 0) {
             connerie[i].push(randomizer(150, 250));
-
         } else {
-            connerie[i].push(randomizer(connerie[i][0] - 150, connerie[i][0] + 50));
+            connerie[i].push(
+                randomizer(connerie[i][0] - 150, connerie[i][0] + 50)
+            );
         }
     }
-    temp = temp + `C ${connerie[i][1]},${i * height / pointNumber + height / pointNumber * 1 / 3} ${connerie[i][2]},${i * height / pointNumber + height / pointNumber * 2 / 3} ${connerie[i][0]},${i * height / pointNumber +  + height / pointNumber } `;
+    temp =
+        temp +
+        `C ${connerie[i][1]},${
+            (i * height) / pointNumber + ((height / pointNumber) * 1) / 3
+        } ${connerie[i][2]},${
+            (i * height) / pointNumber + ((height / pointNumber) * 2) / 3
+        } ${connerie[i][0]},${
+            (i * height) / pointNumber + +height / pointNumber
+        } `;
 }
 
 let path = `

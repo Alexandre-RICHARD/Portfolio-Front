@@ -51,17 +51,59 @@ export const useMainStore = defineStore("Main", {
         headerLinks: {
             currentSection: null,
             Home: [
-                { id: 0, type: "link", content: "Portfolio", link: "PortfolioHome", section: "Portfolio"},
-                { id: 1, type: "link", content: "TryHard but SlowRun", link: "TryHardHome", section: "TryHard"},
+                {
+                    id: 0,
+                    type: "link",
+                    content: "Portfolio",
+                    link: "PortfolioHome",
+                    section: "Portfolio",
+                },
+                {
+                    id: 1,
+                    type: "link",
+                    content: "TryHard but SlowRun",
+                    link: "TryHardHome",
+                    section: "TryHard",
+                },
             ],
             Portfolio: [
-                { id: 0, type: "link", content: "Accueil", link: "PortfolioHome", section: "Portfolio"},
-                { id: 1, type: "link", content: "Curriculum", link: "PortfolioCurriculum", section: "Portfolio"},
-                { id: 2, type: "link", content: "Projets", link: "PortfolioProject", section: "Portfolio"},
-                { id: 3, type: "link", content: "Contact", link: "PortfolioContact", section: "Portfolio"},
+                {
+                    id: 0,
+                    type: "link",
+                    content: "Accueil",
+                    link: "PortfolioHome",
+                    section: "Portfolio",
+                },
+                {
+                    id: 1,
+                    type: "link",
+                    content: "Curriculum",
+                    link: "PortfolioCurriculum",
+                    section: "Portfolio",
+                },
+                {
+                    id: 2,
+                    type: "link",
+                    content: "Projets",
+                    link: "PortfolioProject",
+                    section: "Portfolio",
+                },
+                {
+                    id: 3,
+                    type: "link",
+                    content: "Contact",
+                    link: "PortfolioContact",
+                    section: "Portfolio",
+                },
             ],
             TryHard: [
-                { id: 0, type: "link", content: "Accueil", link: "TryHardHome", section: "TryHard"},
+                {
+                    id: 0,
+                    type: "link",
+                    content: "Accueil",
+                    link: "TryHardHome",
+                    section: "TryHard",
+                },
             ],
         },
         headerModals: [

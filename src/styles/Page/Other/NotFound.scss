@@ -24,7 +24,7 @@
     .dolorean {
         padding-top: 24vh;
         cursor: pointer;
-        
+
         &.animate {
             animation: backToTheFutur 1 2.5s ease;
         }
@@ -37,7 +37,7 @@
         top: -15px;
         width: 0px;
         height: 15px;
-        background: url("../images/fire.png") repeat-x left/contain;
+        background: url("./images/fire.png") repeat-x left/contain;
 
         &.animate {
             animation: backToTheFuturFire 1 2.5s ease;

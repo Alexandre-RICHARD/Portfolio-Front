@@ -3,9 +3,9 @@
 </template>
 
 <style>
-    .temp {
-        color: var(--titleColor);
-        font: 500;
-        font-size: 30px;
-    }
+.temp {
+    color: var(--titleColor);
+    font: 500;
+    font-size: 30px;
+}
 </style>

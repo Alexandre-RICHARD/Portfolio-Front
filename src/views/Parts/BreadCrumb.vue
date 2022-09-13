@@ -25,7 +25,11 @@ const sectionChanger = (newSection) => {
             class="one-path-box"
         >
             <span class="guillemet">></span>
-            <router-link class="link" :to="{ name: partPath.name }" @click="sectionChanger(partPath.meta.section)">
+            <router-link
+                class="link"
+                :to="{ name: partPath.name }"
+                @click="sectionChanger(partPath.meta.section)"
+            >
                 {{ partPath.meta.path }}
             </router-link>
         </div>
