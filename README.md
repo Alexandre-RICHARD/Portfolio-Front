@@ -343,4 +343,26 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Retrait de deux lignes dans la template SVG du menu-header-icon
 -   Tentative de faire un habillage avec des vagues animés, bien avancé mais remis à plus tard
 
+### 0.9.4 `13 septembre 2022`
+
+-   Changement dans l'eslintIgnore pour ignorer le nouveau webpack.config.js
+-   Mise à jour des packages NPM
+-   Dans package.json, mise à jour des commandes start et build
+-   Combinaison des 3 fichiers de config de webpack pour optimiser et mieux gérer/comprendre les paramètres webpack
+-   Suppression du fichier paths et imbication de son contenu (que le nécessaire) dans le nouveau fichier
+-   Changement de la gestion dev/prod avec des variables d'environnement provenant des commandes npm run
+-   Changement de la gestion des fichiers/requête d'image en mettant type="asset" géré par webpack 5
+-   Suppression du dossier assets
+-   Déplacement du favicon dans src/images
+-   Déplacement de toutes les images dans src/images
+-   Déplacement d'index.html à la racine du dossier source
+-   Début de personnalisation de la page 404
+-   Première partie de l'animation 404 réalise avec la Dolorean de retour vers le futur
+-   Déplacement de la vue NotFound dans un router dédié
+-   Création d'un fichier (peut-être temporaire) scss pour être le point d'entrée
+
+### 0.9.5 `13 septembre 2022`
+
+-   Push de deux fichier non validé par erreur
+
 </details>
