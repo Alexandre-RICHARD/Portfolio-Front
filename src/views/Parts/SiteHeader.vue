@@ -1,22 +1,11 @@
 <script setup>
 import HeaderLink from "./HeaderLink.vue";
 import HeaderMenuIcon from "../SVG/HeaderMenuIcon.vue";
+import ThemePallet from "../Parts/ThemePallet.vue";
 import { useMainStore } from "../../store/Main";
 
 const MainStore = useMainStore();
-const { theme, headerLinks, headerModals, modalData } = MainStore;
-
-const changeTheme = (SelectedTheme) => {
-    document
-        .querySelectorAll(".theme-choice-button")
-        .forEach((element) => element.classList.remove("selected"));
-    theme.selected = SelectedTheme;
-    document.querySelector(`.${SelectedTheme}`).classList.toggle("selected");
-    const root = document.documentElement;
-    for (const [variable, value] of Object.entries(theme[theme.selected])) {
-        root.style.setProperty(`--${variable}`, value);
-    }
-};
+const { headerLinks, headerModals, modalData } = MainStore;
 
 const sectionChanger = (newSection) => {
     headerLinks.currentSection = newSection;
@@ -69,24 +58,7 @@ const openAndHandleModalMenu = () => {
     <header class="header-background">
         <div class="header-container">
             <div class="left-header-container">
-                <div class="theme-pallet">
-                    <button
-                        class="theme-choice-button classic selected"
-                        @click="changeTheme('classic')"
-                    />
-                    <button
-                        class="theme-choice-button modern"
-                        @click="changeTheme('modern')"
-                    />
-                    <button
-                        class="theme-choice-button light"
-                        @click="changeTheme('light')"
-                    />
-                    <button
-                        class="theme-choice-button dark"
-                        @click="changeTheme('dark')"
-                    />
-                </div>
+                <ThemePallet />
 
                 <router-link
                     class="header-logo"
@@ -132,12 +104,13 @@ const openAndHandleModalMenu = () => {
             </button>
 
             <div v-if="modalData.type === 'menu'" class="menu-modal">
+                <ThemePallet />
                 <HeaderLink
                     v-if="headerLinks.currentSection !== 'Home'"
                     type="link"
-                    title="Retour à l'accueil"
+                    title="&#8617; Retour à l'accueil"
                     link="Home"
-                    class="menu-nav-link"
+                    class="menu-nav-link backHome"
                     @click="sectionChanger('Home')"
                 />
                 <HeaderLink

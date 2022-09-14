@@ -385,4 +385,13 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Petite mise à jour du NotFound pour qu'il s'adaptent correctement au changement de couleur du thème. CAD, mettre la propriétés background à chaque élément
 
+### 0.9.10 `14 septembre 2022`
+
+-   Création d'un composant dédier à la palette de couleur/thème
+-   Les liens account du header ne sont plus en width 100% au dessus de 820px pour laisser place aux autres liens
+-   Correction de quelques couleurs lors des transitions
+-   Ajout d'une flèche dans la modal du menu avec "retour à l'accueil", agtandi par rapport au reste
+-   Suppression du @media responsive 700 pixels et transfert sur les 820px
+-   La stylisation de la palette à son propre fichier avec des styles séparés pour le header et le menu-modal
+
 </details>

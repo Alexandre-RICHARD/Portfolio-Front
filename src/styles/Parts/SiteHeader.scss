@@ -24,84 +24,6 @@
             display: flex;
             align-items: center;
 
-            .theme-pallet {
-                background-color: transparent;
-                color: var(--titleColor);
-                display: none;
-                flex-flow: row wrap;
-                gap: 3px;
-                width: calc($header-theme-choice-size * 2 + 3px);
-                animation: rotate-pallet 60s infinite linear;
-
-                .theme-choice-button {
-                    background-color: transparent;
-                    color: var(--titleColor);
-                    width: $header-theme-choice-size;
-                    height: $header-theme-choice-size;
-                    border-radius: calc($header-theme-choice-size / 2);
-                    border: 2px solid var(--titleColor);
-                    animation: rotate-pallet 60s infinite linear reverse;
-
-                    &.classic {
-                        background: linear-gradient(
-                            145deg,
-                            #f25f4c 0%,
-                            #f25f4c 40%,
-                            #0f0e17 60%,
-                            #0f0e17 100%
-                        );
-                    }
-
-                    &.modern {
-                        background: linear-gradient(
-                            145deg,
-                            #5a8ef0 0%,
-                            #5a8ef0 40%,
-                            #16161a 60%,
-                            #16161a 100%
-                        );
-                    }
-
-                    &.light {
-                        background: linear-gradient(
-                            145deg,
-                            #ff5470 0%,
-                            #ff5470 40%,
-                            #fffffe 60%,
-                            #fffffe 100%
-                        );
-                    }
-
-                    &.dark {
-                        background: linear-gradient(
-                            145deg,
-                            #7f5af0 0%,
-                            #7f5af0 40%,
-                            #16161a 60%,
-                            #16161a 100%
-                        );
-                    }
-
-                    &:hover {
-                        border-color: var(--backgroundColor);
-                    }
-
-                    &.selected {
-                        transform: scale(1.1);
-                        border-color: #d8ba0d;
-                    }
-
-                    @keyframes rotate-pallet {
-                        from {
-                            transform: rotate(0deg);
-                        }
-                        to {
-                            transform: rotate(360deg);
-                        }
-                    }
-                }
-            }
-
             // Zone avec le nom
             .header-logo {
                 background-color: $transparent;
@@ -216,6 +138,8 @@
             right: 15px;
 
             .menu-nav-link {
+                background-color: var(--headerColor);
+                color: var(--titleColor);
                 padding: 15px;
                 text-shadow: 2px 2px 2px var(--textShadowColor);
                 font-weight: 500;
@@ -223,6 +147,13 @@
                 font-size: $normal-font-size;
                 border: 1px solid var(--titleColor);
                 border-top: none;
+
+                &.backHome::first-letter {
+                    padding-right: 10px;
+                    font-weight: 900;
+                    font-size: 22px;
+                    line-height: 0px;
+                }
     
                 &:hover {
                     background-color: $transparent;
@@ -236,11 +167,21 @@
     }
 }
 
-// Au dessus de 700 pixels
-@media screen and (min-width: 700px) {
+// Au delà de 820 pixels
+@media screen and (min-width: 820px) {
     .header-background {
         .header-container {
             padding: 0 20px;
+
+            .left-header-container {
+                .theme-pallet {
+                    display: flex;
+                }
+
+                .header-logo {
+                    margin: 0 20px;
+                }
+            }
 
             .link-header-container {
                 display: flex;
@@ -254,6 +195,7 @@
             }
 
             .account-header-container {
+                width: fit-content;
                 .header-nav-link {
                     background-color: $transparent;
                 }
@@ -270,29 +212,12 @@
     }
 }
 
-// Au delà de 820 pixels
-@media screen and (min-width: 820px) {
-    .header-background {
-        .header-container {
-            padding: 0 5%;
-
-            .left-header-container {
-                .theme-pallet {
-                    display: flex;
-                }
-
-                .header-logo {
-                    margin: 0 20px;
-                }
-            }
-        }
-    }
-}
-
 // Au dessus de 1100 pixels
 @media screen and (min-width: 1100px) {
     .header-background {
         .header-container {
+            padding: 0 5%;
+
             .link-header-container,
             .account-header-container {
                 margin: 0 15px;
