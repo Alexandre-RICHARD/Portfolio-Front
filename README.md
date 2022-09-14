@@ -381,4 +381,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Petite modification dans le background image du fire (NotFound) pour que la hauteur soit de 15px, avec le repeat et la proportion conservé
 
+### 0.9.9 `14 septembre 2022`
+
+-   Petite mise à jour du NotFound pour qu'il s'adaptent correctement au changement de couleur du thème. CAD, mettre la propriétés background à chaque élément
+
 </details>
