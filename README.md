@@ -394,4 +394,18 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Suppression du @media responsive 700 pixels et transfert sur les 820px
 -   La stylisation de la palette à son propre fichier avec des styles séparés pour le header et le menu-modal
 
+### 0.9.11 `15 septembre 2022`
+
+-   Changement dans le router pour que portfolio et tryhard ne soit plus enfant de home afin que home soit indépendante en terme de contenu
+-   Dans Breadcrumb, changement de 1 à 0 pour la recherche de route.matched afin de gérer le changement de section pour l'affichage des liens
+-   Déplacement des deux router secondaires pour les mettre dans app plutôt que dans homePage afin de pouvoir avoir une page séparée
+
 </details>
+
+
+
+## Les problèmes du site actuellement
+
+-   Sur le site hébergé, lorsque l'url contient 3 paths ou plus, le site recharge blanc, comme précédemment, les fichiers sources sont tous remplacés par le contenu du fichier html. La solution se trouve surement dans le .htaccess à bidouiller (uniquement sur le site hébergé, sur le localhost, le problème n'a pas lieu)
+-   Quand on recharge en étant sur l'une des sections, les liens ne sont pas les bons car la fonction chargées de mettre la bonne section au chargement est cassé
+-   La barre de défilement sur la droite change la taille du site en fonction des pages
