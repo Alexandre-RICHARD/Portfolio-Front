@@ -405,6 +405,12 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   La stylisation de page-container et page-background est maintenant sur _index.scss pour simplifier et unifier le style de HomePage
 -   Création et stylisation de la page HomePage avec un jeu de Mastermind fonctionnel
 
+### 0.9.13 `17 septembre 2022`
+
+-   Création d'une div pour entouré chaque ligne du mastermind et se séparer de la width sur l'élément parent
+-   Changement du border-radius pour éliminer le petit effet moche
+-   Mise du header en z-index 1 pour qu'il passe par dessus le contenu de la page
+
 </details>
 
 

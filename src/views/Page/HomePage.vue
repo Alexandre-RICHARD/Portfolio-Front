@@ -77,24 +77,30 @@ const changeNumber = (position, direction) => {
         <p class="presentation-text">{{ presentationText }}</p>
         <div class="mastermind">
             <div class="number-box">
-                <div
-                    v-for="n in 4"
-                    :key="n"
-                    class="arrow arrow-up"
-                    @click="changeNumber(n, 'up')"
-                >
-                    <p>▶</p>
+                <div class="mastermind-line">
+                    <div
+                        v-for="n in 4"
+                        :key="n"
+                        class="arrow arrow-up"
+                        @click="changeNumber(n, 'up')"
+                    >
+                        <p>▶</p>
+                    </div>
                 </div>
-                <div v-for="n in 4" :key="n" class="number">
-                    {{ playerNumber[n] }}
+                <div class="mastermind-line">
+                    <div v-for="n in 4" :key="n" class="number">
+                        {{ playerNumber[n] }}
+                    </div>
                 </div>
-                <div
-                    v-for="n in 4"
-                    :key="n"
-                    class="arrow arrow-down"
-                    @click="changeNumber(n, 'down')"
-                >
-                    <p>▶</p>
+                <div class="mastermind-line">
+                    <div
+                        v-for="n in 4"
+                        :key="n"
+                        class="arrow arrow-down"
+                        @click="changeNumber(n, 'down')"
+                    >
+                        <p>▶</p>
+                    </div>
                 </div>
             </div>
             <button class="testing-button" @click="testingSolution">
