@@ -400,6 +400,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Dans Breadcrumb, changement de 1 à 0 pour la recherche de route.matched afin de gérer le changement de section pour l'affichage des liens
 -   Déplacement des deux router secondaires pour les mettre dans app plutôt que dans homePage afin de pouvoir avoir une page séparée
 
+### 0.9.12 `17 septembre 2022`
+
+-   La stylisation de page-container et page-background est maintenant sur _index.scss pour simplifier et unifier le style de HomePage
+-   Création et stylisation de la page HomePage avec un jeu de Mastermind fonctionnel
+
 </details>
 
 
@@ -409,3 +414,20 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Sur le site hébergé, lorsque l'url contient 3 paths ou plus, le site recharge blanc, comme précédemment, les fichiers sources sont tous remplacés par le contenu du fichier html. La solution se trouve surement dans le .htaccess à bidouiller (uniquement sur le site hébergé, sur le localhost, le problème n'a pas lieu)
 -   Quand on recharge en étant sur l'une des sections, les liens ne sont pas les bons car la fonction chargées de mettre la bonne section au chargement est cassé
 -   La barre de défilement sur la droite change la taille du site en fonction des pages
+
+## Les features à venir
+
+-   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
+-   Intégrer les quelques projets que j'ai de côtés un peu à la va-vite le temps pour le début avant de les faire propre
+-   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
+-   Rajouter un bouton pour recommencer
+-   Rajouter un "petit quelque chose" quand le joueur à trouver la bonne combinaison
+-   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
+-   Il y aurait chaque jour un mastermind à faire
+-   Rajouter un scroll molette pour changer les nombres, ainsi qu'une animation au changement en mode carroussel
+-   La page contact à faire
+-   La page projets à faire
+-   La page CV à faire
+-   Rendre les modals account fonctionnel et faire une base de compte à lier avec le back
+-   Essayer de mettre les images de Projets et autres en BDD
+-   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
