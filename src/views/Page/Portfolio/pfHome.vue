@@ -64,7 +64,7 @@ const discordId = "Shadowmere#5754";
         </div>
 
         <h2 class="categories">
-            Mes projets (cette page n'est pas encore tout à fait fonctionnelle)
+            Mes projets
         </h2>
         <div class="promote-project-box">
             <div class="one-project">

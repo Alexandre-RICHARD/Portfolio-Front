@@ -423,6 +423,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Rajout de petite div pour pouvoir faire une box-shadow à moitié caché
 -   Mise en place de z-index 10 pour le header et les account Modal
 
+### build 61 - 0.9.16 `20 septembre 2022`
+
+-   Quelques corrections dans le textes, que ce soit le contenu ou l'orthographe
+-   Rajout d'une petite marge pour chaque grosse box du Curriculum
+
 </details>
 
 

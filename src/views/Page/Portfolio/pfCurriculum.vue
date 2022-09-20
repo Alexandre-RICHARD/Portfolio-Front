@@ -9,16 +9,16 @@ const professionalExperiences = [
         title: "Stage d'observation de 3ème",
         firstDate: "Mars 2014",
         secondDate: null,
-        location: "Jefimmo Saint-Laurent-des-Autels",
+        location: "Jefimmo - Saint-Laurent-des-Autels",
         description:
-            "Stage d'une durée de 5 jours dans une agence immobilièreavec organisation de visite, mise en vente d'une maison et réalisation de photos et de croquis",
+            "Stage d'une durée de 5 jours dans une agence immobilière avec organisation de visite, mise en vente d'une maison et réalisation de photos et de différents croquis",
     },
     {
         key: 2,
         title: "Stage en seconde professionnelle",
         firstDate: "Janvier 2015",
         secondDate: null,
-        location: "Gamm vert Saint Laurent des Autels",
+        location: "Gamm vert - Saint Laurent des Autels",
         description:
             "Stage d'une durée d'une semaine en jardinerie. Manutention, mise en rayon, inventaire et étiquetages.",
     },
@@ -27,7 +27,7 @@ const professionalExperiences = [
         title: "Stage en seconde professionnelle",
         firstDate: "Mars 2015",
         secondDate: null,
-        location: "Super U Ancenis",
+        location: "Super U - Ancenis",
         description:
             "Stage de deux semaines dans une grande surface avec principalement du nettoyage et de la mise en rayon",
     },
@@ -36,9 +36,9 @@ const professionalExperiences = [
         title: "Stage en seconde professionnelle",
         firstDate: "Mai 2015",
         secondDate: null,
-        location: "Top Office Ancenis",
+        location: "Top Office - Ancenis",
         description:
-            "Stage de quatre semaines au sein de l'entreprise avec une découverte de la majeure partie des fonctions et métiers présent. De l'ouverture avec la mise en place, à la fermeture et le bilan de la journée, en passant par le passage de commande, la gestion des stock ou la réception en caisse",
+            "Stage de quatre semaines au sein de l'entreprise avec une découverte de la majeure partie des fonctions et métiers présents. De l'ouverture avec la mise en place, à la fermeture et le bilan de la journée, en passant par le passage de commande, la gestion des stock ou la réception en caisse",
     },
     {
         key: 5,
@@ -47,16 +47,16 @@ const professionalExperiences = [
         secondDate: "Mars 2021",
         location: "Apothéose d'O'clock",
         description:
-            "Il s'agissait d'un projet de fin d'études organisé par l'école 100% en téléprésentiel à réaliser en groupe. Avec 4 de mes collègues de promo, nous avons conçu un site de A à Z à partir des wireframe jusqu'à la base de donnée, avec router, stylisation, connexion etc. Créé en React avec Webpack, ce site en Single Page Application n'est plus hébergé aujourd'hui mais je l'implémenterai sur ce site un de ces jours",
+            "Il s'agissait d'un projet de fin d'études organisé par l'école 100% en téléprésentiel à réaliser en groupe. Avec 4 de mes collègues de promo, nous avons conçu un site de A à Z des wireframe jusqu'à la base de donnée, avec router, stylisation, connexion etc. Créé en React avec Webpack, ce site en Single Page Application n'est plus hébergé aujourd'hui mais je l'implémenterai sur ce site un de ces jours",
     },
     {
         key: 6,
         title: "CDI en restauration rapide",
         firstDate: "Septembre 2021",
         secondDate: "Mai 2022",
-        location: "Burger King Angers",
+        location: "Burger King - Angers",
         description:
-            "J'ai travaillé pendant 9 mois dans ce restaurant pour subvenir à mes besoins et pour me prendre une année Free avant de rentrer pour de bons dans le monde du travail mais également me former davantage au développement. J'y ai appris l'accueil et la gestion de clients, régulièrement en grand nombre et ai développé une grande autonomie dans mes tâches à accomplir pour avopir un service le plus fluide possible. J'ai également beaucoup eu besoin de réagir à des problèmes en tout genre impliquant un contact avec la hiérarchie et le client indispendable. J'ai quitté l'entreprise pour me concentrer sur mes projets mais également à cause de gros soucis de dialogues entre employés et manager avec beaucoup d'actes immoraux et d'abus de pouvoir.",
+            "J'ai travaillé durant 9 mois dans ce restaurant pour subvenir à mes besoins. C'était également l'occasion pour moi de prendre une année Free, une année où j'aurai le temps de faire une transition entre ma vie scolaire et ma future vie professionnelle. J'en ai profité pour m'auto-former davantage au développement. Dans ce travail, j'y ai appris l'accueil et la gestion de clients, régulièrement en grand nombre et ai développé une grande autonomie dans mes tâches à accomplir pour permettre d'avoir un service le plus fluide possible. J'ai également beaucoup eu besoin de réagir à des problèmes en tout genre impliquant un contact avec la hiérarchie et le client indispendable. J'ai quitté l'entreprise pour me concentrer sur mes projets mais également à cause de gros soucis de dialogues entre employés et manager avec beaucoup d'actes immoraux et d'abus de pouvoir.",
     },
     {
         key: 7,
@@ -65,7 +65,7 @@ const professionalExperiences = [
         secondDate: "Présent",
         location: "De mon petit chez moi",
         description:
-            "Depuis que j'ai quitté mon emploi, je travaille activement sur ce projet, ce site sur lequel vous vous trouvez afin d'afiner mes compétences et de constituer un 'quelque chose' à montrer aux recruteurs. Le projet est assez dur à réaliser car j'ai du mal à tout concevoir sans avoir une ligne directrice imposé. Je n'ai pas vraiment de compétence en design ce qui représente un bel obstacle. Néanmoins, ce projet avance et j'en suis fier, j'ai énormément appris en le faisant et j'ai hâte de finir chacune des parties pour pouvoir passer à la suivante et rendre ce site de plus en plus complet. Je m'en sers aussi pour poser des projets perso que j'avais réalisé avant, des outils créé ailleurs (sur Excel par exemple) et pour exposer mes passions. Le readMe du repo contient une liste raccourci de mes idées à réaliser.",
+            "Depuis que j'ai quitté mon emploi, je travaille activement sur ce projet, ce site sur lequel vous vous trouvez afin d'afiner mes compétences et de constituer un 'quelque chose' à montrer aux recruteurs. Ce projet est un superbe exercice car n'ayant vraiment la fibre créatrice, le design est un challenge pour moi. Néanmoins, ce projet avance et j'en suis fier, j'ai énormément appris en le faisant et j'ai hâte de finir chacune des parties pour pouvoir passer à la suivante et rendre ce site de plus en plus complet. Je m'en sers aussi pour poser des projets personnels que j'avais réalisé avant, des outils créés ailleurs (sur Excel par exemple) et pour exposer mes passions. Le readMe du repo contient une liste raccourcie de mes idées à réaliser.",
     },
 ];
 </script>
@@ -82,12 +82,12 @@ const professionalExperiences = [
                     class="photo"
                     alt="Photographie de ma personne"
                     src="../../../images/portrait.png"
-                />
+                >
                 Jeune optimiste de {{ age }} ans sorti de formation en
                 développement, je porte un intérêt certain au numérique et au
                 développement web. J’ai vite appris et exploré de nombreuses
-                facettes du domaine à travers la formation et des projets
-                personnels. Ayant encore beaucoup à découvrir, je recherche une
+                facettes du domaine à travers ma formation chez O'clock et des projets
+                personnels que j'ai réalisé et réalise encore. Ayant encore beaucoup à découvrir, je recherche une
                 première expérience professionnelle pour parfaire mes
                 connaissances et participer à des projets d’ampleur au sein
                 d’une équipe. J’apprends vite, je m’adapte bien aux nouveautés
@@ -107,7 +107,7 @@ const professionalExperiences = [
                 <li>Cinéma</li>
                 <li>Lecture</li>
                 <li>Course à pied</li>
-                <li>Gestion (de choses et d'autres)</li>
+                <li>Gérer (données, organisation...)</li>
                 <li>Nourrir mes connaissances</li>
                 <li>Aimer les animaux</li>
             </ul>
@@ -129,7 +129,6 @@ const professionalExperiences = [
                 <li>Patient</li>
                 <li>Aimable</li>
                 <li>Curieux</li>
-                <li>Casanier</li>
             </ul>
         </div>
 
