@@ -34,8 +34,8 @@ export const useMainStore = defineStore("Main", {
                 textColor: "#1b2d45",
                 textShadowColor: "#fffffe8e",
                 headerColor: "#ff5470",
-                buttonColorOne: "#d6bc26",
-                buttonColorTwo: "#26d6c7",
+                buttonColorOne: "#26d6c7",
+                buttonColorTwo: "#d6bc26",
             },
             dark: {
                 backgroundColor: "#16161a",

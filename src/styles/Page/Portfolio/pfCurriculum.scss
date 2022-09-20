@@ -1,0 +1,160 @@
+@import "../../Base/variables";
+
+li {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+
+    &::before {
+        content: '>';
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--buttonColorTwo);
+        padding-right: 5px;
+    }
+}
+
+
+.curriculum-container {
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .categories {
+        background-color: var(--backgroundColor);
+        min-width: 28%;
+
+        .title-box {
+            background-color: var(--backgroundColor);
+            display: flex;
+            width: 100%;
+            margin: 10px 0;
+
+            .title {
+                color: var(--titleColor);
+                background-color: var(--smoothBackgroundColor);
+                padding: 3px 12px;
+                border-radius: 10px;
+                border: 4px solid var(--buttonColorOne);
+            }
+
+            .line-up {
+                background-color: var(--buttonColorOne);
+                margin-left: -20px;
+                width: 100%;
+                height: 2px;
+            }
+        }
+    }
+
+    .description-text {
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        text-align: justify;
+        width: 100%;
+
+        .photo {
+            background-color: var(--backgroundColor);
+            margin: 10px;
+            width: 220px;
+            border: 2px solid var(--titleColor);
+            float: left;
+        }
+    }
+
+    .hobbies {
+        background-color: var(--backgroundColor);
+        .hobbies-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+
+    }
+
+    .quality {
+        background-color: var(--backgroundColor);
+        .qualities-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+
+    .further-information {
+        background-color: var(--backgroundColor);
+        .further-information-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+
+    .professional-experiences {
+        width: 100%;
+        .experience-pro {
+            width: 100%;
+            display: flex;
+
+            &-left {
+                min-width: 30%;
+                border-bottom: 1px solid var(--smoothBackgroundColor);
+
+                .whichone {
+                    font-size: 18px;
+                }
+
+                .where {
+                    font-size: 14px;
+                    color: var(--textColor);
+                }
+            }
+
+            &-middle {
+                width: fit-content;
+                display: flex;
+                justify-content: center;
+                margin: 0 8px;
+
+                .date {
+                    font-size: 14px;
+                    background-color: var(--titleColor);
+                    color: var(--backgroundColor);
+                    white-space: nowrap;
+                    padding: 3px;
+                }
+                
+                .line {
+                    // position: absolute;
+                    // padding-top: -30px;
+                    // height: 100%;
+                    // width: 1px;
+                    // background-color: var(--titleColor);
+                    // box-shadow: 5px 0px 8px 1px var(--titleColor);
+                }
+            }
+
+            &-right {
+                border-bottom: 1px solid var(--smoothBackgroundColor);
+                font-size: 16px;
+                color: var(--textColor);
+            }
+
+            &:hover {
+                padding: 3px 0;
+            }
+        }
+    }
+
+    // .education {
+    // }
+
+    // .dev-skills {
+    // }
+
+    // .dev-projects {
+    // }
+
+    // .software {
+    // }
+}
