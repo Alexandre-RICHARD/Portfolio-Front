@@ -160,8 +160,13 @@ const professionalExperiences = [
                     <p class="where">{{ experience.location }}</p>
                 </div>
                 <div class="experience-pro-middle">
-                    <div class="date">{{ experience.firstDate }}</div>
+                    <div class="date">
+                        <p>{{ experience.firstDate }}</p>
+                        <p v-if="experience.secondDate !== null">{{ experience.secondDate }}</p>
+                    </div>
+                    <div class="line-cache" />
                     <div class="line" />
+                    <div class="line-uncache" />
                 </div>
                 <div class="experience-pro-right">
                     {{ experience.description }}

@@ -91,57 +91,84 @@ li {
     }
 
     .professional-experiences {
+        background-color: var(--backgroundColor);
         width: 100%;
+        overflow: hidden;
+
         .experience-pro {
+            background-color: var(--backgroundColor);
             width: 100%;
             display: flex;
 
             &-left {
+                background-color: var(--backgroundColor);
                 min-width: 30%;
                 border-bottom: 1px solid var(--smoothBackgroundColor);
 
                 .whichone {
+                    background-color: var(--backgroundColor);
                     font-size: 18px;
+                    color: var(--titleColor);
                 }
 
                 .where {
+                    background-color: var(--backgroundColor);
                     font-size: 14px;
                     color: var(--textColor);
                 }
             }
 
             &-middle {
-                width: fit-content;
+                background-color: var(--backgroundColor);
+                min-width: 110px;
                 display: flex;
                 justify-content: center;
-                margin: 0 8px;
+                margin-right: 5px;
 
                 .date {
+                    z-index: 3;
                     font-size: 14px;
+                    height: fit-content;
+                    position: absolute;
                     background-color: var(--titleColor);
                     color: var(--backgroundColor);
-                    white-space: nowrap;
                     padding: 3px;
+
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                .line-cache {
+                    z-index: 2;
+                    height: 100%;
+                    width: calc(50% - 1px);
+                    background-color: var(--backgroundColor);
                 }
                 
                 .line {
-                    // position: absolute;
-                    // padding-top: -30px;
-                    // height: 100%;
-                    // width: 1px;
-                    // background-color: var(--titleColor);
-                    // box-shadow: 5px 0px 8px 1px var(--titleColor);
+                    z-index: 1;
+                    height: 100%;
+                    width: 1px;
+                    background-color: var(--titleColor);
+                    box-shadow: 0px 0px 18px 2px var(--titleColor);
                 }
+
+                .line-uncache {
+                    z-index: 0;
+                    height: 100%;
+                    width: calc(50% - 1px);
+                }
+                
             }
 
             &-right {
+                background-color: var(--backgroundColor);
                 border-bottom: 1px solid var(--smoothBackgroundColor);
                 font-size: 16px;
                 color: var(--textColor);
-            }
-
-            &:hover {
-                padding: 3px 0;
+                text-align: justify;
+                padding-bottom: 10px;
             }
         }
     }

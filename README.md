@@ -417,6 +417,12 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Rajout d'une image servant de photo 'officielle'
 -   Première partie de la page Curriculum, toujours en construction
 
+### build 60 - 0.9.15 `20 septembre 2022`
+
+-   Finition du style des expérience profesionnelles
+-   Rajout de petite div pour pouvoir faire une box-shadow à moitié caché
+-   Mise en place de z-index 10 pour le header et les account Modal
+
 </details>
 
 
