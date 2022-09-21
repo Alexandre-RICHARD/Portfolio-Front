@@ -428,6 +428,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Quelques corrections dans le textes, que ce soit le contenu ou l'orthographe
 -   Rajout d'une petite marge pour chaque grosse box du Curriculum
 
+### build 62 - 0.9.17 `21 septembre 2022`
+
+-   Fin de la stylisation pour la catégories "expériences profesionnelles"
+-   Découverte d'un petit bug global au site assez compliqué à comprendre, remis à plus tard car vraiment pas gênant
+
 </details>
 
 
@@ -437,6 +442,7 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Sur le site hébergé, lorsque l'url contient 3 paths ou plus, le site recharge blanc, comme précédemment, les fichiers sources sont tous remplacés par le contenu du fichier html. La solution se trouve surement dans le .htaccess à bidouiller (uniquement sur le site hébergé, sur le localhost, le problème n'a pas lieu)
 -   Quand on recharge en étant sur l'une des sections, les liens ne sont pas les bons car la fonction chargées de mettre la bonne section au chargement est cassé
 -   La barre de défilement sur la droite change la taille du site en fonction des pages
+-   En dessous de 417 px, et jusqu'au 400 minimum que j'ai défini, il y a un sliding horizontal et je ne comprend pas quel élément fait déborder le contenu de la page
 
 ## Les features à venir
 
