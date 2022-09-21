@@ -1,15 +1,17 @@
 @import "../../Base/variables";
 
-li {
-    background-color: var(--backgroundColor);
-    color: var(--textColor);
+.curriculum-container {
+    li {
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
 
-    &::before {
-        content: ">";
-        font-weight: 700;
-        font-size: 18px;
-        color: var(--buttonColorTwo);
-        padding-right: 5px;
+        &::before {
+            content: ">";
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--buttonColorTwo);
+            padding-right: 5px;
+        }
     }
 }
 
@@ -17,12 +19,12 @@ li {
     background-color: var(--backgroundColor);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     .categories {
         background-color: var(--backgroundColor);
         min-width: 28%;
-        margin: 3px;
+        margin-right: 6px;
 
         .title-box {
             background-color: var(--backgroundColor);
@@ -89,15 +91,16 @@ li {
         }
     }
 
-    .professional-experiences {
+    .professional-experiences,
+    .education {
         background-color: var(--backgroundColor);
         overflow: hidden;
 
-        .experience-pro {
+        .one-of-them {
             background-color: var(--backgroundColor);
             display: flex;
 
-            &-left {
+            .left {
                 padding-top: 50px;
                 background-color: var(--backgroundColor);
                 min-width: 30%;
@@ -116,7 +119,7 @@ li {
                 }
             }
 
-            &-middle {
+            .middle {
                 background-color: var(--backgroundColor);
                 min-width: 25px;
                 max-width: 25px;
@@ -131,6 +134,7 @@ li {
                     background-color: var(--titleColor);
                     color: var(--backgroundColor);
                     padding: 3px;
+                    border-radius: 4px;
 
                     p {
                         letter-spacing: 0.5px;
@@ -163,7 +167,7 @@ li {
                 }
             }
 
-            &-right {
+            .right {
                 padding-top: 50px;
                 background-color: var(--backgroundColor);
                 border-bottom: 1px solid var(--smoothBackgroundColor);
@@ -175,24 +179,31 @@ li {
         }
     }
 
-    // .education {
-    // }
+    .skills {
+        background-color: var(--backgroundColor);
+        .further-information-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
 
-    // .dev-skills {
-    // }
-
-    // .dev-projects {
-    // }
-
-    // .software {
-    // }
+    .qualification {
+        background-color: var(--backgroundColor);
+        .further-information-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
 }
 
 @media screen and (min-width: 650px) {
     .curriculum-container {
-        .professional-experiences {
-            .experience-pro {
-                &-left {
+        .professional-experiences,
+        .education {
+            .one-of-them {
+                .left {
                     padding-top: 0;
 
                     .whichone {
@@ -204,7 +215,7 @@ li {
                     }
                 }
 
-                &-middle {
+                .middle {
                     min-width: 115px;
                     max-width: 115px;
 
@@ -213,7 +224,7 @@ li {
                     }
                 }
 
-                &-right {
+                .right {
                     padding-top: 0;
                     padding-bottom: 10px;
                 }

@@ -3,6 +3,34 @@ const age = Math.round(
     (Date.now() - new Date(1999, 5, 24)) / 1000 / 365 / 24 / 60 / 60
 );
 
+const skillsList = [
+    "HTML : Toujours des connaissances à prendre",
+    "CSS : Bien exploré, maîtrise de + en +",
+    "SASS : En remplacement du CSS classique",
+    "Javascript : Beaucoup exploré, des lacunes restent",
+    "REACT : J'ai quelques projets réalisés avec",
+    "Redux : Utilisé avec React mais pas",
+    "Vue.JS : Ma préférence, en cours d'apprentissge",
+    "Vue Router / Pinia : Pour compléter Vue.JS",
+    "i18Next : Pour traduire un site",
+    "Axios : Pour simplifier les requêtes serveur",
+    "Node.JS : Mon seul langage utilisé en back",
+    "ExpressJS : Pour créer le serveur",
+    "SQL : Les connaissances de bases",
+    "Socket.io : Liaison des utilisateurs",
+    "BCrypt : Pour sécuriser les mots de passe",
+    "Sequelize : Exploré pour les requêtes de BDD",
+    "Excel : Passion pour ce logiciel, très bonne maîtrise",
+];
+
+const qualificationsList = [
+    "Brevet des collèges",
+    "Bac Scientifique - Mention bien",
+    "Développeur DWWM II - Niveau BAC+2",
+    "OpQuast, Maîtrise de la qualité en projet Web 785 / 1000",
+    "MOOC SecNum Académie de l'ANSSI",
+];
+
 const professionalExperiences = [
     {
         key: 1,
@@ -68,6 +96,76 @@ const professionalExperiences = [
             "Depuis que j'ai quitté mon emploi, je travaille activement sur ce projet, ce site sur lequel vous vous trouvez afin d'afiner mes compétences et de constituer un 'quelque chose' à montrer aux recruteurs. Ce projet est un superbe exercice car n'ayant vraiment la fibre créatrice, le design est un challenge pour moi. Néanmoins, ce projet avance et j'en suis fier, j'ai énormément appris en le faisant et j'ai hâte de finir chacune des parties pour pouvoir passer à la suivante et rendre ce site de plus en plus complet. Je m'en sers aussi pour poser des projets personnels que j'avais réalisé avant, des outils créés ailleurs (sur Excel par exemple) et pour exposer mes passions. Le readMe du repo contient une liste raccourcie de mes idées à réaliser.",
     },
 ];
+
+const schoolCurriculum = [
+    {
+        key: 1,
+        title: "Collège",
+        firstDate: "2010",
+        secondDate: "2014",
+        location: "Collège Georges Pompidou Champtoceaux",
+        description:
+            "Quatre années de collège sans accro avec obtention du brevet des collèges. Un voyage en Espagne durant l'année de 3ème",
+    },
+    {
+        key: 2,
+        title: "Lycée en cursus scientifique",
+        firstDate: "2014",
+        secondDate: "2018",
+        location: "Lycée Polyvalent Joubert-Maillard Ancenis",
+        description:
+            "Quatre ans de lycée pour cause de deux années de seconde. En effet, j'ai (mal) choisi le fait d'aller en Bac Professionnel pour commencer le lycée, ce qui ne m'a pas du tout plu. Suite à ça, j'ai demandé et l'on m'a accordé de revenir en cursus général dans lequel j'ai effectué trois années de lycée dans la filière Scientifique quand elle existait encore. J'en suis sorti très motivé et diplomé du Bac mention Bien. Un voyage à Londres durant l'année de Première",
+    },
+    {
+        key: 3,
+        title: "Licence scientifique",
+        firstDate: "2018",
+        secondDate: "2020",
+        location: "Université d'Angers - Fac de Sciences",
+        description:
+            "À la sortie du lycée, je voulais partir dans un parcours scientifique car c'était ma voie par défaut, ma voie de prédileciton ne sachant pas où aller d'autre. Cependant, bien que cela me plaisait durant la première année, la deuxième année fut bien plus compliqué et l'apparition du COVID et les cours en distanciel m'a convaincu que je devait essayer de me réorienter et faire ce que j'aimais.",
+    },
+    {
+        key: 4,
+        title: "Formation de Développeur Web",
+        firstDate: "Octobre 2020",
+        secondDate: "Mars 2021",
+        location: "École 100% à distance O'Clock",
+        description:
+            "Suite à cette réorientation, j'ai intégré la formation Développeur Web Fullstack JS d'O'Clock d'une durée de 6 mois. Moi qui ait besoin d'être guider et accompagner pour me former, au début tout du moins, cette formation était parfaite pour moi. Des bases HTML + CSS, puis la découverte du Javascript, on a également été formé à Node.JS et à la création/gestion de Base de Données. Durant quatre semaines sur la fin, nous avons effectué l'Apothéose : la réalisation d'un projet de groupe en reprenant la métohde SCRUM et en divisant les étapes de développement en sprint. J'ai également grâce à l'école passé et obtenu le diplôme Développeur Web et Web Mobile II.",
+    },
+];
+
+const hobbiesList = [
+    "Jeux vidéos",
+    "Randonnées",
+    "Programmation",
+    "Cinéma",
+    "Lecture",
+    "Course à pied",
+    "Gérer (données, organisation...)",
+    "Nourrir mes connaissances",
+    "Aimer les animaux",
+];
+
+const qualitiesList = [
+    "Autonome",
+    "Curieux",
+    "Enthousiaste",
+    "Esprit d'équipe",
+    "Investi",
+    "Réactif",
+    "Rigoureux",
+    "Patient",
+    "Aimable",
+    "Curieux",
+];
+
+const informationsList = [
+    "Permis B (sans véhicule)",
+    "Français : langue natale (C2)",
+    "Anglais : Niveau B2",
+];
 </script>
 
 <template>
@@ -86,61 +184,38 @@ const professionalExperiences = [
                 Jeune optimiste de {{ age }} ans sorti de formation en
                 développement, je porte un intérêt certain au numérique et au
                 développement web. J’ai vite appris et exploré de nombreuses
-                facettes du domaine à travers ma formation chez O'clock et des projets
-                personnels que j'ai réalisé et réalise encore. Ayant encore beaucoup à découvrir, je recherche une
-                première expérience professionnelle pour parfaire mes
-                connaissances et participer à des projets d’ampleur au sein
-                d’une équipe. J’apprends vite, je m’adapte bien aux nouveautés
-                et j’apporte au mieux de nouvelles idées.
+                facettes du domaine à travers ma formation chez O'clock et des
+                projets personnels que j'ai réalisé et réalise encore. Ayant
+                encore beaucoup à découvrir, je recherche une première
+                expérience professionnelle pour parfaire mes connaissances et
+                participer à des projets d’ampleur au sein d’une équipe.
+                J’apprends vite, je m’adapte bien aux nouveautés et j’apporte au
+                mieux de nouvelles idées.
             </p>
         </div>
 
-        <div class="categories hobbies">
+        <div class="categories skills">
             <div class="title-box">
-                <h2 class="title">Loisirs</h2>
+                <h2 class="title">Compétences en développement</h2>
                 <div class="line-up" />
             </div>
-            <ul class="hobbies-list">
-                <li>Jeux vidéos</li>
-                <li>Randonnées</li>
-                <li>Programmation</li>
-                <li>Cinéma</li>
-                <li>Lecture</li>
-                <li>Course à pied</li>
-                <li>Gérer (données, organisation...)</li>
-                <li>Nourrir mes connaissances</li>
-                <li>Aimer les animaux</li>
+            <ul class="skills-list">
+                <li v-for="skill in skillsList" :key="skill">{{ skill }}</li>
             </ul>
         </div>
 
-        <div class="categories quality">
+        <div class="categories qualification">
             <div class="title-box">
-                <h2 class="title">Qualités</h2>
+                <h2 class="title">Diplômes et Certification</h2>
                 <div class="line-up" />
             </div>
-            <ul class="qualities-list">
-                <li>Autonome</li>
-                <li>Curieux</li>
-                <li>Enthousiaste</li>
-                <li>Esprit d'équipe</li>
-                <li>Investi</li>
-                <li>Réactif</li>
-                <li>Rigoureux</li>
-                <li>Patient</li>
-                <li>Aimable</li>
-                <li>Curieux</li>
-            </ul>
-        </div>
-
-        <div class="categories further-information">
-            <div class="title-box">
-                <h2 class="title">Informations complémentaires</h2>
-                <div class="line-up" />
-            </div>
-            <ul class="further-information-list">
-                <li>Permis B (sans véhicule)</li>
-                <li>Français : langue natale (C2)</li>
-                <li>Anglais : Niveau B2</li>
+            <ul class="qualification-list">
+                <li
+                    v-for="qualification in qualificationsList"
+                    :key="qualification"
+                >
+                    {{ qualification }}
+                </li>
             </ul>
         </div>
 
@@ -150,24 +225,26 @@ const professionalExperiences = [
                 <div class="line-up" />
             </div>
             <div
-                v-for="experience in professionalExperiences"
+                v-for="experience in professionalExperiences.reverse()"
                 :key="experience.key"
-                class="experience-pro"
+                class="one-of-them"
             >
-                <div class="experience-pro-left">
+                <div class="left">
                     <p class="whichone">{{ experience.title }}</p>
                     <p class="where">{{ experience.location }}</p>
                 </div>
-                <div class="experience-pro-middle">
+                <div class="middle">
                     <div class="date">
                         <p>{{ experience.firstDate }}</p>
-                        <p v-if="experience.secondDate !== null">{{ experience.secondDate }}</p>
+                        <p v-if="experience.secondDate !== null">
+                            {{ experience.secondDate }}
+                        </p>
                     </div>
                     <div class="line-cache" />
                     <div class="line" />
                     <div class="line-uncache" />
                 </div>
-                <div class="experience-pro-right">
+                <div class="right">
                     {{ experience.description }}
                 </div>
             </div>
@@ -178,27 +255,64 @@ const professionalExperiences = [
                 <h2 class="title">Formation</h2>
                 <div class="line-up" />
             </div>
-        </div>
-
-        <div class="categories dev-skills">
-            <div class="title-box">
-                <h2 class="title">Compétences en développement</h2>
-                <div class="line-up" />
+            <div
+                v-for="study in schoolCurriculum.reverse()"
+                :key="study.key"
+                class="one-of-them"
+            >
+                <div class="left">
+                    <p class="whichone">{{ study.title }}</p>
+                    <p class="where">{{ study.location }}</p>
+                </div>
+                <div class="middle">
+                    <div class="date">
+                        <p>{{ study.firstDate }}</p>
+                        <p v-if="study.secondDate !== null">
+                            {{ study.secondDate }}
+                        </p>
+                    </div>
+                    <div class="line-cache" />
+                    <div class="line" />
+                    <div class="line-uncache" />
+                </div>
+                <div class="right">
+                    {{ study.description }}
+                </div>
             </div>
         </div>
 
-        <div class="categories dev-projects">
+        <div class="categories hobbies">
             <div class="title-box">
-                <h2 class="title">Projets</h2>
+                <h2 class="title">Loisirs</h2>
                 <div class="line-up" />
             </div>
+            <ul class="hobbies-list">
+                <li v-for="hobbie in hobbiesList" :key="hobbie">
+                    {{ hobbie }}
+                </li>
+            </ul>
         </div>
 
-        <div class="categories software">
+        <div class="categories quality">
             <div class="title-box">
-                <h2 class="title">compétences en logiciel</h2>
+                <h2 class="title">Qualités</h2>
                 <div class="line-up" />
             </div>
+            <ul class="qualities-list">
+                <li v-for="quality in qualitiesList" :key="quality">
+                    {{ quality }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="categories further-information">
+            <div class="title-box">
+                <h2 class="title">Informations complémentaires</h2>
+                <div class="line-up" />
+            </div>
+            <ul class="further-information-list">
+                <li v-for="info in informationsList" :key="info">{{ info }}</li>
+            </ul>
         </div>
     </div>
 </template>

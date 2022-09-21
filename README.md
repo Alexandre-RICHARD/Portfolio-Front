@@ -433,6 +433,13 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Fin de la stylisation pour la catégories "expériences profesionnelles"
 -   Découverte d'un petit bug global au site assez compliqué à comprendre, remis à plus tard car vraiment pas gênant
 
+### build 63 - 0.9.18 `21 septembre 2022`
+
+-   Quelques factorisations dans le SCSS de la page CV du Portfolio
+-   Fin de la stylisation primaire de la page CV du Portfolio
+-   Finition du contenu de la page CV du Portfolio
+-   Mise du contenu du CV en array
+
 </details>
 
 
@@ -446,6 +453,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 ## Les features à venir
 
+-   Rajouter un bouton Page d'Accueil dans le BreadCrumb quand il n'y est pas
+-   Mettre des titres de sous-secion dans la page CV pour les listes
 -   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
 -   Intégrer les quelques projets que j'ai de côtés un peu à la va-vite le temps pour le début avant de les faire propre
 -   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
