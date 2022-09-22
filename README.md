@@ -440,6 +440,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Finition du contenu de la page CV du Portfolio
 -   Mise du contenu du CV en array
 
+### build 64 - 0.9.19 `22 septembre 2022`
+
+-   Rajout d'un petit encadré comme le projet versionning pour afficher en direct le prix de l'Etherum
+-   Contient également en direct le gain ou la perte que je fais
+
 </details>
 
 
