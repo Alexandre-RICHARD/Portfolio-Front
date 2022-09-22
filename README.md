@@ -445,6 +445,10 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Rajout d'un petit encadré comme le projet versionning pour afficher en direct le prix de l'Etherum
 -   Contient également en direct le gain ou la perte que je fais
 
+### build 65 - 0.9.20 `22 septembre 2022`
+
+-   Rajout de la partie vente de l'Etherum et également de l'affichage de la croissance avec un pourcentage
+
 </details>
 
 
