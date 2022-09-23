@@ -2,6 +2,7 @@
 @use "reset";
 // On importe nos différentes feuilles de styles
 @use "../Page/HomePage";
+@use "../Page/Other/EtherumFollow";
 @use "../Page/Other/NotFound";
 
 @use "../Page/Portfolio/pfHome";
@@ -10,7 +11,6 @@
 
 @use "../Parts/AccountModal";
 @use "../Parts/BreadCrumb";
-@use "../Parts/CurrentETH";
 @use "../Parts/ProjectVersionning";
 @use "../Parts/SiteHeader";
 @use "../Parts/ThemePallet";

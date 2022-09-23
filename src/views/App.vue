@@ -1,7 +1,6 @@
 <script setup>
 import AccountModal from "./Parts/AccountModal.vue";
 import BreadCrumb from "./Parts/BreadCrumb.vue";
-import CurrentETH from "./Parts/CurrentETH.vue";
 import ProjectVersionning from "./Parts/ProjectVersionning.vue";
 import SiteHeader from "./Parts/SiteHeader.vue";
 // import WaveDecoration from "./Parts/WaveDecoration.vue";
@@ -13,7 +12,6 @@ const { modalData } = MainStore;
 
 <template>
     <AccountModal v-if="modalData.open === true" />
-    <CurrentETH />
     <ProjectVersionning />
     <SiteHeader />
     <!-- <WaveDecoration class="wave-decoration" /> -->

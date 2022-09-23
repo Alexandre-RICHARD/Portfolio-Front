@@ -449,6 +449,12 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Rajout de la partie vente de l'Etherum et également de l'affichage de la croissance avec un pourcentage
 
+### build 66 - 0.9.21 `24 septembre 2022`
+
+-   Rajout de formulaire pour rentrer directement les prix dans la page gain et ainsi rendre l'outil utilisable à souhait
+-   Interface primaire mais suppression du petit encadré en bas à gauche et présence uniquement de la page via /gain
+-   Rajout de la route correspondante dans le router
+
 </details>
 
 

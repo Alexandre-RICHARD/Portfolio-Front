@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // On importe toutes les vues qui seront utilisés par notre router principal
 import HomePage from "../views/Page/HomePage.vue";
 import NotFound from "../views/Page/Other/NotFound.vue";
+import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
 
 import pfHome from "../views/Page/Portfolio/pfHome.vue";
 import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
@@ -21,6 +22,16 @@ const routes = [
         meta: {
             title: "Alexandre Richard",
             path: "Page d'accueil",
+            section: "Home",
+        },
+    },
+    {
+        path: "/gain",
+        name: "CurrentETH",
+        components: { mainRouter: EtherumFollow },
+        meta: {
+            title: "Suivi de gains",
+            path: "EtherumFollow",
             section: "Home",
         },
     },
