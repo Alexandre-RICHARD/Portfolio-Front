@@ -1,0 +1,154 @@
+@import "../Base/variables";
+
+.one-contact-box {
+    background-color: transparent;
+    position: relative;
+
+    .contact-element {
+        background-color: var(--smoothBackgroundColor);
+        display: flex;
+        align-items: stretch;
+        height: 35px;
+        width: fit-content;
+        margin: 10px 0;
+        border-radius: 7px;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .contact-title {
+            background-color: var(--buttonColorOne);
+            color: var(--backgroundColor);
+            line-height: 35px;
+            text-align: center;
+            font-size: 16px;
+            padding: 0 4px;
+            display: flex;
+            align-items: center;
+
+            .launcher-logo {
+                background-color: var(--buttonColorOne);
+                margin-right: 3px;
+                height: 20px;
+            }
+        }
+
+        .contact-content {
+            background-color: var(--textColor);
+            color: var(--backgroundColor);
+            line-height: 35px;
+            text-align: center;
+            font-size: 15px;
+            padding: 0 4px;
+
+            &.link {
+                text-underline-offset: 3px;
+                text-decoration: underline 1px;
+            }
+        }
+
+        .copy-icon {
+            background-color: var(--buttonColorTwo);
+            color: var(--titleColor);
+            display: flex;
+            align-items: center;
+            width: 20px;
+            padding: 2px;
+        }
+    }
+
+    .copy-confirm-alert {
+        position: absolute;
+        top: -15px;
+        left: calc(50% - 65px / 2);
+        width: 65px;
+        text-align: center;
+        background-color: var(--buttonColorTwo);
+        padding: 3px 8px;
+        border-radius: 4px;
+        display: none;
+
+        &.displayed {
+            display: block;
+            animation: showQuickMessage 2s ease normal;
+        }
+
+        @keyframes showQuickMessage {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+        }
+    }
+}
+
+.pro {
+    .one-contact-box {
+        .contact-element {
+            .contact-title {
+                width: 67px;
+            }
+        }
+    }
+}
+
+.games {
+    .one-contact-box {
+        .contact-element {
+            .contact-title {
+                width: 144px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .one-contact-box {
+        .contact-element {
+            .contact-title {
+                font-size: 18px;
+
+                .launcher-logo {
+                    height: 30px;
+                }
+            }
+
+            .copy-icon {
+                width: 30px;
+            }
+        }
+    }
+
+    .pro {
+        .one-contact-box {
+            .contact-element {
+                .contact-title {
+                    width: 76px;
+                }
+            }
+        }
+    }
+    
+    .games {
+        .one-contact-box {
+            .contact-element {
+                .contact-title {
+                    width: 168px;
+                }
+            }
+        }
+    }
+}

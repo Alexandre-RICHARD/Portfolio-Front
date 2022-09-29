@@ -1,23 +1,44 @@
 @import "../../Base/variables";
 
 .contact-box {
+    background-color: var(--backgroundColor);
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
-    .one-contact-container {
-        background-color: var(--textColor);
-        padding: 3px 9px;
-        margin: 8px;
-        border-radius: 5px;
-        width: fit-content;
+    .contact-sub-box {
+        background-color: var(--smoothBackgroundColor);
+        padding: 10px;
+        border-radius: 20px;
+        height: fit-content;
+        margin: 30px 0;
+
+        .contact-box-title {
+            background-color: var(--smoothBackgroundColor);
+            color: var(--titleColor);
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
     }
 }
 
 .contact-me-form {
+    background-color: var(--backgroundColor);
     margin: auto;
     height: fit-content;
     width: fit content;
-    padding: 20px;
     margin: 80px 0;
+}
+
+@media screen and (min-width: 500px) {
+    .contact-box {
+        .contact-sub-box {
+            margin: 30px 10px;
+            .contact-box-title {
+                font-size: 20px;
+            }
+        }
+    }
 }

@@ -58,6 +58,7 @@ binanceSocket.onmessage = (event) => {
             growth.value +
             "%";
     }
+    document.title = message.value; 
     lastPrice.value = priceETH.value;
 };
 </script>

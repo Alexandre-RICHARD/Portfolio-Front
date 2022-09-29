@@ -1,19 +1,12 @@
 <script setup>
+import ContactButton from "../../Parts/ContactButton.vue";
+import { useMainStore } from "../../../store/Main";
+const MainStore = useMainStore();
+const { contactList } = MainStore;
+
 const age = Math.round(
     (Date.now() - new Date(1999, 5, 24)) / 1000 / 365 / 24 / 60 / 60
 );
-
-const copy = () => {
-    const copyAlert = document.querySelector(".copy-confirm-alert");
-    navigator.clipboard.writeText(
-        document.querySelector("#discordId").getAttribute("toCopy")
-    );
-    copyAlert.classList.toggle("displayed");
-    setTimeout(() => {
-        copyAlert.classList.toggle("displayed");
-    }, 2000);
-};
-const discordId = "Shadowmere#5754";
 </script>
 
 <template>
@@ -63,9 +56,7 @@ const discordId = "Shadowmere#5754";
             >Télécharger mon CV</a>
         </div>
 
-        <h2 class="categories">
-            Mes projets
-        </h2>
+        <h2 class="categories">Mes projets</h2>
         <div class="promote-project-box">
             <div class="one-project">
                 <img
@@ -114,37 +105,20 @@ const discordId = "Shadowmere#5754";
             Voir tous mes autres projets
         </router-link>
 
-        <!-- ! FINI -->
         <h2 class="categories">Mes contacts principaux</h2>
 
         <div class="home-contact-box">
-            <a
-                title="Github"
-                class="contact-link"
-                href="https://github.com/Alexandre-RICHARD"
-                target="_blank"
-            >Github</a>
-            <a
-                title="LinkedIn"
-                class="contact-link"
-                href="https://linkedin.com/in/alexandre-richard-dev4/"
-                target="_blank"
-            >LinkedIn</a>
-            <div class="discord-container">
-                <button
-                    id="discordId"
-                    title="Discord"
-                    :toCopy="discordId"
-                    class="contact-link"
-                    content="Discord"
-                    @click="copy"
-                >
-                    Discord
-                </button>
-                <span class="copy-confirm-alert">Copié !</span>
-            </div>
+            <ContactButton
+                v-for="contact in contactList.filter(
+                    (el) => el.id <= 3
+                )"
+                :key="contact.id"
+                :copyid="contact.copyId"
+                :type="contact.type"
+                :title="contact.title"
+                :content="contact.content"
+            />
         </div>
-
         <router-link
             title="Me retrouver partout"
             class="link-to-more"

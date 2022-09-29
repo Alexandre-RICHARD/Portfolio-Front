@@ -455,6 +455,22 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Interface primaire mais suppression du petit encadré en bas à gauche et présence uniquement de la page via /gain
 -   Rajout de la route correspondante dans le router
 
+### build 67 - 0.9.22 `29 septembre 2022`
+
+-   Grosse mise à jour après pas mal de jours sans avoir trop avancé, remise sur le projet plein pot
+-   Mise à jour des package npm
+-   La page "gain" consacré à mes petites expérience lié à l'Etherum, le résultat va venir changer le titre de la page pour une meilleure visibilité
+-   Tentative de mettre le package-lock.json en .gitignore
+-   Pour la page contact, création et mise en dossier des logo des différents launcher
+-   Les informations des différents contacts sont maintenant dans le store plutôt que dans le script car...
+-   ...les 3 liens dans la page d'accueil du portfolio sont gérés par le même composant que la page contact
+-   Création, dynamisation, stylisation et finition de la page contact - partie liens
+-   Rajout d'un petit logo copie pour indiquer à l'utilisateur que c'est possible
+-   Les liens sont tous générés dynamiquement
+-   Adaptation vis-à-vis de la recherche des logos car gérés en assets par webpack et convertis en base64
+-   Prise en compte du responsive
+-   Suppression de l'effet du hover sur les liens de contact de la page d'accueil du portfolio
+
 </details>
 
 
@@ -480,7 +496,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Rajouter un scroll molette pour changer les nombres, ainsi qu'une animation au changement en mode carroussel
 -   La page contact à faire
 -   La page projets à faire
--   La page CV à faire
 -   Rendre les modals account fonctionnel et faire une base de compte à lier avec le back
 -   Essayer de mettre les images de Projets et autres en BDD
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
+-   Quand beaucoup de projets auront été fait (4 ou plus), faire que les projets de la page d'accueil soit affichés aléatoirement
+-   Les données de projets seront par la suite récupérer en base de donnéesS

@@ -1,91 +1,35 @@
 <script setup>
-const contactList = [
-    {
-        id: 1,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 2,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 3,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 4,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 5,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 6,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 7,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 8,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 9,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 10,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 11,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-    {
-        id: 12,
-        type: "copy",
-        title: "Adresse mail",
-        content: "alexandre.richard.dev@gmail.com",
-    },
-];
+import ContactButton from "../../Parts/ContactButton.vue";
+import { useMainStore } from "../../../store/Main";
+const MainStore = useMainStore();
+const { contactList } = MainStore;
 </script>
 
 <template>
     <div class="contact-box">
-        <div
-            v-for="contact in contactList"
-            :key="contact.id"
-            class="one-contact-container"
-        >
-            <a v-if="contact.type === 'link'">{{ contact.title }}</a>
-            <button v-else-if="contact.type === 'copy'">
-                {{ contact.title }}
-            </button>
+        <div class="contact-sub-box pro">
+            <h2 class="contact-box-title">Contact professionnel</h2>
+            <ContactButton
+                v-for="contact in contactList.filter(el => el.section === 'pro')"
+                :key="contact.id"
+                :copyid="contact.copyId"
+                :type="contact.type"
+                :title="contact.title"
+                :content="contact.content"
+                :section="contact.section"
+            />
+        </div>
+        <div class="contact-sub-box games">
+            <h2 class="contact-box-title">J'ai dit que j'aimais les jeux vidéos ?</h2>
+            <ContactButton
+                v-for="contact in contactList.filter(el => el.section === 'games')"
+                :key="contact.id"
+                :copyid="contact.copyId"
+                :type="contact.type"
+                :title="contact.title"
+                :content="contact.content"
+                :section="contact.section"
+            />
         </div>
     </div>
 

@@ -105,60 +105,14 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        .contact-link {
-            height: fit-content;
-            text-align: center;
-            background-color: var(--smoothBackgroundColor);
-            color: var(--titleColor);
-            font-size: $normal-font-size;
-            padding: 8px 12px;
-            margin: 10px;
-            border-radius: 7px;
-            display: block;
-        }
-
-        .discord-container {
-            background-color: var(--backgroundColor);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-
-            .copy-confirm-alert {
-                position: absolute;
-                top: -10px;
-                width: fit-content;
-                background-color: var(--buttonColorTwo);
-                padding: 3px 8px;
-                border-radius: 4px;
-                display: none;
-
-                &.displayed {
-                    display: block;
-                    animation: myAnim 2s ease normal;
-                }
-
-                @keyframes myAnim {
-                    0% {
-                        opacity: 0;
-                        transform: translateX(-25px);
-                    }
-
-                    50% {
-                        opacity: 1;
-                        transform: translateX(0px);
-                    }
-                    100% {
-                        opacity: 0;
-                        transform: translateX(25px);
-                    }
-                }
+        .one-contact-box {
+            .contact-element {
+                margin: 10px;
             }
         }
     }
 
-    .link-to-more,
-    .contact-link {
+    .link-to-more {
         &::before {
             display: block;
             content: attr(title);
@@ -174,17 +128,6 @@
         }
         &:hover {
             font-weight: 600;
-        }
-    }
-
-    .contact-link {
-        &::before {
-            font-weight: 700;
-            letter-spacing: 1.2px;
-        }
-        &:hover {
-            font-weight: 700;
-            letter-spacing: 1.2px;
         }
     }
 }
