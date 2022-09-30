@@ -24,12 +24,58 @@
     }
 }
 
-.contact-me-form {
+.contact-me {
     background-color: var(--backgroundColor);
+    color: var(--titleColor);
     margin: auto;
     height: fit-content;
-    width: fit content;
-    margin: 80px 0;
+    width: 100%;
+    margin: 20px 0;
+
+    &-form {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .input {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+
+            label {
+                background-color: var(--backgroundColor);
+                color: var(--titleColor);
+                padding: 4px;
+            }
+
+            input {
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                padding: 4px;
+                width: 100%;
+            }
+
+            textarea {
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                padding: 4px;
+                width: 100%;
+            }
+        }
+        .submit-button {
+            background-color: var(--buttonColorTwo);
+            width: 200px;
+            margin: auto;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
 }
 
 @media screen and (min-width: 500px) {

@@ -471,6 +471,12 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Prise en compte du responsive
 -   Suppression de l'effet du hover sur les liens de contact de la page d'accueil du portfolio
 
+### build 68 - 0.9.23 `29 septembre 2022`
+
+-   Mise à jour du logo de Gog, le launcher afin de le rendre plus distingable
+-   Mise en place d'un fichier baseUrl.js pour les futures et très prochaines relation avec la BDD
+-   Mise en place d'un formulaire de contact avec récupération des données et envoi en back, l'envoi du mail derrière n'est pas encore fonctionnel
+
 </details>
 
 
@@ -481,6 +487,10 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Quand on recharge en étant sur l'une des sections, les liens ne sont pas les bons car la fonction chargées de mettre la bonne section au chargement est cassé
 -   La barre de défilement sur la droite change la taille du site en fonction des pages
 -   En dessous de 417 px, et jusqu'au 400 minimum que j'ai défini, il y a un sliding horizontal et je ne comprend pas quel élément fait déborder le contenu de la page
+-   Sur mobile, les caractères fléchés sont différent, à changer.
+-   Sur mobile, petit bug lors du changement de thème
+-   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
+-   En cliquant sur un lien intrasite, nous ne sommes pas remis tout en haut de la page
 
 ## Les features à venir
 
