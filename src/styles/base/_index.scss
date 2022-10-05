@@ -7,11 +7,13 @@
 
 @use "../Page/Portfolio/pfHome";
 @use "../Page/Portfolio/pfCurriculum";
+@use "../Page/Portfolio/pfProjects";
 @use "../Page/Portfolio/pfContact";
 
 @use "../Parts/AccountModal";
 @use "../Parts/BreadCrumb";
 @use "../Parts/ContactButton";
+@use "../Parts/ProjectContainer";
 @use "../Parts/ProjectVersionning";
 @use "../Parts/SiteHeader";
 @use "../Parts/ThemePallet";

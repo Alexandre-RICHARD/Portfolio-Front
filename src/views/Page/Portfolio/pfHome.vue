@@ -1,5 +1,6 @@
 <script setup>
 import ContactButton from "../../Parts/ContactButton.vue";
+import ProjectContainer from "../../Parts/ProjectContainer.vue";
 import { useMainStore } from "../../../store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
@@ -57,46 +58,9 @@ const age = Math.round(
         </div>
 
         <h2 class="categories">Mes projets</h2>
-        <div class="promote-project-box">
-            <div class="one-project">
-                <img
-                    src="../../../images/project1-view.png"
-                    alt="Visuel du projet 1"
-                    class="one-project-image"
-                >
-                <h3 class="one-project-title">Portfolio</h3>
-                <p class="one-project-description">
-                    Ce même portfolio sur lequel vous vous situez, je suis assez
-                    ambitieux sur la suite du projet et des sous-partie très
-                    différentes et nouvelles.
-                </p>
-            </div>
-            <div class="one-project">
-                <img
-                    src="../../../images/project2-view.png"
-                    alt="Visuel du projet 2"
-                    class="one-project-image"
-                >
-                <h3 class="one-project-title">Intro to Blockchain</h3>
-                <p class="one-project-description">
-                    Mon projet de fin d'étude, réalisé en groupe de 4, dans des
-                    conditions voulues pour se rapprochées d'un environnement
-                    professionnel.
-                </p>
-            </div>
-            <div class="one-project">
-                <img
-                    src="../../../images/project3-view.png"
-                    alt="Visuel du projet 3"
-                    class="one-project-image"
-                >
-                <h3 class="one-project-title">Crypto Récap</h3>
-                <p class="one-project-description">
-                    Un outil que j'avais fait quand je m'intéressais aux
-                    cryptomonnaies.
-                </p>
-            </div>
-        </div>
+        <ProjectContainer 
+            :number="3"
+        />
         <router-link
             title="Voir tous mes autres projets"
             class="link-to-more"

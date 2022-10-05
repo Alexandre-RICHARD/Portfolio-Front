@@ -477,6 +477,21 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Mise en place d'un fichier baseUrl.js pour les futures et très prochaines relation avec la BDD
 -   Mise en place d'un formulaire de contact avec récupération des données et envoi en back, l'envoi du mail derrière n'est pas encore fonctionnel
 
+### build 69 - 0.9.24 `5 octobre 2022`
+
+-   Changement dans la gestion de l'affichage des projets
+-   Remplacement des images d'illustration par un placeholder qui sera remplacé une fois plus de 3 projets incorporés
+-   Mise à jour des packages NPM
+-   Rajout d'une route dédiée au projet détaillée avec donc une route par projet
+-   Rajout de la liste des projets avec leurs détails dans le store de Pinia
+-   Création et utilisation d'un même composant pour créer le container et les différentes div de projets que ce soit sur la page projet ou sur la page Home
+-   Suppression de la template des projets dans pfHome et du style correspondant pour le remplacer par l'appel du composant dynamique
+-   Dans pfHome, l'affichage des projets est rendu aléatoire, 3 projets parmi tous sont affichés dans un ordre aléatoire
+-   Changement de la valeur d'un coefficient dans EhterumFollow.vue 0.999 -> 0.99747
+-   Initialisation et préparation à la création de la page de détails de chaque projet
+-   
+
+
 </details>
 
 
@@ -504,10 +519,17 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
 -   Il y aurait chaque jour un mastermind à faire
 -   Rajouter un scroll molette pour changer les nombres, ainsi qu'une animation au changement en mode carroussel
--   La page contact à faire
--   La page projets à faire
 -   Rendre les modals account fonctionnel et faire une base de compte à lier avec le back
 -   Essayer de mettre les images de Projets et autres en BDD
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
 -   Quand beaucoup de projets auront été fait (4 ou plus), faire que les projets de la page d'accueil soit affichés aléatoirement
--   Les données de projets seront par la suite récupérer en base de donnéesS
+-   Les données de projets seront par la suite récupérer en base de données
+-   Les sections vont disparaître au profite d'un système de navigation avec apparition des liens en hover
+-   Intégrer ma liste de jeux
+-   Le wiki des dinosaures dans ARK
+-   Les outils que j'ai fait pour ARK à Intégrer
+-   The Journal
+-   Tenter de créer un système de génération de carte aléatoire avec système de GPS menant au plus court chemin
+-   Générateur de page aléatoire stylisé
+-   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
+-   Gérer le login/register

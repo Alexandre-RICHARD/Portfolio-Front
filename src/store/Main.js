@@ -115,6 +115,56 @@ export const useMainStore = defineStore("Main", {
             open: false,
             type: null,
         },
+        projectList: [
+            {
+                id: 1,
+                title: "Portfolio",
+                link: "portfolio",
+                abstract: "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel hébergé et placer mes différentes idées.",
+                description: "J'ai créé ce site pour pleins de raisons différentes. La première étant de m'en servir de portfolio à montrer aux recruteurs. Aussi, j'ai toujours pour objectif de m'améliorer, d'apprendre de nouvelles choses et d'approfondir mes connaissances. Cet exercice est parfait pour cela car je rencontre énormément de problématique que j'aime essayer de résoudre seul. Aussi, je trouvais ça intéressant de faire un site à mon nom. J'y travaille depuis le 1er aôut, à mon rythme, en le faisant d'abord par envie mais je prend toujours du plaisir à y retourner et à tenter de l'améliorer.",
+                features: [
+                    "La possibilité de changer le thème du site. Une fonction va venir changer les propriétes stockées dans le :root en css à partir de données stockées dans le Store de Pinia.",
+                    "Un breadCrumb, cette barre qui indique le chemin sur lequel on se trouve actuellement construit facilement à partir de useROute de Vue Router.",
+                    "Un mastermind en page d'accueil, petit jeu dans lequel il faut trouver un nombre mystère avec des indices donnés à chaque essai.",
+                    "Création du site totalement avec Vue.JS. Je trouve ce framework plus simple à apprendre mais également bien plus intuitif à utiliser en combinaison avec Pinia et Vue Router.",
+                    "La possibilité de copier différentes informations depuis les liens situés dans Contact.",
+                    // "Un formulaire de contact ayant pour but de rentrer des informations et qu'en validant, un mail me soit automatiquement envoyé. Je n'ai pas encore trouvé le moyen d'accomplir ceci sans passer par un service payant.",
+                ],
+            },
+            {
+                id: 2,
+                title: "Jeu d'échecs",
+                link: "chess",
+                abstract: "Mon jeu d'échec fait main",
+                description: "Mon jeu d'échec fait main avec une description plus détaillée",
+                features: [
+                    "Truc truc",
+                    "Truc truc 2",
+                ],
+            },
+            {
+                id: 3,
+                title: "blablabla",
+                link: "blablabla",
+                abstract: "blablabla",
+                description: "blabla plus long que les autres on s'en fiche on lorem bien ici",
+                features: [
+                    "blablabla",
+                    "blablabla",
+                ],
+            },
+            {
+                id: 4,
+                title: "giga ultra mega",
+                link: "giga ultra mega",
+                abstract: "giga ultra mega",
+                description: "giga ultra mega",
+                features: [
+                    "giga ultra mega",
+                    "giga ultra mega",
+                ],
+            },
+        ],
         contactList: [
             {
                 id: 1,

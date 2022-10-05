@@ -1,11 +1,9 @@
-<template>
-    <p class="temp">ICI CEST PROJETS</p>
-</template>
+<script setup>
+import ProjectContainer from "../../Parts/ProjectContainer.vue";
+</script>
 
-<style>
-.temp {
-    color: var(--titleColor);
-    font: 500;
-    font-size: 30px;
-}
-</style>
+<template>
+    <ProjectContainer 
+        :number="null"
+    />
+</template>

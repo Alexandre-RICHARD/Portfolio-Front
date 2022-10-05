@@ -67,38 +67,6 @@
         }
     }
 
-    .promote-project-box {
-        background-color: var(--backgroundColor);
-        padding: 20px 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-
-        .one-project {
-            background-color: var(--backgroundColor);
-            width: 250px;
-            border-radius: 15px;
-            border: 3px solid var(--buttonColorOne);
-            margin: 20px;
-            overflow: hidden;
-
-            &-title {
-                background-color: var(--backgroundColor);
-                color: var(--buttonColorOne);
-                padding: 0 5px;
-                font-weight: 400;
-                font-size: $big-font-size;
-            }
-
-            &-description {
-                background-color: var(--backgroundColor);
-                padding: 0 5px 15px 5px;
-                color: var(--titleColor);
-                text-align: justify;
-            }
-        }
-    }
-
     .home-contact-box {
         background-color: var(--backgroundColor);
         display: flex;

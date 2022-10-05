@@ -24,7 +24,7 @@ binanceSocket.onmessage = (event) => {
         priceETH.value < lastPrice.value ? "negative" : "positive";
     if (boughtAt.value > 0 && howManyETH.value > 0) {
         gain.value = (
-            priceETH.value * howManyETH.value * 0.999 -
+            priceETH.value * howManyETH.value * 0.99747 -
             boughtAt.value * howManyETH.value
         ).toFixed(2);
         growth.value = (
@@ -64,7 +64,7 @@ binanceSocket.onmessage = (event) => {
 </script>
 
 <template>
-    <div v-if="priceETH !== null" class="eth">
+    <div class="eth">
         <div class="input-data">
             <div>
                 <span class="little">Achat : Acheté à...</span><input

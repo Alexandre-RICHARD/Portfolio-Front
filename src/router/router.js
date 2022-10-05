@@ -9,6 +9,7 @@ import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
 import pfHome from "../views/Page/Portfolio/pfHome.vue";
 import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
 import pfProjects from "../views/Page/Portfolio/pfProjects.vue";
+import pfProjectDetails from "../views/Page/Portfolio/pfProjectDetails.vue";
 import pfContact from "../views/Page/Portfolio/pfContact.vue";
 
 import thsrHome from "../views/Page/TryHardSlowRun/thsrHome.vue";
@@ -67,6 +68,16 @@ const routes = [
                 meta: {
                     title: "Projets",
                     path: "Projets",
+                    section: "Portfolio",
+                },
+            },
+            {
+                path: "project/:projectName",
+                name: "ProjectDetails",
+                components: { portfolioRouter: pfProjectDetails },
+                meta: {
+                    title: "L'un des projets ?",//! ON DOIT INSERER LE NOM DU PROJET
+                    path: "L'un des projets ?", //! ON DOIT INSERER LE NOM DU PROJET
                     section: "Portfolio",
                 },
             },
