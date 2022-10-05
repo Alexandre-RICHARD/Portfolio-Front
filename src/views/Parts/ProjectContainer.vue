@@ -17,7 +17,7 @@ const shuffle = (array) => {
 <template>
     <div class="project-container">
         <RouterLink
-            v-for="project in number != null
+            v-for="project in number != 0
                 ? shuffle(projectList).slice(1)
                 : projectList"
             :key="project.id"
@@ -28,7 +28,7 @@ const shuffle = (array) => {
             }"
         >
             <img
-                src="../../images/projectIllustration/projectIllustrationPlaceholder.png"
+                src="../../images/projectIllustration/overview/projectIllustrationPlaceholder.png"
                 alt="Une image temporaire le temps d'importer d'autre projet"
             >
             <h3 class="one-project-title">{{ project.title }}</h3>

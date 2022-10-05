@@ -4,6 +4,6 @@ import ProjectContainer from "../../Parts/ProjectContainer.vue";
 
 <template>
     <ProjectContainer 
-        :number="null"
+        :number="0"
     />
 </template>

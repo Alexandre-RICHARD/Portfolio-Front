@@ -489,8 +489,14 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Dans pfHome, l'affichage des projets est rendu aléatoire, 3 projets parmi tous sont affichés dans un ordre aléatoire
 -   Changement de la valeur d'un coefficient dans EhterumFollow.vue 0.999 -> 0.99747
 -   Initialisation et préparation à la création de la page de détails de chaque projet
--   
 
+### build 70 - 0.9.25 `5 octobre 2022`
+
+-   Rajout d'un dossier large pour les images d'illustration de projets afin d'avoir des images légères à charger lors de l'aperçu de tous
+-   Le breadcrumb n'a plus de z-index qui était inutile
+-   Modification des données de projets pour les rendre plus précise et rendre le côté temporaire des 2 projets factices plus clair
+-   Changement de la variable number passé au projectContainer de null à 0 pour la page pfProject
+-   Création et stylisation de la page ProjectDetails qui permet d'accéder à tous les détails d'un projet
 
 </details>
 
@@ -510,9 +516,7 @@ Voici [le site](http://alexandre-richard.fr) en question
 ## Les features à venir
 
 -   Rajouter un bouton Page d'Accueil dans le BreadCrumb quand il n'y est pas
--   Mettre des titres de sous-secion dans la page CV pour les listes
 -   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
--   Intégrer les quelques projets que j'ai de côtés un peu à la va-vite le temps pour le début avant de les faire propre
 -   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
 -   Rajouter un bouton pour recommencer
 -   Rajouter un "petit quelque chose" quand le joueur à trouver la bonne combinaison
@@ -522,7 +526,6 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Rendre les modals account fonctionnel et faire une base de compte à lier avec le back
 -   Essayer de mettre les images de Projets et autres en BDD
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
--   Quand beaucoup de projets auront été fait (4 ou plus), faire que les projets de la page d'accueil soit affichés aléatoirement
 -   Les données de projets seront par la suite récupérer en base de données
 -   Les sections vont disparaître au profite d'un système de navigation avec apparition des liens en hover
 -   Intégrer ma liste de jeux
@@ -533,3 +536,8 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Générateur de page aléatoire stylisé
 -   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
 -   Gérer le login/register
+-   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
+-   Faire une review du code d'un peu tout
+-   Importer le jeu d'échec
+-   Refaire le texte de la page d'accueil
+-   Le breadCrumb doit disparaitre dans le coin 404
