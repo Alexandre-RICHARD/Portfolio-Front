@@ -120,7 +120,7 @@ export const useMainStore = defineStore("Main", {
                 id: 1,
                 title: "Portfolio",
                 link: "portfolio",
-                linkAccess: "",
+                linkAccess: "/",
                 abstract: "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel hébergé et placer mes différentes idées.",
                 description: "J'ai créé ce site pour pleins de raisons différentes. La première étant de m'en servir de portfolio à montrer aux recruteurs. Aussi, j'ai toujours pour objectif de m'améliorer, d'apprendre de nouvelles choses et d'approfondir mes connaissances. Cet exercice est parfait pour cela car je rencontre énormément de problématique que j'aime essayer de résoudre seul. Aussi, je trouvais ça intéressant de faire un site à mon nom. J'y travaille depuis le 1er août, à mon rythme, en le faisant d'abord par envie mais je prend toujours du plaisir à y retourner et à tenter de l'améliorer.",
                 features: [

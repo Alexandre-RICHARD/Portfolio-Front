@@ -498,13 +498,15 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Changement de la variable number passé au projectContainer de null à 0 pour la page pfProject
 -   Création et stylisation de la page ProjectDetails qui permet d'accéder à tous les détails d'un projet
 
+### build 71 - 0.9.26 `6 octobre 2022`
+
+-   Ajout de <base href="/"> dans le document HTML de base pour contrer les problèmes de redirection et de recherche de ressources
+-   Problème du lien pour le portfolio project réglé
+
 </details>
-
-
 
 ## Les problèmes du site actuellement
 
--   Sur le site hébergé, lorsque l'url contient 3 paths ou plus, le site recharge blanc, comme précédemment, les fichiers sources sont tous remplacés par le contenu du fichier html. La solution se trouve surement dans le .htaccess à bidouiller (uniquement sur le site hébergé, sur le localhost, le problème n'a pas lieu)
 -   Quand on recharge en étant sur l'une des sections, les liens ne sont pas les bons car la fonction chargées de mettre la bonne section au chargement est cassé
 -   La barre de défilement sur la droite change la taille du site en fonction des pages
 -   En dessous de 417 px, et jusqu'au 400 minimum que j'ai défini, il y a un sliding horizontal et je ne comprend pas quel élément fait déborder le contenu de la page
