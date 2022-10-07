@@ -503,6 +503,13 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Ajout de <base href="/"> dans le document HTML de base pour contrer les problèmes de redirection et de recherche de ressources
 -   Problème du lien pour le portfolio project réglé
 
+### build 72 - 0.9.27 `7 octobre 2022`
+
+-   Création du contenu de la modal Account avec deux formulaire semi-dynamique de connexion ou d'inscription
+-   Stylisation basique de ces formulaires
+-   Changement du nom de toutes les variables formulaires pour le formulaire de contact
+-   Ajout de autocomplete pour chaque input
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -543,3 +550,4 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Importer le jeu d'échec
 -   Refaire le texte de la page d'accueil
 -   Le breadCrumb doit disparaitre dans le coin 404
+-   Rajouter une petite bulle info pour connexion/inscription avec les conditions de formulaires et les inscrire en regex

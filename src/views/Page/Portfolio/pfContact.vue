@@ -7,10 +7,10 @@ const MainStore = useMainStore();
 const { contactList } = MainStore;
 
 const contactByMailValues = reactive({
-    name: null,
-    mail: null,
-    subject: null,
-    message: null,
+    contactFormName: null,
+    contactFormMail: null,
+    contactFormSubject: null,
+    contactFormMessage: null,
 });
 
 const submitContactForm = (event) => {
@@ -72,66 +72,67 @@ const sendMail = async () => {
         <h1 class="categories">Me contacter directement (non fonctionnel, en attente de réussir à trouver comment faire)</h1>
         <form
             class="contact-me-form"
-            action="mailto:info@w3docs.com"
-            method="get"
-            enctype="text/plain"
         >
             <div class="input">
-                <label for="name">Nom : </label>
+                <label for="contactFormName">Nom : </label>
                 <input
-                    id="name"
-                    name="name"
+                    id="contactFormName"
+                    name="contactFormName"
                     type="text"
                     required
-                    :value="contactByMailValues.name"
+                    autocomplete="on"
+                    :value="contactByMailValues.contactFormName"
                     @input="
                         (event) =>
-                            (contactByMailValues.name = event.target.value)
+                            (contactByMailValues.contactFormName = event.target.value)
                     "
                 >
             </div>
 
             <div class="input">
-                <label for="mail">Votre adresse mail : </label>
+                <label for="contactFormMail">Votre adresse mail : </label>
                 <input
-                    id="mail"
-                    name="email"
+                    id="contactFormMail"
+                    name="contactFormMail"
                     type="email"
                     required
-                    :value="contactByMailValues.mail"
+                    autocomplete="on"
+                    :value="contactByMailValues.contactFormMail"
                     @input="
                         (event) =>
-                            (contactByMailValues.mail = event.target.value)
+                            (contactByMailValues.contactFormMail = event.target.value)
                     "
                 >
             </div>
 
             <div class="input">
-                <label for="subject">Objet du message : </label>
+                <label for="contactFormSubject">Objet du message : </label>
                 <input
-                    id="subject"
-                    name="subject"
+                    id="contactFormSubject"
+                    name="contactFormSubject"
                     type="text"
                     required
-                    :value="contactByMailValues.subject"
+                    autocomplete="off"
+                    :value="contactByMailValues.contactFormSubject"
                     @input="
                         (event) =>
-                            (contactByMailValues.subject = event.target.value)
+                            (contactByMailValues.contactFormSubject = event.target.value)
                     "
                 >
             </div>
 
             <div class="input">
-                <label for="message">Message : </label>
+                <label for="contactFormMessage">Message : </label>
                 <textarea
-                    id="message"
-                    name="message"
+                    id="contactFormMessage"
+                    name="contactFormMessage"
                     type="textarea"
                     required
-                    :value="contactByMailValues.message"
+                    autocomplete="off"
+                    :value="contactByMailValues.contactFormMessage"
                     @input="
                         (event) =>
-                            (contactByMailValues.message = event.target.value)
+                            (contactByMailValues.contactFormMessage = event.target.value)
                     "
                 />
             </div>

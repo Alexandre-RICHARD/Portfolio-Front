@@ -14,12 +14,59 @@
     height: 100vh;
 
     .account-modal {
-        color: #000000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 330px;
-        height: 400px;
-        background-color: white;
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        width: 350px;
+        border-radius: 30px;
+        border: 1px solid var(--titleColor);
+        overflow: hidden;
+        padding: 15px;
+        height: fit-content;
+
+        .login-form, .register-form {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            display: flex;
+            flex-direction: column;
+
+            .input {
+                background-color: var(--backgroundColor);
+                color: var(--titleColor);
+                margin: 20px 0;
+
+                label {
+                    background-color: var(--backgroundColor);
+                    color: var(--titleColor);
+                    display: block;
+                    padding: 3px;
+                }
+
+                input {
+                    background-color: var(--titleColor);
+                    color: var(--backgroundColor);
+                    width: 100%;
+                    padding: 4px;
+                }
+            }
+
+            .submit-button {
+                background-color: var(--headerColor);
+                color: var(--titleColor);
+                font-weight: 600;
+                font-size: 16px;
+                text-shadow: 1px 1px 1px var(--textShadowColor);
+                cursor: pointer;
+                letter-spacing: 1px;
+                width: fit-content;
+                margin: auto;
+                padding: 7px;
+                border-radius: 9px;
+
+                &:hover {
+                    border: 2px solid var(--titleColor);
+                    transform: scale(1.08);
+                }
+            }
+        }
     }
 }
