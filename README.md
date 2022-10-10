@@ -510,6 +510,21 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Changement du nom de toutes les variables formulaires pour le formulaire de contact
 -   Ajout de autocomplete pour chaque input
 
+### build 73 - 0.9.28 `10 octobre 2022`
+
+-   Changement de la fonction gérant la fermeture de la modal de compte afin qu'elle puisse gérer le changement de modal entre connexion et inscription
+-   Changement dans l'objet qui contient les valeurs des 6 inputs en remplacement le null par une string vide
+-   Création d'un système de stockage de message d'erreur lors de l'analyse des value d'input
+-   Objet fonction avec les 6 fonctions de tests pour chaque input uniquement lors du submit
+-   Rajout de diverse conditions à travers les regex pour valider ou nom les valeurs entrées par l'user
+-   Affichage des messages d'erreurs sous les différents input
+-   Ajout d'un bouton pour changer d'une modal à l'autre si déjà un compte : inscription -> connexion ; si pas de compte connexion -> inscription
+-   Modification de l'opacité du cache de la modal
+-   Rajout d'une largeur minimum pour la modal même si normalement, 350px n'est jamais atteind
+-   Augmentation de la largeur de la bordure de la modal
+-   Stylisation des messages d'erreur et du bouton de changement de modal
+-   Les boutons submit des formulaire ont maintenant une bordure invisible pour prévoir la taille définitive lors du hover
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -550,4 +565,3 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Importer le jeu d'échec
 -   Refaire le texte de la page d'accueil
 -   Le breadCrumb doit disparaitre dans le coin 404
--   Rajouter une petite bulle info pour connexion/inscription avec les conditions de formulaires et les inscrire en regex

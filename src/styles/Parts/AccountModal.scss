@@ -3,7 +3,7 @@
 //! TEMPORAIRE
 .account-modal-cache {
     z-index: 10;
-    background-color: #00000075;
+    background-color: #000000d0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,14 +16,16 @@
     .account-modal {
         background-color: var(--backgroundColor);
         color: var(--titleColor);
+        min-width: 350px;
         width: 350px;
         border-radius: 30px;
-        border: 1px solid var(--titleColor);
+        border: 2px solid var(--titleColor);
         overflow: hidden;
         padding: 15px;
         height: fit-content;
 
-        .login-form, .register-form {
+        .login-form,
+        .register-form {
             background-color: var(--backgroundColor);
             color: var(--titleColor);
             display: flex;
@@ -32,7 +34,7 @@
             .input {
                 background-color: var(--backgroundColor);
                 color: var(--titleColor);
-                margin: 20px 0;
+                margin: 10px 0;
 
                 label {
                     background-color: var(--backgroundColor);
@@ -49,6 +51,25 @@
                 }
             }
 
+            .password-error-box {
+                background-color: var(--smoothBackgroundColor);
+                color: var(--textColor);
+                padding: 5px;
+                border-radius: 5px;
+
+                .title {
+                    background-color: var(--smoothBackgroundColor);
+                    color: var(--textColor);
+                    font-size: 16px;
+                }
+
+                .error {
+                    background-color: var(--smoothBackgroundColor);
+                    color: var(--textColor);
+                    font-size: 14px;
+                }
+            }
+
             .submit-button {
                 background-color: var(--headerColor);
                 color: var(--titleColor);
@@ -58,13 +79,29 @@
                 cursor: pointer;
                 letter-spacing: 1px;
                 width: fit-content;
-                margin: auto;
+                margin: 7px auto;
                 padding: 7px;
                 border-radius: 9px;
+                border: 2px solid transparent;
 
                 &:hover {
-                    border: 2px solid var(--titleColor);
-                    transform: scale(1.08);
+                    border-color: var(--titleColor);
+                }
+            }
+
+            .not-concerned {
+                background-color: var(--backgroundColor);
+                color: var(--titleColor);
+                padding-top: 7px;
+                text-align: center;
+
+                &-button {
+                    background-color: var(--backgroundColor);
+                    color: var(--buttonColorTwo);
+                    font-weight: 500;
+                    cursor: pointer;
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
                 }
             }
         }
