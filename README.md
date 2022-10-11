@@ -544,7 +544,13 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   La vérification du passwordConfirmation ne fait plus appel à deux paramètres de fonction mais à un seul et va chercher le mot de passe d'origine dans l'object spécifique
 -   Supression des deux videurs d'array
 -   Ajout d'un return true or false pour chaque test afin de pouvoit styliser les input selon ce simple résultat
--   Rajout d'un style léger pour les input afin de reconnaître le fait qu'il soit ou non correctement remplis
+-   Rajout d'un style léger pour les input afin de reconnaître le fait qu'ils soient ou non correctement remplis
+
+### build 76 - 0.9.31 `11 octobre 2022`
+
+-   Installation de "zxcvbn", le mesureur de puissance d'un mot de passe par DropBox
+-   La fonction stylisant les inputs à la perte de focus ne fonctionne que si l'input a au moins 1 caractère
+-   Rajout d'une progress bar si l'input de registerPassword a au moins un caractère pour indiquer la puissance du mot de passe
 
 </details>
 

@@ -60,6 +60,12 @@
                 }
             }
 
+            .strong-password {
+                width: 100%;
+                position: relative;
+                top: -10px;
+            }
+
             .error-box {
                 background-color: var(--smoothBackgroundColor);
                 color: var(--textColor);

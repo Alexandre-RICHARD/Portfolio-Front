@@ -1,4 +1,6 @@
 <script setup>
+import zxcvbn from "zxcvbn";
+
 const props = defineProps({
     title: {
         type: String,
@@ -27,7 +29,7 @@ const props = defineProps({
     errordata: {
         type: Array,
         required: true,
-    }
+    },
 });
 
 const emit = defineEmits(["changeInputValue", "inputLosingFocus"]);
@@ -38,7 +40,6 @@ const handleChange = (event) => {
 const losingFocus = (event) => {
     emit("inputLosingFocus", event.target);
 };
-
 </script>
 
 <template>
@@ -55,15 +56,15 @@ const losingFocus = (event) => {
             @blur="losingFocus"
         >
     </div>
-    <div
-        v-if="errordata.length !== 0"
-        class="error-box"
-    >
-        <p
-            v-for="error in errordata"
-            :key="error"
-            class="error"
-        >
+    <progress
+        v-if="props.name === 'registerPassword' && props.value.length > 0"
+        class="strong-password"
+        max="16"
+        :value="zxcvbn(props.value).guesses_log10"
+    />
+
+    <div v-if="errordata.length !== 0" class="error-box">
+        <p v-for="error in errordata" :key="error" class="error">
             {{ error }}
         </p>
     </div>

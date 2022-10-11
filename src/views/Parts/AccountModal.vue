@@ -276,10 +276,11 @@ const changeInputValue = (value, valuename) => {
 };
 
 const inputLosingFocus = (target) => {
-    const testOk = regexTest[target.id](accountInformations[target.id]);
-    const className = testOk === true ? "good" : "error";
-    document.querySelector(`#${target.id}`).className = (className);
-
+    if (accountInformations[target.id].length > 0) {
+        const testOk = regexTest[target.id](accountInformations[target.id]);
+        const className = testOk === true ? "good" : "error";
+        document.querySelector(`#${target.id}`).className = (className);
+    }
 };
 </script>
 
