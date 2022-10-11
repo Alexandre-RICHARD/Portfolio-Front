@@ -181,16 +181,23 @@ const informationsList = [
                     alt="Photographie de ma personne"
                     src="../../../images/portrait.png"
                 >
-                Jeune optimiste de {{ age }} ans sorti de formation en
-                développement, je porte un intérêt certain au numérique et au
-                développement web. J’ai vite appris et exploré de nombreuses
-                facettes du domaine à travers ma formation chez O'clock et des
-                projets personnels que j'ai réalisé et réalise encore. Ayant
-                encore beaucoup à découvrir, je recherche une première
-                expérience professionnelle pour parfaire mes connaissances et
-                participer à des projets d’ampleur au sein d’une équipe.
-                J’apprends vite, je m’adapte bien aux nouveautés et j’apporte au
-                mieux de nouvelles idées.
+                Je suis un jeune de {{ age }} ans qui s'est pris de passion pour
+                le développement web après des années à chercher l'étincelle.
+                Optimiste et sorti d'une formation en développement web de 6
+                mois chez O'clock, je continue de me former et d'apprendre.
+                Aussi, ma curiosté pour le secteur du numérique me fait toujours
+                regarder à droite à gauche les nouvelles choses. J'ai
+                expérimenté pour le moment uniquement les langages web, à savoir
+                HTML ; CSS et JS dans lesquels je suis toujours en quête de
+                fonctionnalités à maîtriser et de connaissances à avoir. J'aime
+                beaucoup travailler sur ce gros projet personnel en essayant
+                d'être le plus rigoureux dans son développement et attentif aux
+                axes d'améliorations possibles ainsi qu'à la
+                détection/résolution des bugs. Aimant apprendre, réaliser des
+                challenges et m'investir dans des projets, je recherche ma
+                première expérience professionnelle dans une entreprise dans
+                laquelle je pourrai m'investir au sein de leur équipe et qui
+                saura me faire confiance.
             </p>
         </div>
 

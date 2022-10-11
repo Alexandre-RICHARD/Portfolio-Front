@@ -552,6 +552,15 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   La fonction stylisant les inputs à la perte de focus ne fonctionne que si l'input a au moins 1 caractère
 -   Rajout d'une progress bar si l'input de registerPassword a au moins un caractère pour indiquer la puissance du mot de passe
 
+### build 77 - 0.9.32 `11 octobre 2022`
+
+-   Légère modification du style (size et margin) pour la photo du Curriculum
+-   Modification du texte sur la page d'accueil du site
+-   Modification du texte de présentation dans le curriculum
+-   Mise en commentaires d'une variables pour correspondre à EsLint
+-   Mise à jour des package npm (comme à chaque commit mais je le notifie de temps en temps)
+-   Mise en forme de la section "Features à venir" du Readme pour qu'elle soit plus clair
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -566,29 +575,35 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 ## Les features à venir
 
--   Rajouter un bouton Page d'Accueil dans le BreadCrumb quand il n'y est pas
--   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
+En cours : 
+-   Gérer le login/register
+
+Mastermind :
 -   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
 -   Rajouter un bouton pour recommencer
 -   Rajouter un "petit quelque chose" quand le joueur à trouver la bonne combinaison
--   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
--   Il y aurait chaque jour un mastermind à faire
 -   Rajouter un scroll molette pour changer les nombres, ainsi qu'une animation au changement en mode carroussel
--   Rendre les modals account fonctionnel et faire une base de compte à lier avec le back
--   Essayer de mettre les images de Projets et autres en BDD
--   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
--   Les données de projets seront par la suite récupérer en base de données
+-   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
+
+Navigation et BreadCrumb : 
+-   Rajouter un bouton Page d'Accueil dans le BreadCrumb quand il n'y est pas
 -   Les sections vont disparaître au profite d'un système de navigation avec apparition des liens en hover
+-   Le breadCrumb doit disparaitre dans le coin 404
+
+Projets à intégrer :
+-   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
 -   Intégrer ma liste de jeux
 -   Le wiki des dinosaures dans ARK
 -   Les outils que j'ai fait pour ARK à Intégrer
 -   The Journal
 -   Tenter de créer un système de génération de carte aléatoire avec système de GPS menant au plus court chemin
 -   Générateur de page aléatoire stylisé
--   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
--   Gérer le login/register
 -   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
--   Faire une review du code d'un peu tout
 -   Importer le jeu d'échec
--   Refaire le texte de la page d'accueil
--   Le breadCrumb doit disparaitre dans le coin 404
+
+Détails et peaufinage : 
+-   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
+-   Les données de projets seront par la suite récupérer en base de données, ainsi que leurs images
+-   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
+-   Faire une review du code d'un peu tout
+-   Régler l'image d'illustration de code pour qu'elle coïncide avec le thème
