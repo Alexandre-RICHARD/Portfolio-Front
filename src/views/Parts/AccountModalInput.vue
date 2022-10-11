@@ -30,11 +30,14 @@ const props = defineProps({
     }
 });
 
-const emit = defineEmits(["changeInputValue"]);
+const emit = defineEmits(["changeInputValue", "inputLosingFocus"]);
 const handleChange = (event) => {
     emit("changeInputValue", event.target.value, props.valuename);
 };
 
+const losingFocus = (event) => {
+    emit("inputLosingFocus", event.target);
+};
 
 </script>
 
@@ -49,6 +52,7 @@ const handleChange = (event) => {
             :autocomplete="autocomplete"
             :value="value"
             @input="handleChange"
+            @blur="losingFocus"
         >
     </div>
     <div

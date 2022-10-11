@@ -30,13 +30,25 @@ let errorDataRegister = reactive([[], [], [], []]);
 
 const regexTest = {
     loginMail: (mail) => {
-        const testGlobal = mail.match(/^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm);
+        errorDataLogin[0].length = 0;
+        const testGlobal = mail.match(
+            /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
+        );
         if (testGlobal === null) {
-            errorDataLogin[0].push("Le format de l'adresse-mail ne correspond pas");
+            errorDataLogin[0].push(
+                "Le format de l'adresse-mail ne correspond pas"
+            );
+        }
+
+        if (errorDataLogin[0].length === 0) {
+            return true;
+        } else {
+            return false;
         }
     },
 
     loginPassword: (password) => {
+        errorDataLogin[1].length = 0;
         const testResult = {
             lowercase: 0,
             uppercase: 0,
@@ -88,29 +100,60 @@ const regexTest = {
             testResult.length < 8 ||
             testResult.length > 60
         ) {
-            errorDataLogin[1].push("Le format du mot de passe ne correspond pas aux prérequis");
+            errorDataLogin[1].push(
+                "Le format du mot de passe ne correspond pas aux prérequis"
+            );
+        }
+
+        if (errorDataLogin[1].length === 0) {
+            return true;
+        } else {
+            return false;
         }
     },
 
     registerNickname: (nickname) => {
+        errorDataRegister[0].length = 0;
         const testGlobal = nickname.match(/[^0-9a-zA-Z-_]/gm);
         if (testGlobal !== null) {
-            errorDataRegister[0].push("Seuls les lettres a/A, chiffres et \"_\" et \"-\" sont autorisés pour le pseudo");
+            errorDataRegister[0].push(
+                "Seuls les lettres a/A, chiffres et \"_\" et \"-\" sont autorisés pour le pseudo"
+            );
         }
 
         if (nickname.length < 3 || nickname.length > 25) {
-            errorDataRegister[0].push("Le pseudo doit comprendre entre 3 et 25 caractères");
+            errorDataRegister[0].push(
+                "Le pseudo doit comprendre entre 3 et 25 caractères"
+            );
+        }
+
+        if (errorDataRegister[0].length === 0) {
+            return true;
+        } else {
+            return false;
         }
     },
 
     registerMail: (mail) => {
-        const testGlobal = mail.match(/^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm);
+        errorDataRegister[1].length = 0;
+        const testGlobal = mail.match(
+            /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
+        );
         if (testGlobal === null) {
-            errorDataRegister[1].push("Le format de l'adresse-mail ne correspond pas");
+            errorDataRegister[1].push(
+                "Le format de l'adresse-mail ne correspond pas"
+            );
+        }
+
+        if (errorDataRegister[1].length === 0) {
+            return true;
+        } else {
+            return false;
         }
     },
 
     registerPassword: (password) => {
+        errorDataRegister[2].length = 0;
         const testResult = {
             lowercase: 0,
             uppercase: 0,
@@ -153,7 +196,9 @@ const regexTest = {
             testResult.special = testSpe.join("").length;
         }
         if (testResult.special < 1) {
-            errorDataRegister[2].push("...contenir au moins 1 caractère spécial");
+            errorDataRegister[2].push(
+                "...contenir au moins 1 caractère spécial"
+            );
         }
 
         // Espace et autre
@@ -170,21 +215,32 @@ const regexTest = {
         if (testResult.length < 8 || testResult.length > 60) {
             errorDataRegister[2].push("...faire entre 8 et 60 caractères");
         }
+
+        if (errorDataRegister[2].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
     },
 
-    registerPasswordConfirmation: (password, passwordConfirmation) => {
-        if (password !== passwordConfirmation) {
-            errorDataRegister[3].push("Les mots de passe ne sont pas identiques");
+    registerPasswordConfirmation: (passwordConfirmation) => {
+        errorDataRegister[3].length = 0;
+        if (passwordConfirmation !== accountInformations.registerPassword) {
+            errorDataRegister[3].push(
+                "Les mots de passe ne sont pas identiques"
+            );
         }
-    }
+
+        if (errorDataRegister[3].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
 };
 
 const submitLoginForm = (event) => {
     event.preventDefault();
-    errorDataLogin.length = 0;
-    for (let i = 0; i < 2; i++) {
-        errorDataLogin.push([]);
-    }
     const mailTest = accountInformations.loginMail;
     const passwordTest = accountInformations.loginPassword;
 
@@ -198,19 +254,18 @@ const submitLoginForm = (event) => {
 
 const submitRegisterForm = (event) => {
     event.preventDefault();
-    errorDataRegister.length = 0;
-    for (let i = 0; i < 4; i++) {
-        errorDataRegister.push([]);
-    }
     const nicknameTest = accountInformations.registerNickname;
     const mailTest = accountInformations.registerMail;
     const passwordTest = accountInformations.registerPassword;
-    const passwordConfirmationTest = accountInformations.registerPasswordConfirmation;
+    const passwordConfirmationTest =
+        accountInformations.registerPasswordConfirmation;
 
     regexTest.registerNickname(nicknameTest);
     regexTest.registerMail(mailTest);
     regexTest.registerPassword(passwordTest);
-    regexTest.registerPasswordConfirmation(passwordTest, passwordConfirmationTest);
+    regexTest.registerPasswordConfirmation(
+        passwordConfirmationTest
+    );
     if (errorDataRegister.join().replaceAll(",", "").length === 0) {
         console.log("Tout va bien - Register");
     }
@@ -218,6 +273,13 @@ const submitRegisterForm = (event) => {
 
 const changeInputValue = (value, valuename) => {
     accountInformations[valuename] = value;
+};
+
+const inputLosingFocus = (target) => {
+    const testOk = regexTest[target.id](accountInformations[target.id]);
+    const className = testOk === true ? "good" : "error";
+    document.querySelector(`#${target.id}`).className = (className);
+
 };
 </script>
 
@@ -238,6 +300,7 @@ const changeInputValue = (value, valuename) => {
                     :value="accountInformations.loginMail"
                     :errordata="errorDataLogin[0]"
                     @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
                 />
                 <AccountModalInput
                     title="Mot de passe : "
@@ -248,6 +311,7 @@ const changeInputValue = (value, valuename) => {
                     :value="accountInformations.loginPassword"
                     :errordata="errorDataLogin[1]"
                     @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
                 />
                 <input
                     class="submit-button"
@@ -274,6 +338,7 @@ const changeInputValue = (value, valuename) => {
                     :value="accountInformations.registerNickname"
                     :errordata="errorDataRegister[0]"
                     @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
                 />
                 <AccountModalInput
                     title="Adresse mail : "
@@ -284,6 +349,7 @@ const changeInputValue = (value, valuename) => {
                     :value="accountInformations.registerMail"
                     :errordata="errorDataRegister[1]"
                     @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
                 />
                 <AccountModalInput
                     title="Mot de passe : "
@@ -294,6 +360,7 @@ const changeInputValue = (value, valuename) => {
                     :value="accountInformations.registerPassword"
                     :errordata="errorDataRegister[2]"
                     @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
                 />
                 <AccountModalInput
                     title="Confirmez le mot de passe : "
@@ -304,6 +371,7 @@ const changeInputValue = (value, valuename) => {
                     :value="accountInformations.registerPasswordConfirmation"
                     :errordata="errorDataRegister[3]"
                     @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
                 />
                 <input
                     class="submit-button"

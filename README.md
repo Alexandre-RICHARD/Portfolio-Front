@@ -535,6 +535,17 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Installation de l'appel des 6 input via le nouveau composant
 -   Utilisation de la fonction emit permettant de transmettre une données du fils au parent lors du trigger d'un event
 
+### build 75 - 0.9.30 `11 octobre 2022`
+
+-   Ajout d'une fonction détectant la perte de focus de chacun des input
+-   Une nouvelle fonction emit existe ainsi dans le sous-composant
+-   Cette fonction appelle le test spécifique de cet input
+-   Ainsi, les tableaux d'erreurs sont maintenant vidés dans les sous-fonction plutôt que dans les fonction submit
+-   La vérification du passwordConfirmation ne fait plus appel à deux paramètres de fonction mais à un seul et va chercher le mot de passe d'origine dans l'object spécifique
+-   Supression des deux videurs d'array
+-   Ajout d'un return true or false pour chaque test afin de pouvoit styliser les input selon ce simple résultat
+-   Rajout d'un style léger pour les input afin de reconnaître le fait qu'il soit ou non correctement remplis
+
 </details>
 
 ## Les problèmes du site actuellement

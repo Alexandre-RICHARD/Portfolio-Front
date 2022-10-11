@@ -48,6 +48,15 @@
                     color: var(--backgroundColor);
                     width: 100%;
                     padding: 4px;
+                    border: 2px solid transparent;
+
+                    &.good {
+                        border: 2px solid green;
+                    }
+
+                    &.error {
+                        border: 2px solid red;
+                    }
                 }
             }
 
