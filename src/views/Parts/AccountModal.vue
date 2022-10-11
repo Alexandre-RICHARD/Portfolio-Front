@@ -1,4 +1,5 @@
 <script setup>
+import AccountModalInput from "./AccountModalInput.vue";
 import { reactive } from "vue";
 import { useMainStore } from "../../store/Main";
 const MainStore = useMainStore();
@@ -24,8 +25,8 @@ const accountInformations = reactive({
     registerPasswordConfirmation: "",
 });
 
-let errorDataRegister = reactive([[], [], [], []]);
 let errorDataLogin = reactive([[], []]);
+let errorDataRegister = reactive([[], [], [], []]);
 
 const regexTest = {
     loginMail: (mail) => {
@@ -190,11 +191,8 @@ const submitLoginForm = (event) => {
     regexTest.loginMail(mailTest);
     regexTest.loginPassword(passwordTest);
 
-    console.log("Longueur : " + errorDataLogin.join().replaceAll(",", "").length);
     if (errorDataLogin.join().replaceAll(",", "").length === 0) {
         console.log("Tout va bien - Login");
-    } else {
-        console.log("Erreur");
     }
 };
 
@@ -213,12 +211,13 @@ const submitRegisterForm = (event) => {
     regexTest.registerMail(mailTest);
     regexTest.registerPassword(passwordTest);
     regexTest.registerPasswordConfirmation(passwordTest, passwordConfirmationTest);
-    console.log("Longueur : " + errorDataRegister.join().replaceAll(",", "").length);
     if (errorDataRegister.join().replaceAll(",", "").length === 0) {
         console.log("Tout va bien - Register");
-    } else {
-        console.log("Erreur");
     }
+};
+
+const changeInputValue = (value, valuename) => {
+    accountInformations[valuename] = value;
 };
 </script>
 
@@ -230,62 +229,26 @@ const submitRegisterForm = (event) => {
     >
         <div class="account-modal">
             <form v-if="modalData.type === 'login'" class="login-form">
-                <div class="input">
-                    <label for="loginMail">Adresse mail : </label>
-                    <input
-                        id="loginMail"
-                        name="loginMail"
-                        type="email"
-                        required
-                        autocomplete="on"
-                        :value="accountInformations.loginMail"
-                        @input="
-                            (event) =>
-                                (accountInformations.loginMail =
-                                    event.target.value)
-                        "
-                    >
-                </div>
-                <div
-                    v-if="errorDataLogin[0].length !== 0"
-                    class="password-error-box"
-                >
-                    <p
-                        v-for="error in errorDataLogin[0]"
-                        :key="error"
-                        class="error"
-                    >
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="input">
-                    <label for="loginPassword">Mot de passe : </label>
-                    <input
-                        id="loginPassword"
-                        name="loginPassword"
-                        type="password"
-                        required
-                        autocomplete="on"
-                        :value="accountInformations.loginPassword"
-                        @input="
-                            (event) =>
-                                (accountInformations.loginPassword =
-                                    event.target.value)
-                        "
-                    >
-                </div>
-                <div
-                    v-if="errorDataLogin[1].length !== 0"
-                    class="password-error-box"
-                >
-                    <p
-                        v-for="error in errorDataLogin[1]"
-                        :key="error"
-                        class="error"
-                    >
-                        {{ error }}
-                    </p>
-                </div>
+                <AccountModalInput
+                    title="Adresse mail : "
+                    name="loginMail"
+                    type="email"
+                    autocomplete="on"
+                    valuename="loginMail"
+                    :value="accountInformations.loginMail"
+                    :errordata="errorDataLogin[0]"
+                    @change-input-value="changeInputValue"
+                />
+                <AccountModalInput
+                    title="Mot de passe : "
+                    name="loginPassword"
+                    type="password"
+                    autocomplete="on"
+                    valuename="loginPassword"
+                    :value="accountInformations.loginPassword"
+                    :errordata="errorDataLogin[1]"
+                    @change-input-value="changeInputValue"
+                />
                 <input
                     class="submit-button"
                     type="submit"
@@ -302,122 +265,46 @@ const submitRegisterForm = (event) => {
             </form>
 
             <form v-if="modalData.type === 'register'" class="register-form">
-                <div class="input">
-                    <label for="registerNickname">Pseudo : </label>
-                    <input
-                        id="registerNickname"
-                        name="registerNickname"
-                        type="text"
-                        required
-                        autocomplete="off"
-                        :value="accountInformations.registerNickname"
-                        @input="
-                            (event) =>
-                                (accountInformations.registerNickname =
-                                    event.target.value)
-                        "
-                    >
-                </div>
-                <div
-                    v-if="errorDataRegister[0].length !== 0"
-                    class="password-error-box"
-                >
-                    <p
-                        v-for="error in errorDataRegister[0]"
-                        :key="error"
-                        class="error"
-                    >
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="input">
-                    <label for="registerMail">Adresse mail : </label>
-                    <input
-                        id="registerMail"
-                        name="registerMail"
-                        type="email"
-                        required
-                        autocomplete="on"
-                        :value="accountInformations.registerMail"
-                        @input="
-                            (event) =>
-                                (accountInformations.registerMail =
-                                    event.target.value)
-                        "
-                    >
-                </div>
-                <div
-                    v-if="errorDataRegister[1].length !== 0"
-                    class="password-error-box"
-                >
-                    <p
-                        v-for="error in errorDataRegister[1]"
-                        :key="error"
-                        class="error"
-                    >
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="input">
-                    <label for="registerPassword">Mot de passe : </label>
-                    <input
-                        id="registerPassword"
-                        name="registerPassword"
-                        type="password"
-                        required
-                        autocomplete="off"
-                        :value="accountInformations.registerPassword"
-                        @input="
-                            (event) =>
-                                (accountInformations.registerPassword =
-                                    event.target.value)
-                        "
-                    >
-                </div>
-                <div
-                    v-if="errorDataRegister[2].length !== 0"
-                    class="password-error-box"
-                >
-                    <p class="title">Le mot de passe doit...</p>
-                    <p
-                        v-for="error in errorDataRegister[2]"
-                        :key="error"
-                        class="error"
-                    >
-                        {{ error }}
-                    </p>
-                </div>
-                <div class="input">
-                    <label for="registerPasswordConfirmation">Confirmez le mot de passe :
-                    </label>
-                    <input
-                        id="registerPasswordConfirmation"
-                        name="registerPasswordConfirmation"
-                        type="password"
-                        required
-                        autocomplete="off"
-                        :value="
-                            accountInformations.registerPasswordConfirmation
-                        "
-                        @input="
-                            (event) =>
-                                (accountInformations.registerPasswordConfirmation =
-                                    event.target.value)
-                        "
-                    >
-                </div>
-                <div
-                    v-if="errorDataRegister[3].length !== 0"
-                    class="password-error-box"
-                >
-                    <p
-                        v-for="error in errorDataRegister[3]"
-                        :key="error"
-                        class="error"
-                    >
-                        {{ error }}
-                    </p>
-                </div>
+                <AccountModalInput
+                    title="Pseudo : "
+                    name="registerNickname"
+                    type="text"
+                    autocomplete="off"
+                    valuename="registerNickname"
+                    :value="accountInformations.registerNickname"
+                    :errordata="errorDataRegister[0]"
+                    @change-input-value="changeInputValue"
+                />
+                <AccountModalInput
+                    title="Adresse mail : "
+                    name="registerMail"
+                    type="email"
+                    autocomplete="on"
+                    valuename="registerMail"
+                    :value="accountInformations.registerMail"
+                    :errordata="errorDataRegister[1]"
+                    @change-input-value="changeInputValue"
+                />
+                <AccountModalInput
+                    title="Mot de passe : "
+                    name="registerPassword"
+                    type="password"
+                    autocomplete="off"
+                    valuename="registerPassword"
+                    :value="accountInformations.registerPassword"
+                    :errordata="errorDataRegister[2]"
+                    @change-input-value="changeInputValue"
+                />
+                <AccountModalInput
+                    title="Confirmez le mot de passe : "
+                    name="registerPasswordConfirmation"
+                    type="password"
+                    autocomplete="off"
+                    valuename="registerPasswordConfirmation"
+                    :value="accountInformations.registerPasswordConfirmation"
+                    :errordata="errorDataRegister[3]"
+                    @change-input-value="changeInputValue"
+                />
                 <input
                     class="submit-button"
                     type="submit"

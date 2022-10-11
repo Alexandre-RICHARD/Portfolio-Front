@@ -525,6 +525,16 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Stylisation des messages d'erreur et du bouton de changement de modal
 -   Les boutons submit des formulaire ont maintenant une bordure invisible pour prévoir la taille définitive lors du hover
 
+### build 74 - 0.9.29 `11 octobre 2022`
+
+-   Factorisation importante des 6 inputs des modals de connexion
+-   Renommage d'une classe CSS : password-error-box -> error-box
+-   Création d'un composant gérant la création des inputs
+-   Supression des consoles.log inutiles
+-   Création d'une fonction changeInputValue qui va recevoir les emit du composant enfant pour changer les valeurs d'input
+-   Installation de l'appel des 6 input via le nouveau composant
+-   Utilisation de la fonction emit permettant de transmettre une données du fils au parent lors du trigger d'un event
+
 </details>
 
 ## Les problèmes du site actuellement
