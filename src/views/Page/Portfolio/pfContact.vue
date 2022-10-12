@@ -2,7 +2,7 @@
 import { reactive } from "vue";
 import ContactButton from "../../Parts/ContactButton.vue";
 import { useMainStore } from "../../../store/Main";
-import { base_Url } from "../../../baseUrl.js";
+import { base_Url } from "../../../baseUrl";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
 

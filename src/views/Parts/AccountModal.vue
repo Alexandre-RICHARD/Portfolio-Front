@@ -1,5 +1,6 @@
 <script setup>
 import AccountModalInput from "./AccountModalInput.vue";
+import { base_Url } from "../../baseUrl";
 import { reactive } from "vue";
 import { useMainStore } from "../../store/Main";
 const MainStore = useMainStore();
@@ -241,31 +242,68 @@ const regexTest = {
 
 const submitLoginForm = (event) => {
     event.preventDefault();
-    const mailTest = accountInformations.loginMail;
-    const passwordTest = accountInformations.loginPassword;
+    const connectionData = {
+        mail: accountInformations.loginMail,
+        password: accountInformations.loginPassword,
+    };
 
-    regexTest.loginMail(mailTest);
-    regexTest.loginPassword(passwordTest);
+    regexTest.loginMail(connectionData.mail);
+    regexTest.loginPassword(connectionData.password);
 
     if (errorDataLogin.join().replaceAll(",", "").length === 0) {
         console.log("Tout va bien - Login");
+        connection(connectionData);
+    }
+};
+
+const connection = async (connectionData) => {
+    try {
+        await fetch(base_Url.api_url + "/connection", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(connectionData),
+        });
+    } catch (error) {
+        console.trace(error);
     }
 };
 
 const submitRegisterForm = (event) => {
     event.preventDefault();
-    const nicknameTest = accountInformations.registerNickname;
-    const mailTest = accountInformations.registerMail;
-    const passwordTest = accountInformations.registerPassword;
-    const passwordConfirmationTest =
-        accountInformations.registerPasswordConfirmation;
+    const registrationData = {
+        nickname: accountInformations.registerNickname,
+        mail: accountInformations.registerMail,
+        password: accountInformations.registerPassword,
+        passwordConfirmation: accountInformations.registerPasswordConfirmation,
+    };
 
-    regexTest.registerNickname(nicknameTest);
-    regexTest.registerMail(mailTest);
-    regexTest.registerPassword(passwordTest);
-    regexTest.registerPasswordConfirmation(passwordConfirmationTest);
+    regexTest.registerNickname(registrationData.nickname);
+    regexTest.registerMail(registrationData.mail);
+    regexTest.registerPassword(registrationData.password);
+    regexTest.registerPasswordConfirmation(
+        registrationData.passwordConfirmation
+    );
     if (errorDataRegister.join().replaceAll(",", "").length === 0) {
         console.log("Tout va bien - Register");
+        registration(registrationData);
+    }
+};
+
+const registration = async (registrationData) => {
+    try {
+        await fetch(base_Url.api_url + "/registration", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(registrationData),
+        });
+    } catch (error) {
+        console.trace(error);
     }
 };
 

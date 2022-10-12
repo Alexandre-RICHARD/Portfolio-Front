@@ -565,6 +565,11 @@ Voici [le site](http://alexandre-richard.fr) en question
 
 -   Utilisation de Prettier sur tout le projet
 
+### build 79 - 0.9.34 `12 octobre 2022`
+
+-   Changement dans les fonctions gérant les submit d'account. Les données sont maintenant en objet pour un envoi global au serveur
+-   Dans le cas ou tous les feux sont verts, on appelle les fonctions connection ou registration pour lancer un appel API, pour le moment sans effet
+
 </details>
 
 ## Les problèmes du site actuellement
