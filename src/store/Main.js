@@ -121,8 +121,10 @@ export const useMainStore = defineStore("Main", {
                 title: "Portfolio",
                 link: "portfolio",
                 linkAccess: "/",
-                abstract: "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel hébergé et placer mes différentes idées.",
-                description: "J'ai créé ce site pour pleins de raisons différentes. La première étant de m'en servir de portfolio à montrer aux recruteurs. Aussi, j'ai toujours pour objectif de m'améliorer, d'apprendre de nouvelles choses et d'approfondir mes connaissances. Cet exercice est parfait pour cela car je rencontre énormément de problématique que j'aime essayer de résoudre seul. Aussi, je trouvais ça intéressant de faire un site à mon nom. J'y travaille depuis le 1er août, à mon rythme, en le faisant d'abord par envie mais je prend toujours du plaisir à y retourner et à tenter de l'améliorer.",
+                abstract:
+                    "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel hébergé et placer mes différentes idées.",
+                description:
+                    "J'ai créé ce site pour pleins de raisons différentes. La première étant de m'en servir de portfolio à montrer aux recruteurs. Aussi, j'ai toujours pour objectif de m'améliorer, d'apprendre de nouvelles choses et d'approfondir mes connaissances. Cet exercice est parfait pour cela car je rencontre énormément de problématique que j'aime essayer de résoudre seul. Aussi, je trouvais ça intéressant de faire un site à mon nom. J'y travaille depuis le 1er août, à mon rythme, en le faisant d'abord par envie mais je prend toujours du plaisir à y retourner et à tenter de l'améliorer.",
                 features: [
                     "La possibilité de changer le thème du site. Une fonction va venir changer les propriétes stockées dans le :root en css à partir de données stockées dans le Store de Pinia.",
                     "Un breadCrumb, cette barre qui indique le chemin sur lequel on se trouve actuellement construit facilement à partir de useRoute de Vue Router.",
@@ -139,8 +141,10 @@ export const useMainStore = defineStore("Main", {
                 title: "Jeu d'échecs",
                 link: "chess",
                 linkAccess: "/tryhard/slowrun/chess",
-                abstract: "Le jeu d'échec que j'ai créé de toute pièce. Il est jouable pour le moment seul et il manque quelques détails pour que les véritables règles des échecs soient respectées. A pour but d'être jouable en ligne.",
-                description: "Il s'agit d'un jeu d'échec que j'avais créé à l'origine durant mes études au sein d'O'clock. Quasiment terminé, je l'avais délaissé pour me concentrer sur les dernières semaines de cours. C'est par celui-ci que j'ai décidé de commencer ce projet de portfolio en le reprenant du début. Il n'est pour le moment pas encore tout à fait terminé et n'est jouable qu'en solo, mais quand j'aurai intégré la connexion au site et les différentes fonctionnalités de websocket, je ferai en sorte que deux joueurs puissent créer une partie, personnaliser leur règles et jouer l'un contre l'autre. La sauvegarde des parties et des statistiques sont également prévues.",
+                abstract:
+                    "Le jeu d'échec que j'ai créé de toute pièce. Il est jouable pour le moment seul et il manque quelques détails pour que les véritables règles des échecs soient respectées. A pour but d'être jouable en ligne.",
+                description:
+                    "Il s'agit d'un jeu d'échec que j'avais créé à l'origine durant mes études au sein d'O'clock. Quasiment terminé, je l'avais délaissé pour me concentrer sur les dernières semaines de cours. C'est par celui-ci que j'ai décidé de commencer ce projet de portfolio en le reprenant du début. Il n'est pour le moment pas encore tout à fait terminé et n'est jouable qu'en solo, mais quand j'aurai intégré la connexion au site et les différentes fonctionnalités de websocket, je ferai en sorte que deux joueurs puissent créer une partie, personnaliser leur règles et jouer l'un contre l'autre. La sauvegarde des parties et des statistiques sont également prévues.",
                 features: [
                     "Gestion des différentes pièces à partir de case dynamiques comportant plusieurs informations.",
                     "Les mouvements sont calculés côté serveur afin que les joueurs ne puissent tricher en réalisant des coups impossibles.",
@@ -153,8 +157,10 @@ export const useMainStore = defineStore("Main", {
                 title: "PROJET FACTICE 1",
                 link: "facticeprojectone",
                 linkAccess: "/facticeprojectone",
-                abstract: "Texte de remplissage pour le projet factice numéro 1 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
-                description: "Texte de remplissage pour le projet factice numéro 1 en attendant que j'ai intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
+                abstract:
+                    "Texte de remplissage pour le projet factice numéro 1 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
+                description:
+                    "Texte de remplissage pour le projet factice numéro 1 en attendant que j'ai intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
                 features: [
                     "Features inexistante 1",
                     "Features inexistante 2",
@@ -169,8 +175,10 @@ export const useMainStore = defineStore("Main", {
                 title: "PROJET FACTICE 2",
                 link: "facticeprojecttwo",
                 linkAccess: "/facticeprojecttwo",
-                abstract: "Texte de remplissage pour le projet factice numéro 2 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
-                description: "Texte de remplissage pour le projet factice numéro 2 en attendant que j'ai intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
+                abstract:
+                    "Texte de remplissage pour le projet factice numéro 2 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
+                description:
+                    "Texte de remplissage pour le projet factice numéro 2 en attendant que j'ai intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
                 features: [
                     "Features inexistante 1",
                     "Features inexistante 2",

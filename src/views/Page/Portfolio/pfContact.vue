@@ -69,10 +69,11 @@ const sendMail = async () => {
     </div>
 
     <div class="contact-me">
-        <h1 class="categories">Me contacter directement (non fonctionnel, en attente de réussir à trouver comment faire)</h1>
-        <form
-            class="contact-me-form"
-        >
+        <h1 class="categories">
+            Me contacter directement (non fonctionnel, en attente de réussir à
+            trouver comment faire)
+        </h1>
+        <form class="contact-me-form">
             <div class="input">
                 <label for="contactFormName">Nom : </label>
                 <input
@@ -84,7 +85,8 @@ const sendMail = async () => {
                     :value="contactByMailValues.contactFormName"
                     @input="
                         (event) =>
-                            (contactByMailValues.contactFormName = event.target.value)
+                            (contactByMailValues.contactFormName =
+                                event.target.value)
                     "
                 >
             </div>
@@ -100,7 +102,8 @@ const sendMail = async () => {
                     :value="contactByMailValues.contactFormMail"
                     @input="
                         (event) =>
-                            (contactByMailValues.contactFormMail = event.target.value)
+                            (contactByMailValues.contactFormMail =
+                                event.target.value)
                     "
                 >
             </div>
@@ -116,7 +119,8 @@ const sendMail = async () => {
                     :value="contactByMailValues.contactFormSubject"
                     @input="
                         (event) =>
-                            (contactByMailValues.contactFormSubject = event.target.value)
+                            (contactByMailValues.contactFormSubject =
+                                event.target.value)
                     "
                 >
             </div>
@@ -132,7 +136,8 @@ const sendMail = async () => {
                     :value="contactByMailValues.contactFormMessage"
                     @input="
                         (event) =>
-                            (contactByMailValues.contactFormMessage = event.target.value)
+                            (contactByMailValues.contactFormMessage =
+                                event.target.value)
                     "
                 />
             </div>

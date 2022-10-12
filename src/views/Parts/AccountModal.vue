@@ -263,9 +263,7 @@ const submitRegisterForm = (event) => {
     regexTest.registerNickname(nicknameTest);
     regexTest.registerMail(mailTest);
     regexTest.registerPassword(passwordTest);
-    regexTest.registerPasswordConfirmation(
-        passwordConfirmationTest
-    );
+    regexTest.registerPasswordConfirmation(passwordConfirmationTest);
     if (errorDataRegister.join().replaceAll(",", "").length === 0) {
         console.log("Tout va bien - Register");
     }
@@ -279,7 +277,7 @@ const inputLosingFocus = (target) => {
     if (accountInformations[target.id].length > 0) {
         const testOk = regexTest[target.id](accountInformations[target.id]);
         const className = testOk === true ? "good" : "error";
-        document.querySelector(`#${target.id}`).className = (className);
+        document.querySelector(`#${target.id}`).className = className;
     }
 };
 </script>

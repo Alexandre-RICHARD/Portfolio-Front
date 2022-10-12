@@ -561,6 +561,10 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Mise à jour des package npm (comme à chaque commit mais je le notifie de temps en temps)
 -   Mise en forme de la section "Features à venir" du Readme pour qu'elle soit plus clair
 
+### build 78 - 0.9.33 `12 octobre 2022`
+
+-   Utilisation de Prettier sur tout le projet
+
 </details>
 
 ## Les problèmes du site actuellement

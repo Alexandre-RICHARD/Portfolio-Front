@@ -76,7 +76,7 @@ const routes = [
                 name: "ProjectDetails",
                 components: { portfolioRouter: pfProjectDetails },
                 meta: {
-                    title: "L'un des projets ?",//! ON DOIT INSERER LE NOM DU PROJET
+                    title: "L'un des projets ?", //! ON DOIT INSERER LE NOM DU PROJET
                     path: "L'un des projets ?", //! ON DOIT INSERER LE NOM DU PROJET
                     section: "Portfolio",
                 },

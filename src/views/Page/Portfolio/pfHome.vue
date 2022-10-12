@@ -58,9 +58,7 @@ const age = Math.round(
         </div>
 
         <h2 class="categories">Mes projets</h2>
-        <ProjectContainer 
-            :number="3"
-        />
+        <ProjectContainer :number="3" />
         <router-link
             title="Voir tous mes autres projets"
             class="link-to-more"
@@ -73,9 +71,7 @@ const age = Math.round(
 
         <div class="home-contact-box">
             <ContactButton
-                v-for="contact in contactList.filter(
-                    (el) => el.id <= 3
-                )"
+                v-for="contact in contactList.filter((el) => el.id <= 3)"
                 :key="contact.id"
                 :copyid="contact.copyId"
                 :type="contact.type"

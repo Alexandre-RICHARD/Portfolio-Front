@@ -9,7 +9,9 @@ const changeTheme = (SelectedTheme) => {
         .querySelectorAll(".theme-choice-button")
         .forEach((element) => element.classList.remove("selected"));
     theme.selected = SelectedTheme;
-    document.querySelectorAll(`.${SelectedTheme}`).forEach(element => element.classList.toggle("selected"));
+    document
+        .querySelectorAll(`.${SelectedTheme}`)
+        .forEach((element) => element.classList.toggle("selected"));
     const root = document.documentElement;
     for (const [variable, value] of Object.entries(theme[theme.selected])) {
         root.style.setProperty(`--${variable}`, value);

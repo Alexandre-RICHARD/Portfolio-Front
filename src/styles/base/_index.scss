@@ -32,7 +32,7 @@
         background-color: var(--backgroundColor);
         width: 100%;
         min-height: calc(100vh - $header-height-size);
-    
+
         .page-container {
             background-color: var(--backgroundColor);
             max-width: 1000px;
@@ -41,7 +41,7 @@
             margin: auto;
         }
     }
-    
+
     // Au delà de 700 pixels
     @media screen and (min-width: 700px) {
         .page-background {
