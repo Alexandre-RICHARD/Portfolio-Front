@@ -1,6 +1,6 @@
 {
     "name": "tryhard-but-slowrun-front",
-    "version": "0.9.34",
+    "version": "build 80 ; V-0.9.35",
     "description": "Projet TryHard but SlowRun par Alexandre Richard. Projet à but auto-formatif.",
     "main": "webpack.config.js",
     "scripts": {
@@ -31,6 +31,7 @@
         "css-loader": "^6.7.1",
         "css-minimizer-webpack-plugin": "^4.0.0",
         "cssnano": "^5.1.12",
+        "dotenv-webpack": "^8.0.1",
         "esbuild": "^0.14.48",
         "eslint": "^8.19.0",
         "eslint-import-resolver-alias": "^1.1.2",
@@ -47,6 +48,7 @@
         "sass-loader": "^13.0.2",
         "style-loader": "^3.3.1",
         "terser-webpack-plugin": "^5.3.3",
+        "vue": "^3.2.40",
         "vue-eslint-parser": "^9.0.3",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.1.2",
@@ -54,10 +56,7 @@
         "webpack": "^5.73.0",
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "^4.9.3",
-        "webpack-merge": "^5.8.0"
-    },
-    "dependencies": {
-        "vue": "^3.2.37",
+        "webpack-merge": "^5.8.0",
         "zxcvbn": "^4.4.2"
     }
 }

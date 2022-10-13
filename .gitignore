@@ -3,4 +3,6 @@
 dist/
 node_modules/
 public/.htaccess
+.env
+.env.dev
 .prettierrc.js

@@ -1,4 +1,5 @@
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -9,6 +10,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const port = 8080;
 
 let mode = "development";
+let envPath = "./.env.dev"
 let filename = "index.html";
 let publicPath = "/";
 let devtool = "inline-source-map";
@@ -20,6 +22,7 @@ let performance = {
 
 if (process.env.NODE_ENV === "production") {
     mode = "production";
+    envPath = "./.env"
     filename = "/html/index.html";
     publicPath = "../";
     devtool = false;
@@ -46,6 +49,10 @@ module.exports = {
         assetModuleFilename: "images/[hash][ext][query]",
     },
     plugins: [
+          new Dotenv({
+            path: envPath,
+            safe: true,
+          }),
         // Utilisation des plugins pour charger vue, pour vider dist/ avant de build et pour copier les fichiers statiques
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),

@@ -570,6 +570,15 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Changement dans les fonctions gérant les submit d'account. Les données sont maintenant en objet pour un envoi global au serveur
 -   Dans le cas ou tous les feux sont verts, on appelle les fonctions connection ou registration pour lancer un appel API, pour le moment sans effet
 
+### build 80 - 0.9.35 `12 octobre 2022`
+
+-   Rajout de "node": true dans le fichier de configuration d'EsLint
+-   Création de fichier contenant des variables d'environnement afin de changer automatiquement d'adresse d'API en fonction du mode dev/run ou prod/build
+-   Mise en gitignore de ces fichiers
+-   Installation de dotenv-webpack pour gérer ces fichiers
+-   Mise en devDependencies de Vue et de Zxcvbn
+-   ProjectVersionning, le petit encadré en bas à droite qui indique la version va maintenant récupérer la valeur depuis le package.json
+
 </details>
 
 ## Les problèmes du site actuellement

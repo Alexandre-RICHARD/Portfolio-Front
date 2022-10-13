@@ -1,3 +1,7 @@
+<script setup>
+const pjson = require("../../../package.json");
+</script>
+
 <template>
-    <p class="versionning">build 79 ; V-0.9.34</p>
+    <p class="versionning">{{ pjson.version }}</p>
 </template>
