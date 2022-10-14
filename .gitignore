@@ -1,6 +1,6 @@
+.dist/
 .vscode/
 .temp/
-dist/
 node_modules/
 public/.htaccess
 .env

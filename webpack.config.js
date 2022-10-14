@@ -39,11 +39,11 @@ module.exports = {
         open: true,
         historyApiFallback: true,
         port,
-        static: "./dist",
+        static: "./.dist",
         hot: true,
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, ".dist"),
         publicPath: publicPath,
         filename: "js/[name].[contenthash].js",
         assetModuleFilename: "images/[hash][ext][query]",

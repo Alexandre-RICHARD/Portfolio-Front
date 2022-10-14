@@ -587,6 +587,11 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Rajout d'un fichier scss temporaire pour les moments de débug ou les gros tests pas beaux
 -   Supression du fichier baseUrl.js qui n'a donc plus son utilité
 
+### build 82 - 0.9.37 `14 octobre 2022`
+
+-   Le dossier build devient .dist pour le placer en haut de liste
+-   Adaptation des commandes dans le package.json
+
 </details>
 
 ## Les problèmes du site actuellement
