@@ -1,8 +1,9 @@
 # TryHard but SlowRun - Le front
 
-Bonjour, bienvenue sur mon gros projet. J'avais envie de réunir tous mes projets sur un seul site, de tout rendre tout bien, tout joli, en plus de m'en faire un portfolio. À l'heure où j'écris ces lignes, la partie portfolio n'est pas encore fini mais ça avance bien et cela me permet de me confronter à tellement de problématique et donc d'apprentissage que je me sens progressé vite.
+Bonjour, bienvenue sur le répo de mon portfolio. J'y ai entreposé ma présentation, mon CV, mes projets ainsi que mes contacts. Tout mes projets présentés sont hébergés sur le même site.
+Il s'agit ici du front avec ci-dessous l'historique des version et leur détails.
 
-Voici [le site](http://alexandre-richard.fr) en question
+Voici [le site](https://alexandre-richard.fr) en question.
 
 ## Historique des version
 
@@ -570,7 +571,7 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Changement dans les fonctions gérant les submit d'account. Les données sont maintenant en objet pour un envoi global au serveur
 -   Dans le cas ou tous les feux sont verts, on appelle les fonctions connection ou registration pour lancer un appel API, pour le moment sans effet
 
-### build 80 - 0.9.35 `12 octobre 2022`
+### build 80 - 0.9.35 `13 octobre 2022`
 
 -   Rajout de "node": true dans le fichier de configuration d'EsLint
 -   Création de fichier contenant des variables d'environnement afin de changer automatiquement d'adresse d'API en fonction du mode dev/run ou prod/build
@@ -578,6 +579,13 @@ Voici [le site](http://alexandre-richard.fr) en question
 -   Installation de dotenv-webpack pour gérer ces fichiers
 -   Mise en devDependencies de Vue et de Zxcvbn
 -   ProjectVersionning, le petit encadré en bas à droite qui indique la version va maintenant récupérer la valeur depuis le package.json
+
+### build 81 - 0.9.36 `14 octobre 2022`
+
+-   Petit changement dans le début de Readme pour qu'il soit conforme à celui du front et à l'évolution actuelle du projet
+-   Utilisation de la variable d'environnement pour l'importer dans les composants qui ont des requêtes à faire
+-   Rajout d'un fichier scss temporaire pour les moments de débug ou les gros tests pas beaux
+-   Supression du fichier baseUrl.js qui n'a donc plus son utilité
 
 </details>
 

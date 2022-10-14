@@ -1,8 +1,8 @@
 <script setup>
 import AccountModalInput from "./AccountModalInput.vue";
-import { base_Url } from "../../baseUrl";
 import { reactive } from "vue";
 import { useMainStore } from "../../store/Main";
+const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
 const { modalData } = MainStore;
 
@@ -258,7 +258,7 @@ const submitLoginForm = (event) => {
 
 const connection = async (connectionData) => {
     try {
-        await fetch(base_Url.api_url + "/connection", {
+        await fetch(API_URL + "/connection", {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -294,7 +294,7 @@ const submitRegisterForm = (event) => {
 
 const registration = async (registrationData) => {
     try {
-        await fetch(base_Url.api_url + "/registration", {
+        await fetch(API_URL + "/registration", {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",

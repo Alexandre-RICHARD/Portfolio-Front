@@ -1,5 +1,8 @@
 // On utilise le reset.css personnalisé
 @use "reset";
+
+@use "_elTempo";
+
 // On importe nos différentes feuilles de styles
 @use "../Page/HomePage";
 @use "../Page/Other/EtherumFollow";

@@ -2,9 +2,9 @@
 import { reactive } from "vue";
 import ContactButton from "../../Parts/ContactButton.vue";
 import { useMainStore } from "../../../store/Main";
-import { base_Url } from "../../../baseUrl";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
+const API_URL = process.env.API_URL;
 
 const contactByMailValues = reactive({
     contactFormName: null,
@@ -20,7 +20,7 @@ const submitContactForm = (event) => {
 
 const sendMail = async () => {
     try {
-        await fetch(base_Url.api_url + "/contact", {
+        await fetch(API_URL + "/contact", {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
