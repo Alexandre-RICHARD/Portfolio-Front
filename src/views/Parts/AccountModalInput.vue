@@ -1,5 +1,5 @@
 <script setup>
-import zxcvbn from "zxcvbn";
+import { ref } from "vue";
 
 const props = defineProps({
     title: {
@@ -32,13 +32,29 @@ const props = defineProps({
     },
 });
 
+// Fonction emits pour renvoyer le changement de valeur dans le composant parents
 const emit = defineEmits(["changeInputValue", "inputLosingFocus"]);
 const handleChange = (event) => {
     emit("changeInputValue", event.target.value, props.valuename);
+    // Lors de la capture de l'événement change, on vérifie aussi que s'il s'agit du password de register, on vérifiera la solidité de celui-ci.
+    if (props.name === "registerPassword") {
+        updateStrengthPassword();
+    }
 };
 
+// Fonction emits pour renvoyer la perte de focus
 const losingFocus = (event) => {
     emit("inputLosingFocus", event.target);
+};
+
+// Fonction de vérification de solidité du mot de passe.
+// On en profite pour importer ici uniquement le package zxcvbn afin d'éviter de surcharger le bundle
+let passwordStrength = ref(0);
+const updateStrengthPassword = () => {
+    return import("zxcvbn")
+        .then(({default: zxcvbn}) => {
+            passwordStrength.value = zxcvbn(props.value).guesses_log10;
+        });
 };
 </script>
 
@@ -59,8 +75,8 @@ const losingFocus = (event) => {
     <progress
         v-if="props.name === 'registerPassword' && props.value.length > 0"
         class="strong-password"
-        max="16"
-        :value="zxcvbn(props.value).guesses_log10"
+        max="18"
+        :value="passwordStrength"
     />
 
     <div v-if="errordata.length !== 0" class="error-box">

@@ -11,6 +11,8 @@
         font-size: 2vw;
     }
 
+    // Pour le moment, c'est une page par dessus les autres et totalement temporaire dans son état
+    // Ainsi, le z-index n'est pas définitif
     z-index: 10;
     background-color: black;
     color: var(--textColor);

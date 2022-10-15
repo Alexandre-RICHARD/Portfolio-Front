@@ -1,7 +1,7 @@
 // On importe les éléments utiles de Vue Router
 import { createRouter, createWebHistory } from "vue-router";
 
-// On importe toutes les vues qui seront utilisés par notre router principal
+// On importe toutes les vues qui seront utilisées par notre router principal
 import HomePage from "../views/Page/HomePage.vue";
 import NotFound from "../views/Page/Other/NotFound.vue";
 import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
@@ -12,8 +12,10 @@ import pfProjects from "../views/Page/Portfolio/pfProjects.vue";
 import pfProjectDetails from "../views/Page/Portfolio/pfProjectDetails.vue";
 import pfContact from "../views/Page/Portfolio/pfContact.vue";
 
-import thsrHome from "../views/Page/TryHardSlowRun/thsrHome.vue";
+import thsrHome from "../views/Page/TryHardSlowRun/thsrHome.vue"; //! CHANGE
 
+
+//! CHANGE après ça
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
     {
@@ -119,8 +121,9 @@ const routes = [
         meta: { title: "Le coin 404", path: "Le coin 404" },
     },
 ];
+//! CHANGE avant ça
 
-// On créé notre router en indiquand l'historique et le tableau des routes précédemment créé
+// On créé notre router en indiquand l'historique et le tableau des routes précédemment créées
 const router = createRouter({
     history: createWebHistory(),
     routes,

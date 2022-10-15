@@ -592,6 +592,46 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Le dossier build devient .dist pour le placer en haut de liste
 -   Adaptation des commandes dans le package.json
 
+### build 83 - 0.9.38 `15 octobre 2022`
+
+-   Mise à jour des packages npm
+-   Code review de tous le projet avec quelques corrections mais surtout l'identification de nombreux point à changer et à améliorer (liste en dessous)
+-   Ajout de Webpack-Bundle-Analyzer, plugin qui permet d'ouvrir lors du start/build une page montrant les fichiers de compilations créés, leur taille et ce qu'ils contiennent
+-   Mise en commentaires des fichiers suivants (pas pour tout, uniquement les choses qui me semblaient importantes à expliquer, fonctions complexes, package, configuration...) :
+-   Index.html
+-   Index.js
+-   Index.scss
+-   Router.js
+-   _index.scss
+-   _variables.scss
+-   EtherumFollow.scss
+-   NotFound.scss
+-   App.vue
+-   NotFound.vue
+-   pfContact.vue
+-   pfCurriculum.vue
+-   pfHome.vue
+-   pfProjectDetails.vue
+-   pfProjects.vue
+-   thsrHome.vue
+-   AccountModal.vue
+-   AccountModalInput.vue
+-   BreadCrumb.vue
+-   ContactButton.vue
+-   ProjectContainer.vue
+-   ProjectVersionning.vue
+-   SiteHeader.vue
+-   ThemePallet.vue
+-   Placement de quelques commentaires spéciaux pour indiquer des zones à changer plus tard
+-   Renommage de _elTempo.scss en _temporary.scss
+-   Suppression des deux event.preventDefault() dans AccountModal.vue
+-   Dans AccountModalInput.vue, zxcvbn n'est plus chargé pareil. Il est maintenant chargé uniquement à l'appel de la fonction chargé de modifier le contenu du password. Cela est très économe pour la compilation des fichiers
+-   Une variable en ref est donc indispensable, elle contient la valeur du score de sécurité du mot de passe
+-   La progressbar a maintenant un max à 18, plutôt que 16
+-   Dans ProjectContainer.vue, la fonction slice pour raccourcir le tableau est maintenant dynamique au nombre de projet demandé en appelant le composant
+-   Dans le header, changement du nom de la fonction "AccountModal" => "handleChangeModal"
+-   Complétion du Readme avec toutes les ToDo que j'avais fait à droite à gauche pour centraliser
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -632,9 +672,75 @@ Projets à intégrer :
 -   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
 -   Importer le jeu d'échec
 
+Jeu d'échecs :
+-   Roque
+-   Égalité
+-   Le Pat
+-   La répétition de Patern
+-   Rajouter une manière de noter la partie d'échecs en suivant la règlementation
+-   Gérer un historique de parties avec stats etc
+-   Gérer les ids avec le -1 qui est répétitif et chiant
+-   AbsolutePin, enlever les lettres et les moves, les mettre en XY
+-   Transférer les infos de pins dans l'objet du CurrentPlayer
+-   Transformer les moves en array
+-   Mettre une fausse IA
+-   Transformer le jeu en vue.js
+
 Détails et peaufinage : 
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
 -   Les données de projets seront par la suite récupérer en base de données, ainsi que leurs images
 -   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
 -   Faire une review du code d'un peu tout
 -   Régler l'image d'illustration de code pour qu'elle coïncide avec le thème
+-   Transformer le .eslintrc.json en .js
+
+-   Finir le code review et les commentaires
+-   Rejoindre la liste d'idée contenu dans Microsfot One Note
+-   Gérer le fait de revenir sur un modèle de navigation plus simple
+-   Création d'une webpack modele
+-   Finir de gérer l'inscription, la connexion et commencer à gérer changement de mot de passe, d'adresse mail et la suprpresion du compte
+-   Chess ?
+-   Séparer les stores, account ? Theme ? Navigation ? Other ? Project/content ?
+-   Vérifier les variables/data des link de contact et leur cohérence vis à vis d eleurs utilisations
+-   Séparer le styles entre pfproject et pfprojectdetails
+-   LA page d'accueil aura toujours son mastermind mais maintenant, elle auras tous les projets d'affichés sous une forme légèrement différentes afin que le site soit à la fois portfolio et support de projet 
+-   La pagfe etherum sera à refaire bien plus complète et propre afin de l'implémenter directement en tyant que projet dans notre site, je n'y touche pas plus que ça pour le moment
+-   Trouver un moyen d'indiquer à l'utilisateur que cliquer sur la Dolorean peut le faire evenir en arrière
+-   POur la force du mot de passe, mettre la progress bar en couleur avec une légende et peut-être une valeur
+-   Wave decoration va être mis en temporaire tant que je sais pas quoi en faire
+-   Le mastermind doit avoir son propre composant ainsi que son propre fichier scss
+-   SVG du header dans son composant
+-   Réorganiser le fichier App. vue
+-   Factoriser themePallet
+-   Rajouter un eb media sur les projets pour le responsive
+-   Quand on aura réussi a envoyer des mails serveur, il faudra envoyer un mail de confirmation lors de la création de compte
+-   Dans le back, s'occuper des fichiers gérant le jeu d'échec (commentaires etc...)
+-   Rajouter un délai minimal et maximal (un compteur total ?) pour les coup de chaque joueur
+-   Rajouter une option en début de partie pour paramétrer (jouer seul / à deux en local / à deux en ligne)
+-   Rajouter une animation quand une pièce se déplace d'une case à une autre
+-   Rajouter une animation et une option pour déplacer les pièces sorties dans un cimetière
+-   Un enregistrement de toutes les parties joués, un moyen de les consulter (voir les fiches lors des championnats) et un moyen de les faire rejouer.
+-   Rajouter une option pour changer les couleurs/le thème.
+-   Affichage du contrôle de chaque joueur
+-   Affichage particulier des pièces en cas de vitoires + animations ?
+-   Afficher un tableau dynamique / compteur sur la droite du jeu qui récapitulera tous les coup (avec mise en forme des coup lorsque MEURTRE)
+-   Enregistrer un nom pour chaque joueur, l'inscrire en base de donnée (unique avec mot de passe et il pourrait retrouver se sparties précédentes)
+-   En activant le mode DangerZone, survoler une case, mettrait en surbrillance les pièces responsables du contrôle
+-   Intégrer une règle dans la page
+-   Liste des jeux avec toutes leur propriétés
+-   Capacité de rajouter/modifier/supprimer des jeux
+-   Stocker des images en BDD
+-   Temps de jeu indiqué + temps de jeu estimé en plus
+-   Gérer correctement les erreurs
+-   Commenter la partie back du projet
+-   Intégrer un système de connexion multiple avec chat etc
+-   Gérer les modals de connexion et la connexion
+-   JSONWebToken ou autre token de connexion
+-   Système de création de serveur de jeu, privé, invitation
+-   Faire des tests unitaires
+-   Rajouter une partie admin avec gestion des BDD, des users
+-   Rajouter mon journal intime
+-   Rajouter la possibilité de changer les couleurs/le thème du site
+-   Dans la partie projet du site, expliquer la création de celui, ses spécificités et packages
+-   Simulateur de GPS avec générateur aléatoire de route
+-   La manière de gérer les liens du Header est sale et deviendra rapidement sujet à problème

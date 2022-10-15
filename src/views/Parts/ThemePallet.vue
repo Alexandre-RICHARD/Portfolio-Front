@@ -4,6 +4,9 @@ import { useMainStore } from "../../store/Main";
 const MainStore = useMainStore();
 const { theme } = MainStore;
 
+// Fonction appelé lorsqu'un bouton de la palette de thème est cliqué.
+// On enlève le style "selectionné" sur chaque et on l'applique sur celui qui a été appuyé
+// Ensuite, on fait une boucle sur les variables root à partir des données de thème récupéré avec la paramètre SelectedTheme
 const changeTheme = (SelectedTheme) => {
     document
         .querySelectorAll(".theme-choice-button")

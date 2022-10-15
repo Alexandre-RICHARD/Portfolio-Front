@@ -6,17 +6,20 @@ const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
 const { modalData } = MainStore;
 
+// Utilisé pour détecter un clic en dehors de la modal, mais pas sur le header. En effet, le clic n'est détecté que sur le cache.
 const clickOutsideAccountModal = (event) => {
     if (event.target.className === "account-modal-cache") {
         changeOnModal(false, null);
     }
 };
 
+// Utilisé sur le bouton not-concerned afin de passer d'une modal à l'autre
 const changeOnModal = (opened, type) => {
     modalData.open = opened;
     modalData.type = type;
 };
 
+// Nos valeurs de nos différents inputs sont stockées ici en reactive
 const accountInformations = reactive({
     loginMail: "",
     loginPassword: "",
@@ -26,10 +29,13 @@ const accountInformations = reactive({
     registerPasswordConfirmation: "",
 });
 
+// On créé un tableau d'erreur ici, un pour le login et un pour le register. Chaque sous-tableau contiendra les erreurs des tests s'il y en a pour chaque input
 let errorDataLogin = reactive([[], []]);
 let errorDataRegister = reactive([[], [], [], []]);
 
+// Nos différentes fonctions de test de validité
 const regexTest = {
+    // Test regex du mail, regex complexe prise sur internet qui vérifie normalement tous les formats d'adresse-mail, sauf la longueur de celle-ci. Une erreur est inscrite si ça ne correspond pas
     loginMail: (mail) => {
         errorDataLogin[0].length = 0;
         const testGlobal = mail.match(
@@ -48,6 +54,7 @@ const regexTest = {
         }
     },
 
+    // Test du password du login, un seul message d'erreur sera transmit si ça ne match pas, contrairement à register, mais les mêmes tests sont effectués
     loginPassword: (password) => {
         errorDataLogin[1].length = 0;
         const testResult = {
@@ -114,6 +121,7 @@ const regexTest = {
     },
 
     registerNickname: (nickname) => {
+        // Test du pseudo, on ne vérifie que la composition et la longueur. Ainsi, si le regex.match trouve autre chose que 0-9a-zA-Z, une erreur est donnée
         errorDataRegister[0].length = 0;
         const testGlobal = nickname.match(/[^0-9a-zA-Z-_]/gm);
         if (testGlobal !== null) {
@@ -136,6 +144,7 @@ const regexTest = {
     },
 
     registerMail: (mail) => {
+        // Même test, même erreur qu'en login
         errorDataRegister[1].length = 0;
         const testGlobal = mail.match(
             /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
@@ -154,6 +163,7 @@ const regexTest = {
     },
 
     registerPassword: (password) => {
+        // Même test qu'en login mais les erreurs sont reportées individuellement
         errorDataRegister[2].length = 0;
         const testResult = {
             lowercase: 0,
@@ -225,6 +235,7 @@ const regexTest = {
     },
 
     registerPasswordConfirmation: (passwordConfirmation) => {
+        // Test entre les deux mots de passe pour leur similarité
         errorDataRegister[3].length = 0;
         if (passwordConfirmation !== accountInformations.registerPassword) {
             errorDataRegister[3].push(
@@ -240,8 +251,9 @@ const regexTest = {
     },
 };
 
-const submitLoginForm = (event) => {
-    event.preventDefault();
+// Appelé lors du clic sur le bouton Se connecter
+// On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente la connexion
+const submitLoginForm = () => {
     const connectionData = {
         mail: accountInformations.loginMail,
         password: accountInformations.loginPassword,
@@ -271,8 +283,9 @@ const connection = async (connectionData) => {
     }
 };
 
-const submitRegisterForm = (event) => {
-    event.preventDefault();
+// Appelé lors du clic sur le bouton S'enregister
+// On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente l'inscription
+const submitRegisterForm = () => {
     const registrationData = {
         nickname: accountInformations.registerNickname,
         mail: accountInformations.registerMail,
@@ -307,10 +320,12 @@ const registration = async (registrationData) => {
     }
 };
 
+// Fonction appelé à chaque changement dans la valeur des inputs pour changer la valeur dans l'objet reactive
 const changeInputValue = (value, valuename) => {
     accountInformations[valuename] = value;
 };
 
+// Lors de la perte de focus sur un input, si la valeur de l'input n'est pas null, alors on appelle la fonction test lié à l'input qui renvoi une valeur bool de test. On vient ajouter une classe good ou error qui colorera la bordure de l'input en fonction du test
 const inputLosingFocus = (target) => {
     if (accountInformations[target.id].length > 0) {
         const testOk = regexTest[target.id](accountInformations[target.id]);
@@ -321,11 +336,13 @@ const inputLosingFocus = (target) => {
 </script>
 
 <template>
+    <!-- Si la modal est input ou register, on affiche tout ça -->
     <div
         v-if="['login', 'register'].indexOf(modalData.type) >= 0"
         class="account-modal-cache"
         @click="clickOutsideAccountModal"
     >
+        <!-- On affiche 2 ou 4 inputs en fonction du type de modal. Tout est factorisé en appelant un sous-composant -->
         <div class="account-modal">
             <form v-if="modalData.type === 'login'" class="login-form">
                 <AccountModalInput

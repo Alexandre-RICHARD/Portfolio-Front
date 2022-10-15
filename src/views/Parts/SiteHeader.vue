@@ -11,27 +11,32 @@ const sectionChanger = (newSection) => {
     headerLinks.currentSection = newSection;
 };
 
-const accountModal = (open, type) => {
+// Fonction servant à modifier le state contenant les deux données de ModalOuverte et si oui, laquelle.
+const handleChangeModal = (open, type) => {
     modalData.open = open;
     modalData.type = type;
 };
 
+// Cette fonction sert à détecter le clic hors du menu quand il est ouvert. Ainsi le menu se ferme si on reclique sur son icon, sur l'un de ses liens ou en dehors.
 const openAndHandleModalMenu = () => {
+    // Elle n'est appelé que lors du clic sur l'icone du Menu affiché que en petite largeur. En fonction des variables en store modalData, cela entraine différents comportements
     const outsideMenuClickHandler = (event) => {
         const menuButton = document.querySelector(".reponsive-header-button");
         const menuModal = document.querySelector(".menu-modal");
 
+        // Si la modal existe, on vérifie l'origine de l'event, si l'élément cliqué n'est ni le bouton ni la modal. Si c'est le cas, alors on ferme la modal
         if (menuModal) {
             if (
                 !menuButton.contains(event.target) &&
                 !menuModal.contains(event.target)
             ) {
-                accountModal(false, null);
+                handleChangeModal(false, null);
                 eventListenerHandler(0);
             }
         }
     };
 
+    // Ajout d'event listener sur le document entier afin que tout clic soit testé si appelé avec 1. Sinon, on le retire
     const eventListenerHandler = (type) => {
         if (type === 1) {
             document.addEventListener("click", outsideMenuClickHandler, false);
@@ -44,11 +49,13 @@ const openAndHandleModalMenu = () => {
         }
     };
 
+    // Appelé lors du clic sur l'icone. Si la variable dit que le menu est ouvert, alors on le ferme avec la fonction de changement de modal, handleChangeModal.
+    // Sinon, on l'ouvre et on appelle le gestionnaire d'event qui va venir
     if (modalData.type === "menu") {
-        accountModal(false, null);
+        handleChangeModal(false, null);
         eventListenerHandler(0);
     } else {
-        accountModal(true, "menu");
+        handleChangeModal(true, "menu");
         eventListenerHandler(1);
     }
 };
@@ -91,7 +98,7 @@ const openAndHandleModalMenu = () => {
                     :type="modal.type"
                     :title="modal.content"
                     class="header-nav-link"
-                    @click="accountModal(true, modal.link)"
+                    @click="handleChangeModal(true, modal.link)"
                 />
             </div>
 

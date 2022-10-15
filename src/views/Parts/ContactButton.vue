@@ -1,4 +1,7 @@
 <script setup>
+// Cette fonction est appelé lors du clic sur un bouton de contact qui n'est pas un lien direct
+// On récupère l'indicateur de copie effectuée identifié grace à son ID unique correspondant à son bouton, on l'affiche, et il possède une animation qu'il effectue avant d'être retiré
+// Entre temps, on a récupéré la valeur de notre bouton et on l'a placé dans le presse-papiers
 const copy = (content, copyid) => {
     const copyAlert = document.querySelector(`#${copyid}`);
     navigator.clipboard.writeText(content);
@@ -51,6 +54,7 @@ defineProps({
             @click="copy(content, copyid)"
         >
             <span class="contact-title">
+                <!-- Grosse difficulté surmontée ici de réussir à importer dynamiquement une image depuis l'url SRC de la balise img. En effet, webpack transformait toutes ces images en base64 mais cela ne fonctionnait plus en build -->
                 <img
                     v-if="section === 'games'"
                     class="launcher-logo"
@@ -61,6 +65,7 @@ defineProps({
             </span>
             <span class="contact-content">{{ content }}</span>
             <div class="copy-icon">
+                <!-- Le SVG représentant l'icone de copie. Parti pris de mettre le code du SCG entièrement dans le code -->
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

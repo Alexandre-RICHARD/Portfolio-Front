@@ -3,6 +3,7 @@ const age = Math.round(
     (Date.now() - new Date(1999, 5, 24)) / 1000 / 365 / 24 / 60 / 60
 );
 
+// Composant très classique, on créé nos différents tableaux d'informations et on créé nos éléments avec
 const skillsList = [
     "HTML : Toujours des connaissances à prendre",
     "CSS : Bien exploré, maîtrise de + en +",

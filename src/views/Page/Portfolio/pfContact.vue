@@ -6,6 +6,7 @@ const MainStore = useMainStore();
 const { contactList } = MainStore;
 const API_URL = process.env.API_URL;
 
+// A m'aide de Reactive, on créé cet objet de valeur qui seront affichés en temps réel dès qu'elles changeront
 const contactByMailValues = reactive({
     contactFormName: null,
     contactFormMail: null,
@@ -13,6 +14,7 @@ const contactByMailValues = reactive({
     contactFormMessage: null,
 });
 
+// Rien n'est fonctionnel dans cet envoi de mail et aucune vérification n'est faite au niveau des valeurs, mais ça viendra un jour
 const submitContactForm = (event) => {
     event.preventDefault();
     sendMail();
@@ -36,6 +38,7 @@ const sendMail = async () => {
 
 <template>
     <div class="contact-box">
+        <!-- On rentre ici les contacts "pro", filtrés à l'aide de la données section contenu dans notre tableau de contact -->
         <div class="contact-sub-box pro">
             <h2 class="contact-box-title">Contact professionnel</h2>
             <ContactButton
@@ -50,6 +53,7 @@ const sendMail = async () => {
                 :section="contact.section"
             />
         </div>
+        <!-- On rentre ici les pseudos "games", filtrés à l'aide de la données section contenu dans notre tableau de contact -->
         <div class="contact-sub-box games">
             <h2 class="contact-box-title">
                 J'ai dit que j'aimais les jeux vidéos ?
@@ -68,6 +72,7 @@ const sendMail = async () => {
         </div>
     </div>
 
+    <!-- Formulaire de contact inutilisable pour le moment, de plus il serait à factoriser -->
     <div class="contact-me">
         <h1 class="categories">
             Me contacter directement (non fonctionnel, en attente de réussir à

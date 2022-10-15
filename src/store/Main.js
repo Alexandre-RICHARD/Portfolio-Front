@@ -1,9 +1,9 @@
 // Importation de Pinia, le store officiel de Vue.js
 import { defineStore } from "pinia";
 
-// On nomme notre Store "Portfolio" et on l'exporte sous le nom UsePortfolioStore
+//! CHANGE après ça
+// On nomme notre Store et on l'exporte
 export const useMainStore = defineStore("Main", {
-    // Le state de ce Store sert à créé nos liens de navigations dans la page d'accueil de notre portfolio
     state: () => ({
         theme: {
             selected: "classic",
@@ -289,3 +289,4 @@ export const useMainStore = defineStore("Main", {
         ],
     }),
 });
+//! CHANGE avant ça

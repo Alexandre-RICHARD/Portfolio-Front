@@ -3,7 +3,6 @@ import AccountModal from "./Parts/AccountModal.vue";
 import BreadCrumb from "./Parts/BreadCrumb.vue";
 import ProjectVersionning from "./Parts/ProjectVersionning.vue";
 import SiteHeader from "./Parts/SiteHeader.vue";
-// import WaveDecoration from "./Parts/WaveDecoration.vue";
 
 import { useMainStore } from "./../store/Main";
 const MainStore = useMainStore();
@@ -14,7 +13,6 @@ const { modalData } = MainStore;
     <AccountModal v-if="modalData.open === true" />
     <ProjectVersionning />
     <SiteHeader />
-    <!-- <WaveDecoration class="wave-decoration" /> -->
     <div class="page-background">
         <router-view name="notFoundRouter" />
         <div class="page-container">

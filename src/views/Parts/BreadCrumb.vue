@@ -6,6 +6,8 @@ const route = useRoute();
 const MainStore = useMainStore();
 const { headerLinks } = MainStore;
 
+// On utilise le useRoute pour venir récupérer l'ininéraire de notre URl et venir le recréer en traçant une série de liens cliquables
+//! CHANGE lorsqu'on refera la nav, le breadcrumb y passera
 if (route.matched[1]) {
     headerLinks.currentSection = route.matched[1].name;
 } else {

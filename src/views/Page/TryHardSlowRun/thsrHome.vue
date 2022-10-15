@@ -1,3 +1,7 @@
+<script setup>
+//! CHANGE Ca sera supprimé
+</script>
+
 <template>
     <p class="temp">LE GROS PROJET SERA ICI</p>
 </template>

@@ -2,6 +2,9 @@
 import { useRouter } from "vue-router";
 const router = useRouter();
 
+// Cette fonction est appelée quand le clic est fait sur la Dolorean
+// Elle applique les classes animate à deux éléments qui comportent une animation
+// A la fin de cette animation, on utilise router.push pour faire revenir l'utilisateur à la page d'accueil
 const returnOnSite = () => {
     const dolorean = document.querySelector(".dolorean");
     const fire = document.querySelector(".fire");

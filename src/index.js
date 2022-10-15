@@ -1,3 +1,5 @@
+// Fichier initial pour le le Javascript (ou plus exactement pour notre application vue ainsi que son store et son router)
+
 // Importation de vue, pinia et de notre router créé ailleurs
 import { createApp } from "vue";
 import { createPinia } from "pinia";

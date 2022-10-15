@@ -58,6 +58,7 @@ const age = Math.round(
         </div>
 
         <h2 class="categories">Mes projets</h2>
+        <!-- Importation des projets en précisant qu'on en veut que 3 qui seront choisi aléatoirement -->
         <ProjectContainer :number="3" />
         <router-link
             title="Voir tous mes autres projets"
@@ -69,6 +70,7 @@ const age = Math.round(
 
         <h2 class="categories">Mes contacts principaux</h2>
 
+        <!-- Importation de notre sous-composant de contact qui va uniquement créé les 3 premiers -->
         <div class="home-contact-box">
             <ContactButton
                 v-for="contact in contactList.filter((el) => el.id <= 3)"
