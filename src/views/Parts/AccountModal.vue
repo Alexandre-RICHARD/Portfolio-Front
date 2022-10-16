@@ -263,7 +263,6 @@ const submitLoginForm = () => {
     regexTest.loginPassword(connectionData.password);
 
     if (errorDataLogin.join().replaceAll(",", "").length === 0) {
-        console.log("Tout va bien - Login");
         connection(connectionData);
     }
 };
@@ -300,7 +299,6 @@ const submitRegisterForm = () => {
         registrationData.passwordConfirmation
     );
     if (errorDataRegister.join().replaceAll(",", "").length === 0) {
-        console.log("Tout va bien - Register");
         registration(registrationData);
     }
 };

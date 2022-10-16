@@ -2,7 +2,7 @@
 import { reactive, ref } from "vue";
 
 const presentationText =
-    "Bienvenue sur mon site perso. Je m'appelle Alexandre, j'ai la vingtaine et je me suis pris de passion pour le développement en commançant par le web. Ce site me sert et me servira de portfolio ainsi que de support pour tout mes projets. Il est donc divisé en 2 parties : Portfolio et TryHard but SlowRun, un nom qui correspond bien à ma manière de jouer aux jeux vidéos généralement, ce qui m'inspire fortement pour mes projets. Je vous laisse naviguer ou jouer à ce petit mastermind.";
+    "Bienvenue sur mon site perso. Je m'appelle Alexandre, j'ai la vingtaine et je me suis pris de passion pour le développement en commançant par le web. Ce site me sert et me servira de portfolio ainsi que de support pour tout mes projets. J'ai appelé ce projet TryHard but SlowRun, un nom qui correspond bien à ma manière de jouer aux jeux vidéos généralement, ce qui m'inspire fortement pour mes projets. Je vous laisse naviguer librement ou jouer à ce petit mastermind.";
 
 const randomizer = (max) => {
     return Math.trunc(Math.random() * max);

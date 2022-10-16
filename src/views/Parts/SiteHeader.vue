@@ -7,10 +7,6 @@ import { useMainStore } from "../../store/Main";
 const MainStore = useMainStore();
 const { headerLinks, headerModals, modalData } = MainStore;
 
-const sectionChanger = (newSection) => {
-    headerLinks.currentSection = newSection;
-};
-
 // Fonction servant à modifier le state contenant les deux données de ModalOuverte et si oui, laquelle.
 const handleChangeModal = (open, type) => {
     modalData.open = open;
@@ -70,7 +66,6 @@ const openAndHandleModalMenu = () => {
                 <router-link
                     class="header-logo"
                     :to="{ name: 'Home' }"
-                    @click="sectionChanger('Home')"
                 >
                     <span class="header-logo-bracket">{</span>
                     <div class="header-logo-name">
@@ -82,13 +77,12 @@ const openAndHandleModalMenu = () => {
             </div>
             <div class="link-header-container">
                 <HeaderLink
-                    v-for="link in headerLinks[headerLinks.currentSection]"
+                    v-for="link in headerLinks"
                     :key="link.id"
                     :type="link.type"
                     :title="link.content"
                     :link="link.link"
                     class="header-nav-link"
-                    @click="sectionChanger(link.section)"
                 />
             </div>
             <div class="account-header-container">
@@ -113,21 +107,18 @@ const openAndHandleModalMenu = () => {
             <div v-if="modalData.type === 'menu'" class="menu-modal">
                 <ThemePallet />
                 <HeaderLink
-                    v-if="headerLinks.currentSection !== 'Home'"
                     type="link"
                     title="&#8617; Retour à l'accueil"
                     link="Home"
                     class="menu-nav-link backHome"
-                    @click="sectionChanger('Home')"
                 />
                 <HeaderLink
-                    v-for="link in headerLinks[headerLinks.currentSection]"
+                    v-for="link in headerLinks"
                     :key="link.id"
                     :type="link.type"
                     :title="link.content"
                     :link="link.link"
                     class="menu-nav-link"
-                    @click="sectionChanger(link.section)"
                 />
             </div>
         </div>

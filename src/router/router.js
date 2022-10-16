@@ -12,45 +12,42 @@ import pfProjects from "../views/Page/Portfolio/pfProjects.vue";
 import pfProjectDetails from "../views/Page/Portfolio/pfProjectDetails.vue";
 import pfContact from "../views/Page/Portfolio/pfContact.vue";
 
-import thsrHome from "../views/Page/TryHardSlowRun/thsrHome.vue"; //! CHANGE
-
-
-//! CHANGE après ça
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
     {
-        path: "",
+        path: "/",
         name: "Home",
         components: { mainRouter: HomePage },
         meta: {
-            title: "Alexandre Richard",
-            path: "Page d'accueil",
-            section: "Home",
-        },
-    },
-    {
-        path: "/gain",
-        name: "CurrentETH",
-        components: { mainRouter: EtherumFollow },
-        meta: {
-            title: "Suivi de gains",
-            path: "EtherumFollow",
-            section: "Home",
+            documentTitle: "TryHard but SlowRun",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+            ],
         },
     },
     {
         path: "/portfolio",
         name: "Portfolio",
-        meta: { path: "Portfolio", section: "Portfolio" },
         children: [
             {
                 path: "home",
                 name: "PortfolioHome",
                 components: { portfolioRouter: pfHome },
                 meta: {
-                    title: "Alexandre Richard",
-                    path: "Accueil",
-                    section: "Portfolio",
+                    documentTitle: "Alexandre Richard",
+                    breadCrumb: [
+                        {
+                            title: "TryHard but SlowRun",
+                            link: "Home",
+                        },
+                        {
+                            title: "Alexandre Richard",
+                            link: "PortfolioHome",
+                        },
+                    ],
                 },
             },
             {
@@ -58,9 +55,17 @@ const routes = [
                 name: "PortfolioCurriculum",
                 components: { portfolioRouter: pfCurriculum },
                 meta: {
-                    title: "Curriculum",
-                    path: "Curriculum",
-                    section: "Portfolio",
+                    documentTitle: "Curriculum",
+                    breadCrumb: [
+                        {
+                            title: "TryHard but SlowRun",
+                            link: "Home",
+                        },
+                        {
+                            title: "Curriculum",
+                            link: "PortfolioCurriculum",
+                        },
+                    ],
                 },
             },
             {
@@ -68,9 +73,17 @@ const routes = [
                 name: "PortfolioProject",
                 components: { portfolioRouter: pfProjects },
                 meta: {
-                    title: "Projets",
-                    path: "Projets",
-                    section: "Portfolio",
+                    documentTitle: "Mes Projets",
+                    breadCrumb: [
+                        {
+                            title: "TryHard but SlowRun",
+                            link: "Home",
+                        },
+                        {
+                            title: "Projets",
+                            link: "PortfolioProject",
+                        },
+                    ],
                 },
             },
             {
@@ -78,9 +91,17 @@ const routes = [
                 name: "ProjectDetails",
                 components: { portfolioRouter: pfProjectDetails },
                 meta: {
-                    title: "L'un des projets ?", //! ON DOIT INSERER LE NOM DU PROJET
-                    path: "L'un des projets ?", //! ON DOIT INSERER LE NOM DU PROJET
-                    section: "Portfolio",
+                    documentTitle: "N/A",
+                    breadCrumb: [
+                        {
+                            title: "TryHard but SlowRun",
+                            link: "Home",
+                        },
+                        {
+                            title: "N/A",
+                            link: "ProjectDetails",
+                        },
+                    ],
                 },
             },
             {
@@ -88,50 +109,67 @@ const routes = [
                 name: "PortfolioContact",
                 components: { portfolioRouter: pfContact },
                 meta: {
-                    title: "Contact",
-                    path: "Contact",
-                    section: "Portfolio",
+                    documentTitle: "Mes Contacts",
+                    breadCrumb: [
+                        {
+                            title: "TryHard but SlowRun",
+                            link: "Home",
+                        },
+                        {
+                            title: "Contacts",
+                            link: "PortfolioContact",
+                        },
+                    ],
                 },
             },
         ],
     },
-
-    {
-        path: "/tryhard/slowrun",
-        name: "TryHard",
-        meta: { path: "TryHard SlowRun", section: "TryHard" },
-
-        children: [
-            {
-                path: "home",
-                name: "TryHardHome",
-                components: { tryhardRouter: thsrHome },
-                meta: {
-                    title: "TryHard but SlowRun",
-                    path: "Accueil",
-                    section: "TryHard",
-                },
-            },
-        ],
+    { //! CHANGE
+        path: "/gain",
+        name: "CurrentETH",
+        components: { mainRouter: EtherumFollow },
+        meta: {
+            title: "Suivi de gains",
+            path: "EtherumFollow",
+        },
     },
     {
         path: "/:pathMatch(.*)*",
         name: "404",
         components: { notFoundRouter: NotFound },
-        meta: { title: "Le coin 404", path: "Le coin 404" },
+        meta: {
+            documentTitle: "Perdition complète",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+                {
+                    title: "Perdition complète",
+                    link: "404",
+                },
+            ],
+        },
     },
 ];
-//! CHANGE avant ça
 
 // On créé notre router en indiquand l'historique et le tableau des routes précédemment créées
 const router = createRouter({
     history: createWebHistory(),
     routes,
+    // Lors d'un changement de composant/page, le scrolling revient en haut automatiquement
+    scrollBehavior () {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ left: 0, top: 0, behavior: "smooth" });
+            }, 200);
+        });
+    }
 });
 
 // On indique qu'à chaque changement de page, le titre du document doit prendre le titre indiqué dans la meta de la route
 router.afterEach((to) => {
-    document.title = to.meta.title;
+    document.title = to.meta.documentTitle;
 });
 
 // On exporte notre router afin de le récupérer à la création de l'app

@@ -19,7 +19,6 @@ const { modalData } = MainStore;
             <BreadCrumb />
             <router-view name="mainRouter" />
             <router-view name="portfolioRouter" />
-            <router-view name="tryhardRouter" />
         </div>
     </div>
 </template>

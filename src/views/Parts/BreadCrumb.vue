@@ -1,38 +1,30 @@
 <script setup>
+import { reactive, watch } from "vue";
 import { useRoute } from "vue-router";
-import { useMainStore } from "../../store/Main";
-
 const route = useRoute();
-const MainStore = useMainStore();
-const { headerLinks } = MainStore;
+let matched = reactive([]);
 
 // On utilise le useRoute pour venir récupérer l'ininéraire de notre URl et venir le recréer en traçant une série de liens cliquables
-//! CHANGE lorsqu'on refera la nav, le breadcrumb y passera
-if (route.matched[1]) {
-    headerLinks.currentSection = route.matched[1].name;
-} else {
-    headerLinks.currentSection = "Home";
-}
+// On surveille route.watched afin de changer le breadCrumb automatiquement
+watch(
+    () => route.matched,
+    (ourRoute) => {
+        matched[0] = ourRoute[ourRoute.length - 1].meta.breadCrumb;
+    }
+);
 
-const sectionChanger = (newSection) => {
-    headerLinks.currentSection = newSection;
-};
 </script>
 
 <template>
     <div class="bread-crumb">
         <div
-            v-for="partPath in route.matched"
+            v-for="partPath in matched[0]"
             :key="partPath.name"
             class="one-path-box"
         >
             <span class="guillemet">></span>
-            <router-link
-                class="link"
-                :to="{ name: partPath.name }"
-                @click="sectionChanger(partPath.meta.section)"
-            >
-                {{ partPath.meta.path }}
+            <router-link class="link" :to="{ name: partPath.link }">
+                {{ partPath.title }}
             </router-link>
         </div>
     </div>

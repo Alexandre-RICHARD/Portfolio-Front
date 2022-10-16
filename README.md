@@ -148,7 +148,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
     -   Portfolio qui va regoruper les 4 vues différentes
     -   TryHard qui regroupera toutes ses vues
     -   Parts qui regroupent tous les sous-composants réutilisables
--   Création de la vue HomePage pour permettre la redirection vers soit le protfolio, soit le projet TryHard but SlowRun
+-   Création de la vue HomePage pour permettre la redirection vers soit le portfolio, soit le projet TryHard but SlowRun
 -   Création des pages principales pour les deux parties du site
 
 ### build 21 - 0.7.3 `14 août 2022`
@@ -632,17 +632,33 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Dans le header, changement du nom de la fonction "AccountModal" => "handleChangeModal"
 -   Complétion du Readme avec toutes les ToDo que j'avais fait à droite à gauche pour centraliser
 
+### build 84 - 0.9.39 `16 octobre 2022`
+
+-   Suppression des importations de WaveDecorations et mise en temporaire des fichiers concernés
+-   Retrait de toute notion de section référent à la navigation.
+-   Ainsi, les fonctions sectionChanger et ses appels contenus dans SiteHeader.vue, breadCrumb.vue, 
+-   Cela avait pour but de simplifier le site en supprimant la partie TryHard but Slow Run que je n'avais pas encore commencé.
+-   Les liens dans le header ou dans la modal du Menu sont donc maintenant toujours les mêmes impliquant la suppression des autres dans le store
+-   Gros changement dans le BreadCrumb. Les données de chemin ne sont plus générés directement à partir des différents route.matched mais à partir des données BreadCrumb contenu dans le meta du dernier path
+-   Utilisation du hook watch de vue pour réagir aux changements de route et d'un array reactive
+-   Suppression de 3 consoles.log oubliés
+-   Suppression du composant de la page TryHard but SlowRun
+-   Adaptation du texte de la HomePage pour convenir à ces nouveaux changements
+-   Suppresion du VueRouter tryhard
+-   Changement du lien pour le projet de jeu d'échecs
+-   Modification de quelques titres de pages
+-   Rajout dans le Store dans le différents dossier meta des informations qui servent à créer le BreadCrumb
+-   Lors d'un changement de page, le scrolling revient en haut de la page après 200ms
+-   La largeur minimum du projet est maintenant de 386 pixels contre 400 avant pour rejoindre le minimum de 400px souhaité. En effet, le padding causait un petit surplus.
+
 </details>
 
 ## Les problèmes du site actuellement
 
--   Quand on recharge en étant sur l'une des sections, les liens ne sont pas les bons car la fonction chargées de mettre la bonne section au chargement est cassé
 -   La barre de défilement sur la droite change la taille du site en fonction des pages
--   En dessous de 417 px, et jusqu'au 400 minimum que j'ai défini, il y a un sliding horizontal et je ne comprend pas quel élément fait déborder le contenu de la page
 -   Sur mobile, les caractères fléchés sont différent, à changer.
 -   Sur mobile, petit bug lors du changement de thème
 -   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
--   En cliquant sur un lien intrasite, nous ne sommes pas remis tout en haut de la page
 
 ## Les features à venir
 
@@ -657,8 +673,6 @@ Mastermind :
 -   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
 
 Navigation et BreadCrumb : 
--   Rajouter un bouton Page d'Accueil dans le BreadCrumb quand il n'y est pas
--   Les sections vont disparaître au profite d'un système de navigation avec apparition des liens en hover
 -   Le breadCrumb doit disparaitre dans le coin 404
 
 Projets à intégrer :
@@ -694,9 +708,6 @@ Détails et peaufinage :
 -   Régler l'image d'illustration de code pour qu'elle coïncide avec le thème
 -   Transformer le .eslintrc.json en .js
 
--   Finir le code review et les commentaires
--   Rejoindre la liste d'idée contenu dans Microsfot One Note
--   Gérer le fait de revenir sur un modèle de navigation plus simple
 -   Création d'une webpack modele
 -   Finir de gérer l'inscription, la connexion et commencer à gérer changement de mot de passe, d'adresse mail et la suprpresion du compte
 -   Chess ?
@@ -707,12 +718,11 @@ Détails et peaufinage :
 -   La pagfe etherum sera à refaire bien plus complète et propre afin de l'implémenter directement en tyant que projet dans notre site, je n'y touche pas plus que ça pour le moment
 -   Trouver un moyen d'indiquer à l'utilisateur que cliquer sur la Dolorean peut le faire evenir en arrière
 -   POur la force du mot de passe, mettre la progress bar en couleur avec une légende et peut-être une valeur
--   Wave decoration va être mis en temporaire tant que je sais pas quoi en faire
 -   Le mastermind doit avoir son propre composant ainsi que son propre fichier scss
 -   SVG du header dans son composant
 -   Réorganiser le fichier App. vue
 -   Factoriser themePallet
--   Rajouter un eb media sur les projets pour le responsive
+-   Rajouter un web media sur les projets pour le responsive
 -   Quand on aura réussi a envoyer des mails serveur, il faudra envoyer un mail de confirmation lors de la création de compte
 -   Dans le back, s'occuper des fichiers gérant le jeu d'échec (commentaires etc...)
 -   Rajouter un délai minimal et maximal (un compteur total ?) pour les coup de chaque joueur
@@ -720,27 +730,19 @@ Détails et peaufinage :
 -   Rajouter une animation quand une pièce se déplace d'une case à une autre
 -   Rajouter une animation et une option pour déplacer les pièces sorties dans un cimetière
 -   Un enregistrement de toutes les parties joués, un moyen de les consulter (voir les fiches lors des championnats) et un moyen de les faire rejouer.
--   Rajouter une option pour changer les couleurs/le thème.
 -   Affichage du contrôle de chaque joueur
 -   Affichage particulier des pièces en cas de vitoires + animations ?
 -   Afficher un tableau dynamique / compteur sur la droite du jeu qui récapitulera tous les coup (avec mise en forme des coup lorsque MEURTRE)
--   Enregistrer un nom pour chaque joueur, l'inscrire en base de donnée (unique avec mot de passe et il pourrait retrouver se sparties précédentes)
 -   En activant le mode DangerZone, survoler une case, mettrait en surbrillance les pièces responsables du contrôle
 -   Intégrer une règle dans la page
 -   Liste des jeux avec toutes leur propriétés
 -   Capacité de rajouter/modifier/supprimer des jeux
 -   Stocker des images en BDD
 -   Temps de jeu indiqué + temps de jeu estimé en plus
--   Gérer correctement les erreurs
--   Commenter la partie back du projet
 -   Intégrer un système de connexion multiple avec chat etc
--   Gérer les modals de connexion et la connexion
 -   JSONWebToken ou autre token de connexion
 -   Système de création de serveur de jeu, privé, invitation
 -   Faire des tests unitaires
 -   Rajouter une partie admin avec gestion des BDD, des users
 -   Rajouter mon journal intime
--   Rajouter la possibilité de changer les couleurs/le thème du site
--   Dans la partie projet du site, expliquer la création de celui, ses spécificités et packages
 -   Simulateur de GPS avec générateur aléatoire de route
--   La manière de gérer les liens du Header est sale et deviendra rapidement sujet à problème

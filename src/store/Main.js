@@ -48,64 +48,32 @@ export const useMainStore = defineStore("Main", {
                 buttonColorTwo: "#72757e",
             },
         },
-        headerLinks: {
-            currentSection: null,
-            Home: [
-                {
-                    id: 0,
-                    type: "link",
-                    content: "Portfolio",
-                    link: "PortfolioHome",
-                    section: "Portfolio",
-                },
-                {
-                    id: 1,
-                    type: "link",
-                    content: "TryHard but SlowRun",
-                    link: "TryHardHome",
-                    section: "TryHard",
-                },
-            ],
-            Portfolio: [
-                {
-                    id: 0,
-                    type: "link",
-                    content: "Accueil",
-                    link: "PortfolioHome",
-                    section: "Portfolio",
-                },
-                {
-                    id: 1,
-                    type: "link",
-                    content: "Curriculum",
-                    link: "PortfolioCurriculum",
-                    section: "Portfolio",
-                },
-                {
-                    id: 2,
-                    type: "link",
-                    content: "Projets",
-                    link: "PortfolioProject",
-                    section: "Portfolio",
-                },
-                {
-                    id: 3,
-                    type: "link",
-                    content: "Contact",
-                    link: "PortfolioContact",
-                    section: "Portfolio",
-                },
-            ],
-            TryHard: [
-                {
-                    id: 0,
-                    type: "link",
-                    content: "Accueil",
-                    link: "TryHardHome",
-                    section: "TryHard",
-                },
-            ],
-        },
+        headerLinks: [
+            {
+                id: 0,
+                type: "link",
+                content: "Accueil",
+                link: "PortfolioHome",
+            },
+            {
+                id: 1,
+                type: "link",
+                content: "Curriculum",
+                link: "PortfolioCurriculum",
+            },
+            {
+                id: 2,
+                type: "link",
+                content: "Projets",
+                link: "PortfolioProject",
+            },
+            {
+                id: 3,
+                type: "link",
+                content: "Contact",
+                link: "PortfolioContact",
+            },
+        ],
         headerModals: [
             // Un ID pour différencier dans le for in, le contenu indiqué sur le lien et le lien
             { id: 0, type: "modal", content: "Connexion", link: "login" },
@@ -140,7 +108,7 @@ export const useMainStore = defineStore("Main", {
                 id: 2,
                 title: "Jeu d'échecs",
                 link: "chess",
-                linkAccess: "/tryhard/slowrun/chess",
+                linkAccess: "/chess",
                 abstract:
                     "Le jeu d'échec que j'ai créé de toute pièce. Il est jouable pour le moment seul et il manque quelques détails pour que les véritables règles des échecs soient respectées. A pour but d'être jouable en ligne.",
                 description:
