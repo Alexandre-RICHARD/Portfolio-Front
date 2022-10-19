@@ -251,40 +251,10 @@ const regexTest = {
     },
 };
 
-// Appelé lors du clic sur le bouton Se connecter
-// On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente la connexion
-const submitLoginForm = () => {
-    const connectionData = {
-        mail: accountInformations.loginMail,
-        password: accountInformations.loginPassword,
-    };
-
-    regexTest.loginMail(connectionData.mail);
-    regexTest.loginPassword(connectionData.password);
-
-    if (errorDataLogin.join().replaceAll(",", "").length === 0) {
-        connection(connectionData);
-    }
-};
-
-const connection = async (connectionData) => {
-    try {
-        await fetch(API_URL + "/connection", {
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify(connectionData),
-        });
-    } catch (error) {
-        console.trace(error);
-    }
-};
-
 // Appelé lors du clic sur le bouton S'enregister
 // On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente l'inscription
-const submitRegisterForm = () => {
+const submitRegisterForm = (event) => {
+    event.preventDefault();
     const registrationData = {
         nickname: accountInformations.registerNickname,
         mail: accountInformations.registerMail,
@@ -305,7 +275,7 @@ const submitRegisterForm = () => {
 
 const registration = async (registrationData) => {
     try {
-        await fetch(API_URL + "/registration", {
+        const response = await fetch(API_URL + "/registration", {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -313,9 +283,44 @@ const registration = async (registrationData) => {
             method: "POST",
             body: JSON.stringify(registrationData),
         });
+        const data = await response.json();
+        console.log(data);
     } catch (error) {
         console.trace(error);
     }
+};
+
+// Appelé lors du clic sur le bouton Se connecter
+// On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente la connexion
+const submitLoginForm = (event) => {
+    event.preventDefault();
+    const connectionData = {
+        mail: accountInformations.loginMail,
+        password: accountInformations.loginPassword,
+    };
+
+    regexTest.loginMail(connectionData.mail);
+    regexTest.loginPassword(connectionData.password);
+
+    if (errorDataLogin.join().replaceAll(",", "").length === 0) {
+        connection(connectionData);
+    }
+};
+
+const connection = (connectionData) => {
+    console.log(connectionData);
+    // try {
+    //     fetch(API_URL + "/connection", {
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/json",
+    //         },
+    //         method: "POST",
+    //         body: JSON.stringify(connectionData),
+    //     });
+    // } catch (error) {
+    //     console.trace(error);
+    // }
 };
 
 // Fonction appelé à chaque changement dans la valeur des inputs pour changer la valeur dans l'objet reactive

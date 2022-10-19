@@ -651,6 +651,14 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Lors d'un changement de page, le scrolling revient en haut de la page après 200ms
 -   La largeur minimum du projet est maintenant de 386 pixels contre 400 avant pour rejoindre le minimum de 400px souhaité. En effet, le padding causait un petit surplus.
 
+### build 85 - 0.9.40 `19 octobre 2022`
+
+-   Mise  à jour des packages NPM
+-   Mise en commantaires du plugin d'analyse des packages "BundleAnalyzerPlugin"
+-   Mise en commentaires de la fonction sendMail de la page Contact, tant qu'elle ne sera pas utilisée
+-   Remise du Event.preventDefault() car nécessaire sur le site hébergé
+-   Ajout de la récupération de la réponse pour le register
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -746,3 +754,36 @@ Détails et peaufinage :
 -   Rajouter une partie admin avec gestion des BDD, des users
 -   Rajouter mon journal intime
 -   Simulateur de GPS avec générateur aléatoire de route
+
+
+
+
+
+Code d'erreur :
+-	Mail déjà utilisé
+-	Erreur connexion serveur
+-	Erreur connexion base de données
+-	Les données des inputs sont incorrectes
+
+-	Ou alors c'est bon
+
+
+- A terme, changement de mot de passe avec envoi de mail comme confirmation
+- Changement d'adresse-mail avec envoi de mail aux deux adresse
+- Mot de passe oublié avec envoi de lien de récupération
+- Inscription avec mail de confirmation et BAse de données temporaires
+- Rendre plus accueillant la page d'accueil avec les projets
+
+
+Dans le router, trouver le moyen de mettre les bon titres pour les routes à paramètres
+
+In,dicateur de puissance du mot de passe
+Encadre activable avec vision de toutes les conditions et si oui ou non elles ont été validés
+
+Mise en verte des conditions de password inscription en direct
+
+Gérer le fait de pouvoir afficher ou non le mot de passe en appuyant sur un bouton
+Gérer la connexion avec un cookie ou un local storage
+
+Il faudrait créer une spécificité pour que la perte du focus sur le mot de passe ou sa confirmation engendre un test sur les deux
+Colorier les inputs incorrect également lors du submit

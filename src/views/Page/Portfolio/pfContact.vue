@@ -20,19 +20,20 @@ const submitContactForm = (event) => {
     sendMail();
 };
 
-const sendMail = async () => {
-    try {
-        await fetch(API_URL + "/contact", {
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify(contactByMailValues),
-        });
-    } catch (error) {
-        console.trace(error);
-    }
+const sendMail =  () => {
+    console.log("On verra plus tard");
+    // try {
+    //     fetch(API_URL + "/contact", {
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/json",
+    //         },
+    //         method: "POST",
+    //         body: JSON.stringify(contactByMailValues),
+    //     });
+    // } catch (error) {
+    //     console.trace(error);
+    // }
 };
 </script>
 
