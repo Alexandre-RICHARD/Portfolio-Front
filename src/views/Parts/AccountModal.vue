@@ -21,12 +21,12 @@ const changeOnModal = (opened, type) => {
 
 // Nos valeurs de nos différents inputs sont stockées ici en reactive
 const accountInformations = reactive({
-    loginMail: "alexandrichard99@gmail.com",
-    loginPassword: "au4uqbf11-C-J",
+    loginMail: "testdeconnexion@gmail.com",
+    loginPassword: "bzq_*47KiloMaz3b,",
     registerNickname: "Shadowmere",
-    registerMail: "alexandrichard99@gmail.com",
-    registerPassword: "au4uqbf11-C-J",
-    registerPasswordConfirmation: "au4uqbf11-C-J",
+    registerMail: "testdeconnexion@gmail.com",
+    registerPassword: "bzq_*47KiloMaz3b,",
+    registerPasswordConfirmation: "bzq_*47KiloMaz3b,",
 });
 
 // On créé un tableau d'erreur ici, un pour le login et un pour le register. Chaque sous-tableau contiendra les erreurs des tests s'il y en a pour chaque input
