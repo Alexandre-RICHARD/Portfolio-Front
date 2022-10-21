@@ -21,23 +21,31 @@ const changeOnModal = (opened, type) => {
 
 // Nos valeurs de nos différents inputs sont stockées ici en reactive
 const accountInformations = reactive({
-    loginMail: "",
-    loginPassword: "",
-    registerNickname: "",
-    registerMail: "",
-    registerPassword: "",
-    registerPasswordConfirmation: "",
+    loginMail: "alexandrichard99@gmail.com",
+    loginPassword: "au4uqbf11-C-J",
+    registerNickname: "Shadowmere",
+    registerMail: "alexandrichard99@gmail.com",
+    registerPassword: "au4uqbf11-C-J",
+    registerPasswordConfirmation: "au4uqbf11-C-J",
 });
 
 // On créé un tableau d'erreur ici, un pour le login et un pour le register. Chaque sous-tableau contiendra les erreurs des tests s'il y en a pour chaque input
-let errorDataLogin = reactive([[], []]);
-let errorDataRegister = reactive([[], [], [], []]);
+let errorDataLogin = reactive([[], [], []]);
+let errorDataRegister = reactive([[], [], [], [], []]);
 
 // Nos différentes fonctions de test de validité
 const regexTest = {
+    cleanError: () => {
+        errorDataLogin.forEach((element) => {
+            element.length = 0;
+        });
+        errorDataRegister.forEach((element) => {
+            element.length = 0;
+        });
+    },
+
     // Test regex du mail, regex complexe prise sur internet qui vérifie normalement tous les formats d'adresse-mail, sauf la longueur de celle-ci. Une erreur est inscrite si ça ne correspond pas
     loginMail: (mail) => {
-        errorDataLogin[0].length = 0;
         const testGlobal = mail.match(
             /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
         );
@@ -56,7 +64,6 @@ const regexTest = {
 
     // Test du password du login, un seul message d'erreur sera transmit si ça ne match pas, contrairement à register, mais les mêmes tests sont effectués
     loginPassword: (password) => {
-        errorDataLogin[1].length = 0;
         const testResult = {
             lowercase: 0,
             uppercase: 0,
@@ -65,7 +72,6 @@ const regexTest = {
             space: 0,
             length: 0,
         };
-
         // Minuscule
         const testMin = password.match(/([a-z])/g);
         if (testMin !== null) {
@@ -122,7 +128,6 @@ const regexTest = {
 
     registerNickname: (nickname) => {
         // Test du pseudo, on ne vérifie que la composition et la longueur. Ainsi, si le regex.match trouve autre chose que 0-9a-zA-Z, une erreur est donnée
-        errorDataRegister[0].length = 0;
         const testGlobal = nickname.match(/[^0-9a-zA-Z-_]/gm);
         if (testGlobal !== null) {
             errorDataRegister[0].push(
@@ -145,7 +150,6 @@ const regexTest = {
 
     registerMail: (mail) => {
         // Même test, même erreur qu'en login
-        errorDataRegister[1].length = 0;
         const testGlobal = mail.match(
             /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
         );
@@ -164,7 +168,6 @@ const regexTest = {
 
     registerPassword: (password) => {
         // Même test qu'en login mais les erreurs sont reportées individuellement
-        errorDataRegister[2].length = 0;
         const testResult = {
             lowercase: 0,
             uppercase: 0,
@@ -236,7 +239,6 @@ const regexTest = {
 
     registerPasswordConfirmation: (passwordConfirmation) => {
         // Test entre les deux mots de passe pour leur similarité
-        errorDataRegister[3].length = 0;
         if (passwordConfirmation !== accountInformations.registerPassword) {
             errorDataRegister[3].push(
                 "Les mots de passe ne sont pas identiques"
@@ -261,14 +263,14 @@ const submitRegisterForm = (event) => {
         password: accountInformations.registerPassword,
         passwordConfirmation: accountInformations.registerPasswordConfirmation,
     };
-
+    regexTest.cleanError();
     regexTest.registerNickname(registrationData.nickname);
     regexTest.registerMail(registrationData.mail);
     regexTest.registerPassword(registrationData.password);
     regexTest.registerPasswordConfirmation(
         registrationData.passwordConfirmation
     );
-    if (errorDataRegister.join().replaceAll(",", "").length === 0) {
+    if (errorDataRegister.every(element => element.length === 0)) {
         registration(registrationData);
     }
 };
@@ -283,10 +285,51 @@ const registration = async (registrationData) => {
             method: "POST",
             body: JSON.stringify(registrationData),
         });
-        const data = await response.json();
-        console.log(data);
+        registrationResult(await response.json(), response.status);
     } catch (error) {
         console.trace(error);
+    }
+};
+
+const registrationResult = (data, status) => {
+    data.forEach((element) => {
+        switch (element) {
+        case "register-success":
+            errorDataRegister[4].push(
+                "Inscription réussie mais ça sert à rien pour l'instant"
+            );
+            break;
+        case "account-already-exist":
+            errorDataRegister[4].push(
+                "Un compte avec cette adresse-mail existe déjà"
+            );
+            break;
+        case "format-email":
+            errorDataRegister[0].push(
+                "Le serveur n'accepte pas ce format d'adresse-mail"
+            );
+            break;
+        case "format-nickname":
+            errorDataRegister[1].push(
+                "Le serveur n'accepte pas ce format de pseudo"
+            );
+            break;
+        case "format-password":
+            errorDataRegister[2].push(
+                "Le serveur n'accepte pas ce format de mot de passe"
+            );
+            break;
+        case "match-password":
+            errorDataRegister[3].push(
+                "Les deux mots de passe entrés ne correspondent pas"
+            );
+            break;
+        }
+    });
+    if (status === 500) {
+        errorDataRegister[4].push(
+            "Une erreur serveur est survenue. Veuillez réessayer"
+        );
     }
 };
 
@@ -299,28 +342,63 @@ const submitLoginForm = (event) => {
         password: accountInformations.loginPassword,
     };
 
+    regexTest.cleanError();
     regexTest.loginMail(connectionData.mail);
     regexTest.loginPassword(connectionData.password);
 
-    if (errorDataLogin.join().replaceAll(",", "").length === 0) {
+    if (errorDataLogin.every(element => element.length === 0)) {
         connection(connectionData);
     }
 };
 
-const connection = (connectionData) => {
-    console.log(connectionData);
-    // try {
-    //     fetch(API_URL + "/connection", {
-    //         headers: {
-    //             Accept: "application/json",
-    //             "Content-Type": "application/json",
-    //         },
-    //         method: "POST",
-    //         body: JSON.stringify(connectionData),
-    //     });
-    // } catch (error) {
-    //     console.trace(error);
-    // }
+const connection = async (connectionData) => {
+    try {
+        const response = await fetch(API_URL + "/connection", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(connectionData),
+        });
+        connectionResult(await response.json(), response.status);
+    } catch (error) {
+        console.trace(error);
+    }
+};
+
+const connectionResult = (data, status) => {
+    if (data) {
+        data.forEach((element) => {
+            switch (element) {
+            case "login-success":
+                errorDataLogin[2].push(
+                    "Connexion réussi mais ça sert à rien pour l'instant"
+                );
+                break;
+            case "login-failed":
+                errorDataLogin[2].push(
+                    "Identifiants ou mot de passe incorrect"
+                );
+                break;
+            case "format-email":
+                errorDataLogin[0].push(
+                    "Le serveur n'accepte pas ce format d'adresse-mail"
+                );
+                break;
+            case "format-nickname":
+                errorDataLogin[1].push(
+                    "Le serveur n'accepte pas ce format de mot de passe"
+                );
+                break;
+            }
+        });
+    }
+    if (status === 500) {
+        errorDataLogin[2].push(
+            "Une erreur serveur est survenue. Veuillez réessayer"
+        );
+    }
 };
 
 // Fonction appelé à chaque changement dans la valeur des inputs pour changer la valeur dans l'objet reactive
@@ -348,6 +426,11 @@ const inputLosingFocus = (target) => {
         <!-- On affiche 2 ou 4 inputs en fonction du type de modal. Tout est factorisé en appelant un sous-composant -->
         <div class="account-modal">
             <form v-if="modalData.type === 'login'" class="login-form">
+                <div v-if="errorDataLogin[2].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDataLogin[2][0] }}
+                    </p>
+                </div>
                 <AccountModalInput
                     title="Adresse mail : "
                     name="loginMail"
@@ -386,6 +469,11 @@ const inputLosingFocus = (target) => {
             </form>
 
             <form v-if="modalData.type === 'register'" class="register-form">
+                <div v-if="errorDataRegister[4].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDataRegister[4][0] }}
+                    </p>
+                </div>
                 <AccountModalInput
                     title="Pseudo : "
                     name="registerNickname"

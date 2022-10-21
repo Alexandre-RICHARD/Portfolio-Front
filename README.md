@@ -208,7 +208,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 -   Rajout du loader pour pdf
 -   Finition de la page d'accueil du portfolio mais non stylisé encore
--   Suppression du console.log inutile
+-   Suppression du console log inutile
 -   Sur index.scss, min-width mis en 400px
 -   Correction d'un léger bug du BreadCrumb et mise d'un name sur la route intermédiaire du portfolio
 
@@ -658,6 +658,15 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Mise en commentaires de la fonction sendMail de la page Contact, tant qu'elle ne sera pas utilisée
 -   Remise du Event.preventDefault() car nécessaire sur le site hébergé
 -   Ajout de la récupération de la réponse pour le register
+
+### build 86 - 0.9.41 `21 octobre 2022`
+
+-   Rajout d'un nouveau sous-tableau pour les tableaux d'erreurs respectifs de login et de register afin d'y rentrer et donc d'afficher les informations gloables (succès, identifiants incorrect, erreurs)
+-   Suppression de chaque ligne type errorDataRegister[0].length = 0 et ajout d'une fonction dédiée qui va boucler sur les deux tableaux afin de vider les tous les sous-tableaux
+-   Changement dans la manière de vérifier si tous les tests regex ont été concluants avec la méthode every.
+-   Récupération du status des deux requêtes register/login afin de l'utiliser pour inclure un message d'erreur si code 500.
+-   Mise en place d'une série de test avec switch case pour inclure les messages d'erreur au bon endroit en fonction de la réponse reçue pour les deux requêtes
+-   Rajout d'une petite div déjà utilisé ailleurs dans les formulaire pour inclure les messages d'informations globales
 
 </details>
 

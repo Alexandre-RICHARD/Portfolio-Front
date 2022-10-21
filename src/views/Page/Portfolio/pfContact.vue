@@ -21,7 +21,6 @@ const submitContactForm = (event) => {
 };
 
 const sendMail =  () => {
-    console.log("On verra plus tard");
     // try {
     //     fetch(API_URL + "/contact", {
     //         headers: {
