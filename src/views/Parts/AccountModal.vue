@@ -4,7 +4,7 @@ import { reactive } from "vue";
 import { useMainStore } from "../../store/Main";
 const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
-const { modalData } = MainStore;
+const { account, modalData } = MainStore;
 
 // Utilisé pour détecter un clic en dehors de la modal, mais pas sur le header. En effet, le clic n'est détecté que sur le cache.
 const clickOutsideAccountModal = (event) => {
@@ -270,7 +270,7 @@ const submitRegisterForm = (event) => {
     regexTest.registerPasswordConfirmation(
         registrationData.passwordConfirmation
     );
-    if (errorDataRegister.every(element => element.length === 0)) {
+    if (errorDataRegister.every((element) => element.length === 0)) {
         registration(registrationData);
     }
 };
@@ -295,6 +295,9 @@ const registrationResult = (data, status) => {
     data.forEach((element) => {
         switch (element) {
         case "register-success":
+            account.connected = true;
+            account.nickname = data[1].nickname;
+            account.mail = data[1].mail;
             errorDataRegister[4].push(
                 "Inscription réussie mais ça sert à rien pour l'instant"
             );
@@ -304,7 +307,7 @@ const registrationResult = (data, status) => {
                 "Un compte avec cette adresse-mail existe déjà"
             );
             break;
-        case "format-email":
+        case "format-mail":
             errorDataRegister[0].push(
                 "Le serveur n'accepte pas ce format d'adresse-mail"
             );
@@ -346,7 +349,7 @@ const submitLoginForm = (event) => {
     regexTest.loginMail(connectionData.mail);
     regexTest.loginPassword(connectionData.password);
 
-    if (errorDataLogin.every(element => element.length === 0)) {
+    if (errorDataLogin.every((element) => element.length === 0)) {
         connection(connectionData);
     }
 };
@@ -372,6 +375,9 @@ const connectionResult = (data, status) => {
         data.forEach((element) => {
             switch (element) {
             case "login-success":
+                account.connected = true;
+                account.nickname = data[1].nickname;
+                account.mail = data[1].mail;
                 errorDataLogin[2].push(
                     "Connexion réussi mais ça sert à rien pour l'instant"
                 );
@@ -381,7 +387,7 @@ const connectionResult = (data, status) => {
                     "Identifiants ou mot de passe incorrect"
                 );
                 break;
-            case "format-email":
+            case "format-mail":
                 errorDataLogin[0].push(
                     "Le serveur n'accepte pas ce format d'adresse-mail"
                 );
@@ -419,7 +425,7 @@ const inputLosingFocus = (target) => {
 <template>
     <!-- Si la modal est input ou register, on affiche tout ça -->
     <div
-        v-if="['login', 'register'].indexOf(modalData.type) >= 0"
+        v-if="['login', 'register'].indexOf(modalData.type) >= 0 && account.connected === false"
         class="account-modal-cache"
         @click="clickOutsideAccountModal"
     >

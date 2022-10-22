@@ -37,7 +37,7 @@ const emit = defineEmits(["changeInputValue", "inputLosingFocus"]);
 const handleChange = (event) => {
     emit("changeInputValue", event.target.value, props.valuename);
     // Lors de la capture de l'événement change, on vérifie aussi que s'il s'agit du password de register, on vérifiera la solidité de celui-ci.
-    if (props.name === "registerPassword") {
+    if (["registerPassword", "newPassword"].indexOf(props.name) >= 0) {
         updateStrengthPassword();
     }
 };
@@ -73,7 +73,7 @@ const updateStrengthPassword = () => {
         >
     </div>
     <progress
-        v-if="props.name === 'registerPassword' && props.value.length > 0"
+        v-if="['registerPassword', 'newPassword'].indexOf(props.name) >= 0 && props.value.length > 0"
         class="strong-password"
         max="18"
         :value="passwordStrength"

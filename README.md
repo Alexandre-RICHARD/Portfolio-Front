@@ -668,6 +668,23 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Mise en place d'une série de test avec switch case pour inclure les messages d'erreur au bon endroit en fonction de la réponse reçue pour les deux requêtes
 -   Rajout d'une petite div déjà utilisé ailleurs dans les formulaire pour inclure les messages d'informations globales
 
+### build 87 - 0.9.42 `22 octobre 2022`
+
+-   Mise à jour des packages npm
+-   Création, importation du composant et du fichier scss pour la page user.
+-   Copie d'une grande partie du style depuis accountModal. A factoriser plus tard
+-   Création de la route permettant d'accéder à cette nouvelle page
+-   Création d'un objet account dans le store chargé de récupérer les informations de connexion
+-   Rajout de deux fonctionnalités pour le projet portfolio
+-   Renommage d'une fonction dans le composant de la page NotFound (404)
+-   Lors d'une inscription/connexion réussie, les données pertinentes sont entrées dans le store
+-   De manière globale, la variable email est renommée mail
+-   Rajout d'une condition pour que les modals de connexion/incription se ferment automatiquement et ne peuvent être ouvertes si l'utilisateur est connecté
+-   Adaptation du composant AccountModalInput.vue pour qu'il gèrent la condition de force du password pour deux input différent
+-   Si l'utilisateur est connecté les boutons Connexion/Inscription disparaissent au profit de la page profil et du bouton de déconnexion
+-   Création d'une fonction de déconnexion supprimant les infos de connexion, fermant les modals et ramenant à la page d'accueil
+-   La page UserProfile non-terminée encore reprend en grande partie le code du composant AccountModal, ça sera sûrement factorisable
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -680,7 +697,12 @@ Voici [le site](https://alexandre-richard.fr) en question.
 ## Les features à venir
 
 En cours : 
--   Gérer le login/register
+-   Maintenant que login/register fonctionne, on doit l'afficher, mettre le pseudo et accéder à une page simpliste de gestion de compte
+-   Créer un cookie ou autre manière de faire pour que l'utilisateur reste connecté
+-   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
+-   Intégrer le chat commun
+-   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment
+-   Gérer le fait de pouvoir afficher ou non le mot de passe en appuyant sur un bouton
 
 Mastermind :
 -   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
@@ -690,18 +712,17 @@ Mastermind :
 -   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
 
 Navigation et BreadCrumb : 
--   Le breadCrumb doit disparaitre dans le coin 404
+-   Le breadCrumb doit disparaitre dans le coin 404, ou être au dessus du 404
 
 Projets à intégrer :
 -   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
--   Intégrer ma liste de jeux
+-   Liste des jeux avec toutes leur propriétés, Capacité de rajouter/modifier/supprimer des jeux, Temps de jeu indiqué + temps de jeu estimé en plus
 -   Le wiki des dinosaures dans ARK
 -   Les outils que j'ai fait pour ARK à Intégrer
 -   The Journal
 -   Tenter de créer un système de génération de carte aléatoire avec système de GPS menant au plus court chemin
 -   Générateur de page aléatoire stylisé
 -   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
--   Importer le jeu d'échec
 
 Jeu d'échecs :
 -   Roque
@@ -716,18 +737,25 @@ Jeu d'échecs :
 -   Transformer les moves en array
 -   Mettre une fausse IA
 -   Transformer le jeu en vue.js
+-   Rajouter un délai minimal et maximal (un compteur total ?) pour les coup de chaque joueur
+-   Rajouter une option en début de partie pour paramétrer (jouer seul / à deux en local / à deux en ligne)
+-   Rajouter une animation quand une pièce se déplace d'une case à une autre
+-   Rajouter une animation et une option pour déplacer les pièces sorties dans un cimetière
+-   Un enregistrement de toutes les parties joués, un moyen de les consulter (voir les fiches lors des championnats) et un moyen de les faire rejouer.
+-   Affichage du contrôle de chaque joueur
+-   Affichage particulier des pièces en cas de vitoires + animations ?
+-   Afficher un tableau dynamique / compteur sur la droite du jeu qui récapitulera tous les coup (avec mise en forme des coup lorsque MEURTRE)
+-   En activant le mode DangerZone, survoler une case, mettrait en surbrillance les pièces responsables du contrôle
+-   Intégrer une règle dans la page
+-   Dans le back, s'occuper des fichiers gérant le jeu d'échec (commentaires etc...)
 
 Détails et peaufinage : 
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
 -   Les données de projets seront par la suite récupérer en base de données, ainsi que leurs images
 -   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
--   Faire une review du code d'un peu tout
 -   Régler l'image d'illustration de code pour qu'elle coïncide avec le thème
 -   Transformer le .eslintrc.json en .js
-
 -   Création d'une webpack modele
--   Finir de gérer l'inscription, la connexion et commencer à gérer changement de mot de passe, d'adresse mail et la suprpresion du compte
--   Chess ?
 -   Séparer les stores, account ? Theme ? Navigation ? Other ? Project/content ?
 -   Vérifier les variables/data des link de contact et leur cohérence vis à vis d eleurs utilisations
 -   Séparer le styles entre pfproject et pfprojectdetails
@@ -741,58 +769,18 @@ Détails et peaufinage :
 -   Factoriser themePallet
 -   Rajouter un web media sur les projets pour le responsive
 -   Quand on aura réussi a envoyer des mails serveur, il faudra envoyer un mail de confirmation lors de la création de compte
--   Dans le back, s'occuper des fichiers gérant le jeu d'échec (commentaires etc...)
--   Rajouter un délai minimal et maximal (un compteur total ?) pour les coup de chaque joueur
--   Rajouter une option en début de partie pour paramétrer (jouer seul / à deux en local / à deux en ligne)
--   Rajouter une animation quand une pièce se déplace d'une case à une autre
--   Rajouter une animation et une option pour déplacer les pièces sorties dans un cimetière
--   Un enregistrement de toutes les parties joués, un moyen de les consulter (voir les fiches lors des championnats) et un moyen de les faire rejouer.
--   Affichage du contrôle de chaque joueur
--   Affichage particulier des pièces en cas de vitoires + animations ?
--   Afficher un tableau dynamique / compteur sur la droite du jeu qui récapitulera tous les coup (avec mise en forme des coup lorsque MEURTRE)
--   En activant le mode DangerZone, survoler une case, mettrait en surbrillance les pièces responsables du contrôle
--   Intégrer une règle dans la page
--   Liste des jeux avec toutes leur propriétés
--   Capacité de rajouter/modifier/supprimer des jeux
 -   Stocker des images en BDD
--   Temps de jeu indiqué + temps de jeu estimé en plus
--   Intégrer un système de connexion multiple avec chat etc
--   JSONWebToken ou autre token de connexion
 -   Système de création de serveur de jeu, privé, invitation
 -   Faire des tests unitaires
 -   Rajouter une partie admin avec gestion des BDD, des users
--   Rajouter mon journal intime
--   Simulateur de GPS avec générateur aléatoire de route
-
-
-
-
-
-Code d'erreur :
--	Mail déjà utilisé
--	Erreur connexion serveur
--	Erreur connexion base de données
--	Les données des inputs sont incorrectes
-
--	Ou alors c'est bon
-
-
-- A terme, changement de mot de passe avec envoi de mail comme confirmation
-- Changement d'adresse-mail avec envoi de mail aux deux adresse
-- Mot de passe oublié avec envoi de lien de récupération
-- Inscription avec mail de confirmation et BAse de données temporaires
-- Rendre plus accueillant la page d'accueil avec les projets
-
-
-Dans le router, trouver le moyen de mettre les bon titres pour les routes à paramètres
-
-In,dicateur de puissance du mot de passe
-Encadre activable avec vision de toutes les conditions et si oui ou non elles ont été validés
-
-Mise en verte des conditions de password inscription en direct
-
-Gérer le fait de pouvoir afficher ou non le mot de passe en appuyant sur un bouton
-Gérer la connexion avec un cookie ou un local storage
-
-Il faudrait créer une spécificité pour que la perte du focus sur le mot de passe ou sa confirmation engendre un test sur les deux
-Colorier les inputs incorrect également lors du submit
+-   A terme, changement de mot de passe avec envoi de mail comme confirmation
+-   Changement d'adresse-mail avec envoi de mail aux deux adresse
+-   Mot de passe oublié avec envoi de lien de récupération
+-   Inscription avec mail de confirmation et BAse de données temporaires
+-   Rendre plus accueillant la page d'accueil avec les projets
+-   Dans le router, trouver le moyen de mettre les bon titres pour les routes à paramètres
+-   Mise en verte des conditions de password inscription en direct
+-   Il faudrait créer une spécificité pour que la perte du focus sur le mot de passe ou sa confirmation engendre un test sur les deux
+-   Colorier les inputs incorrect également lors du submit
+-   Factoriser le style des formulaire de connexion etc
+-   Détailler et passer un peu de temps à déterminer les vraies features intéressantes de mes différents projets

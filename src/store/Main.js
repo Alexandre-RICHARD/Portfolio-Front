@@ -5,6 +5,12 @@ import { defineStore } from "pinia";
 // On nomme notre Store et on l'exporte
 export const useMainStore = defineStore("Main", {
     state: () => ({
+        account: {
+            connected: false,
+            nickname: null,
+            mail: null,
+            token: null,
+        },
         theme: {
             selected: "classic",
             classic: {
@@ -99,9 +105,9 @@ export const useMainStore = defineStore("Main", {
                     "Un mastermind en page d'accueil, petit jeu dans lequel il faut trouver un nombre mystère avec des indices donnés à chaque essai.",
                     "Création du site totalement avec Vue.JS. Je trouve ce framework plus simple à apprendre mais également bien plus intuitif à utiliser en combinaison avec Pinia et Vue Router.",
                     "La possibilité de copier différentes informations depuis les liens situés dans Contact.",
+                    "La possibilité de s'inscrire avec les informations classiques pour. Le mot de passe n'est pas enregistré en clair.",
+                    "La possibilité de changer d'adresse-mail, de mot de passe et d'accéder à ses informations personnelles.",
                     // "Un formulaire de contact ayant pour but de rentrer des informations et qu'en validant, un mail me soit automatiquement envoyé. Je n'ai pas encore trouvé le moyen d'accomplir ceci sans passer par un service payant.",
-                    // "La possibilité de s'inscrire avec les informations classiques pour. Le mot de passe n'est pas enregistré en clair.",
-                    // "La possibilité de changer d'adresse-mail, de mot de passe et d'accéder à ses informations personnelles.",
                 ],
             },
             {

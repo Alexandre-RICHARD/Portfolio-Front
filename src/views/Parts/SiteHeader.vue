@@ -3,9 +3,11 @@ import HeaderLink from "./HeaderLink.vue";
 import HeaderMenuIcon from "../SVG/HeaderMenuIcon.vue";
 import ThemePallet from "../Parts/ThemePallet.vue";
 import { useMainStore } from "../../store/Main";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const MainStore = useMainStore();
-const { headerLinks, headerModals, modalData } = MainStore;
+const { account, headerLinks, headerAccount, modalData } = MainStore;
 
 // Fonction servant à modifier le state contenant les deux données de ModalOuverte et si oui, laquelle.
 const handleChangeModal = (open, type) => {
@@ -55,6 +57,14 @@ const openAndHandleModalMenu = () => {
         eventListenerHandler(1);
     }
 };
+
+const disconnect = () => {
+    account.connected = false;
+    account.nickname = null;
+    account.mail = null;
+    handleChangeModal(false, null);
+    router.push({ name: "Home" });
+};
 </script>
 
 <template>
@@ -63,10 +73,7 @@ const openAndHandleModalMenu = () => {
             <div class="left-header-container">
                 <ThemePallet />
 
-                <router-link
-                    class="header-logo"
-                    :to="{ name: 'Home' }"
-                >
+                <router-link class="header-logo" :to="{ name: 'Home' }">
                     <span class="header-logo-bracket">{</span>
                     <div class="header-logo-name">
                         <h1 class="header-logo-firstname">Alexandre</h1>
@@ -85,15 +92,30 @@ const openAndHandleModalMenu = () => {
                     class="header-nav-link"
                 />
             </div>
-            <div class="account-header-container">
+            <div
+                v-if="account.connected === false"
+                class="account-header-container"
+            >
                 <HeaderLink
-                    v-for="modal in headerModals"
+                    v-for="modal in headerAccount"
                     :key="modal.id"
                     :type="modal.type"
                     :title="modal.content"
                     class="header-nav-link"
                     @click="handleChangeModal(true, modal.link)"
                 />
+            </div>
+            <div
+                v-if="account.connected === true"
+                class="account-header-container"
+            >
+                <router-link
+                    class="header-nav-link"
+                    :to="{ name: 'UserProfile' }"
+                >
+                    {{ account.nickname }}
+                </router-link>
+                <button class="header-nav-link" @click="disconnect">Déconnexion</button>
             </div>
 
             <button

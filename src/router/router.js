@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/Page/HomePage.vue";
 import NotFound from "../views/Page/Other/NotFound.vue";
 import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
+import UserProfile from "../views/Page/Other/UserProfile.vue";
 
 import pfHome from "../views/Page/Portfolio/pfHome.vue";
 import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
@@ -123,6 +124,24 @@ const routes = [
                 },
             },
         ],
+    },
+    {
+        path: "/profile",
+        name: "UserProfile",
+        components: { mainRouter: UserProfile },
+        meta: {
+            documentTitle: "Mon profil",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+                {
+                    title: "Mon profil",
+                    link: "UserProfile",
+                },
+            ],
+        },
     },
     { //! CHANGE
         path: "/gain",

@@ -1,0 +1,97 @@
+@import "../../Base/variables";
+
+.account-parameters {
+    background-color: var(--backgroundColor);
+    color: var(--buttonColorOne);
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.parameters-container {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+
+    .new-mail-form,
+    .new-password-form {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        display: flex;
+        flex-direction: column;
+        min-width: 400px;
+
+
+        .input {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            margin: 10px 0;
+
+            label {
+                background-color: var(--backgroundColor);
+                color: var(--titleColor);
+                display: block;
+                padding: 3px;
+            }
+
+            input {
+                background-color: var(--titleColor);
+                color: var(--backgroundColor);
+                width: 100%;
+                padding: 4px;
+                border: 2px solid transparent;
+
+                &.good {
+                    border: 2px solid green;
+                }
+
+                &.error {
+                    border: 2px solid red;
+                }
+            }
+        }
+
+        .strong-password {
+            width: 100%;
+            position: relative;
+            top: -10px;
+        }
+
+        .error-box {
+            background-color: var(--smoothBackgroundColor);
+            color: var(--textColor);
+            padding: 5px;
+            border-radius: 5px;
+
+            .title {
+                background-color: var(--smoothBackgroundColor);
+                color: var(--textColor);
+                font-size: 16px;
+            }
+
+            .error {
+                background-color: var(--smoothBackgroundColor);
+                color: var(--textColor);
+                font-size: 14px;
+            }
+        }
+
+        .submit-button {
+            background-color: var(--headerColor);
+            color: var(--titleColor);
+            font-weight: 600;
+            font-size: 16px;
+            text-shadow: 1px 1px 1px var(--textShadowColor);
+            cursor: pointer;
+            letter-spacing: 1px;
+            width: fit-content;
+            margin: 7px auto;
+            padding: 7px;
+            border-radius: 9px;
+            border: 2px solid transparent;
+
+            &:hover {
+                border-color: var(--titleColor);
+            }
+        }
+    }
+}

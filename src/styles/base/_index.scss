@@ -8,6 +8,7 @@
 // On importe nos différentes feuilles de styles
 @use "../Page/HomePage";
 @use "../Page/Other/NotFound";
+@use "../Page/Other/UserProfile.scss";
 
 // On importe nos feuilles de styles pour nos 4 pages principales
 @use "../Page/Portfolio/pfHome";

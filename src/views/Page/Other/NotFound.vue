@@ -5,7 +5,7 @@ const router = useRouter();
 // Cette fonction est appelée quand le clic est fait sur la Dolorean
 // Elle applique les classes animate à deux éléments qui comportent une animation
 // A la fin de cette animation, on utilise router.push pour faire revenir l'utilisateur à la page d'accueil
-const returnOnSite = () => {
+const returnToHome = () => {
     const dolorean = document.querySelector(".dolorean");
     const fire = document.querySelector(".fire");
     dolorean.classList.toggle("animate");
@@ -29,7 +29,7 @@ const returnOnSite = () => {
             class="dolorean"
             alt="Une dolorean de retour vers le futur pour retourner en arrière"
             src="../../../images/Dolorean.png"
-            @click="returnOnSite"
+            @click="returnToHome"
         >
         <div class="fire" />
     </div>
