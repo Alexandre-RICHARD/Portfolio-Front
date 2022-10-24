@@ -8,19 +8,20 @@
 }
 
 .parameters-container {
+    background-color: var(--backgroundColor);
     display: flex;
     gap: 50px;
     justify-content: space-between;
     flex-wrap: wrap;
 
     .new-mail-form,
-    .new-password-form {
+    .new-password-form,
+    .delete-account-form {
         background-color: var(--backgroundColor);
         color: var(--titleColor);
         display: flex;
         flex-direction: column;
         min-width: 400px;
-
 
         .input {
             background-color: var(--backgroundColor);
@@ -60,7 +61,7 @@
                 top: -10px;
             }
         }
-            
+
         .error-box {
             background-color: var(--smoothBackgroundColor);
             color: var(--textColor);
@@ -96,6 +97,27 @@
 
             &:hover {
                 border-color: var(--titleColor);
+            }
+        }
+    }
+
+    .delete-account-form {
+        .submit-button {
+            z-index: 2;
+        }
+
+        #deleteAccountPassword {
+            animation: 0.6s ease-out 1 displayInput;
+            z-index: 1;
+
+            @keyframes displayInput {
+                0% {
+                    transform: translateY(-75px) scale(0);
+                }
+
+                100% {
+                    transform: translateY(0px) scale(1);
+                }
             }
         }
     }

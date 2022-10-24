@@ -4,7 +4,7 @@ import ContactButton from "../../Parts/ContactButton.vue";
 import { useMainStore } from "../../../store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
-const API_URL = process.env.API_URL;
+// const API_URL = process.env.API_URL;
 
 // A m'aide de Reactive, on créé cet objet de valeur qui seront affichés en temps réel dès qu'elles changeront
 const contactByMailValues = reactive({
@@ -86,7 +86,6 @@ const sendMail =  () => {
                     name="contactFormName"
                     type="text"
                     required
-                    autocomplete="on"
                     :value="contactByMailValues.contactFormName"
                     @input="
                         (event) =>
@@ -103,7 +102,6 @@ const sendMail =  () => {
                     name="contactFormMail"
                     type="email"
                     required
-                    autocomplete="on"
                     :value="contactByMailValues.contactFormMail"
                     @input="
                         (event) =>
@@ -120,7 +118,6 @@ const sendMail =  () => {
                     name="contactFormSubject"
                     type="text"
                     required
-                    autocomplete="off"
                     :value="contactByMailValues.contactFormSubject"
                     @input="
                         (event) =>
@@ -137,7 +134,6 @@ const sendMail =  () => {
                     name="contactFormMessage"
                     type="textarea"
                     required
-                    autocomplete="off"
                     :value="contactByMailValues.contactFormMessage"
                     @input="
                         (event) =>

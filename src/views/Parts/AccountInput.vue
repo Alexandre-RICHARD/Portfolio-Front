@@ -51,15 +51,14 @@ const losingFocus = (event) => {
 // On en profite pour importer ici uniquement le package zxcvbn afin d'éviter de surcharger le bundle
 let passwordStrength = ref(0);
 const updateStrengthPassword = () => {
-    return import("zxcvbn")
-        .then(({default: zxcvbn}) => {
-            passwordStrength.value = zxcvbn(props.value).guesses_log10;
-        });
+    return import("zxcvbn").then(({ default: zxcvbn }) => {
+        passwordStrength.value = zxcvbn(props.value).guesses_log10;
+    });
 };
 </script>
 
 <template>
-    <div class="input">
+    <div :id="props.name" class="input">
         <label :for="name">{{ title }}</label>
         <input
             :id="name"
@@ -72,13 +71,14 @@ const updateStrengthPassword = () => {
             @blur="losingFocus"
         >
     </div>
-    <div class="strong-password-box">
-        <progress
-            v-if="['registerPassword', 'newPassword'].indexOf(props.name) >= 0 && props.value.length > 0"
-            class="strong-password"
-            max="18"
-            :value="passwordStrength"
-        />
+    <div
+        v-if="
+            ['registerPassword', 'newPassword'].indexOf(props.name) >= 0 &&
+                props.value.length > 0
+        "
+        class="strong-password-box"
+    >
+        <progress class="strong-password" max="18" :value="passwordStrength" />
     </div>
 
     <div v-if="errordata.length !== 0" class="error-box">

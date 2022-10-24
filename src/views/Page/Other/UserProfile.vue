@@ -1,6 +1,6 @@
 <script setup>
 import AccountInput from "../../Parts/AccountInput.vue";
-import { reactive } from "vue";
+import { ref, reactive } from "vue";
 import { useMainStore } from "../../../store/Main";
 const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
@@ -13,10 +13,14 @@ const accountInformations = reactive({
     oldPassword: "",
     newPassword: "",
     newPasswordConfirmation: "",
+    deleteAccountPassword: "",
 });
+
+let deleteInputDisplayed = ref(false);
 
 let errorDataNewMail = reactive([[], [], [], []]);
 let errorDataNewPassword = reactive([[], [], [], []]);
+let errorDeleteAccount = reactive([[], []]);
 
 const regexTest = {
     cleanError: () => {
@@ -24,6 +28,9 @@ const regexTest = {
             element.length = 0;
         });
         errorDataNewPassword.forEach((element) => {
+            element.length = 0;
+        });
+        errorDeleteAccount.forEach((element) => {
             element.length = 0;
         });
     },
@@ -47,9 +54,7 @@ const regexTest = {
 
     newMailConfirmation: (mailConfirmation) => {
         if (mailConfirmation !== accountInformations.newMail) {
-            errorDataNewMail[1].push(
-                "Les adresses ne sont pas identiques"
-            );
+            errorDataNewMail[1].push("Les adresses ne sont pas identiques");
         }
 
         if (errorDataNewMail[1].length === 0) {
@@ -269,6 +274,69 @@ const regexTest = {
             return false;
         }
     },
+
+    deleteAccountPassword: (password) => {
+        const testResult = {
+            lowercase: 0,
+            uppercase: 0,
+            numero: 0,
+            special: 0,
+            space: 0,
+            length: 0,
+        };
+        // Minuscule
+        const testMin = password.match(/([a-z])/g);
+        if (testMin !== null) {
+            testResult.lowercase = testMin.join("").length;
+        }
+
+        // Majuscule
+        const testMax = password.match(/([A-Z])/g);
+        if (testMax !== null) {
+            testResult.uppercase = testMax.join("").length;
+        }
+
+        // Nombre
+        const testNum = password.match(/([0-9])/g);
+        if (testNum !== null) {
+            testResult.numero = testNum.join("").length;
+        }
+
+        // Caractères spéciaux autorisés
+        const testSpe = password.match(/([~!@#$%^&*()\-_=+[\]{};:,.<>/?\\|])/g);
+        if (testSpe !== null) {
+            testResult.special = testSpe.join("").length;
+        }
+
+        // Espace et autre
+        const testSpace = password.match(/[\s\b\n\t]/g);
+        if (testSpace !== null) {
+            testResult.space = testSpace.join("").length;
+        }
+
+        // Longueur
+        testResult.length = password.length;
+
+        if (
+            testResult.lowercase < 2 ||
+            testResult.uppercase < 2 ||
+            testResult.numero < 2 ||
+            testResult.special < 1 ||
+            testResult.space > 0 ||
+            testResult.length < 8 ||
+            testResult.length > 60
+        ) {
+            errorDeleteAccount[0].push(
+                "Le format du mot de passe ne correspond pas aux prérequis"
+            );
+        }
+
+        if (errorDeleteAccount[0].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
 };
 
 const submitNewMailForm = (event) => {
@@ -408,13 +476,82 @@ const newPasswordResult = (data, status) => {
                 );
                 break;
             case "wrong-password":
-                errorDataNewPassword[3].push("Le mot de passe n'est pas correct");
+                errorDataNewPassword[3].push(
+                    "Le mot de passe n'est pas correct"
+                );
                 break;
             }
         });
     }
     if (status === 500) {
         errorDataNewPassword[2].push(
+            "Une erreur serveur est survenue. Veuillez réessayer"
+        );
+    }
+};
+
+const submitDeleteAccount = (event) => {
+    event.preventDefault();
+    if (!deleteInputDisplayed.value) {
+        deleteInputDisplayed.value = true;
+    } else {
+        const deleteAccountData = {
+            mail: account.mail,
+            deleteAccountPassword: accountInformations.deleteAccountPassword,
+        };
+        regexTest.cleanError();
+        regexTest.deleteAccountPassword(
+            deleteAccountData.deleteAccountPassword
+        );
+
+        if (errorDeleteAccount.every((element) => element.length === 0)) {
+            sendDeleteAccount(deleteAccountData);
+        }
+    }
+};
+
+const sendDeleteAccount = async (deleteAccountData) => {
+    try {
+        const response = await fetch(API_URL + "/account/delete", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "DELETE",
+            body: JSON.stringify(deleteAccountData),
+        });
+        deleteAccountResult(await response.json(), response.status);
+    } catch (error) {
+        console.trace(error);
+    }
+};
+
+const deleteAccountResult = (data, status) => {
+    if (data) {
+        data.forEach((element) => {
+            switch (element) {
+            case "delete-account-success":
+                break;
+            case "format-password":
+                errorDeleteAccount[0].push(
+                    "Le serveur n'accepte pas ce format de mot de passe"
+                );
+                break;
+            case "mail-error":
+                errorDeleteAccount[1].push(
+                    "Il semble que le compte avec l'adresse-mail actuelle n'ait pas été trouvé"
+                );
+                break;
+            case "wrong-password":
+                errorDeleteAccount[1].push(
+                    "Le mot de passe n'est pas correct"
+                );
+                break;
+            }
+        });
+    }
+    if (status === 500) {
+        errorDataNewPassword[1].push(
             "Une erreur serveur est survenue. Veuillez réessayer"
         );
     }
@@ -448,7 +585,7 @@ const inputLosingFocus = (target) => {
                 title="Nouvelle adresse mail : "
                 name="newMail"
                 type="email"
-                autocomplete="on"
+                autocomplete="email"
                 valuename="newMail"
                 :value="accountInformations.newMail"
                 :errordata="errorDataNewMail[0]"
@@ -459,7 +596,7 @@ const inputLosingFocus = (target) => {
                 title="Confirmez la nouvelle adresse : "
                 name="newMailConfirmation"
                 type="email"
-                autocomplete="on"
+                autocomplete="email"
                 valuename="newMailConfirmation"
                 :value="accountInformations.newMailConfirmation"
                 :errordata="errorDataNewMail[1]"
@@ -470,7 +607,7 @@ const inputLosingFocus = (target) => {
                 title="Confirmez avec le mot de passe : "
                 name="newMailPassword"
                 type="password"
-                autocomplete="on"
+                autocomplete="current-password"
                 valuename="newMailPassword"
                 :value="accountInformations.newMailPassword"
                 :errordata="errorDataNewMail[2]"
@@ -494,7 +631,7 @@ const inputLosingFocus = (target) => {
                 title="Mot de passe actuel : "
                 name="oldPassword"
                 type="password"
-                autocomplete="on"
+                autocomplete="current-password"
                 valuename="oldPassword"
                 :value="accountInformations.oldPassword"
                 :errordata="errorDataNewPassword[0]"
@@ -505,7 +642,7 @@ const inputLosingFocus = (target) => {
                 title="Nouveau mot de passe : "
                 name="newPassword"
                 type="password"
-                autocomplete="on"
+                autocomplete="new-password"
                 valuename="newPassword"
                 :value="accountInformations.newPassword"
                 :errordata="errorDataNewPassword[1]"
@@ -516,7 +653,7 @@ const inputLosingFocus = (target) => {
                 title="Confirmez le nouveau mot de passe : "
                 name="newPasswordConfirmation"
                 type="password"
-                autocomplete="on"
+                autocomplete="new-password"
                 valuename="newPasswordConfirmation"
                 :value="accountInformations.newPasswordConfirmation"
                 :errordata="errorDataNewPassword[2]"
@@ -529,6 +666,31 @@ const inputLosingFocus = (target) => {
                 value="Valider le nouveau mot de passe"
                 @click="submitNewPasswordForm"
             >
+        </form>
+        <form class="delete-account-form">
+            <div v-if="errorDeleteAccount[1].length !== 0" class="error-box">
+                <p class="error">
+                    {{ errorDeleteAccount[1][0] }}
+                </p>
+            </div>
+            <input
+                class="submit-button"
+                type="submit"
+                value="Supprimer le compte"
+                @click="submitDeleteAccount"
+            >
+            <AccountInput
+                v-if="deleteInputDisplayed"
+                title="Mot de passe pour confirmer la suppression : "
+                name="deleteAccountPassword"
+                type="password"
+                autocomplete="current-password"
+                valuename="deleteAccountPassword"
+                :value="accountInformations.deleteAccountPassword"
+                :errordata="errorDeleteAccount[0]"
+                @change-input-value="changeInputValue"
+                @input-losing-focus="inputLosingFocus"
+            />
         </form>
     </div>
 </template>

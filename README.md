@@ -699,6 +699,17 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Adaptation des 6 fonction de test pour qu'elles correspondent à nos 6 inputs
 -   Adaptation des 2 x 3 fonctions de test des inputs / envoi de la requête / traitement du résultat pour le changement mot de passe / mail
 
+### build 89 - 0.9.44 `24 octobre 2022`
+
+-   Rajout de la couleur de background pour les formulaires dans UserProfile
+-   Rajout du style pour le formulaire de suppression de compte
+-   Rajout d'une animation pour l'apparition de l'input de suppression de compte
+-   Rajout toujours sur le même principe d'un formulaire simple pour supprimer le compte avec confirmation par mot de passe
+-   Ajout d'une variable pour déclencher l'apparition de l'input lors du premier clic sur "Supprimer le compte"
+-   Ajout du tableau d'erreur, de la fonction de vidage de ce tableau et des tests regex liés.
+-   Reprise de la logique test des inputs / envoi de la requête / traitement du résultat pour gérer 
+-   LE bug des autocomplete m'a fait remplacé toutes les valeurs d'autcomplete par quelque chose de cohérent même si ça n'a rien changé au comportement de Chrome
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -707,6 +718,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Sur mobile, les caractères fléchés sont différent, à changer.
 -   Sur mobile, petit bug lors du changement de thème
 -   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
+-   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs
 
 ## Les features à venir
 
