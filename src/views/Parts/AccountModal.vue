@@ -1,5 +1,5 @@
 <script setup>
-import AccountModalInput from "./AccountModalInput.vue";
+import AccountInput from "./AccountInput.vue";
 import { reactive } from "vue";
 import { useMainStore } from "../../store/Main";
 const API_URL = process.env.API_URL;
@@ -21,12 +21,12 @@ const changeOnModal = (opened, type) => {
 
 // Nos valeurs de nos différents inputs sont stockées ici en reactive
 const accountInformations = reactive({
-    loginMail: "testdeconnexion@gmail.com",
-    loginPassword: "bzq_*47KiloMaz3b,",
-    registerNickname: "Shadowmere",
-    registerMail: "testdeconnexion@gmail.com",
-    registerPassword: "bzq_*47KiloMaz3b,",
-    registerPasswordConfirmation: "bzq_*47KiloMaz3b,",
+    loginMail: "",
+    loginPassword: "",
+    registerNickname: "",
+    registerMail: "",
+    registerPassword: "",
+    registerPasswordConfirmation: "",
 });
 
 // On créé un tableau d'erreur ici, un pour le login et un pour le register. Chaque sous-tableau contiendra les erreurs des tests s'il y en a pour chaque input
@@ -61,7 +61,6 @@ const regexTest = {
             return false;
         }
     },
-
     // Test du password du login, un seul message d'erreur sera transmit si ça ne match pas, contrairement à register, mais les mêmes tests sont effectués
     loginPassword: (password) => {
         const testResult = {
@@ -298,9 +297,6 @@ const registrationResult = (data, status) => {
             account.connected = true;
             account.nickname = data[1].nickname;
             account.mail = data[1].mail;
-            errorDataRegister[4].push(
-                "Inscription réussie mais ça sert à rien pour l'instant"
-            );
             break;
         case "account-already-exist":
             errorDataRegister[4].push(
@@ -378,9 +374,6 @@ const connectionResult = (data, status) => {
                 account.connected = true;
                 account.nickname = data[1].nickname;
                 account.mail = data[1].mail;
-                errorDataLogin[2].push(
-                    "Connexion réussi mais ça sert à rien pour l'instant"
-                );
                 break;
             case "login-failed":
                 errorDataLogin[2].push(
@@ -415,6 +408,7 @@ const changeInputValue = (value, valuename) => {
 // Lors de la perte de focus sur un input, si la valeur de l'input n'est pas null, alors on appelle la fonction test lié à l'input qui renvoi une valeur bool de test. On vient ajouter une classe good ou error qui colorera la bordure de l'input en fonction du test
 const inputLosingFocus = (target) => {
     if (accountInformations[target.id].length > 0) {
+        regexTest.cleanError();
         const testOk = regexTest[target.id](accountInformations[target.id]);
         const className = testOk === true ? "good" : "error";
         document.querySelector(`#${target.id}`).className = className;
@@ -437,7 +431,7 @@ const inputLosingFocus = (target) => {
                         {{ errorDataLogin[2][0] }}
                     </p>
                 </div>
-                <AccountModalInput
+                <AccountInput
                     title="Adresse mail : "
                     name="loginMail"
                     type="email"
@@ -448,7 +442,7 @@ const inputLosingFocus = (target) => {
                     @change-input-value="changeInputValue"
                     @input-losing-focus="inputLosingFocus"
                 />
-                <AccountModalInput
+                <AccountInput
                     title="Mot de passe : "
                     name="loginPassword"
                     type="password"
@@ -480,7 +474,7 @@ const inputLosingFocus = (target) => {
                         {{ errorDataRegister[4][0] }}
                     </p>
                 </div>
-                <AccountModalInput
+                <AccountInput
                     title="Pseudo : "
                     name="registerNickname"
                     type="text"
@@ -491,7 +485,7 @@ const inputLosingFocus = (target) => {
                     @change-input-value="changeInputValue"
                     @input-losing-focus="inputLosingFocus"
                 />
-                <AccountModalInput
+                <AccountInput
                     title="Adresse mail : "
                     name="registerMail"
                     type="email"
@@ -502,7 +496,7 @@ const inputLosingFocus = (target) => {
                     @change-input-value="changeInputValue"
                     @input-losing-focus="inputLosingFocus"
                 />
-                <AccountModalInput
+                <AccountInput
                     title="Mot de passe : "
                     name="registerPassword"
                     type="password"
@@ -513,7 +507,7 @@ const inputLosingFocus = (target) => {
                     @change-input-value="changeInputValue"
                     @input-losing-focus="inputLosingFocus"
                 />
-                <AccountModalInput
+                <AccountInput
                     title="Confirmez le mot de passe : "
                     name="registerPasswordConfirmation"
                     type="password"

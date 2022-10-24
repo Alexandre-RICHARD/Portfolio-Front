@@ -59,12 +59,15 @@
                 }
             }
 
-            .strong-password {
-                width: 100%;
+            .strong-password-box {
                 position: relative;
-                top: -10px;
+    
+                .strong-password {
+                    width: 100%;
+                    position: absolute;
+                    top: -10px;
+                }
             }
-
             .error-box {
                 background-color: var(--smoothBackgroundColor);
                 color: var(--textColor);

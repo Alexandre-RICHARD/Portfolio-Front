@@ -1,5 +1,6 @@
 // On importe les éléments utiles de Vue Router
 import { createRouter, createWebHistory } from "vue-router";
+import { useMainStore } from "../store/Main";
 
 // On importe toutes les vues qui seront utilisées par notre router principal
 import HomePage from "../views/Page/HomePage.vue";
@@ -141,6 +142,7 @@ const routes = [
                     link: "UserProfile",
                 },
             ],
+            requiredLogin: true,
         },
     },
     { //! CHANGE
@@ -183,6 +185,14 @@ const router = createRouter({
                 resolve({ left: 0, top: 0, behavior: "smooth" });
             }, 200);
         });
+    }
+});
+
+router.beforeEach(async (to) => {
+    const MainStore = useMainStore();
+    const { account } = MainStore;
+    if (to.matched.some(element => element.meta.requiredLogin) && account.connected !== true) {
+        return { name: "Home" };
     }
 });
 

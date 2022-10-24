@@ -7,7 +7,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const MainStore = useMainStore();
-const { account, headerLinks, headerAccount, modalData } = MainStore;
+const { account, headerLinks, headerModals, modalData } = MainStore;
 
 // Fonction servant à modifier le state contenant les deux données de ModalOuverte et si oui, laquelle.
 const handleChangeModal = (open, type) => {
@@ -97,7 +97,7 @@ const disconnect = () => {
                 class="account-header-container"
             >
                 <HeaderLink
-                    v-for="modal in headerAccount"
+                    v-for="modal in headerModals"
                     :key="modal.id"
                     :type="modal.type"
                     :title="modal.content"

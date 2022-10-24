@@ -72,12 +72,14 @@ const updateStrengthPassword = () => {
             @blur="losingFocus"
         >
     </div>
-    <progress
-        v-if="['registerPassword', 'newPassword'].indexOf(props.name) >= 0 && props.value.length > 0"
-        class="strong-password"
-        max="18"
-        :value="passwordStrength"
-    />
+    <div class="strong-password-box">
+        <progress
+            v-if="['registerPassword', 'newPassword'].indexOf(props.name) >= 0 && props.value.length > 0"
+            class="strong-password"
+            max="18"
+            :value="passwordStrength"
+        />
+    </div>
 
     <div v-if="errordata.length !== 0" class="error-box">
         <p v-for="error in errordata" :key="error" class="error">

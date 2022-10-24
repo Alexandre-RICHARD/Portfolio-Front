@@ -685,6 +685,20 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Création d'une fonction de déconnexion supprimant les infos de connexion, fermant les modals et ramenant à la page d'accueil
 -   La page UserProfile non-terminée encore reprend en grande partie le code du composant AccountModal, ça sera sûrement factorisable
 
+### build 88 - 0.9.43 `24 octobre 2022`
+
+-   Ajout d'une propriétés requiredLogin à la route UserProfile
+-   Rajout d'un before each dans le router qui va venir vérifier la condition de requiredLogin
+-   Ajout d'une propriété flex-wrap pour la page UserProfile afin que ça ne dépasse plus
+-   Ajout d'une div supérieur à la progress bar du password. Ceci pour que les deux formulaires soit bien alignés
+-   Renommage d'AccountModalInput en AccountInput
+-   Correction du nom d'un objet du store qui causait un problème d'undefined
+-   Suppression des messages type "Connexion réussi mais ça sert à rien pour l'instant"
+-   Rajout d'un cleanError lors de la perte de focus
+-   Après le copié collé de AccountModal dans UserProfile, de nombreux changements :
+-   Adaptation des 6 fonction de test pour qu'elles correspondent à nos 6 inputs
+-   Adaptation des 2 x 3 fonctions de test des inputs / envoi de la requête / traitement du résultat pour le changement mot de passe / mail
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -697,12 +711,12 @@ Voici [le site](https://alexandre-richard.fr) en question.
 ## Les features à venir
 
 En cours : 
--   Maintenant que login/register fonctionne, on doit l'afficher, mettre le pseudo et accéder à une page simpliste de gestion de compte
 -   Créer un cookie ou autre manière de faire pour que l'utilisateur reste connecté
 -   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
 -   Intégrer le chat commun
 -   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment
 -   Gérer le fait de pouvoir afficher ou non le mot de passe en appuyant sur un bouton
+-   Mettre des notifs lors de la connexion au compte, de l'inscription, du changement de mot de passe ou d'adresse-mail
 
 Mastermind :
 -   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
@@ -784,3 +798,4 @@ Détails et peaufinage :
 -   Colorier les inputs incorrect également lors du submit
 -   Factoriser le style des formulaire de connexion etc
 -   Détailler et passer un peu de temps à déterminer les vraies features intéressantes de mes différents projets
+-   Améliorer le cleanError pour qu'il enlève uniquement l'erreur du bon input
