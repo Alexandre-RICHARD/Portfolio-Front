@@ -17,6 +17,7 @@
 @use "../Page/Portfolio/pfContact";
 
 // On importe nos feuilles de styles pour nos sous-composants
+@use "../Parts/AccountInput";
 @use "../Parts/AccountModal";
 @use "../Parts/BreadCrumb";
 @use "../Parts/ContactButton";

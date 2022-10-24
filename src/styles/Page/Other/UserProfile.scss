@@ -43,11 +43,26 @@
                 border: 2px solid transparent;
 
                 &.good {
-                    border: 2px solid green;
+                    border-color: green;
                 }
 
                 &.error {
-                    border: 2px solid red;
+                    border-color: red;
+                }
+            }
+
+            &.password {
+                position: relative;
+
+                .toggle-show-password {
+                    background-color: var(--titleColor);
+                    z-index: 4;
+                    position: absolute;
+                    width: 40px;
+                    height: 32px;
+                    bottom: 2px;
+                    right: 2px;
+                    border-left: 1px solid #b1b1b1;
                 }
             }
         }

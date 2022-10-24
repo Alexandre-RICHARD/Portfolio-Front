@@ -566,8 +566,13 @@ const inputLosingFocus = (target) => {
     if (accountInformations[target.id].length > 0) {
         regexTest.cleanError();
         const testOk = regexTest[target.id](accountInformations[target.id]);
-        const className = testOk === true ? "good" : "error";
-        document.querySelector(`#${target.id}`).className = className;
+        if (testOk === true) {
+            target.classList.add("good");
+            target.classList.remove("error");
+        } else {
+            target.classList.add("error");
+            target.classList.remove("good");
+        }
     }
 };
 </script>

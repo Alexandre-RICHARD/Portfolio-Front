@@ -710,6 +710,19 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Reprise de la logique test des inputs / envoi de la requête / traitement du résultat pour gérer 
 -   LE bug des autocomplete m'a fait remplacé toutes les valeurs d'autcomplete par quelque chose de cohérent même si ça n'a rien changé au comportement de Chrome
 
+### build 90 - 0.9.45 `24 octobre 2022`
+
+-   Rajout de 2 images en SVG créés par mes soins pour indiquer la visibilité ou non du mot de passe
+-   Création d'un ficher scss pour très prochainement factoriser le css des modals account et tu userProfile
+-   Création d'une petite box placé à droite des inputs de mot de passe et stylisation
+-   Simplification des mise en couleur des bordures d'input
+-   Clarification du système de good/error lors de la perte de focus
+-   Une image de base sert de placeholder dans la petite boite servant de afficher/cacher jusqu'à son remplacement
+-   La différenciation des input se fait à partir d'un opérateur ternaire dans la création de la div dans AccountInput.vue
+-   Création de la fonction toggleShowPassword  :
+-   Elle récupère l'élément cliqué, trouve le formulaire le plus proche (celui qui le contient), et trouve tous les inputs à password que le form contient
+-   Pour tous les inputs trouvés, on change le type (text => password ; password => text), on change l'attribut showed du button et on créé l'icône
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -718,7 +731,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Sur mobile, les caractères fléchés sont différent, à changer.
 -   Sur mobile, petit bug lors du changement de thème
 -   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
--   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs
+-   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs (peut-être réglé sans le vouloir)
 
 ## Les features à venir
 
@@ -727,7 +740,6 @@ En cours :
 -   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
 -   Intégrer le chat commun
 -   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment
--   Gérer le fait de pouvoir afficher ou non le mot de passe en appuyant sur un bouton
 -   Mettre des notifs lors de la connexion au compte, de l'inscription, du changement de mot de passe ou d'adresse-mail
 
 Mastermind :

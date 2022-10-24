@@ -55,10 +55,31 @@ const updateStrengthPassword = () => {
         passwordStrength.value = zxcvbn(props.value).guesses_log10;
     });
 };
+
+const toggleShowPassword = (event) => {
+    event.preventDefault();
+    const closestForm = event.target.closest("form");
+    const allButtonShowPassword = document.querySelectorAll(`.${closestForm.classList[0]} .toggle-show-password`);
+    allButtonShowPassword.forEach(element => {
+        const password = element.closest("div").querySelector("input");
+        const img = document.createElement("img");
+        element.innerHTML = "";
+        if (element.showed) {
+            element.showed = false;
+            password.type = "password";
+            img.src = require("../../images/show-password.svg");
+        } else {
+            element.showed = true;
+            password.type = "text";
+            img.src = require("../../images/unshow-password.svg");
+        }
+        element.appendChild(img);
+    });
+};
 </script>
 
 <template>
-    <div :id="props.name" class="input">
+    <div :id="props.name" :class="props.type === 'password' ? 'input password' : 'input'">
         <label :for="name">{{ title }}</label>
         <input
             :id="name"
@@ -70,6 +91,9 @@ const updateStrengthPassword = () => {
             @input="handleChange"
             @blur="losingFocus"
         >
+        <button v-if="props.type === 'password'" class="toggle-show-password" showed="false" @click="toggleShowPassword">
+            <img src="../../images/show-password.svg">
+        </button>
     </div>
     <div
         v-if="
