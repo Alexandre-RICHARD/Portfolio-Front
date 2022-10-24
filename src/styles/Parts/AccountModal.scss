@@ -23,118 +23,19 @@
         padding: 15px;
         height: fit-content;
 
-        .login-form,
-        .register-form {
+        .not-concerned {
             background-color: var(--backgroundColor);
             color: var(--titleColor);
-            display: flex;
-            flex-direction: column;
+            padding-top: 7px;
+            text-align: center;
 
-            .input {
+            &-button {
                 background-color: var(--backgroundColor);
-                color: var(--titleColor);
-                margin: 10px 0;
-
-                label {
-                    background-color: var(--backgroundColor);
-                    color: var(--titleColor);
-                    display: block;
-                    padding: 3px;
-                }
-
-                input {
-                    background-color: var(--titleColor);
-                    color: var(--backgroundColor);
-                    width: 100%;
-                    padding: 4px;
-                    border: 2px solid transparent;
-
-                    &.good {
-                        border-color: green;
-                    }
-
-                    &.error {
-                        border-color: red;
-                    }
-                }
-
-                &.password {
-                    position: relative;
-
-                    .toggle-show-password {
-                        background-color: var(--titleColor);
-                        z-index: 4;
-                        position: absolute;
-                        width: 40px;
-                        height: 32px;
-                        bottom: 2px;
-                        right: 2px;
-                        border-left: 1px solid #b1b1b1;
-                    }
-                }
-            }
-
-            .strong-password-box {
-                position: relative;
-    
-                .strong-password {
-                    width: 100%;
-                    position: absolute;
-                    top: -10px;
-                }
-            }
-            .error-box {
-                background-color: var(--smoothBackgroundColor);
-                color: var(--textColor);
-                padding: 5px;
-                border-radius: 5px;
-
-                .title {
-                    background-color: var(--smoothBackgroundColor);
-                    color: var(--textColor);
-                    font-size: 16px;
-                }
-
-                .error {
-                    background-color: var(--smoothBackgroundColor);
-                    color: var(--textColor);
-                    font-size: 14px;
-                }
-            }
-
-            .submit-button {
-                background-color: var(--headerColor);
-                color: var(--titleColor);
-                font-weight: 600;
-                font-size: 16px;
-                text-shadow: 1px 1px 1px var(--textShadowColor);
+                color: var(--buttonColorTwo);
+                font-weight: 500;
                 cursor: pointer;
-                letter-spacing: 1px;
-                width: fit-content;
-                margin: 7px auto;
-                padding: 7px;
-                border-radius: 9px;
-                border: 2px solid transparent;
-
-                &:hover {
-                    border-color: var(--titleColor);
-                }
-            }
-
-            .not-concerned {
-                background-color: var(--backgroundColor);
-                color: var(--titleColor);
-                padding-top: 7px;
-                text-align: center;
-
-                &-button {
-                    background-color: var(--backgroundColor);
-                    color: var(--buttonColorTwo);
-                    font-weight: 500;
-                    cursor: pointer;
-                    text-decoration: underline;
-                    text-underline-offset: 2px;
-                }
+                text-decoration: underline;
+                text-underline-offset: 2px;
             }
         }
     }

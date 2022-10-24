@@ -578,124 +578,126 @@ const inputLosingFocus = (target) => {
 </script>
 
 <template>
-    <p class="account-parameters">Paramètres du compte</p>
-    <div class="parameters-container">
-        <form class="new-mail-form">
-            <div v-if="errorDataNewMail[3].length !== 0" class="error-box">
-                <p class="error">
-                    {{ errorDataNewMail[3][0] }}
-                </p>
-            </div>
-            <AccountInput
-                title="Nouvelle adresse mail : "
-                name="newMail"
-                type="email"
-                autocomplete="email"
-                valuename="newMail"
-                :value="accountInformations.newMail"
-                :errordata="errorDataNewMail[0]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-            <AccountInput
-                title="Confirmez la nouvelle adresse : "
-                name="newMailConfirmation"
-                type="email"
-                autocomplete="email"
-                valuename="newMailConfirmation"
-                :value="accountInformations.newMailConfirmation"
-                :errordata="errorDataNewMail[1]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-            <AccountInput
-                title="Confirmez avec le mot de passe : "
-                name="newMailPassword"
-                type="password"
-                autocomplete="current-password"
-                valuename="newMailPassword"
-                :value="accountInformations.newMailPassword"
-                :errordata="errorDataNewMail[2]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-            <input
-                class="submit-button"
-                type="submit"
-                value="Changer d'adresse-mail"
-                @click="submitNewMailForm"
-            >
-        </form>
-        <form class="new-password-form">
-            <div v-if="errorDataNewPassword[3].length !== 0" class="error-box">
-                <p class="error">
-                    {{ errorDataNewPassword[3][0] }}
-                </p>
-            </div>
-            <AccountInput
-                title="Mot de passe actuel : "
-                name="oldPassword"
-                type="password"
-                autocomplete="current-password"
-                valuename="oldPassword"
-                :value="accountInformations.oldPassword"
-                :errordata="errorDataNewPassword[0]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-            <AccountInput
-                title="Nouveau mot de passe : "
-                name="newPassword"
-                type="password"
-                autocomplete="new-password"
-                valuename="newPassword"
-                :value="accountInformations.newPassword"
-                :errordata="errorDataNewPassword[1]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-            <AccountInput
-                title="Confirmez le nouveau mot de passe : "
-                name="newPasswordConfirmation"
-                type="password"
-                autocomplete="new-password"
-                valuename="newPasswordConfirmation"
-                :value="accountInformations.newPasswordConfirmation"
-                :errordata="errorDataNewPassword[2]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-            <input
-                class="submit-button"
-                type="submit"
-                value="Valider le nouveau mot de passe"
-                @click="submitNewPasswordForm"
-            >
-        </form>
-        <form class="delete-account-form">
-            <div v-if="errorDeleteAccount[1].length !== 0" class="error-box">
-                <p class="error">
-                    {{ errorDeleteAccount[1][0] }}
-                </p>
-            </div>
-            <input
-                class="submit-button"
-                type="submit"
-                value="Supprimer le compte"
-                @click="submitDeleteAccount"
-            >
-            <AccountInput
-                v-if="deleteInputDisplayed"
-                title="Mot de passe pour confirmer la suppression : "
-                name="deleteAccountPassword"
-                type="password"
-                autocomplete="current-password"
-                valuename="deleteAccountPassword"
-                :value="accountInformations.deleteAccountPassword"
-                :errordata="errorDeleteAccount[0]"
-                @change-input-value="changeInputValue"
-                @input-losing-focus="inputLosingFocus"
-            />
-        </form>
+    <div class="user-profile">
+        <p class="account-parameters">Paramètres du compte</p>
+        <div class="parameters-container">
+            <form class="new-mail-form">
+                <div v-if="errorDataNewMail[3].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDataNewMail[3][0] }}
+                    </p>
+                </div>
+                <AccountInput
+                    title="Nouvelle adresse mail : "
+                    name="newMail"
+                    type="email"
+                    autocomplete="email"
+                    valuename="newMail"
+                    :value="accountInformations.newMail"
+                    :errordata="errorDataNewMail[0]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Confirmez la nouvelle adresse : "
+                    name="newMailConfirmation"
+                    type="email"
+                    autocomplete="email"
+                    valuename="newMailConfirmation"
+                    :value="accountInformations.newMailConfirmation"
+                    :errordata="errorDataNewMail[1]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Confirmez avec le mot de passe : "
+                    name="newMailPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    valuename="newMailPassword"
+                    :value="accountInformations.newMailPassword"
+                    :errordata="errorDataNewMail[2]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <input
+                    class="submit-button"
+                    type="submit"
+                    value="Changer d'adresse-mail"
+                    @click="submitNewMailForm"
+                >
+            </form>
+            <form class="new-password-form">
+                <div v-if="errorDataNewPassword[3].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDataNewPassword[3][0] }}
+                    </p>
+                </div>
+                <AccountInput
+                    title="Mot de passe actuel : "
+                    name="oldPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    valuename="oldPassword"
+                    :value="accountInformations.oldPassword"
+                    :errordata="errorDataNewPassword[0]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Nouveau mot de passe : "
+                    name="newPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    valuename="newPassword"
+                    :value="accountInformations.newPassword"
+                    :errordata="errorDataNewPassword[1]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Confirmez le nouveau mot de passe : "
+                    name="newPasswordConfirmation"
+                    type="password"
+                    autocomplete="new-password"
+                    valuename="newPasswordConfirmation"
+                    :value="accountInformations.newPasswordConfirmation"
+                    :errordata="errorDataNewPassword[2]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <input
+                    class="submit-button"
+                    type="submit"
+                    value="Valider le nouveau mot de passe"
+                    @click="submitNewPasswordForm"
+                >
+            </form>
+            <form class="delete-account-form">
+                <div v-if="errorDeleteAccount[1].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDeleteAccount[1][0] }}
+                    </p>
+                </div>
+                <input
+                    class="submit-button"
+                    type="submit"
+                    value="Supprimer le compte"
+                    @click="submitDeleteAccount"
+                >
+                <AccountInput
+                    v-if="deleteInputDisplayed"
+                    title="Mot de passe pour confirmer la suppression : "
+                    name="deleteAccountPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    valuename="deleteAccountPassword"
+                    :value="accountInformations.deleteAccountPassword"
+                    :errordata="errorDeleteAccount[0]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+            </form>
+        </div>
     </div>
 </template>

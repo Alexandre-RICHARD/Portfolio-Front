@@ -723,6 +723,12 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Elle récupère l'élément cliqué, trouve le formulaire le plus proche (celui qui le contient), et trouve tous les inputs à password que le form contient
 -   Pour tous les inputs trouvés, on change le type (text => password ; password => text), on change l'attribut showed du button et on créé l'icône
 
+### build 91 - 0.9.46 `24 octobre 2022`
+
+-   Rajout d'une div supérieur dans le UserProfile
+-   Séparation propre des styles afin que les styles d'input soient bien rangés dans un seul fichier
+-   Les styles propres aux fichiers précédent sont gardés mais la taille des fichier en a été fortement réduite
+
 </details>
 
 ## Les problèmes du site actuellement
