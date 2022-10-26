@@ -738,6 +738,14 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Dans le détail d'un projet, son lien est nommé, impliquant le changement dans Main.js (le store) et PfProjectDetails.vue
 -   Mise à jour des package NPM
 
+### build 93 - 0.9.48 `26 octobre 2022`
+
+-   Rajout temporairement de toutes les fonctions js de base du jeu d'échec dans le composant ChessGame.vue et initialisation dans un onMounted
+-   Remise en temporaire (hors du projet des 3 fichier originaux)
+-   Adaptation de la div app originelle en div ChessGame
+-   Création d'un composant pour chaque SVG de chaque pièce
+-   Jeu fonctionnel et communication avec le serveur totalement ok depuis le temps
+
 </details>
 
 ## Les problèmes du site actuellement
