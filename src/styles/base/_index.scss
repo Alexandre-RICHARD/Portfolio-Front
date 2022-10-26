@@ -16,6 +16,10 @@
 @use "../Page/Portfolio/pfProjects";
 @use "../Page/Portfolio/pfContact";
 
+// Les projets
+@use "../Page/Chess/ChessGame";
+@use "../Page/Chess/ChessGameTemp";
+
 // On importe nos feuilles de styles pour nos sous-composants
 @use "../Parts/AccountInput";
 @use "../Parts/AccountModal";

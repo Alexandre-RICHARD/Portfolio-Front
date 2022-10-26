@@ -14,11 +14,9 @@ const { modalData } = MainStore;
     <ProjectVersionning />
     <SiteHeader />
     <div class="page-background">
-        <router-view name="notFoundRouter" />
         <div class="page-container">
             <BreadCrumb />
             <router-view name="mainRouter" />
-            <router-view name="portfolioRouter" />
         </div>
     </div>
 </template>

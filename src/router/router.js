@@ -8,6 +8,8 @@ import NotFound from "../views/Page/Other/NotFound.vue";
 import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
 import UserProfile from "../views/Page/Other/UserProfile.vue";
 
+import ChessGame from "../views/Page/Chess/ChessGame.vue";
+
 import pfHome from "../views/Page/Portfolio/pfHome.vue";
 import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
 import pfProjects from "../views/Page/Portfolio/pfProjects.vue";
@@ -37,7 +39,7 @@ const routes = [
             {
                 path: "home",
                 name: "PortfolioHome",
-                components: { portfolioRouter: pfHome },
+                components: { mainRouter: pfHome },
                 meta: {
                     documentTitle: "Alexandre Richard",
                     breadCrumb: [
@@ -55,7 +57,7 @@ const routes = [
             {
                 path: "curriculum",
                 name: "PortfolioCurriculum",
-                components: { portfolioRouter: pfCurriculum },
+                components: { mainRouter: pfCurriculum },
                 meta: {
                     documentTitle: "Curriculum",
                     breadCrumb: [
@@ -73,7 +75,7 @@ const routes = [
             {
                 path: "project",
                 name: "PortfolioProject",
-                components: { portfolioRouter: pfProjects },
+                components: { mainRouter: pfProjects },
                 meta: {
                     documentTitle: "Mes Projets",
                     breadCrumb: [
@@ -91,7 +93,7 @@ const routes = [
             {
                 path: "project/:projectName",
                 name: "ProjectDetails",
-                components: { portfolioRouter: pfProjectDetails },
+                components: { mainRouter: pfProjectDetails },
                 meta: {
                     documentTitle: "N/A",
                     breadCrumb: [
@@ -109,7 +111,7 @@ const routes = [
             {
                 path: "contact",
                 name: "PortfolioContact",
-                components: { portfolioRouter: pfContact },
+                components: { mainRouter: pfContact },
                 meta: {
                     documentTitle: "Mes Contacts",
                     breadCrumb: [
@@ -145,19 +147,47 @@ const routes = [
             requiredLogin: true,
         },
     },
-    { //! CHANGE
+    {
         path: "/gain",
         name: "CurrentETH",
         components: { mainRouter: EtherumFollow },
         meta: {
-            title: "Suivi de gains",
-            path: "EtherumFollow",
+            documentTitle: "Etherum",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+                {
+                    title: "Etherum",
+                    link: "CurrentETH",
+                },
+            ],
+            requiredLogin: true,
+        },
+    },
+    {
+        path: "/chess",
+        name: "Chess",
+        components: { mainRouter: ChessGame },
+        meta: {
+            documentTitle: "Jeu d'échecs",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+                {
+                    title: "Jeu d'échecs",
+                    link: "Chess",
+                },
+            ],
         },
     },
     {
         path: "/:pathMatch(.*)*",
         name: "404",
-        components: { notFoundRouter: NotFound },
+        components: { mainRouter: NotFound },
         meta: {
             documentTitle: "Perdition complète",
             breadCrumb: [

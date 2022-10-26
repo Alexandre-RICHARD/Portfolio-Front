@@ -94,7 +94,7 @@ export const useMainStore = defineStore("Main", {
                 id: 1,
                 title: "Portfolio",
                 link: "portfolio",
-                linkAccess: "/",
+                linkAccess: "Home",
                 abstract:
                     "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel hébergé et placer mes différentes idées.",
                 description:
@@ -114,7 +114,7 @@ export const useMainStore = defineStore("Main", {
                 id: 2,
                 title: "Jeu d'échecs",
                 link: "chess",
-                linkAccess: "/chess",
+                linkAccess: "Chess",
                 abstract:
                     "Le jeu d'échec que j'ai créé de toute pièce. Il est jouable pour le moment seul et il manque quelques détails pour que les véritables règles des échecs soient respectées. A pour but d'être jouable en ligne.",
                 description:

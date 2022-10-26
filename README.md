@@ -729,6 +729,15 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Séparation propre des styles afin que les styles d'input soient bien rangés dans un seul fichier
 -   Les styles propres aux fichiers précédent sont gardés mais la taille des fichier en a été fortement réduite
 
+### build 92 - 0.9.47 `26 octobre 2022`
+
+-   Importation brute du jeu d'échec pas encore implanté (js et scss)
+-   Dans le router, suppression de tous les sous-routeur et ne reste que le Main Router
+-   Adaptation de ceci dans l'APP.vue
+-   Création de la route du jeu d'échec
+-   Dans le détail d'un projet, son lien est nommé, impliquant le changement dans Main.js (le store) et PfProjectDetails.vue
+-   Mise à jour des package NPM
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -754,9 +763,6 @@ Mastermind :
 -   Rajouter un "petit quelque chose" quand le joueur à trouver la bonne combinaison
 -   Rajouter un scroll molette pour changer les nombres, ainsi qu'une animation au changement en mode carroussel
 -   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
-
-Navigation et BreadCrumb : 
--   Le breadCrumb doit disparaitre dans le coin 404, ou être au dessus du 404
 
 Projets à intégrer :
 -   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
@@ -826,6 +832,5 @@ Détails et peaufinage :
 -   Mise en verte des conditions de password inscription en direct
 -   Il faudrait créer une spécificité pour que la perte du focus sur le mot de passe ou sa confirmation engendre un test sur les deux
 -   Colorier les inputs incorrect également lors du submit
--   Factoriser le style des formulaire de connexion etc
 -   Détailler et passer un peu de temps à déterminer les vraies features intéressantes de mes différents projets
 -   Améliorer le cleanError pour qu'il enlève uniquement l'erreur du bon input

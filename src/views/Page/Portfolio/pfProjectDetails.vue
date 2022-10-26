@@ -20,7 +20,7 @@ document.title = `Projet : ${ourProject.title}`;
         >
         <router-link
             class="detailled-project-link-access"
-            :to="ourProject.linkAccess"
+            :to="{ name: ourProject.linkAccess }"
         >
             Lien vers le projet
         </router-link>
