@@ -1,6 +1,6 @@
 @import "../../Base/variables";
 
-$size-case: 90px;
+$size-case: 60px;
 $border-size-enabled-case: 3px;
 $external-layout-size: calc($size-case * 2 / 3);
 $text-size: calc($size-case/3);
@@ -47,6 +47,7 @@ $piece-choice-SVG-stroke-width: 15px;
     flex-wrap: wrap;
     margin: 10px auto;
     border: solid $external-border-size $second-color;
+    transition: all 0.2s;
 
     .board-text {
         font-weight: 500;
@@ -60,7 +61,7 @@ $piece-choice-SVG-stroke-width: 15px;
         height: $external-layout-size;
     }
 
-    .lettersBox {
+    .letters-box {
         height: $external-layout-size;
         width: calc(8 * $size-case);
         display: flex;
@@ -76,7 +77,7 @@ $piece-choice-SVG-stroke-width: 15px;
         }
     }
 
-    .numbersBox {
+    .numbers-box {
         width: $external-layout-size;
         height: calc(8 * $size-case) + 2 * $internal-border-size;
 
@@ -95,7 +96,7 @@ $piece-choice-SVG-stroke-width: 15px;
         }
     }
 
-    .piecesBox {
+    .pieces-box {
         width: calc(8 * $size-case + 2 * $internal-border-size);
         height: calc(8 * $size-case + 2 * $internal-border-size);
         border: solid $internal-border-size $second-color;
@@ -177,81 +178,81 @@ $piece-choice-SVG-stroke-width: 15px;
             cursor: pointer;
         }
     }
+}
 
-    #pawnTransformationModal {
+#pawnTransformationModal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    position: absolute;
+    z-index: 10;
+
+    width: $pawn-modal-size;
+    height: $pawn-modal-size;
+    border: solid $pawn-modal-border-size $pawn-modal-border-color;
+    border-radius: calc(
+        ($pawn-modal-size - $pawn-modal-internal-space-size) / 2
+    );
+    top: calc(($board-container-size - $pawn-modal-size) / 2 - 3px);
+    left: calc(($board-container-size - $pawn-modal-size) / 2 - 3px);
+    background: radial-gradient(
+        circle,
+        $pawn-modal-border-color 0%,
+        $pawn-modal-border-color 20%,
+        $pawn-modal-color 70%
+    );
+
+    .piecechoice-box {
+        height: $pawn-piece-choice-size;
+        width: $pawn-piece-choice-size;
+        background-color: $pawn-modal-color;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $pawn-modal-hover-color;
+        }
+
+        svg {
+            height: 70%;
+            pointer-events: none;
+            margin: 10px 35px;
+            color: $piece-choice-SVG-color;
+            stroke: $piece-choice-SVG-border-color;
+            stroke-width: $piece-choice-SVG-stroke-width;
+            pointer-events: none;
+        }
+    }
+
+    .pawn-choice-box-tl {
+        border-top-left-radius: $pawn-piece-choice-size;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-content: space-between;
-        position: absolute;
-        z-index: 10;
-
-        width: $pawn-modal-size;
-        height: $pawn-modal-size;
-        border: solid $pawn-modal-border-size $pawn-modal-border-color;
-        border-radius: calc(
-            ($pawn-modal-size - $pawn-modal-internal-space-size) / 2
-        );
-        top: calc(($board-container-size - $pawn-modal-size) / 2 - 3px);
-        left: calc(($board-container-size - $pawn-modal-size) / 2 - 3px);
-        background: radial-gradient(
-            circle,
-            $pawn-modal-border-color 0%,
-            $pawn-modal-border-color 20%,
-            $pawn-modal-color 70%
-        );
-
-        .piecechoiceBox {
-            height: $pawn-piece-choice-size;
-            width: $pawn-piece-choice-size;
-            background-color: $pawn-modal-color;
-            cursor: pointer;
-            transition: all 0.25s;
-
-            &:hover {
-                background-color: $pawn-modal-hover-color;
-            }
-
-            svg {
-                height: 70%;
-                pointer-events: none;
-                margin: 10px 35px;
-                color: $piece-choice-SVG-color;
-                stroke: $piece-choice-SVG-border-color;
-                stroke-width: $piece-choice-SVG-stroke-width;
-            }
-        }
-
-        .pawnChoiceBoxTL {
-            border-top-left-radius: $pawn-piece-choice-size;
-            display: flex;
-            align-items: flex-end;
-            justify-content: end;
-        }
-
-        .pawnChoiceBoxTR {
-            border-top-right-radius: $pawn-piece-choice-size;
-            display: flex;
-            align-items: flex-end;
-            justify-content: start;
-        }
-
-        .pawnChoiceBoxBL {
-            border-bottom-left-radius: $pawn-piece-choice-size;
-            display: flex;
-            align-items: flex-start;
-            justify-content: end;
-        }
-
-        .pawnChoiceBoxBR {
-            border-bottom-right-radius: $pawn-piece-choice-size;
-            display: flex;
-            align-items: flex-start;
-            justify-content: start;
-        }
+        align-items: flex-end;
+        justify-content: end;
     }
 
-    .invisible {
-        visibility: hidden;
+    .pawn-choice-box-tr {
+        border-top-right-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-end;
+        justify-content: start;
     }
+
+    .pawn-choice-box-bl {
+        border-bottom-left-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-start;
+        justify-content: end;
+    }
+
+    .pawn-choice-box-br {
+        border-bottom-right-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-start;
+        justify-content: start;
+    }
+}
+
+.invisible {
+    visibility: hidden;
 }

@@ -746,6 +746,22 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Création d'un composant pour chaque SVG de chaque pièce
 -   Jeu fonctionnel et communication avec le serveur totalement ok depuis le temps
 
+### build 94 - 0.9.49 `2 novembre 2022`
+
+-   Retrait des templates de SVG desx pièces d'échecs dans l'index.html
+-   Retrait du RequiredLogin pour la route Etherum
+-   Rajout de suspense dans App.vue pour le chargement initial des données du jeu d'échec, sûrement temporaire.
+-   Correction de fautes d'orthographes
+-   Transformation en composant "dynamique" du jeu d'échec à la base en js vanilla
+-   Création d'un objet reprenant les différents fichiers SVG des pièces pour pouvoir les insérer dynamiquement
+-   Création de plusieurs objet contenant les informations à afficher en boucle
+-   Changement et test à taton des fonctions de création du jeu, de récupération des données
+-   Peu de changement dans les fonction de gestion des mouvements, en effet, celles-ci sont toujours fonctionnelles
+-   L'objet GameData est maintenant global à la fonction, il n'est plus contenu dans un objet faisant des appels à rallonge
+-   Changement de nom de quelques classes en kebab-case afin de s'aligner sur les normes CSS
+-   Diminution du délai de transition par rapport au reste du projet
+-   Quelques changements dans le style des éléments temporaires
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -755,11 +771,12 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Sur mobile, petit bug lors du changement de thème
 -   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
 -   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs (peut-être réglé sans le vouloir)
+-   Lors du choix de la nouvelle pièce, on peut encore jouer tout le reste
 
 ## Les features à venir
 
 En cours : 
--   Créer un cookie ou autre manière de faire pour que l'utilisateur reste connecté
+-   Créer un cookie ou autre manière de faire pour que l'utilisateur reste connecté et conserver le thème choisi par l'user
 -   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
 -   Intégrer le chat commun
 -   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment

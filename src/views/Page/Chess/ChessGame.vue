@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, reactive } from "vue";
 
 import PieceBishop from "./PieceBishop.vue";
 import PieceKing from "./PieceKing.vue";
@@ -9,320 +9,79 @@ import PieceQueen from "./PieceQueen.vue";
 import PieceRook from "./PieceRook.vue";
 
 const API_URL = process.env.API_URL;
-
-const createBoard = {
-    async stepbystepConstruction() {
-        const gameData = await createBoard.getChessGameData();
-        console.log(gameData); //! TEMPORAIRE DE OUF
-        document.querySelector("#chessGame").innerHTML = "";
-        createBoard.createLayout();
-        createBoard.createPawnModal();
-        createBoard.createLetters();
-        createBoard.createNumbers();
-        createBoard.temporaryParts1(gameData); //! TEMPORAIRE DE OUF
-        if (typeof gameData === "object") {
-            createBoard.createCases(gameData);
-            caseSelectionAndMoves.movesAndEventHandling(gameData);
-            createBoard.temporaryParts2(gameData); //! TEMPORAIRE DE OUF
-        }
+const pieceSVGComponent = {
+    bishop: PieceBishop,
+    king: PieceKing,
+    knight: PieceKnight,
+    pawn: PiecePawn,
+    queen: PieceQueen,
+    rook: PieceRook,
+};
+const pawnModalData = [
+    {
+        key: 1,
+        coin: "tl",
+        piece: "knight",
     },
-
-    async getChessGameData() {
-        try {
-            let gameData = await fetch(API_URL + "/chess/game/data");
-            return gameData.json();
-        } catch (error) {
-            console.trace(error);
-        }
+    {
+        key: 2,
+        coin: "tr",
+        piece: "bishop",
     },
-
-    async resetBoardData() {
-        try {
-            await fetch(API_URL + "/chess/board/reset");
-            createBoard.stepbystepConstruction();
-            return;
-        } catch (error) {
-            console.trace(error);
-        }
+    {
+        key: 3,
+        coin: "bl",
+        piece: "rook",
     },
-
-    createLayout: () => {
-        const chessGame = document.querySelector("#chessGame");
-
-        const settingsBox = document.createElement("div"); //! TEMPORAIRE DE OUF
-        settingsBox.classList.add("settingsBox"); //! TEMPORAIRE DE OUF
-        const board = document.createElement("div");
-        board.classList.add("board-container");
-        const tableBox = document.createElement("div"); //! TEMPORAIRE DE OUF
-        tableBox.classList.add("tableBox"); //! TEMPORAIRE DE OUF
-
-        const cornerBox = document.createElement("div");
-        cornerBox.classList.add("corner");
-
-        const lettersUp = document.createElement("div");
-        const numbersLeft = document.createElement("div");
-        const numbersRight = document.createElement("div");
-        const lettersDown = document.createElement("div");
-
-        lettersUp.classList.add("lettersBox");
-        lettersUp.id = "lettersBox1";
-        numbersLeft.classList.add("numbersBox");
-        numbersLeft.id = "numbersBox1";
-        numbersRight.classList.add("numbersBox");
-        numbersRight.id = "numbersBox2";
-        lettersDown.classList.add("lettersBox");
-        lettersDown.id = "lettersBox2";
-
-        const piecesBox = document.createElement("div");
-        piecesBox.classList.add("piecesBox");
-
-        board.appendChild(cornerBox.cloneNode(true));
-        board.appendChild(lettersUp);
-        board.appendChild(cornerBox.cloneNode(true));
-        board.appendChild(numbersLeft);
-        board.appendChild(piecesBox);
-        board.appendChild(numbersRight);
-        board.appendChild(cornerBox.cloneNode(true));
-        board.appendChild(lettersDown);
-        board.appendChild(cornerBox.cloneNode(true));
-
-        chessGame.appendChild(settingsBox); //! TEMPORAIRE DE OUF
-        chessGame.appendChild(board);
-        chessGame.appendChild(tableBox); //! TEMPORAIRE DE OUF
+    {
+        key: 4,
+        coin: "br",
+        piece: "queen",
     },
+];
+const lettersStock = ["A", "B", "C", "D", "E", "F", "G", "H"];
+const numbersStock = [8, 7, 6, 5, 4, 3, 2, 1];
 
-    createPawnModal: () => {
-        const pawnTransformationModal = document.createElement("div");
-        pawnTransformationModal.id = "pawnTransformationModal";
-        pawnTransformationModal.classList.add("invisible");
+let gameData = reactive(await (await fetch(API_URL + "/chess/game/data")).json());
 
-        const pawnChoiceBoxTL = document.createElement("div");
-        pawnChoiceBoxTL.classList.add("pawnChoiceBoxTL", "piecechoiceBox");
-        pawnChoiceBoxTL.addEventListener(
-            "click",
-            caseSelectionAndMoves.testBeforeSendMove,
-            false
-        );
-        pawnChoiceBoxTL.setAttribute("pieceType", "knight");
-        const knightSVG = document.importNode(
-            document.querySelector("#knightSVG").content,
-            true
-        );
-        pawnChoiceBoxTL.appendChild(knightSVG);
-        pawnTransformationModal.appendChild(pawnChoiceBoxTL);
+onMounted(() => {
+    caseSelectionAndMoves.movesAndEventHandling();
+});
 
-        const pawnChoiceBoxTR = document.createElement("div");
-        pawnChoiceBoxTR.classList.add("pawnChoiceBoxTR", "piecechoiceBox");
-        pawnChoiceBoxTR.addEventListener(
-            "click",
-            caseSelectionAndMoves.testBeforeSendMove,
-            false
-        );
-        pawnChoiceBoxTR.setAttribute("pieceType", "bishop");
-        const bishopSVG = document.importNode(
-            document.querySelector("#bishopSVG").content,
-            true
-        );
-        pawnChoiceBoxTR.appendChild(bishopSVG);
-        pawnTransformationModal.appendChild(pawnChoiceBoxTR);
-
-        const pawnChoiceBoxBL = document.createElement("div");
-        pawnChoiceBoxBL.classList.add("pawnChoiceBoxBL", "piecechoiceBox");
-        pawnChoiceBoxBL.addEventListener(
-            "click",
-            caseSelectionAndMoves.testBeforeSendMove,
-            false
-        );
-        pawnChoiceBoxBL.setAttribute("pieceType", "rook");
-        const rookSVG = document.importNode(
-            document.querySelector("#rookSVG").content,
-            true
-        );
-        pawnChoiceBoxBL.appendChild(rookSVG);
-        pawnTransformationModal.appendChild(pawnChoiceBoxBL);
-
-        const pawnChoiceBoxBR = document.createElement("div");
-        pawnChoiceBoxBR.classList.add("pawnChoiceBoxBR", "piecechoiceBox");
-        pawnChoiceBoxBR.addEventListener(
-            "click",
-            caseSelectionAndMoves.testBeforeSendMove,
-            false
-        );
-        pawnChoiceBoxBR.setAttribute("pieceType", "queen");
-        const queenSVG = document.importNode(
-            document.querySelector("#queenSVG").content,
-            true
-        );
-        pawnChoiceBoxBR.appendChild(queenSVG);
-        pawnTransformationModal.appendChild(pawnChoiceBoxBR);
-
-        document
-            .querySelector(".board-container")
-            .appendChild(pawnTransformationModal);
-    },
-
-    createLetters: () => {
-        const lettersStock = ["A", "B", "C", "D", "E", "F", "G", "H"];
-        for (let x = 1; x < 3; x++) {
-            for (let y = 0; y < 8; y++) {
-                const letter = document.createElement("div");
-                letter.classList.add("letter");
-                const p = document.createElement("p");
-                p.classList.add("board-text");
-                p.textContent = lettersStock[y];
-                letter.appendChild(p);
-                document.querySelector(`#lettersBox${x}`).appendChild(letter);
-            }
-        }
-    },
-
-    createNumbers: () => {
-        for (let x = 1; x < 3; x++) {
-            for (let y = 0; y < 8; y++) {
-                const number = document.createElement("div");
-                number.classList.add("number");
-                number.setAttribute("y", 8 - y);
-                const p = document.createElement("p");
-                p.classList.add("board-text");
-                p.textContent = 8 - y;
-                number.appendChild(p);
-                document.querySelector(`#numbersBox${x}`).appendChild(number);
-            }
-        }
-    },
-
-    createCases: (gameData) => {
-        let z = 0;
-        for (let y = 8; y > 0; y--) {
-            for (let x = 1; x < 9; x++) {
-                const currentCase = gameData.boardData.find(
-                    (element) => element.x === x && element.y === y
-                );
-                const boardCase = document.createElement("div");
-                boardCase.classList.add(
-                    "case",
-                    z % 2 === 0 ? "case--white" : "case--black"
-                );
-                boardCase.id = `${currentCase.x}${currentCase.y}`;
-                boardCase.setAttribute("case_name", currentCase.case_name);
-                z++;
-                if (currentCase.piece_name !== null) {
-                    boardCase.classList.add(
-                        `pc--${currentCase.piece_color}`,
-                        `${currentCase.piece_name}`
-                    );
-                    const clone = document.importNode(
-                        document.querySelector(`#${currentCase.piece_name}SVG`)
-                            .content,
-                        true
-                    );
-                    boardCase.appendChild(clone);
-                    boardCase.setAttribute("piece_id", currentCase.piece_id);
-                }
-                document.querySelector(".piecesBox").appendChild(boardCase);
-            }
-            z++;
-        }
-    },
-
-    //! TEMPORAIRE DE OUF
-    temporaryParts1: (gameData) => {
-        const settingsBox = document.querySelector(".settingsBox");
-
-        const resetButton = document.createElement("button");
-        resetButton.classList.add("resetButton");
-        resetButton.textContent = "Reset le board";
-        resetButton.addEventListener("click", createBoard.resetBoardData);
-
-        const movesCounter = document.createElement("p");
-        movesCounter.classList.add("movesCounter");
-
-        const checkShowsLabel = document.createElement("label");
-        checkShowsLabel.textContent = "Surligner les pièces pouvant bouger";
-        checkShowsLabel.classList.add("checkShows-label");
-
-        const checkShowsInput = document.createElement("input");
-        checkShowsInput.classList.add("checkShows-input");
-        checkShowsInput.addEventListener(
-            "change",
-            caseSelectionAndMoves.highlightPiecesCanMove
-        );
-        checkShowsInput.setAttribute("type", "checkbox");
-        checkShowsInput.setAttribute("checked", "");
-        checkShowsLabel.appendChild(checkShowsInput);
-
-        settingsBox.appendChild(resetButton);
-        if (typeof gameData === "object") {
-            movesCounter.textContent = `Tour des ${
-                gameData.currentPlayerColor === "white" ? "blancs" : "noirs"
-            } : ${
-                gameData.currentColorMovesData.totalNumberPossibleMoves
-            } coups possibles`;
-            settingsBox.appendChild(movesCounter);
-            settingsBox.appendChild(checkShowsLabel);
-        }
-    },
-
-    temporaryParts2: (gameData) => {
-        const tableBox = document.querySelector(".tableBox");
-        const thead = document.createElement("thead");
-        const tr1 = document.createElement("tr");
-        for (const property in gameData.boardData[0]) {
-            const prop = document.createElement("th");
-            prop.textContent = property;
-            tr1.appendChild(prop);
-        }
-        thead.appendChild(tr1);
-        tableBox.appendChild(thead);
-        const tbody = document.createElement("thead");
-        gameData.boardData.forEach((element) => {
-            const tr2 = document.createElement("tr");
-            for (const key in element) {
-                const td = document.createElement("td");
-                if (element[key] !== null) {
-                    td.textContent = element[key];
-                } else {
-                    td.classList.add("emptyTD");
-                }
-                tr2.appendChild(td);
-            }
-            tbody.appendChild(tr2);
-        });
-        tableBox.appendChild(tbody);
-    },
-    //! TEMPORAIRE DE OUF
+const updateData = async () => {
+    gameData = await updateGameData();
+    caseSelectionAndMoves.movesAndEventHandling();
 };
 
+const updateGameData = async () => {
+    try {
+        return await (await fetch(API_URL + "/chess/game/data")).json();
+    } catch (error) {
+        console.trace(error);
+    }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
+const resetGame = async () => {
+    try {
+        await fetch(API_URL + "/chess/board/reset");
+        updateData();
+    } catch (error) {
+        console.trace(error);
+    }
+};
 
 const caseSelectionAndMoves = {
-    gameData: {},
     isSelectedCase: false,
     move: {},
 
-    movesAndEventHandling: (gameData) => {
-        caseSelectionAndMoves.gameData = gameData;
+    movesAndEventHandling: () => {
         caseSelectionAndMoves.isSelectedCase = false;
         caseSelectionAndMoves.highlightPiecesCanMove();
         caseSelectionAndMoves.enableSelectPiece();
     },
 
     getCaseWithCurrentColorPieces: () => {
-        return document.querySelectorAll(
-            `.pc--${caseSelectionAndMoves.gameData.currentPlayerColor}`
-        );
+        return document.querySelectorAll(`.pc--${gameData.currentPlayerColor}`);
     },
 
     enableSelectPiece: () => {
@@ -385,13 +144,14 @@ const caseSelectionAndMoves = {
 
     highlightPiecesCanMove: () => {
         for (let [key, value] of Object.entries(
-            caseSelectionAndMoves.gameData.currentColorMovesData.moves
+            gameData.currentColorMovesData.moves
         )) {
             if (value !== null) {
                 const x = document.querySelector(`[piece_id=${key}]`);
                 if (
                     caseSelectionAndMoves.isSelectedCase === false &&
-                    document.querySelector(".checkShows-input").checked === true
+                    document.querySelector(".check-shows-input").checked ===
+                    true
                 ) {
                     x.classList.add("piece-can-moves");
                 } else {
@@ -404,9 +164,7 @@ const caseSelectionAndMoves = {
     showPossibleMoves: (selectedCase) => {
         const piece_id = selectedCase.getAttribute("piece_id");
         const selectedCasePossiblesMoves =
-            caseSelectionAndMoves.gameData.currentColorMovesData.moves[
-                piece_id
-            ];
+            gameData.currentColorMovesData.moves[piece_id];
         if (selectedCasePossiblesMoves) {
             for (let [, value] of Object.entries(selectedCasePossiblesMoves)) {
                 const oneMove = document.querySelector(
@@ -433,15 +191,15 @@ const caseSelectionAndMoves = {
                 pawnTransformationPieceType:
                     event.target.getAttribute("pieceType"),
             };
-            caseSelectionAndMoves.sendMoveToVerif(caseSelectionAndMoves.move);
+            sendMoveToVerif(caseSelectionAndMoves.move);
         } else {
             const piece_id = document
                 .querySelector(".selectedCase")
                 .getAttribute("piece_id");
             const ourMove =
-                caseSelectionAndMoves.gameData.currentColorMovesData.moves[
-                    piece_id
-                ][event.target.getAttribute("case_name")];
+                gameData.currentColorMovesData.moves[piece_id][
+                    event.target.getAttribute("case_name")
+                ];
             caseSelectionAndMoves.move = {};
 
             const destinationCase = document
@@ -481,51 +239,162 @@ const caseSelectionAndMoves = {
                     .querySelector("#pawnTransformationModal")
                     .classList.remove("invisible");
             } else {
-                caseSelectionAndMoves.sendMoveToVerif(
-                    caseSelectionAndMoves.move
-                );
+                sendMoveToVerif(caseSelectionAndMoves.move);
             }
-        }
-    },
-
-    async sendMoveToVerif(move) {
-        try {
-            const response = await fetch(
-                API_URL + "/chess/move/verif",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(move),
-                }
-            );
-            if (response.ok) {
-                chessGame.init();
-            }
-        } catch (error) {
-            console.trace(error);
         }
     },
 };
 
-
-
-
-const chessGame = {
-    init: () => {
-        createBoard.stepbystepConstruction();
-    },
+const sendMoveToVerif = async (move) => {
+    try {
+        const response = await fetch(API_URL + "/chess/move/verif", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(move),
+        });
+        if (response.ok) {
+            updateData();
+        }
+    } catch (error) {
+        console.trace(error);
+    }
 };
-
-
-onMounted(() => {
-    chessGame.init();
-});
-
-
 </script>
 
 <template>
-    <div id="chessGame" />
+    <div id="chessGame">
+        <div class="settings-box">
+            <button class="reset-button" @click="resetGame">
+                Cliquer pour reset
+            </button>
+            <p class="moves-counter">
+                {{
+                    `Tour des ${
+                        gameData.currentPlayerColor === "white"
+                            ? "blancs"
+                            : "noirs"
+                    } : ${
+                        gameData.currentColorMovesData.totalNumberPossibleMoves
+                    } coups possibles`
+                }}
+            </p>
+            <div class="checked-box-input">
+                <input
+                    id="showsMovesInput"
+                    name="showsMovesInput"
+                    class="check-shows-input"
+                    type="checkbox"
+                    checked
+                    @change="caseSelectionAndMoves.highlightPiecesCanMove"
+                >
+                <label for="showsMovesInput" class="check-shows-label">Surligner les pièces pouvant bouger</label>
+            </div>
+        </div>
+
+        <div class="board-container">
+            <div class="corner" />
+            <div class="letters-box">
+                <div
+                    v-for="letter in lettersStock"
+                    :key="letter"
+                    class="letter"
+                >
+                    <p class="board-text">{{ letter }}</p>
+                </div>
+            </div>
+            <div class="corner" />
+            <div id="numbers-box1" class="numbers-box">
+                <div
+                    v-for="number in numbersStock"
+                    :key="number"
+                    class="number"
+                >
+                    <p class="board-text">{{ number }}</p>
+                </div>
+            </div>
+
+            <div class="pieces-box">
+                <div id="pawnTransformationModal" class="invisible">
+                    <div
+                        v-for="choice in pawnModalData"
+                        :key="choice.key"
+                        :class="`piecechoice-box pawn-choice-box-${choice.coin}`"
+                        :pieceType="choice.piece"
+                        @click="caseSelectionAndMoves.testBeforeSendMove"
+                    >
+                        <component :is="pieceSVGComponent[choice.piece]" />
+                    </div>
+                </div>
+                <div
+                    v-for="currentCase in gameData.boardData"
+                    :id="`${currentCase.x}${currentCase.y}`"
+                    :key="currentCase.id"
+                    :class="`case case--${currentCase.case_color} ${
+                        currentCase.piece_name !== null
+                            ? `pc--${currentCase.piece_color}`
+                            : `${currentCase.piece_name}`
+                    }`"
+                    :case_name="currentCase.case_name"
+                    :piece_id="currentCase.piece_id"
+                >
+                    <component
+                        :is="pieceSVGComponent[currentCase.piece_name]"
+                    />
+                </div>
+            </div>
+
+            <div id="numbers-box2" class="numbers-box">
+                <div
+                    v-for="number in numbersStock"
+                    :key="number"
+                    class="number"
+                >
+                    <p class="board-text">{{ number }}</p>
+                </div>
+            </div>
+            <div class="corner" />
+            <div class="letters-box">
+                <div
+                    v-for="letter in lettersStock"
+                    :key="letter"
+                    class="letter"
+                >
+                    <p class="board-text">{{ letter }}</p>
+                </div>
+            </div>
+            <div class="corner" />
+        </div>
+
+        <div class="table-box">
+            <thead>
+                <tr>
+                    <th
+                        v-for="(key, value) in gameData.boardData[0]"
+                        :key="key"
+                    >
+                        {{ value }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="line in gameData.boardData" :key="line.id">
+                    <td
+                        v-for="value in line"
+                        :key="value"
+                        :class="value === null ? 'emptyTD' : ''"
+                    >
+                        {{ value }}
+                    </td>
+                </tr>
+            </tbody>
+        </div>
+        <p class="temporay-explanation">
+            Pour le moment, le jeu d'échec n'a pas de session. Cela signifie
+            qu'il n'y pas encore de système de partie qu'on peut commencer,
+            finir et enregistrer seul ou avec un autre joueur. Mais c'est dans
+            la RoadMap. Il n'est donc dans l'état présent qu'un simple plateau
+            sur lequel on peut déplacer les pièces en suivant les règles et reset
+            l'état des pièces.
+        </p>
+    </div>
 </template>

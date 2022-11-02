@@ -163,7 +163,6 @@ const routes = [
                     link: "CurrentETH",
                 },
             ],
-            requiredLogin: true,
         },
     },
     {
