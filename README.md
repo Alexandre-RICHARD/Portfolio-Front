@@ -403,7 +403,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 ### build 57 - 0.9.12 `17 septembre 2022`
 
--   La stylisation de page-container et page-background est maintenant sur _index.scss pour simplifier et unifier le style de HomePage
+-   La stylisation de page-container et page-background est maintenant sur \_index.scss pour simplifier et unifier le style de HomePage
 -   Création et stylisation de la page HomePage avec un jeu de Mastermind fonctionnel
 
 ### build 58 - 0.9.13 `17 septembre 2022`
@@ -602,8 +602,8 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Index.js
 -   Index.scss
 -   Router.js
--   _index.scss
--   _variables.scss
+-   \_index.scss
+-   \_variables.scss
 -   EtherumFollow.scss
 -   NotFound.scss
 -   App.vue
@@ -623,7 +623,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   SiteHeader.vue
 -   ThemePallet.vue
 -   Placement de quelques commentaires spéciaux pour indiquer des zones à changer plus tard
--   Renommage de _elTempo.scss en _temporary.scss
+-   Renommage de \_elTempo.scss en \_temporary.scss
 -   Suppression des deux event.preventDefault() dans AccountModal.vue
 -   Dans AccountModalInput.vue, zxcvbn n'est plus chargé pareil. Il est maintenant chargé uniquement à l'appel de la fonction chargé de modifier le contenu du password. Cela est très économe pour la compilation des fichiers
 -   Une variable en ref est donc indispensable, elle contient la valeur du score de sécurité du mot de passe
@@ -636,7 +636,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 -   Suppression des importations de WaveDecorations et mise en temporaire des fichiers concernés
 -   Retrait de toute notion de section référent à la navigation.
--   Ainsi, les fonctions sectionChanger et ses appels contenus dans SiteHeader.vue, breadCrumb.vue, 
+-   Ainsi, les fonctions sectionChanger et ses appels contenus dans SiteHeader.vue, breadCrumb.vue,
 -   Cela avait pour but de simplifier le site en supprimant la partie TryHard but Slow Run que je n'avais pas encore commencé.
 -   Les liens dans le header ou dans la modal du Menu sont donc maintenant toujours les mêmes impliquant la suppression des autres dans le store
 -   Gros changement dans le BreadCrumb. Les données de chemin ne sont plus générés directement à partir des différents route.matched mais à partir des données BreadCrumb contenu dans le meta du dernier path
@@ -653,7 +653,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 ### build 85 - 0.9.40 `19 octobre 2022`
 
--   Mise  à jour des packages NPM
+-   Mise à jour des packages NPM
 -   Mise en commantaires du plugin d'analyse des packages "BundleAnalyzerPlugin"
 -   Mise en commentaires de la fonction sendMail de la page Contact, tant qu'elle ne sera pas utilisée
 -   Remise du Event.preventDefault() car nécessaire sur le site hébergé
@@ -707,7 +707,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Rajout toujours sur le même principe d'un formulaire simple pour supprimer le compte avec confirmation par mot de passe
 -   Ajout d'une variable pour déclencher l'apparition de l'input lors du premier clic sur "Supprimer le compte"
 -   Ajout du tableau d'erreur, de la fonction de vidage de ce tableau et des tests regex liés.
--   Reprise de la logique test des inputs / envoi de la requête / traitement du résultat pour gérer 
+-   Reprise de la logique test des inputs / envoi de la requête / traitement du résultat pour gérer
 -   LE bug des autocomplete m'a fait remplacé toutes les valeurs d'autcomplete par quelque chose de cohérent même si ça n'a rien changé au comportement de Chrome
 
 ### build 90 - 0.9.45 `24 octobre 2022`
@@ -719,7 +719,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Clarification du système de good/error lors de la perte de focus
 -   Une image de base sert de placeholder dans la petite boite servant de afficher/cacher jusqu'à son remplacement
 -   La différenciation des input se fait à partir d'un opérateur ternaire dans la création de la div dans AccountInput.vue
--   Création de la fonction toggleShowPassword  :
+-   Création de la fonction toggleShowPassword :
 -   Elle récupère l'élément cliqué, trouve le formulaire le plus proche (celui qui le contient), et trouve tous les inputs à password que le form contient
 -   Pour tous les inputs trouvés, on change le type (text => password ; password => text), on change l'attribut showed du button et on créé l'icône
 
@@ -762,6 +762,19 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Diminution du délai de transition par rapport au reste du projet
 -   Quelques changements dans le style des éléments temporaires
 
+### build 95 - 0.9.50 `3 novembre 2022`
+
+-   Changement de nom d'une classe pour respecter le kebab-case
+-   Les pièces sont en cursor: pointer maintenant
+-   Rajout d'un reset button initial qui disparait quand les données sont bonnes et que le jeu est créé
+-   Retrait de Suspense dans App.vue
+-   Utiliser de deux variables ref() pour la préparation du jeu
+-   GameData est un objet vide en reactive initialement
+-   Fonction intermédiaire pour exécuter l'initialisation des mouvements (il reste un bug lors d'un reset)
+-   Condition avant d'assigner le resultat du fetch à gameData.
+-   Changement dans le fonctionnement de la réponse. Elle contient un objet donc une clé correspond à si oui ou non le gameData est initialisé ou vide
+-   Rajout d'une fonction resetAll qui va venir supprimer les classes supplémentaires et les events avant qu'ils soient tous remis correctement à chaque nouveau coup
+
 </details>
 
 ## Les problèmes du site actuellement
@@ -775,7 +788,8 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 ## Les features à venir
 
-En cours : 
+En cours :
+
 -   Créer un cookie ou autre manière de faire pour que l'utilisateur reste connecté et conserver le thème choisi par l'user
 -   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
 -   Intégrer le chat commun
@@ -783,6 +797,7 @@ En cours :
 -   Mettre des notifs lors de la connexion au compte, de l'inscription, du changement de mot de passe ou d'adresse-mail
 
 Mastermind :
+
 -   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
 -   Rajouter un bouton pour recommencer
 -   Rajouter un "petit quelque chose" quand le joueur à trouver la bonne combinaison
@@ -790,6 +805,7 @@ Mastermind :
 -   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
 
 Projets à intégrer :
+
 -   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
 -   Liste des jeux avec toutes leur propriétés, Capacité de rajouter/modifier/supprimer des jeux, Temps de jeu indiqué + temps de jeu estimé en plus
 -   Le wiki des dinosaures dans ARK
@@ -800,6 +816,7 @@ Projets à intégrer :
 -   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
 
 Jeu d'échecs :
+
 -   Roque
 -   Égalité
 -   Le Pat
@@ -824,7 +841,8 @@ Jeu d'échecs :
 -   Intégrer une règle dans la page
 -   Dans le back, s'occuper des fichiers gérant le jeu d'échec (commentaires etc...)
 
-Détails et peaufinage : 
+Détails et peaufinage :
+
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
 -   Les données de projets seront par la suite récupérer en base de données, ainsi que leurs images
 -   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
@@ -834,7 +852,7 @@ Détails et peaufinage :
 -   Séparer les stores, account ? Theme ? Navigation ? Other ? Project/content ?
 -   Vérifier les variables/data des link de contact et leur cohérence vis à vis d eleurs utilisations
 -   Séparer le styles entre pfproject et pfprojectdetails
--   LA page d'accueil aura toujours son mastermind mais maintenant, elle auras tous les projets d'affichés sous une forme légèrement différentes afin que le site soit à la fois portfolio et support de projet 
+-   LA page d'accueil aura toujours son mastermind mais maintenant, elle auras tous les projets d'affichés sous une forme légèrement différentes afin que le site soit à la fois portfolio et support de projet
 -   La pagfe etherum sera à refaire bien plus complète et propre afin de l'implémenter directement en tyant que projet dans notre site, je n'y touche pas plus que ça pour le moment
 -   Trouver un moyen d'indiquer à l'utilisateur que cliquer sur la Dolorean peut le faire evenir en arrière
 -   POur la force du mot de passe, mettre la progress bar en couleur avec une légende et peut-être une valeur

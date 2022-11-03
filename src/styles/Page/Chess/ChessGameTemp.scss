@@ -1,5 +1,15 @@
 @import "../../Base/variables";
 
+.reset-button {
+    margin: 8px;
+    background-color: #ffffff;
+    color: #000000;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
 .settings-box {
     display: flex;
     justify-content: center;

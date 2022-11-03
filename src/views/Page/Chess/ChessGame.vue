@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 
 import PieceBishop from "./PieceBishop.vue";
 import PieceKing from "./PieceKing.vue";
@@ -9,6 +9,7 @@ import PieceQueen from "./PieceQueen.vue";
 import PieceRook from "./PieceRook.vue";
 
 const API_URL = process.env.API_URL;
+
 const pieceSVGComponent = {
     bishop: PieceBishop,
     king: PieceKing,
@@ -17,6 +18,7 @@ const pieceSVGComponent = {
     queen: PieceQueen,
     rook: PieceRook,
 };
+
 const pawnModalData = [
     {
         key: 1,
@@ -39,18 +41,41 @@ const pawnModalData = [
         piece: "queen",
     },
 ];
+
 const lettersStock = ["A", "B", "C", "D", "E", "F", "G", "H"];
 const numbersStock = [8, 7, 6, 5, 4, 3, 2, 1];
 
-let gameData = reactive(await (await fetch(API_URL + "/chess/game/data")).json());
+let gameData = reactive({});
+let gameDataReady = ref(false);
+let componentReady = ref(false);
 
-onMounted(() => {
-    caseSelectionAndMoves.movesAndEventHandling();
+const movesInit = (bool) => {
+    if (bool) {
+        if (gameDataReady.value) {
+            caseSelectionAndMoves.movesAndEventHandling();
+            componentReady.value = true;
+        }
+    } else {
+        if (gameDataReady.value && componentReady.value) {
+            caseSelectionAndMoves.movesAndEventHandling();
+        }
+    }
+};
+
+onMounted(async () => {
+    await updateData();
+    movesInit(true);
 });
 
 const updateData = async () => {
-    gameData = await updateGameData();
-    caseSelectionAndMoves.movesAndEventHandling();
+    const result = await updateGameData();
+    if (result.ready) {
+        Object.assign(gameData, result.gameData);
+        gameDataReady.value = true;
+    } else {
+        gameDataReady.value = false;
+    }
+    movesInit(false);
 };
 
 const updateGameData = async () => {
@@ -64,7 +89,7 @@ const updateGameData = async () => {
 const resetGame = async () => {
     try {
         await fetch(API_URL + "/chess/board/reset");
-        updateData();
+        await updateData();
     } catch (error) {
         console.trace(error);
     }
@@ -76,8 +101,35 @@ const caseSelectionAndMoves = {
 
     movesAndEventHandling: () => {
         caseSelectionAndMoves.isSelectedCase = false;
+        caseSelectionAndMoves.resetAll();
         caseSelectionAndMoves.highlightPiecesCanMove();
         caseSelectionAndMoves.enableSelectPiece();
+    },
+
+    resetAll: () => {
+        document.querySelectorAll(".case").forEach((element) => {
+            element.classList.remove("piece-can-moves");
+            element.removeEventListener(
+                "click",
+                caseSelectionAndMoves.selection,
+                false
+            );
+            element.classList.remove("possible-move");
+            element.removeEventListener(
+                "click",
+                caseSelectionAndMoves.testBeforeSendMove,
+                false
+            );
+            element.classList.remove("selectedCase");
+            element.removeEventListener(
+                "click",
+                caseSelectionAndMoves.deselectPiece,
+                false
+            );
+            document
+                .querySelector("#pawnTransformationModal")
+                .classList.add("invisible");
+        });
     },
 
     getCaseWithCurrentColorPieces: () => {
@@ -128,10 +180,10 @@ const caseSelectionAndMoves = {
             caseSelectionAndMoves.deselectPiece,
             false
         );
-        const showMove = document.querySelectorAll(".possibleMove");
+        const showMove = document.querySelectorAll(".possible-move");
         if (showMove) {
             showMove.forEach((element) => {
-                element.classList.remove("possibleMove");
+                element.classList.remove("possible-move");
                 element.removeEventListener(
                     "click",
                     caseSelectionAndMoves.testBeforeSendMove,
@@ -170,7 +222,7 @@ const caseSelectionAndMoves = {
                 const oneMove = document.querySelector(
                     `[case_name=${value.destinationCase}]`
                 );
-                oneMove.classList.add("possibleMove");
+                oneMove.classList.add("possible-move");
                 oneMove.addEventListener(
                     "click",
                     caseSelectionAndMoves.testBeforeSendMove,
@@ -262,7 +314,10 @@ const sendMoveToVerif = async (move) => {
 </script>
 
 <template>
-    <div id="chessGame">
+    <button v-if="!gameDataReady" class="reset-button" @click="resetGame">
+        Cliquer pour reset
+    </button>
+    <div v-if="gameDataReady" id="chessGame">
         <div class="settings-box">
             <button class="reset-button" @click="resetGame">
                 Cliquer pour reset
@@ -284,7 +339,6 @@ const sendMoveToVerif = async (move) => {
                     name="showsMovesInput"
                     class="check-shows-input"
                     type="checkbox"
-                    checked
                     @change="caseSelectionAndMoves.highlightPiecesCanMove"
                 >
                 <label for="showsMovesInput" class="check-shows-label">Surligner les pièces pouvant bouger</label>
@@ -369,18 +423,18 @@ const sendMoveToVerif = async (move) => {
             <thead>
                 <tr>
                     <th
-                        v-for="(key, value) in gameData.boardData[0]"
+                        v-for="(value, key) in gameData.boardData[0]"
                         :key="key"
                     >
-                        {{ value }}
+                        {{ key }}
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="line in gameData.boardData" :key="line.id">
                     <td
-                        v-for="value in line"
-                        :key="value"
+                        v-for="(value, key) in line"
+                        :key="key"
                         :class="value === null ? 'emptyTD' : ''"
                     >
                         {{ value }}
@@ -393,8 +447,8 @@ const sendMoveToVerif = async (move) => {
             qu'il n'y pas encore de système de partie qu'on peut commencer,
             finir et enregistrer seul ou avec un autre joueur. Mais c'est dans
             la RoadMap. Il n'est donc dans l'état présent qu'un simple plateau
-            sur lequel on peut déplacer les pièces en suivant les règles et reset
-            l'état des pièces.
+            sur lequel on peut déplacer les pièces en suivant les règles et
+            reset l'état des pièces.
         </p>
     </div>
 </template>

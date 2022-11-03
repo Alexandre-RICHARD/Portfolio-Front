@@ -157,9 +157,11 @@ $piece-choice-SVG-stroke-width: 15px;
         .pc--white {
             color: $white-piece-color;
             stroke: $white-piece-border-color;
+            cursor: pointer;
         }
 
         .pc--black {
+            cursor: pointer;
             color: $black-piece-color;
             stroke: $black-piece-border-color;
         }
@@ -171,7 +173,7 @@ $piece-choice-SVG-stroke-width: 15px;
             cursor: pointer;
         }
 
-        .possibleMove {
+        .possible-move {
             background-color: $possible-moves-color;
             border: $border-size-enabled-case solid $possible-moves-border;
             border-radius: calc(0.1 * $size-case);

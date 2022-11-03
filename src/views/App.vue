@@ -13,12 +13,10 @@ const { modalData } = MainStore;
     <AccountModal v-if="modalData.open === true" />
     <ProjectVersionning />
     <SiteHeader />
-    <Suspense>
-        <div class="page-background">
-            <div class="page-container">
-                <BreadCrumb />
-                <router-view name="mainRouter" />
-            </div>
+    <div class="page-background">
+        <div class="page-container">
+            <BreadCrumb />
+            <router-view name="mainRouter" />
         </div>
-    </Suspense>
+    </div>
 </template>
