@@ -52,7 +52,7 @@ const age = Math.round(
             <a
                 title="Télécharger mon CV"
                 class="link-to-more curriculum-pdf"
-                href="https://drive.google.com/file/d/1XrFLnq09NYSfPk6AJnqd5NQAzEP64ddf/view?usp=sharing"
+                href="https://drive.google.com/file/d/1GbyFc9bm7hoCbPl_tXHwOGsQS9_DoqzM/view?usp=share_link"
                 target="_blank"
             >Télécharger mon CV</a>
         </div>

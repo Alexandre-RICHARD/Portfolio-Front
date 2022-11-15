@@ -775,6 +775,15 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Changement dans le fonctionnement de la réponse. Elle contient un objet donc une clé correspond à si oui ou non le gameData est initialisé ou vide
 -   Rajout d'une fonction resetAll qui va venir supprimer les classes supplémentaires et les events avant qu'ils soient tous remis correctement à chaque nouveau coup
 
+### build 96 - 1.0.00 `15 novembre 2022`
+
+-   Passage en 1.0 maintenant que j'ai commencé à postuler et que je pars du principe que mon objectif initial est atteind.
+-   Mise à jour des package NPM
+-   Suppression de la transition pour le textArea du contact afin que width/height soient instantanés
+-   Petit changement dans la gestion d'état du jeu d'échec. Pas encore bien finiolé
+-   Correction de quelques coquilles orthographiques
+-   Mise à jour du CV et donc de son lien
+
 </details>
 
 ## Les problèmes du site actuellement

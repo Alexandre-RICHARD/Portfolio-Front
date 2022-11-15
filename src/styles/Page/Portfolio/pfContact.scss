@@ -61,6 +61,7 @@
             }
 
             textarea {
+                transition: all 0.4s, width 0s, height 0s;
                 background-color: var(--textColor);
                 color: var(--backgroundColor);
                 padding: 4px;

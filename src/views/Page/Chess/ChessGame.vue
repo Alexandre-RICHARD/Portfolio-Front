@@ -49,22 +49,12 @@ let gameData = reactive({});
 let gameDataReady = ref(false);
 let componentReady = ref(false);
 
-const movesInit = (bool) => {
-    if (bool) {
-        if (gameDataReady.value) {
-            caseSelectionAndMoves.movesAndEventHandling();
-            componentReady.value = true;
-        }
-    } else {
-        if (gameDataReady.value && componentReady.value) {
-            caseSelectionAndMoves.movesAndEventHandling();
-        }
-    }
-};
-
 onMounted(async () => {
     await updateData();
-    movesInit(true);
+    if (gameDataReady.value) {
+        caseSelectionAndMoves.movesAndEventHandling();
+        componentReady.value = true;
+    }
 });
 
 const updateData = async () => {
@@ -75,7 +65,9 @@ const updateData = async () => {
     } else {
         gameDataReady.value = false;
     }
-    movesInit(false);
+    if (gameDataReady.value && componentReady.value) {
+        caseSelectionAndMoves.movesAndEventHandling();
+    }
 };
 
 const updateGameData = async () => {
@@ -339,6 +331,7 @@ const sendMoveToVerif = async (move) => {
                     name="showsMovesInput"
                     class="check-shows-input"
                     type="checkbox"
+                    checked
                     @change="caseSelectionAndMoves.highlightPiecesCanMove"
                 >
                 <label for="showsMovesInput" class="check-shows-label">Surligner les pièces pouvant bouger</label>

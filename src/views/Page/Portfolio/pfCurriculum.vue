@@ -133,7 +133,7 @@ const schoolCurriculum = [
         secondDate: "Mars 2021",
         location: "École 100% à distance O'Clock",
         description:
-            "Suite à cette réorientation, j'ai intégré la formation Développeur Web Fullstack JS d'O'Clock d'une durée de 6 mois. Moi qui ait besoin d'être guider et accompagner pour me former, au début tout du moins, cette formation était parfaite pour moi. Des bases HTML + CSS, puis la découverte du Javascript, on a également été formé à Node.JS et à la création/gestion de Base de Données. Durant quatre semaines sur la fin, nous avons effectué l'Apothéose : la réalisation d'un projet de groupe en reprenant la métohde SCRUM et en divisant les étapes de développement en sprint. J'ai également grâce à l'école passé et obtenu le diplôme Développeur Web et Web Mobile II.",
+            "Suite à cette réorientation, j'ai intégré la formation Développeur Web Fullstack JS d'O'Clock d'une durée de 6 mois. Moi qui ait besoin d'être guidé et accompagné pour me former, au début tout du moins, cette formation était parfaite pour moi. Des bases HTML + CSS, puis la découverte du Javascript, on a également été formé à Node.JS et à la création/gestion de Base de Données. Durant quatre semaines sur la fin, nous avons effectué l'Apothéose : la réalisation d'un projet de groupe en reprenant la métohde SCRUM et en divisant les étapes de développement en sprint. J'ai également grâce à l'école passé et obtenu le diplôme Développeur Web et Web Mobile II.",
     },
 ];
 
