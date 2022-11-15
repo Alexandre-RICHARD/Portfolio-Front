@@ -775,7 +775,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Changement dans le fonctionnement de la réponse. Elle contient un objet donc une clé correspond à si oui ou non le gameData est initialisé ou vide
 -   Rajout d'une fonction resetAll qui va venir supprimer les classes supplémentaires et les events avant qu'ils soient tous remis correctement à chaque nouveau coup
 
-### build 96 - 1.0.00 `15 novembre 2022`
+### build 96 - 1.0.0 `15 novembre 2022`
 
 -   Passage en 1.0 maintenant que j'ai commencé à postuler et que je pars du principe que mon objectif initial est atteind.
 -   Mise à jour des package NPM
