@@ -363,7 +363,7 @@ const sendNewMail = async (newMailData) => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            method: "PATCH",
+            method: "POST",
             body: JSON.stringify(newMailData),
         });
         newMailResult(await response.json(), response.status);
@@ -440,7 +440,7 @@ const sendNewPassword = async (newPasswordData) => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            method: "PATCH",
+            method: "POST",
             body: JSON.stringify(newPasswordData),
         });
         newPasswordResult(await response.json(), response.status);

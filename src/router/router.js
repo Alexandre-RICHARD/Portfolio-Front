@@ -9,6 +9,7 @@ import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
 import UserProfile from "../views/Page/Other/UserProfile.vue";
 
 import ChessGame from "../views/Page/Chess/ChessGame.vue";
+import germanTest from "../views/Page/GermanTest/germanTest.vue";
 
 import pfHome from "../views/Page/Portfolio/pfHome.vue";
 import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
@@ -28,6 +29,20 @@ const routes = [
                 {
                     title: "TryHard but SlowRun",
                     link: "Home",
+                },
+            ],
+        },
+    },
+    {
+        path: "/germantest",
+        name: "German Test",
+        components: { mainRouter: germanTest },
+        meta: {
+            documentTitle: "Apprendre ses verbes irréguliers",
+            breadCrumb: [
+                {
+                    title: "Apprendre ses verbes irréguliers",
+                    link: "German Test",
                 },
             ],
         },

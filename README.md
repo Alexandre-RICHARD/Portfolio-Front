@@ -784,16 +784,31 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Correction de quelques coquilles orthographiques
 -   Mise à jour du CV et donc de son lien
 
+### build 97 - 1.0.1 `26 décembre 2022`
+
+-   Dans l'index.js, fichier racine du projet, insertion du middleware pour la gestion des Cookies
+-   A l'entrée du fichier, on demande la gestion du cookie comptant le nombre de visite
+-   Utilisation d'une logique de traitement des cookies générique mais complexe à comprendre. Une fonction pour get, une pour set, et il y aura une fonction pour chaque cookie et ce qu'il doit faire
+-   Pour les tests d'allemand, création d'un middleware servant à stocker les verbes
+-   Incorporation du test d'allemand dans le router
+-   Dans le store, changement des données pour les projets factices qui faisaient planté le site
+-   Stylisation de la page de test de manière assez simpliste
+-   Un mot de passe protège l'accès à la page, c'est temporaire mais c'était aussi pour tester
+-   Les tests devaient durer 2 semaines, ainsi la page par défaut affiche les dates correspondantes aux tests.
+-   Cliquer sur un test va sélectionner un certain nombre de verbe, et pour chacun décidera d'une seule de ses formes qui sera affichée. Un tableau vide de réponse est aussi créé.
+-   Valider le tests va venir récupérer toutes les valeurs d'input, les comparer aux bonnes réponse pour surligner les mauvaises et afficher le score.
+-   Dans UserProfile, transformation des requêtes de modifications de données de compte de PATCH vers POST
+
 </details>
 
 ## Les problèmes du site actuellement
 
--   La barre de défilement sur la droite change la taille du site en fonction des pages
 -   Sur mobile, les caractères fléchés sont différent, à changer.
 -   Sur mobile, petit bug lors du changement de thème
 -   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
 -   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs (peut-être réglé sans le vouloir)
 -   Lors du choix de la nouvelle pièce, on peut encore jouer tout le reste
+-   Les requêtes qui devraient être en patch sont en post car les requêtes patch ne fonctionne plus du tout en prod
 
 ## Les features à venir
 
@@ -803,7 +818,7 @@ En cours :
 -   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
 -   Intégrer le chat commun
 -   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment
--   Mettre des notifs lors de la connexion au compte, de l'inscription, du changement de mot de passe ou d'adresse-mail
+-   Mettre des notifs lors de la connexion au compte, de l'inscription, du changement de mot de passe ou d'adresse-mail ainsi que changer de page et/ou vider les inputs
 
 Mastermind :
 

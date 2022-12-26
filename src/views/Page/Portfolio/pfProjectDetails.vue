@@ -5,7 +5,7 @@ const MainStore = useMainStore();
 const { projectList } = MainStore;
 const route = useRoute();
 
-// Composant simple dans son fonctionnement, on change le titre de la page en fonjction de quel projet on est en train de parler
+// Composant simple dans son fonctionnement, on change le titre de la page en fonction de quel projet on est en train de parler
 const ourProject = projectList.find(
     (element) => element.link === route.params.projectName
 );

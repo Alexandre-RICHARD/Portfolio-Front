@@ -130,7 +130,7 @@ export const useMainStore = defineStore("Main", {
                 id: 3,
                 title: "PROJET FACTICE 1",
                 link: "facticeprojectone",
-                linkAccess: "/facticeprojectone",
+                linkAccess: "PortfolioProject",
                 abstract:
                     "Texte de remplissage pour le projet factice numéro 1 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
                 description:
@@ -148,7 +148,7 @@ export const useMainStore = defineStore("Main", {
                 id: 4,
                 title: "PROJET FACTICE 2",
                 link: "facticeprojecttwo",
-                linkAccess: "/facticeprojecttwo",
+                linkAccess: "PortfolioProject",
                 abstract:
                     "Texte de remplissage pour le projet factice numéro 2 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
                 description:
