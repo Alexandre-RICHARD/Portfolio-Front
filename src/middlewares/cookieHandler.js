@@ -1,7 +1,7 @@
 const API_URL = process.env.API_URL;
 
 export const cookieHandler = {
-    setCookie: (name, value, days) => {
+    setCookie: (name, value, days = 365) => {
         let expires = "";
         if (days) {
             const date = new Date();
@@ -23,7 +23,7 @@ export const cookieHandler = {
         return null;
     },
 
-    handleVisitCookie: (days) => {
+    handleVisitCookie: (days = 365) => {
         let visits = "";
         if (!cookieHandler.getCookie("visits")) {
             visits = 1;
@@ -33,7 +33,26 @@ export const cookieHandler = {
             visits = parseInt(cookieHandler.getCookie("visits")) + 1;
             cookieHandler.setCookie("visits", visits, days);
         }
-        console.log("Nombre de visites de l'utilisateur : " + visits);
     },
-    
+
+    handleAccountSessionCookie: (context, callback, nickname = "", mail = "", days = 365) => {
+        switch (context) {
+        case "collect" :
+            if (cookieHandler.getCookie("accountNickname") && cookieHandler.getCookie("accountMail")) {
+                callback(true, cookieHandler.getCookie("accountNickname"), cookieHandler.getCookie("accountMail"));
+            }
+            break;
+        case "write" :
+            cookieHandler.setCookie("accountNickname",nickname, days);
+            cookieHandler.setCookie("accountMail", mail, days);
+            break;
+        case "erase" :
+            console.log("erase");
+            cookieHandler.setCookie("accountNickname",null, -days);
+            cookieHandler.setCookie("accountMail", null, -days);
+            break;
+        default :
+            break;
+        }
+    },    
 };

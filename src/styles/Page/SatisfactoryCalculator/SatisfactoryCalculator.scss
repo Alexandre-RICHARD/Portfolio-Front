@@ -1,0 +1,20 @@
+@import "../../Base/variables";
+
+.addRessorcesMenu {
+  color: var(--textColor);
+
+  .searchInput {
+    background-color: var(--textColor);
+    color: var(--backgroundColor);
+    font-size: 18px;
+    padding: 4px;
+  }
+
+  .menu {
+    display: none;
+
+    &-open {
+      display: block;
+    }
+  }
+}

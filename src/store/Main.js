@@ -128,6 +128,19 @@ export const useMainStore = defineStore("Main", {
             },
             {
                 id: 3,
+                title: "Satisfactory Calculator",
+                link: "satisfactory/calculator",
+                linkAccess: "SatisfactoryCalculator",
+                abstract:
+                    "Un outil permettant de calculer la chaîne de production pour obtenir telle ou telle ressources dans le jeu Satisfactory",
+                description:
+                    "C'est un outil qui permet de choisir une ressource du jeu Satisfactory ainsi que le rendement par minute souhaité. À partir de cela, le nombre de ressources initiale, ainsi que la chaine de production, le nombre de machine, leur puissance, leur consommation électrique seront calculées automatiquement, tout cela dans le but de prévoir plus efficacement la mise en place des usines. Un outil de perfectionniste farmeur en somme.",
+                features: [
+                    "Rien pour l'instant",
+                ],
+            },
+            {
+                id: 4,
                 title: "PROJET FACTICE 1",
                 link: "facticeprojectone",
                 linkAccess: "PortfolioProject",
@@ -145,7 +158,7 @@ export const useMainStore = defineStore("Main", {
                 ],
             },
             {
-                id: 4,
+                id: 5,
                 title: "PROJET FACTICE 2",
                 link: "facticeprojecttwo",
                 linkAccess: "PortfolioProject",

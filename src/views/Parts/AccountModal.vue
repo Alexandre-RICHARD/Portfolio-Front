@@ -2,9 +2,10 @@
 import AccountInput from "./AccountInput.vue";
 import { reactive } from "vue";
 import { useMainStore } from "../../store/Main";
-const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
 const { account, modalData } = MainStore;
+const { cookieHandler } = require("../../middlewares/cookieHandler.js");
+const API_URL = process.env.API_URL;
 
 // Utilisé pour détecter un clic en dehors de la modal, mais pas sur le header. En effet, le clic n'est détecté que sur le cache.
 const clickOutsideAccountModal = (event) => {
@@ -297,6 +298,7 @@ const registrationResult = (data, status) => {
             account.connected = true;
             account.nickname = data[1].nickname;
             account.mail = data[1].mail;
+            cookieHandler.handleAccountSessionCookie("write", null, data[1].nickname, data[1].mail, 365);
             break;
         case "account-already-exist":
             errorDataRegister[4].push(
@@ -374,6 +376,7 @@ const connectionResult = (data, status) => {
                 account.connected = true;
                 account.nickname = data[1].nickname;
                 account.mail = data[1].mail;
+                cookieHandler.handleAccountSessionCookie("write", null, data[1].nickname, data[1].mail, 365);
                 break;
             case "login-failed":
                 errorDataLogin[2].push(

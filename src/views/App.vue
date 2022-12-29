@@ -1,6 +1,7 @@
 <script setup>
 import AccountModal from "./Parts/AccountModal.vue";
 import BreadCrumb from "./Parts/BreadCrumb.vue";
+import CookieHandler from "./Parts/CookieHandler.vue";
 import ProjectVersionning from "./Parts/ProjectVersionning.vue";
 import SiteHeader from "./Parts/SiteHeader.vue";
 
@@ -10,6 +11,7 @@ const { modalData } = MainStore;
 </script>
 
 <template>
+    <CookieHandler />
     <AccountModal v-if="modalData.open === true" />
     <ProjectVersionning />
     <SiteHeader />

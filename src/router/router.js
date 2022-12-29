@@ -8,8 +8,9 @@ import NotFound from "../views/Page/Other/NotFound.vue";
 import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
 import UserProfile from "../views/Page/Other/UserProfile.vue";
 
+import SatisfactoryCalculator from "../views/Page/SatisfactoryCalculator/SatisfactoryCalculator.vue";
 import ChessGame from "../views/Page/Chess/ChessGame.vue";
-import germanTest from "../views/Page/GermanTest/germanTest.vue";
+import GermanTest from "../views/Page/GermanTest/GermanTest.vue";
 
 import pfHome from "../views/Page/Portfolio/pfHome.vue";
 import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
@@ -29,20 +30,6 @@ const routes = [
                 {
                     title: "TryHard but SlowRun",
                     link: "Home",
-                },
-            ],
-        },
-    },
-    {
-        path: "/germantest",
-        name: "German Test",
-        components: { mainRouter: germanTest },
-        meta: {
-            documentTitle: "Apprendre ses verbes irréguliers",
-            breadCrumb: [
-                {
-                    title: "Apprendre ses verbes irréguliers",
-                    link: "German Test",
                 },
             ],
         },
@@ -176,6 +163,42 @@ const routes = [
                 {
                     title: "Etherum",
                     link: "CurrentETH",
+                },
+            ],
+        },
+    },
+    {
+        path: "/satisfactory/calculator",
+        name: "SatisfactoryCalculator",
+        components: { mainRouter: SatisfactoryCalculator },
+        meta: {
+            documentTitle: "Satisfactory Calculator",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+                {
+                    title: "Satisfactory Calculator",
+                    link: "SatisfactoryCalculator",
+                },
+            ],
+        },
+    },
+    {
+        path: "/germantest",
+        name: "German Test",
+        components: { mainRouter: GermanTest },
+        meta: {
+            documentTitle: "Apprendre ses verbes irréguliers",
+            breadCrumb: [
+                {
+                    title: "TryHard but SlowRun",
+                    link: "Home",
+                },
+                {
+                    title: "Apprendre ses verbes irréguliers",
+                    link: "German Test",
                 },
             ],
         },

@@ -5,9 +5,9 @@ import ThemePallet from "../Parts/ThemePallet.vue";
 import { useMainStore } from "../../store/Main";
 import { useRouter } from "vue-router";
 const router = useRouter();
-
 const MainStore = useMainStore();
 const { account, headerLinks, headerModals, modalData } = MainStore;
+const { cookieHandler } = require("../../middlewares/cookieHandler.js");
 
 // Fonction servant à modifier le state contenant les deux données de ModalOuverte et si oui, laquelle.
 const handleChangeModal = (open, type) => {
@@ -63,6 +63,7 @@ const disconnect = () => {
     account.nickname = null;
     account.mail = null;
     handleChangeModal(false, null);
+    cookieHandler.handleAccountSessionCookie("erase");
     router.push({ name: "Home" });
 };
 </script>
