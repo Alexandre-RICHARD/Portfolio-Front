@@ -20,7 +20,7 @@ import pfContact from "../views/Page/Portfolio/pfContact.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
-    {
+    { //Home
         path: "/",
         name: "Home",
         components: { mainRouter: HomePage },
@@ -34,11 +34,11 @@ const routes = [
             ],
         },
     },
-    {
+    { //Portfolio
         path: "/portfolio",
         name: "Portfolio",
         children: [
-            {
+            {//PortfolioHome
                 path: "home",
                 name: "PortfolioHome",
                 components: { mainRouter: pfHome },
@@ -56,7 +56,7 @@ const routes = [
                     ],
                 },
             },
-            {
+            {//PortfolioCurriculum
                 path: "curriculum",
                 name: "PortfolioCurriculum",
                 components: { mainRouter: pfCurriculum },
@@ -74,7 +74,7 @@ const routes = [
                     ],
                 },
             },
-            {
+            {//PortfolioProject
                 path: "project",
                 name: "PortfolioProject",
                 components: { mainRouter: pfProjects },
@@ -92,7 +92,7 @@ const routes = [
                     ],
                 },
             },
-            {
+            {//ProjectDetails
                 path: "project/:projectName",
                 name: "ProjectDetails",
                 components: { mainRouter: pfProjectDetails },
@@ -104,13 +104,18 @@ const routes = [
                             link: "Home",
                         },
                         {
+                            title: "Projets",
+                            link: "PortfolioProject",
+                        },
+                        {
+                            params: "projectList",
                             title: "N/A",
                             link: "ProjectDetails",
                         },
                     ],
                 },
             },
-            {
+            {//PortfolioContact
                 path: "contact",
                 name: "PortfolioContact",
                 components: { mainRouter: pfContact },
@@ -130,7 +135,7 @@ const routes = [
             },
         ],
     },
-    {
+    {//UserProfile
         path: "/profile",
         name: "UserProfile",
         components: { mainRouter: UserProfile },
@@ -149,7 +154,7 @@ const routes = [
             requiredLogin: true,
         },
     },
-    {
+    {//CurrentETH
         path: "/gain",
         name: "CurrentETH",
         components: { mainRouter: EtherumFollow },
@@ -167,7 +172,7 @@ const routes = [
             ],
         },
     },
-    {
+    {//SatisfactoryCalculator
         path: "/satisfactory/calculator",
         name: "SatisfactoryCalculator",
         components: { mainRouter: SatisfactoryCalculator },
@@ -185,9 +190,9 @@ const routes = [
             ],
         },
     },
-    {
+    {//GermanTest
         path: "/germantest",
-        name: "German Test",
+        name: "GermanTest",
         components: { mainRouter: GermanTest },
         meta: {
             documentTitle: "Apprendre ses verbes irréguliers",
@@ -198,12 +203,12 @@ const routes = [
                 },
                 {
                     title: "Apprendre ses verbes irréguliers",
-                    link: "German Test",
+                    link: "GermanTest",
                 },
             ],
         },
     },
-    {
+    {//Chess
         path: "/chess",
         name: "Chess",
         components: { mainRouter: ChessGame },
@@ -221,7 +226,7 @@ const routes = [
             ],
         },
     },
-    {
+    {//404
         path: "/:pathMatch(.*)*",
         name: "404",
         components: { mainRouter: NotFound },

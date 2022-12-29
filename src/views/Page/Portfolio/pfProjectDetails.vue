@@ -1,19 +1,25 @@
 <script setup>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useMainStore } from "../../../store/Main";
 const MainStore = useMainStore();
 const { projectList } = MainStore;
+const router = useRouter();
 const route = useRoute();
 
 // Composant simple dans son fonctionnement, on change le titre de la page en fonction de quel projet on est en train de parler
 const ourProject = projectList.find(
     (element) => element.link === route.params.projectName
 );
-document.title = `Projet : ${ourProject.title}`;
+
+if (!ourProject) {
+    router.push({ name: "404" });
+} else {
+    document.title = `Projet : ${ourProject.title}`;
+}
 </script>
 
 <template>
-    <div class="detailled-project">
+    <div v-if="ourProject" class="detailled-project">
         <img
             class="detailled-project-illustration"
             src="../../../images/projectIllustration/large/projectIllustrationPlaceholder.png"

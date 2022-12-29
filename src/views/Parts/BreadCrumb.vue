@@ -1,8 +1,12 @@
 <script setup>
-import { reactive, watch } from "vue";
+import { ref, reactive, watch } from "vue";
 import { useRoute } from "vue-router";
+import { useMainStore } from "../../store/Main";
+const MainStore = useMainStore();
+const { projectList } = MainStore;
 const route = useRoute();
 let matched = reactive([]);
+let lastLinkTitle = ref();
 
 // On utilise le useRoute pour venir récupérer l'ininéraire de notre URl et venir le recréer en traçant une série de liens cliquables
 // On surveille route.watched afin de changer le breadCrumb automatiquement
@@ -13,6 +17,23 @@ watch(
     }
 );
 
+watch(
+    () => route.params,
+    (params) => {
+        const param = Object.entries(params)[0];
+        switch (param[0]) {
+        case "projectName":
+            projectList.forEach((element) => {
+                if (element.link === param[1]) {
+                    lastLinkTitle.value = element.title;
+                }
+            });
+            break;
+        default :
+            break;
+        }
+    }
+);
 </script>
 
 <template>
@@ -24,7 +45,7 @@ watch(
         >
             <span class="guillemet">></span>
             <router-link class="link" :to="{ name: partPath.link }">
-                {{ partPath.title }}
+                {{ !partPath.params ? partPath.title : lastLinkTitle }}
             </router-link>
         </div>
     </div>

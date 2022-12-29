@@ -47,7 +47,6 @@ export const cookieHandler = {
             cookieHandler.setCookie("accountMail", mail, days);
             break;
         case "erase" :
-            console.log("erase");
             cookieHandler.setCookie("accountNickname",null, -days);
             cookieHandler.setCookie("accountMail", null, -days);
             break;

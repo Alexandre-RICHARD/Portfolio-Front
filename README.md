@@ -816,6 +816,16 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Cela concerne ChessGame.vue, germanTest.vue, UserProfile.vue et AccountModal.vue
 -   Dans GermanTest, correction d'un petit bug d'élément inexistant lors de son changement, ajout d'une condition d'existence
 
+### build 100 - 1.0.4 `30 décembre 2022`
+
+-   Correction de l'affichage du breadcrumb pour les projets fonctionnant avec des routes paramétrées
+-   Léger changement dans l'affichage de la page 404. Le container est en absolute pour pouvoir remplir toute la largeur de l'écran
+-   Ajout de petits commentaires dans le router afin de mieux s'y repérer
+-   Ajout d'une propriété "params" dans les objet de breadcrumb afin de repérer quand un titre de section du breadcrumb ne peut être géré par le routeur.
+-   Ainsi, cette propriété sert dans BreadCrumb.vue. Avec Watch, on surveille les paramètres d'url et si un apparait, on trouve le titre de la page associé pour l'inscrire
+-   Pour les projets, si on invente un nom, il ne sera pas trouvé ainsi, on envoi sur la page 404 si cela arrive
+-   Suppression d'un console.log()
+
 </details>
 
 ## Les problèmes du site actuellement
