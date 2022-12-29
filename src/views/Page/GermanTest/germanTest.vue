@@ -1,5 +1,8 @@
 <script setup>
 import { ref, reactive } from "vue";
+import { useMainStore } from "./../../../store/Main";
+const MainStore = useMainStore();
+const { modalData } = MainStore;
 const API_URL = process.env.API_URL;
 const { data } = require("../../../middlewares/verbData.js");
 
@@ -25,6 +28,7 @@ const submitPassword = async () => {
     const connectionData = {
         password: password.value,
     };
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/germanTest/connect", {
             headers: {
@@ -38,6 +42,7 @@ const submitPassword = async () => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const passwordAccessResult = (message, status) => {
@@ -94,7 +99,9 @@ const changeTest = (testInfo) => {
     });
 
     currentTest.value = testInfo.number;
-    document.querySelector(".test-result").textContent = "Le score s'affichera ici";
+    if (document.querySelector(".test-result")) {
+        document.querySelector(".test-result").textContent = "Le score s'affichera ici";
+    }
 };
 
 const submitGermanTest = (event) => {

@@ -276,6 +276,7 @@ const submitRegisterForm = (event) => {
 };
 
 const registration = async (registrationData) => {
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/registration", {
             headers: {
@@ -289,6 +290,7 @@ const registration = async (registrationData) => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const registrationResult = (data, status) => {
@@ -353,6 +355,7 @@ const submitLoginForm = (event) => {
 };
 
 const connection = async (connectionData) => {
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/connection", {
             headers: {
@@ -366,6 +369,7 @@ const connection = async (connectionData) => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const connectionResult = (data, status) => {

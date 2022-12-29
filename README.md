@@ -799,7 +799,7 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Valider le tests va venir récupérer toutes les valeurs d'input, les comparer aux bonnes réponse pour surligner les mauvaises et afficher le score.
 -   Dans UserProfile, transformation des requêtes de modifications de données de compte de PATCH vers POST
 
-### build 98 - 1.0.2 `26 décembre 2022`
+### build 98 - 1.0.2 `29 décembre 2022`
 
 -   Suppression de la gestion des cookies de visites dans index.js au profit d'un composant dédié
 -   Création donc du CookieHandler.vue qui à l'avantage d'être connecté au store et peut donc faire le lien entre celui-ci et le middleware
@@ -807,6 +807,14 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Dans la fonction Disconnect du header, rajout d'un appel à cookieHandler pour supprimer les deux cookies de compte
 -   Rajout de la base du projet Satisfactory Calculator. Création importation du style et du composant
 -   Création d'un début de fichier data pour les différents craft et d'un début de sélecteur de craft
+
+### build 99 - 1.0.3 `29 décembre 2022`
+
+-   Rajout d'une propriété loading dans le mainStore.modalData
+-   Création et stylisation d'un composant loading personnalisé
+-   Pour tous les appels de fonction asynchrone, globalement car nécessite un traitement serveur, le loading est appelé.
+-   Cela concerne ChessGame.vue, germanTest.vue, UserProfile.vue et AccountModal.vue
+-   Dans GermanTest, correction d'un petit bug d'élément inexistant lors de son changement, ajout d'une condition d'existence
 
 </details>
 

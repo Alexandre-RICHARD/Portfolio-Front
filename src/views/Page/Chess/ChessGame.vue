@@ -8,6 +8,10 @@ import PiecePawn from "./PiecePawn.vue";
 import PieceQueen from "./PieceQueen.vue";
 import PieceRook from "./PieceRook.vue";
 
+import { useMainStore } from "./../../../store/Main";
+const MainStore = useMainStore();
+const { modalData } = MainStore;
+
 const API_URL = process.env.API_URL;
 
 const pieceSVGComponent = {
@@ -58,7 +62,9 @@ onMounted(async () => {
 });
 
 const updateData = async () => {
+    modalData.loading = true;
     const result = await updateGameData();
+    modalData.loading = false;
     if (result.ready) {
         Object.assign(gameData, result.gameData);
         gameDataReady.value = true;
@@ -79,12 +85,14 @@ const updateGameData = async () => {
 };
 
 const resetGame = async () => {
+    modalData.loading = true;
     try {
         await fetch(API_URL + "/chess/board/reset");
         await updateData();
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const caseSelectionAndMoves = {
@@ -290,6 +298,7 @@ const caseSelectionAndMoves = {
 };
 
 const sendMoveToVerif = async (move) => {
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/chess/move/verif", {
             method: "POST",
@@ -302,6 +311,7 @@ const sendMoveToVerif = async (move) => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 </script>
 

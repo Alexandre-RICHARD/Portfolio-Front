@@ -1,8 +1,6 @@
 // Importation de Pinia, le store officiel de Vue.js
 import { defineStore } from "pinia";
 
-//! CHANGE après ça
-// On nomme notre Store et on l'exporte
 export const useMainStore = defineStore("Main", {
     state: () => ({
         account: {
@@ -88,6 +86,7 @@ export const useMainStore = defineStore("Main", {
         modalData: {
             open: false,
             type: null,
+            loading: false,
         },
         projectList: [
             {
@@ -276,4 +275,3 @@ export const useMainStore = defineStore("Main", {
         ],
     }),
 });
-//! CHANGE avant ça

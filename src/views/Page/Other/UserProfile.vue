@@ -4,7 +4,7 @@ import { ref, reactive } from "vue";
 import { useMainStore } from "../../../store/Main";
 const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
-const { account } = MainStore;
+const { account, modalData } = MainStore;
 
 const accountInformations = reactive({
     newMail: "",
@@ -357,6 +357,7 @@ const submitNewMailForm = (event) => {
 };
 
 const sendNewMail = async (newMailData) => {
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/account/change/mail", {
             headers: {
@@ -370,6 +371,7 @@ const sendNewMail = async (newMailData) => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const newMailResult = (data, status) => {
@@ -434,6 +436,7 @@ const submitNewPasswordForm = (event) => {
 };
 
 const sendNewPassword = async (newPasswordData) => {
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/account/change/password", {
             headers: {
@@ -447,6 +450,7 @@ const sendNewPassword = async (newPasswordData) => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const newPasswordResult = (data, status) => {
@@ -511,6 +515,7 @@ const submitDeleteAccount = (event) => {
 };
 
 const sendDeleteAccount = async (deleteAccountData) => {
+    modalData.loading = true;
     try {
         const response = await fetch(API_URL + "/account/delete", {
             headers: {
@@ -524,6 +529,7 @@ const sendDeleteAccount = async (deleteAccountData) => {
     } catch (error) {
         console.trace(error);
     }
+    modalData.loading = false;
 };
 
 const deleteAccountResult = (data, status) => {
