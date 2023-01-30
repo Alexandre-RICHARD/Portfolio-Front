@@ -1,20 +1,108 @@
 @import "../../Base/variables";
 
 .addRessorcesMenu {
-  color: var(--textColor);
-
-  .searchInput {
     background-color: var(--textColor);
-    color: var(--backgroundColor);
-    font-size: 18px;
-    padding: 4px;
-  }
+    color: var(--textColor);
+    width: max-content;
+    width: 100%;
+    padding: 10px;
 
-  .menu {
-    display: none;
+    .selected-resorces-container {
+        color: var(--backgroundColor);
 
-    &-open {
-      display: block;
+        .one-resource {
+            display: flex;
+            flex-direction: row;
+
+            &-type {
+                background-color: var(--titleColor);
+                color: var(--backgroundColor);
+                font-size: 16px;
+                padding: 4px;
+                width: 340px;
+            }
+
+            &-quantity {
+                background-color: var(--titleColor);
+                color: var(--backgroundColor);
+                font-size: 16px;
+                padding: 4px;
+                margin-left: 10px;
+                width: 85px;
+            }
+        }
     }
-  }
+
+    .input-box {
+        display: flex;
+
+        .search-input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            font-size: 16px;
+            padding: 4px;
+            width: 340px;
+        }
+
+        .quantity-input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            font-size: 16px;
+            padding: 4px;
+            margin-left: 10px;
+            width: 85px;
+        }
+
+        .submit-input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            margin-left: 10px;
+            padding: 4px;
+
+            :not(.invalid):hover {
+                background-color: var(--headerColor);
+            }
+        }
+
+        .invalid {
+            // color: var(--textColor);
+            opacity: 0.4;
+            cursor: default;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+    .search-result {
+        width: 340px;
+        display: flex;
+        justify-content: center;
+
+        .menu {
+            background-color: var(--textColor);
+            width: inherit;
+            position: absolute;
+            width: inherit;
+            border: 1px solid var(--backgroundColor);
+            padding-top: 5px;
+            max-height: 255px;
+
+            &-open {
+                display: block;
+            }
+
+            .one-ressorces {
+                padding: 5px;
+                width: 100%;
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                transition: all 0.2s;
+                height: 40px;
+
+                &:hover {
+                    background-color: var(--buttonColorOne);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

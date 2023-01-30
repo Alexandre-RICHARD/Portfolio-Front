@@ -6,7 +6,7 @@ const { modalData } = MainStore;
 const API_URL = process.env.API_URL;
 const { data } = require("../../../middlewares/verbData.js");
 
-const activate = ref(false);
+const activate = ref(true);
 let error = ref("");
 let password = ref("");
 let currentTest = ref(-1);
@@ -70,29 +70,14 @@ const changeTest = (testInfo) => {
     currentTest.value = -1;
     verbSelection.length = 0;
 
-    const numberSelection = [];
-
-    for (let i = 0; i < testInfo.testLength - 6; i++) {
-        let randomNumber = randomizer((testInfo.number - 1) * 6);
-        while (numberSelection.indexOf(randomNumber) !== -1) {
-            randomNumber = randomizer((testInfo.number - 1) * 6);
-        }
-        numberSelection.push(randomNumber);
-    }
-    for (let i = 1; i < 7; i++) {
-        numberSelection.push((testInfo.number - 1) * 6 + i - 1);
-    }
-    numberSelection.sort(function (a, b) {
-        return a - b;
-    });
-
-    numberSelection.forEach(element => {
+    for (let i = testInfo.testStart; i < testInfo.testEnd + 1; i++) {
         verbSelection.push({
-            verb: element,
+            verb: i,
             showed: randomizer(5) + 1,
             inputAnswerValue: ["", "", "", "", ""],
+            wrongAnswer: [false, false, false, false, false]
         });
-    });
+    }
 
     verbSelection.forEach(element => {
         element.inputAnswerValue[element.showed - 1] = data.verbList[element.verb][typeArray[element.showed]];
@@ -114,6 +99,7 @@ const submitGermanTest = (event) => {
     verbSelection.forEach(element => {
         element.inputAnswerValue.forEach(answer => {
             userAnswer.push(answer);
+            element.wrongAnswer = [false, false, false, false, false];
         });
 
         for (let i = 1; i < 6; i++) {
@@ -130,12 +116,14 @@ const submitGermanTest = (event) => {
                     score += 1;
                 } else {
                     highlightWrongAnswer(y, i);
+                    verbSelection[i].wrongAnswer[y] = true;
                 }
             } else if (y === 4) {
                 if (dataAnswer[verificationCounter].includes(userAnswer[verificationCounter]) && userAnswer[verificationCounter].length >= 3) {
                     score += 1;
                 } else {
                     highlightWrongAnswer(y, i);
+                    verbSelection[i].wrongAnswer[y] = true;
                 }
 
             }
@@ -183,11 +171,6 @@ const unhighlightWrongAnswer = () => {
                 <button
                     v-for="test in data.dateTest"
                     :key="test.number"
-                    :class="
-                        Date.now() >= test.date.getTime()
-                            ? 'enable'
-                            : 'disabled'
-                    "
                     @click="changeTest(test)"
                 >
                     {{ test.title }}
@@ -222,6 +205,7 @@ const unhighlightWrongAnswer = () => {
                                             (verbSelection[index].inputAnswerValue[n - 1] = event.target.value)
                                     "
                                 >
+                                <p v-if="verbSelection[index].wrongAnswer[n - 1]" class="correction">{{ data.verbList[element.verb][typeArray[n]] }}</p>
                             </td>
                         </tr>
                     </tbody>

@@ -1,6 +1,6 @@
 <script setup>
-const age = Math.round(
-    (Date.now() - new Date(1999, 5, 24)) / 1000 / 365 / 24 / 60 / 60
+const age = Math.floor(
+    (Date.now() - new Date(1999, 5, 24).getTime()) / 1000 / 60 / 60 / 24 / 365
 );
 
 // Composant très classique, on créé nos différents tableaux d'informations et on créé nos éléments avec

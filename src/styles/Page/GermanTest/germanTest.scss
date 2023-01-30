@@ -47,12 +47,6 @@
             button {
                 padding: 1.5px;
             }
-
-            .disabled {
-                opacity: 0.5;
-                cursor: default;
-                pointer-events: none;
-            }
         }
 
         .verb-test {
@@ -82,12 +76,12 @@
                     tr:nth-child(2n) {
                         background-color: #919191;
                         td {
-                            background-color: #919191;
+                            background-color: #c7c7c7;
                             border: 1px solid #000000;
                             padding: 3.5px;
 
                             &.wrong {
-                                background-color: #8a6c6c;
+                                background-color: #c7a1a1;
                             }
                         }
                     }
@@ -99,9 +93,16 @@
                             padding: 3.5px;
 
                             &.wrong {
-                                background-color: #ffc3c3;
+                                background-color: #fad5d5;
                             }
                         }
+                    }
+
+                    .correction {
+                        text-align: center;
+                        font-style: oblique;
+                        color: #920707;
+                        font-weight: 500;
                     }
                 }
             }

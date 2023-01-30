@@ -826,6 +826,16 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Pour les projets, si on invente un nom, il ne sera pas trouvé ainsi, on envoi sur la page 404 si cela arrive
 -   Suppression d'un console.log()
 
+### build 101 - 1.0.5 `30 janvier 2023`
+
+-   Beaucoup d'exploration et de test pour la satisfactory calculator
+-   Mise à jour des tests en allemand pour les rendre plus généraux
+-   Supression d'un peu de CSS par rapport aux anciens tests d'Allemand datés
+-   Ajout d'un style pour les verbes corrigés
+-   Simplification des tests et ajout de la fonctionnalité permettant de voir la correction des verbes faux
+-   Correction de la date pour mon age car il indiquait une erreur
+-   Petit changement dans le breadcrumb
+
 </details>
 
 ## Les problèmes du site actuellement

@@ -5,8 +5,8 @@ import { useMainStore } from "../../../store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
 
-const age = Math.round(
-    (Date.now() - new Date(1999, 5, 24)) / 1000 / 365 / 24 / 60 / 60
+const age = Math.floor(
+    (Date.now() - new Date(1999, 5, 24).getTime()) / 1000 / 60 / 60 / 24 / 365
 );
 </script>
 

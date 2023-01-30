@@ -21,16 +21,18 @@ watch(
     () => route.params,
     (params) => {
         const param = Object.entries(params)[0];
-        switch (param[0]) {
-        case "projectName":
-            projectList.forEach((element) => {
-                if (element.link === param[1]) {
-                    lastLinkTitle.value = element.title;
-                }
-            });
-            break;
-        default :
-            break;
+        if (Object.entries(params).length > 0) {
+            switch (param[0]) {
+            case "projectName":
+                projectList.forEach((element) => {
+                    if (element.link === param[1]) {
+                        lastLinkTitle.value = element.title;
+                    }
+                });
+                break;
+            default :
+                break;
+            }
         }
     }
 );
