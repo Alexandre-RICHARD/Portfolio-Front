@@ -2,49 +2,36 @@
 import HeaderLink from "./HeaderLink.vue";
 import { useMainStore } from "../../store/Main";
 import { useRouter } from "vue-router";
+import { ref } from "vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 const MainStore = useMainStore();
 const { account, headerLinks, headerModals, modalData } = MainStore;
 const router = useRouter();
 const { cookieHandler } = require("../../middlewares/cookieHandler.js");
 
+const openingorClosingMenu = ref(false);
 const handleMenuModal = (entryMode) => {
-    const headerMenuButton = document.querySelector(".header-button-menu");
-    const headerMenuBlur = document.querySelector(".header-menu-blur");
-    const headerMenu = document.querySelector(".header-menu");
-    const outsideMenuClickHandler = (event) => {
-        if (headerMenu) {
-            if (
-                !headerMenuButton.contains(event.target) &&
-                !headerMenu.contains(event.target)
-            ) {
-                handleMenuModal(false);
-            }
-        }
-    };
-
     // Ouverture du menu latéral
-    if (modalData.menu === false || entryMode === true) {
+    if (entryMode === true) {
         document.addEventListener("click", outsideMenuClickHandler, false);
         modalData.menu = !modalData.menu;
         setTimeout(() => {
-            headerMenuButton.classList.add("opening-closing-transition");
-            headerMenuBlur.classList.add("opening-closing-transition");
-            headerMenu.classList.add("opening-closing-transition");
+            openingorClosingMenu.value = true;
         }, 0);
-        // Fermeture du menu latéral
-    } else if (modalData.menu === true || entryMode === false) {
-        headerMenuButton.classList.remove("opening-closing-transition");
-        headerMenuBlur.classList.remove("opening-closing-transition");
-        headerMenu.classList.remove("opening-closing-transition");
+    }
+    // Fermeture du menu latéral
+    if (entryMode === false) {
+        document.removeEventListener("click", outsideMenuClickHandler, false);
+        openingorClosingMenu.value = false;
         setTimeout(() => {
             modalData.menu = !modalData.menu;
-            document.removeEventListener(
-                "click",
-                outsideMenuClickHandler,
-                false
-            );
         }, 300); //? A calquer sur la variables SCSS $transition-header-menu-duration
+    }
+};
+const outsideMenuClickHandler = (event) => {
+    if (event.target.attributes.getNamedItem("menu-closer")) {
+        console.log("On passe en effet par ici");
+        handleMenuModal(false);
     }
 };
 
@@ -75,8 +62,11 @@ const disconnect = () => {
         <button
             href="#"
             class="header-button-menu"
-            :class="{ open: modalData.menu }"
-            @click="handleMenuModal"
+            :class="{
+                open: modalData.menu,
+                'opening-closing-transition': openingorClosingMenu,
+            }"
+            @click="handleMenuModal(!modalData.menu)"
         >
             <span />
             <span />
@@ -84,8 +74,21 @@ const disconnect = () => {
         </button>
 
         <!-- LE MENU LATERAL -->
-        <div class="header-menu-blur" :class="{ open: modalData.menu }">
-            <div class="header-menu" :class="{ open: modalData.menu }">
+        <div
+            menu-closer
+            class="header-menu-blur"
+            :class="{
+                open: modalData.menu,
+                'opening-closing-transition': openingorClosingMenu,
+            }"
+        >
+            <div
+                class="header-menu"
+                :class="{
+                    open: modalData.menu,
+                    'opening-closing-transition': openingorClosingMenu,
+                }"
+            >
                 <!-- LINK DE ACCOUNT SI PAS CONNECTE -->
                 <div v-if="account.connected === false" class="menu-nav">
                     <HeaderLink
@@ -94,6 +97,7 @@ const disconnect = () => {
                         :type="modal.type"
                         :title="modal.content"
                         class="menu-nav-account"
+                        menu-closer
                         @click="handleAccountModal(true, modal.link)"
                     />
                 </div>
@@ -103,10 +107,11 @@ const disconnect = () => {
                     <router-link
                         class="menu-nav menu-nav-account"
                         :to="{ name: 'UserProfile' }"
+                        menu-closer
                     >
                         {{ account.nickname }}
                     </router-link>
-                    <button class="menu-nav-account" @click="disconnect">
+                    <button class="menu-nav-account" menu-closer @click="disconnect">
                         Déconnexion
                     </button>
                 </div>
@@ -120,11 +125,13 @@ const disconnect = () => {
                         :title="link.content"
                         :link="link.link"
                         class="menu-nav-link"
+                        menu-closer
                     />
                     <a
                         :href="CurriculumVitae"
                         class="menu-nav-link"
                         target="_blank"
+                        menu-closer
                     >Mon CV</a>
                 </div>
             </div>

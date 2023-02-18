@@ -874,6 +874,15 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Création d'alias dans Webpack.config.js pour simplifier les imports. D'autres à venir
 -   Ajout d'un loader pour les fichier PDF.
 
+### build 103 - 1.1.1 `18 février 2023`
+
+-   Simplification de la gestion du menu du header
+-   Plus d'ajout direct ou de retrait direct des classes sur les éléments pour gérer apparition/disparition. Une variable ref conditionne maintenant ces classes.
+-   Séparation des deux fonctions handleMenuModal et ClickOutside
+-   Simplification de la méthode d'entré dans la fonction handleMenuModal avec une seule variable proprement appelé depuis chaque point d'entrée.
+-   Ajout d'une propriété sur tous les éléments qui vont déclencher la fermeture de la modal. La présence de cette propriété sur l'event target est la seule condition.
+-   Meilleur gestion de l'ajout et du retrait de l'event listener pour empêcher les bugs oùu il persistait
+
 </details>
 
 ## Les problèmes du site actuellement
