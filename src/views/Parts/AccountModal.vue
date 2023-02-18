@@ -567,7 +567,7 @@ const inputLosingFocus = (target) => {
 @import "@styles/variables.scss";
 
 .account-modal-cache {
-    z-index: 10;
+    z-index: $z-index-account-modal;
     background-color: #000000d0;
     display: flex;
     justify-content: center;

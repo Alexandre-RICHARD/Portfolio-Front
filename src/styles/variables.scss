@@ -31,13 +31,19 @@ $color14: #151d3f;
 $color15: #152a7e;
 
 //? Z-index
-$z-index-bread-crumb: 1;
-$z-index-header: 2;
-$z-index-header-menu: 3;
-$z-index-header-menu-button: 4;
-$z-index-header-logo: 5;
-$z-index-loading-logo: 6;
-$z-index-versionning: 7;
+$z-index-one: 1;
+$z-index-two: 2;
+$z-index-three: 3;
+$z-index-four: 4;
+$z-index-bread-crumb: 5;
+$z-index-header: 6;
+$z-index-header-menu: 7;
+$z-index-header-menu-button: 8;
+$z-index-header-logo: 9;
+$z-index-loading-logo: 10;
+$z-index-account-modal: 11;
+$z-index-versionning: 12;
+$z-index-etherum: 100000;
 
 //? Duration
 // $animation-logo-duration: 320ms;

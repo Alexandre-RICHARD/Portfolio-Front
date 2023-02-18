@@ -740,12 +740,12 @@ const inputLosingFocus = (target) => {
 
         .delete-account-form {
             .submit-button {
-                z-index: 2;
+                z-index: $z-index-two;
             }
 
             #deleteAccountPassword {
                 animation: 0.6s ease-out 1 displayInput;
-                z-index: 1;
+                z-index: $z-index-one;
 
                 @keyframes displayInput {
                     0% {

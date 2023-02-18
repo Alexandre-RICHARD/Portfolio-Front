@@ -143,12 +143,13 @@ const disconnect = () => {
 @import "@styles/variables.scss";
 
 .header-button-menu {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 9px;
     z-index: $z-index-header-menu-button;
     width: 50px;
     height: 50px;
+    border: 1px solid transparent;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -189,7 +190,7 @@ const disconnect = () => {
     &:hover {
         row-gap: 7px;
         span {
-            width: 36px;
+            width: 32px;
             height: 6px;
         }
     }

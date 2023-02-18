@@ -95,10 +95,10 @@ document.addEventListener("scroll", () => {
         </div>
 
         <!-- LE MENU LATERAL -->
-        <HeaderMenu />
-
+        
         <BreadCrumb :visibility="headerVisibility" />
     </header>
+    <HeaderMenu />
 </template>
 
 <style lang="scss">

@@ -647,7 +647,7 @@ $piece-choice-SVG-stroke-width: 15px;
     justify-content: space-between;
     align-content: space-between;
     position: absolute;
-    z-index: 10;
+    z-index: $z-index-one;
 
     width: $pawn-modal-size;
     height: $pawn-modal-size;

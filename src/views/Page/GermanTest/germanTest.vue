@@ -262,7 +262,6 @@ const unhighlightWrongAnswer = () => {
 
 .german-test-container {
     background-color: var(--backgroundColor);
-    z-index: 10;
     overflow: auto;
 
     .german-test-sub-container {

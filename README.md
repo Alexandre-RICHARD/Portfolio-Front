@@ -883,6 +883,13 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Ajout d'une propriété sur tous les éléments qui vont déclencher la fermeture de la modal. La présence de cette propriété sur l'event target est la seule condition.
 -   Meilleur gestion de l'ajout et du retrait de l'event listener pour empêcher les bugs oùu il persistait
 
+### build 104 - 1.1.2 `18 février 2023`
+
+-   Attribution de variables aux divers z-index du projet. Retrait de 2 z-index qui semblaient inutiles.
+-   Fix d'un bug du menu qui disparaissait à moitié si le header disparaissait. Le composant HeaderMenu est dans le même fichier que le headerContainer mais en dehors du header
+-   Le bouton du menu latéral est maintenant en fixed pour être le seul élément de la page hormis le versionning à rester toujours visible même en scroll.
+-   Ajout d'une bordure transparante si le menu n'est pas ouvert sur le bouton pour avoir une petite transition agréable
+
 </details>
 
 ## Les problèmes du site actuellement

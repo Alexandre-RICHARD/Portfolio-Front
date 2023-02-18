@@ -456,7 +456,7 @@ const informationsList = [
                 margin-right: 5px;
 
                 .date {
-                    z-index: 3;
+                    z-index: $z-index-four;
                     height: fit-content;
                     position: absolute;
                     background-color: var(--titleColor);
@@ -473,14 +473,14 @@ const informationsList = [
                 }
 
                 .line-cache {
-                    z-index: 2;
+                    z-index: $z-index-three;
                     height: 100%;
                     width: calc(50% - 1px);
                     background-color: var(--backgroundColor);
                 }
 
                 .line {
-                    z-index: 1;
+                    z-index: $z-index-two;
                     height: 100%;
                     width: 1px;
                     background-color: var(--titleColor);
@@ -488,7 +488,7 @@ const informationsList = [
                 }
 
                 .line-uncache {
-                    z-index: 0;
+                    z-index: $z-index-one;
                     height: 100%;
                     width: calc(50% - 1px);
                     background-color: transparent;

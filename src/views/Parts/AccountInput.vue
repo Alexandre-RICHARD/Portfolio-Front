@@ -168,7 +168,6 @@ const toggleShowPassword = (event) => {
 
             .toggle-show-password {
                 background-color: var(--titleColor);
-                z-index: 4;
                 position: absolute;
                 width: 40px;
                 height: 32px;
