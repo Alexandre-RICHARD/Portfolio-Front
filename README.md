@@ -836,6 +836,44 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Correction de la date pour mon age car il indiquait une erreur
 -   Petit changement dans le breadcrumb
 
+### build 102 - 1.1.0 `18 février 2023`
+
+-   Mise à jour de tous les packages NPM
+-   Déplacement de toutes les images dans un sous-dossier de src : static
+-   Modification du Favicon pour l'adapter au nouveau logo
+-   Refonte total du header, du logo et du menu lattéral
+-   Suppression du ThemePallet. Avec la reprise du site dans sa globalité pour lui donner un coup de neuf, je supprime (temporairement ou non) le choix du thème
+-   Tout les fichiers Vue ont vu leur styles être directement dans le fichier plutôt que de l'avoir dans un fichier tierce
+-   Des changements dans le BreadCrumb pour l'intégrer au Header.
+    -   Passage en position: absolute pour le placer correctement.
+    -   Adaptation de ses couleurs aux nouvelles variables
+    -   Adaptation de son Z-index aux nouvelles variables
+    -   Ajout de propriété transform et opacity pour que la nouvelle classe hidden le fasse disparaitre à souhait
+-   Rajout de "Only" dans tous les "@media Only Screen"
+-   Pour le Logo de chargement, adaptation de quelques variables pour convenirs aux nouvelles mais aucun changement directe
+-   Petit changement de variables pour le petit encadre Project Versionning ainsi qu'un Z-index à lui
+-   Modification dans les fichiers SCSS. Il n'en reste que trois regroupés et appelés correctement. Variable et Reset sont appelés par Index qui est appelé par Webpack. Tous les autres styles contenus dans les views sont gérés par Vue. Variables est appelé grâce à un alias et à la nouvelle prise en charge du scss dans Vue.JS.
+-   Suppression du fichier scss temporary
+-   Réaménagement total du fichier variables. Les anciennes variables sont gardées temporairement.
+-   Adaptation de toutes les images pour les appelés maintenant avec l'alias @static/images
+-   Suppression de tous les consoles.log et tout le code qui était en commentaire ne l'est plus. On fera le tri plus tard
+-   pfProjects, adaptation de noms de variables par rapport aux nouvelles.
+-   Trop complexe pour détaillé les changements du header, donc juste une grosse amélioration par rapport à avant. Je le trouve bien mieux
+-   Passage de prettier sur tous les fichiers pour les rendes plus clean même si plus long parfois
+-   Déplacement du fichier UserProfile du dossier Other au dossier User.
+-   Intervertion légère dans le store.
+-   Suppression de l'icone SVG du menu pour l'ouvrir ou le fermer. Remplacé par des balise HTML classiques
+-   Ajout d'un lien pour accéder au CV directement dans le Header. Géré par Webpack, le PDF est directement stocké dans le projet
+-   Le Menu et le Logo du header sont dans deux fichiers distincts
+-   Ajout de séparateur dans le header
+-   En fonction du scroll vertical, le header disparait et revient au besoin
+-   Suppression de la vue CookieHandler. Sa logique est maintenant dans un middleWares à part. Ne contenant aucune balise HTML, cette vue ne servait à rien.
+-   Le BreadCrumb est maintenant contenu dans le header et utilise sa logique pour être visible ou non, c'est transmit par un prop.
+-   Simplification du style global à tous le projet, qui est aussi maintenant intégré dans App.Vue
+-   Cookie Handler n'existe plus, le BreadCrumb est dans le Header, il n'y a plus de background du contenu pour conditionné la largeur d'écran et le router-view est dans la div main. L'appel des cookies de visites se fait dans App.Vue aussi.
+-   Création d'alias dans Webpack.config.js pour simplifier les imports. D'autres à venir
+-   Ajout d'un loader pour les fichier PDF.
+
 </details>
 
 ## Les problèmes du site actuellement

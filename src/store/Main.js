@@ -9,6 +9,38 @@ export const useMainStore = defineStore("Main", {
             mail: null,
             token: null,
         },
+        headerModals: [
+            // Un ID pour différencier dans le for in, le contenu indiqué sur le lien et le lien
+            { id: 0, type: "modal", content: "Connexion", link: "login" },
+            { id: 1, type: "modal", content: "Inscription", link: "register" },
+        ],
+        modalData: {
+            menu: false,
+            open: false,
+            type: null,
+            loading: false,
+        },
+        headerLinks: [
+            { id: 0, type: "link", content: "Accueil", link: "PortfolioHome" },
+            {
+                id: 1,
+                type: "link",
+                content: "Curriculum",
+                link: "PortfolioCurriculum",
+            },
+            {
+                id: 2,
+                type: "link",
+                content: "Projets",
+                link: "PortfolioProject",
+            },
+            {
+                id: 3,
+                type: "link",
+                content: "Contact",
+                link: "PortfolioContact",
+            },
+        ],
         theme: {
             selected: "classic",
             classic: {
@@ -51,42 +83,6 @@ export const useMainStore = defineStore("Main", {
                 buttonColorOne: "#2cb67d",
                 buttonColorTwo: "#72757e",
             },
-        },
-        headerLinks: [
-            {
-                id: 0,
-                type: "link",
-                content: "Accueil",
-                link: "PortfolioHome",
-            },
-            {
-                id: 1,
-                type: "link",
-                content: "Curriculum",
-                link: "PortfolioCurriculum",
-            },
-            {
-                id: 2,
-                type: "link",
-                content: "Projets",
-                link: "PortfolioProject",
-            },
-            {
-                id: 3,
-                type: "link",
-                content: "Contact",
-                link: "PortfolioContact",
-            },
-        ],
-        headerModals: [
-            // Un ID pour différencier dans le for in, le contenu indiqué sur le lien et le lien
-            { id: 0, type: "modal", content: "Connexion", link: "login" },
-            { id: 1, type: "modal", content: "Inscription", link: "register" },
-        ],
-        modalData: {
-            open: false,
-            type: null,
-            loading: false,
         },
         projectList: [
             {
@@ -134,9 +130,7 @@ export const useMainStore = defineStore("Main", {
                     "Un outil permettant de calculer la chaîne de production pour obtenir telle ou telle ressources dans le jeu Satisfactory",
                 description:
                     "C'est un outil qui permet de choisir une ressource du jeu Satisfactory ainsi que le rendement par minute souhaité. À partir de cela, le nombre de ressources initiale, ainsi que la chaine de production, le nombre de machine, leur puissance, leur consommation électrique seront calculées automatiquement, tout cela dans le but de prévoir plus efficacement la mise en place des usines. Un outil de perfectionniste farmeur en somme.",
-                features: [
-                    "Rien pour l'instant",
-                ],
+                features: ["Rien pour l'instant"],
             },
             {
                 id: 4,

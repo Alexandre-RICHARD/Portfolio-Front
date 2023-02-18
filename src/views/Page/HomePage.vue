@@ -134,3 +134,195 @@ const changeNumber = (position, direction) => {
         </div>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.home-page {
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .presentation-text {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        text-align: justify;
+    }
+    .mastermind {
+        background-color: var(--backgroundColor);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .number-box {
+            color: var(--backgroundColor);
+            background-color: var(--titleColor);
+            margin: 50px;
+            overflow: hidden;
+
+            .mastermind-line {
+                display: flex;
+                background-color: var(--backgroundColor);
+
+                .arrow,
+                .number {
+                    color: var(--backgroundColor);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 3px solid var(--smoothBackgroundColor);
+                }
+
+                .arrow {
+                    color: var(--backgroundColor);
+                    width: 75px;
+                    height: 50px;
+                    cursor: pointer;
+                    user-select: none;
+
+                    p {
+                        font-size: 35px;
+                    }
+
+                    &-up {
+                        background-color: var(--buttonColorOne);
+                        p {
+                            color: var(--backgroundColor);
+                            background-color: var(--buttonColorOne);
+                            transform: rotate(-90deg);
+                        }
+
+                        &:first-child {
+                            border-top-left-radius: 30px;
+                        }
+                        &:last-child {
+                            border-top-right-radius: 30px;
+                        }
+                    }
+
+                    &-down {
+                        background-color: var(--buttonColorTwo);
+                        p {
+                            color: var(--backgroundColor);
+                            background-color: var(--buttonColorTwo);
+                            transform: rotate(90deg);
+                        }
+
+                        &:first-child {
+                            border-bottom-left-radius: 30px;
+                        }
+                        &:last-child {
+                            border-bottom-right-radius: 30px;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: var(--textColor);
+
+                        p {
+                            background-color: var(--textColor);
+                        }
+                    }
+                }
+
+                .number {
+                    background-color: var(--titleColor);
+                    color: var(--backgroundColor);
+                    width: 75px;
+                    height: 75px;
+                    font-weight: 500;
+                    font-size: 50px;
+                    cursor: ns-resize;
+                }
+            }
+        }
+
+        .testing-button {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            padding: 9px;
+            border-radius: 20px;
+            font-weight: 500;
+            line-height: 26px;
+            font-size: 18px;
+            transition: all 0.1s;
+
+            &:active {
+                border-radius: 10px;
+                transform: scale(0.9);
+                box-shadow: 0px 0px 8px 2px var(--titleColor);
+            }
+        }
+
+        .test-result {
+            background-color: var(--textColor);
+            color: var(--backgroundColor);
+            padding: 8px;
+            border-radius: 10px;
+            animation: testResultSlide ease 1 0.6s forwards;
+
+            p {
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                animation: sentanceGrow ease 1 0.6s forwards;
+
+                &.green {
+                    border-left: solid green;
+                    border-bottom: solid green;
+                }
+
+                &.orange {
+                    border-left: solid orange;
+                    border-bottom: solid orange;
+                }
+
+                &.red {
+                    border-left: solid red;
+                    border-bottom: solid red;
+                }
+            }
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        @keyframes testResultSlide {
+            0% {
+                margin-top: -30px;
+            }
+
+            100% {
+                margin-top: 20px;
+            }
+        }
+
+        @keyframes sentanceGrow {
+            0% {
+                border-width: 0px;
+                margin: 0;
+                padding: 0;
+                font-size: 0;
+            }
+
+            80% {
+                border-width: 0px;
+                margin: 0;
+                padding: 0;
+                font-size: 16px;
+            }
+
+            95% {
+                border-width: 0px;
+            }
+
+            100% {
+                padding: 2px;
+                margin: 5px;
+                border-width: 2px;
+            }
+        }
+    }
+}
+</style>

@@ -16,7 +16,8 @@ const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 // Afin d'indiquer les fichiers de départ qui seront utilisé dans la compilation, ici index.html et son favicon
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // Plugin qui ouvrira un onglet à chaque run/build pour montrer la taille des différents package dans les fichiers compilé et aider à mieux les gérer
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+    require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const port = 8080;
 
 // Ici on créé les variables défini pour le développement mais qui seront changés si on est en production
@@ -44,7 +45,7 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
     mode: mode,
     // Les deux points d'entrées de l'application (SCSS et JS)
-    entry: ["./src/index.scss", "./src/index.js"],
+    entry: ["./src/styles/index.scss", "./src/index.js"],
     performance: performance,
     devtool: devtool,
     devServer: {
@@ -62,6 +63,13 @@ module.exports = {
         filename: "js/[name].[contenthash].js",
         assetModuleFilename: "images/[hash][ext][query]",
     },
+    resolve: {
+        alias: {
+            "@src": path.resolve(__dirname, "src"),
+            "@static": path.resolve(__dirname, "src/static"),
+            "@styles": path.resolve(__dirname, "src/styles"),
+        },
+    },
     plugins: [
         // Pour récupérer nos variables d'environnement en fonction de si on est en prod ou en dev et avoir la bonne adresse d'API
         new Dotenv({
@@ -75,7 +83,7 @@ module.exports = {
         // Afin d'indiquer les fichiers de départ qui seront utilisé dans la compilation, ici index.html et son favicon
         new HtmlWebpackPlugin({
             filename: filename,
-            favicon: "./src/images/favicon.ico",
+            favicon: "./src/static/images/favicon.ico",
             template: "./src/index.html",
         }),
         // Utiliser pour copier des fichier stockés dans public dans le dossier de build
@@ -92,7 +100,7 @@ module.exports = {
             filename: "css/[name].css",
         }),
         // Plugin qui ouvrira un onglet à chaque run/build pour montrer la taille des différents package dans les fichiers compilé et aider à mieux les gérer
-        // new BundleAnalyzerPlugin(), //! POur activer ou désactiver
+        new BundleAnalyzerPlugin(), //! POur activer ou désactiver
     ],
     // Des plugins visant à améliorer la vitesse de compilation en plus d'en améliorer l'optimisation et la taille
     optimization: {
@@ -182,6 +190,19 @@ module.exports = {
                         options: {
                             implementation: require("sass"),
                             sourceMap: true,
+                        },
+                    },
+                ],
+            },
+            // PDF loader
+            {
+                test: /\.(pdf)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name].[ext]",
+                            outputPath: "static/",
                         },
                     },
                 ],

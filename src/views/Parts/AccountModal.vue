@@ -300,7 +300,13 @@ const registrationResult = (data, status) => {
             account.connected = true;
             account.nickname = data[1].nickname;
             account.mail = data[1].mail;
-            cookieHandler.handleAccountSessionCookie("write", null, data[1].nickname, data[1].mail, 365);
+            cookieHandler.handleAccountSessionCookie(
+                "write",
+                null,
+                data[1].nickname,
+                data[1].mail,
+                365
+            );
             break;
         case "account-already-exist":
             errorDataRegister[4].push(
@@ -380,7 +386,13 @@ const connectionResult = (data, status) => {
                 account.connected = true;
                 account.nickname = data[1].nickname;
                 account.mail = data[1].mail;
-                cookieHandler.handleAccountSessionCookie("write", null, data[1].nickname, data[1].mail, 365);
+                cookieHandler.handleAccountSessionCookie(
+                    "write",
+                    null,
+                    data[1].nickname,
+                    data[1].mail,
+                    365
+                );
                 break;
             case "login-failed":
                 errorDataLogin[2].push(
@@ -431,7 +443,10 @@ const inputLosingFocus = (target) => {
 <template>
     <!-- Si la modal est input ou register, on affiche tout ça -->
     <div
-        v-if="['login', 'register'].indexOf(modalData.type) >= 0 && account.connected === false"
+        v-if="
+            ['login', 'register'].indexOf(modalData.type) >= 0 &&
+                account.connected === false
+        "
         class="account-modal-cache"
         @click="clickOutsideAccountModal"
     >
@@ -547,3 +562,48 @@ const inputLosingFocus = (target) => {
         </div>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.account-modal-cache {
+    z-index: 10;
+    background-color: #000000d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    .account-modal {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        min-width: 350px;
+        width: 350px;
+        border-radius: 30px;
+        border: 2px solid var(--titleColor);
+        overflow: hidden;
+        padding: 15px;
+        height: fit-content;
+
+        .not-concerned {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            padding-top: 7px;
+            text-align: center;
+
+            &-button {
+                background-color: var(--backgroundColor);
+                color: var(--buttonColorTwo);
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+        }
+    }
+}
+</style>

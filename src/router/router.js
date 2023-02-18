@@ -6,7 +6,7 @@ import { useMainStore } from "../store/Main";
 import HomePage from "../views/Page/HomePage.vue";
 import NotFound from "../views/Page/Other/NotFound.vue";
 import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
-import UserProfile from "../views/Page/Other/UserProfile.vue";
+import UserProfile from "../views/Page/User/UserProfile.vue";
 
 import SatisfactoryCalculator from "../views/Page/SatisfactoryCalculator/SatisfactoryCalculator.vue";
 import ChessGame from "../views/Page/Chess/ChessGame.vue";
@@ -20,34 +20,37 @@ import pfContact from "../views/Page/Portfolio/pfContact.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
-    { //Home
+    {
+        //Home
         path: "/",
-        name: "Home",
+        name: "HomePage",
         components: { mainRouter: HomePage },
         meta: {
-            documentTitle: "TryHard but SlowRun",
+            documentTitle: "Accueil",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
             ],
         },
     },
-    { //Portfolio
+    {
+        //Portfolio
         path: "/portfolio",
         name: "Portfolio",
         children: [
-            {//PortfolioHome
-                path: "home",
+            {
+                //PortfolioHome
+                path: "HomePage",
                 name: "PortfolioHome",
                 components: { mainRouter: pfHome },
                 meta: {
                     documentTitle: "Alexandre Richard",
                     breadCrumb: [
                         {
-                            title: "TryHard but SlowRun",
-                            link: "Home",
+                            title: "Accueil",
+                            link: "HomePage",
                         },
                         {
                             title: "Alexandre Richard",
@@ -56,7 +59,8 @@ const routes = [
                     ],
                 },
             },
-            {//PortfolioCurriculum
+            {
+                //PortfolioCurriculum
                 path: "curriculum",
                 name: "PortfolioCurriculum",
                 components: { mainRouter: pfCurriculum },
@@ -64,8 +68,8 @@ const routes = [
                     documentTitle: "Curriculum",
                     breadCrumb: [
                         {
-                            title: "TryHard but SlowRun",
-                            link: "Home",
+                            title: "Accueil",
+                            link: "HomePage",
                         },
                         {
                             title: "Curriculum",
@@ -74,7 +78,8 @@ const routes = [
                     ],
                 },
             },
-            {//PortfolioProject
+            {
+                //PortfolioProject
                 path: "project",
                 name: "PortfolioProject",
                 components: { mainRouter: pfProjects },
@@ -82,8 +87,8 @@ const routes = [
                     documentTitle: "Mes Projets",
                     breadCrumb: [
                         {
-                            title: "TryHard but SlowRun",
-                            link: "Home",
+                            title: "Accueil",
+                            link: "HomePage",
                         },
                         {
                             title: "Projets",
@@ -92,7 +97,8 @@ const routes = [
                     ],
                 },
             },
-            {//ProjectDetails
+            {
+                //ProjectDetails
                 path: "project/:projectName",
                 name: "ProjectDetails",
                 components: { mainRouter: pfProjectDetails },
@@ -100,8 +106,8 @@ const routes = [
                     documentTitle: "N/A",
                     breadCrumb: [
                         {
-                            title: "TryHard but SlowRun",
-                            link: "Home",
+                            title: "Accueil",
+                            link: "HomePage",
                         },
                         {
                             title: "Projets",
@@ -115,7 +121,8 @@ const routes = [
                     ],
                 },
             },
-            {//PortfolioContact
+            {
+                //PortfolioContact
                 path: "contact",
                 name: "PortfolioContact",
                 components: { mainRouter: pfContact },
@@ -123,8 +130,8 @@ const routes = [
                     documentTitle: "Mes Contacts",
                     breadCrumb: [
                         {
-                            title: "TryHard but SlowRun",
-                            link: "Home",
+                            title: "Accueil",
+                            link: "HomePage",
                         },
                         {
                             title: "Contacts",
@@ -135,7 +142,8 @@ const routes = [
             },
         ],
     },
-    {//UserProfile
+    {
+        //UserProfile
         path: "/profile",
         name: "UserProfile",
         components: { mainRouter: UserProfile },
@@ -143,8 +151,8 @@ const routes = [
             documentTitle: "Mon profil",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
                 {
                     title: "Mon profil",
@@ -154,7 +162,8 @@ const routes = [
             requiredLogin: true,
         },
     },
-    {//CurrentETH
+    {
+        //CurrentETH
         path: "/gain",
         name: "CurrentETH",
         components: { mainRouter: EtherumFollow },
@@ -162,8 +171,8 @@ const routes = [
             documentTitle: "Etherum",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
                 {
                     title: "Etherum",
@@ -172,7 +181,8 @@ const routes = [
             ],
         },
     },
-    {//SatisfactoryCalculator
+    {
+        //SatisfactoryCalculator
         path: "/satisfactory/calculator",
         name: "SatisfactoryCalculator",
         components: { mainRouter: SatisfactoryCalculator },
@@ -180,8 +190,8 @@ const routes = [
             documentTitle: "Satisfactory Calculator",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
                 {
                     title: "Satisfactory Calculator",
@@ -190,7 +200,8 @@ const routes = [
             ],
         },
     },
-    {//GermanTest
+    {
+        //GermanTest
         path: "/germantest",
         name: "GermanTest",
         components: { mainRouter: GermanTest },
@@ -198,8 +209,8 @@ const routes = [
             documentTitle: "Apprendre ses verbes irréguliers",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
                 {
                     title: "Apprendre ses verbes irréguliers",
@@ -208,7 +219,8 @@ const routes = [
             ],
         },
     },
-    {//Chess
+    {
+        //Chess
         path: "/chess",
         name: "Chess",
         components: { mainRouter: ChessGame },
@@ -216,8 +228,8 @@ const routes = [
             documentTitle: "Jeu d'échecs",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
                 {
                     title: "Jeu d'échecs",
@@ -226,7 +238,8 @@ const routes = [
             ],
         },
     },
-    {//404
+    {
+        //404
         path: "/:pathMatch(.*)*",
         name: "404",
         components: { mainRouter: NotFound },
@@ -234,8 +247,8 @@ const routes = [
             documentTitle: "Perdition complète",
             breadCrumb: [
                 {
-                    title: "TryHard but SlowRun",
-                    link: "Home",
+                    title: "Accueil",
+                    link: "HomePage",
                 },
                 {
                     title: "Perdition complète",
@@ -251,20 +264,23 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
     // Lors d'un changement de composant/page, le scrolling revient en haut automatiquement
-    scrollBehavior () {
+    scrollBehavior() {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve({ left: 0, top: 0, behavior: "smooth" });
             }, 200);
         });
-    }
+    },
 });
 
 router.beforeEach(async (to) => {
     const MainStore = useMainStore();
     const { account } = MainStore;
-    if (to.matched.some(element => element.meta.requiredLogin) && account.connected !== true) {
-        return { name: "Home" };
+    if (
+        to.matched.some((element) => element.meta.requiredLogin) &&
+        account.connected !== true
+    ) {
+        return { name: "HomePage" };
     }
 });
 

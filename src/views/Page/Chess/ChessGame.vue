@@ -455,3 +455,368 @@ const sendMoveToVerif = async (move) => {
         </p>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+$size-case: 60px;
+$border-size-enabled-case: 3px;
+$external-layout-size: calc($size-case * 2 / 3);
+$text-size: calc($size-case/3);
+$external-border-size: 3px;
+$internal-border-size: 3px;
+$board-container-size: calc(
+    8 * $size-case + 2 * $external-layout-size + 2 * $external-border-size + 2 *
+        $internal-border-size
+);
+
+$first-color: #6a3425;
+$second-color: #c0a79f;
+$first-color-highlight: #33150d;
+$second-color-highlight: #5f4339;
+
+$white-piece-color: #bbbbbb;
+$white-piece-border-color: #3a3a3a;
+$black-piece-color: #000000;
+$black-piece-border-color: #3a3a3a;
+$piece-stroke-width: calc($size-case/3.75);
+$selected-case-color: #8d6e1a;
+$selected-case-border: #cacaca;
+$possible-moves-color: #185868;
+$possible-moves-border: #a7a7a7;
+
+$pawn-piece-choice-size: 150px;
+$pawn-modal-internal-space-size: 2px;
+$pawn-modal-border-size: 3px;
+$pawn-modal-size: 2 * $pawn-piece-choice-size + $pawn-modal-internal-space-size +
+    2 * $pawn-modal-border-size;
+$pawn-modal-color: #53514f;
+$pawn-modal-hover-color: #d4d4d4;
+$pawn-modal-border-color: #272626;
+$piece-choice-SVG-color: #8d6e1a;
+$piece-choice-SVG-border-color: #272626;
+$piece-choice-SVG-stroke-width: 15px;
+
+.board-container {
+    position: relative;
+    height: $board-container-size;
+    width: $board-container-size;
+    background-color: $first-color;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    border: solid $external-border-size $second-color;
+    transition: all 0.2s;
+
+    .board-text {
+        font-weight: 500;
+        font-size: $text-size;
+        color: $second-color;
+        user-select: none;
+    }
+
+    .corner {
+        width: $external-layout-size + $internal-border-size;
+        height: $external-layout-size;
+    }
+
+    .letters-box {
+        height: $external-layout-size;
+        width: calc(8 * $size-case);
+        display: flex;
+        flex-wrap: wrap;
+
+        .letter {
+            width: $size-case;
+            height: $external-layout-size;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .numbers-box {
+        width: $external-layout-size;
+        height: calc(8 * $size-case) + 2 * $internal-border-size;
+
+        .number {
+            height: $size-case;
+            width: $external-layout-size;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [y="8"],
+        [y="1"] {
+            height: $size-case + $internal-border-size;
+        }
+    }
+
+    .pieces-box {
+        width: calc(8 * $size-case + 2 * $internal-border-size);
+        height: calc(8 * $size-case + 2 * $internal-border-size);
+        border: solid $internal-border-size $second-color;
+        display: flex;
+        flex-wrap: wrap;
+
+        .case {
+            width: $size-case;
+            height: $size-case;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            &--white {
+                background-color: $second-color;
+
+                &.piece-can-moves {
+                    background: radial-gradient(
+                        circle,
+                        $second-color 26%,
+                        $second-color-highlight 38%,
+                        $second-color 100%
+                    );
+                    cursor: pointer;
+                }
+            }
+
+            &--black {
+                background-color: $first-color;
+
+                &.piece-can-moves {
+                    background: radial-gradient(
+                        circle,
+                        $first-color 26%,
+                        $first-color-highlight 38%,
+                        $first-color 100%
+                    );
+                    cursor: pointer;
+                }
+            }
+
+            svg {
+                margin-bottom: 4%;
+                height: 94%;
+                stroke-width: $piece-stroke-width;
+                stroke-width: max(25px);
+            }
+
+            .unclickable {
+                pointer-events: none;
+            }
+
+            .pawn {
+                height: 82%;
+            }
+        }
+
+        .pc--white {
+            color: $white-piece-color;
+            stroke: $white-piece-border-color;
+            cursor: pointer;
+        }
+
+        .pc--black {
+            cursor: pointer;
+            color: $black-piece-color;
+            stroke: $black-piece-border-color;
+        }
+
+        .selectedCase {
+            background-color: $selected-case-color;
+            border: $border-size-enabled-case solid $selected-case-border;
+            border-radius: calc(0.1 * $size-case);
+            cursor: pointer;
+        }
+
+        .possible-move {
+            background-color: $possible-moves-color;
+            border: $border-size-enabled-case solid $possible-moves-border;
+            border-radius: calc(0.1 * $size-case);
+            cursor: pointer;
+        }
+    }
+}
+
+#pawnTransformationModal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    position: absolute;
+    z-index: 10;
+
+    width: $pawn-modal-size;
+    height: $pawn-modal-size;
+    border: solid $pawn-modal-border-size $pawn-modal-border-color;
+    border-radius: calc(
+        ($pawn-modal-size - $pawn-modal-internal-space-size) / 2
+    );
+    top: calc(($board-container-size - $pawn-modal-size) / 2 - 3px);
+    left: calc(($board-container-size - $pawn-modal-size) / 2 - 3px);
+    background: radial-gradient(
+        circle,
+        $pawn-modal-border-color 0%,
+        $pawn-modal-border-color 20%,
+        $pawn-modal-color 70%
+    );
+
+    .piecechoice-box {
+        height: $pawn-piece-choice-size;
+        width: $pawn-piece-choice-size;
+        background-color: $pawn-modal-color;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $pawn-modal-hover-color;
+        }
+
+        svg {
+            height: 70%;
+            pointer-events: none;
+            margin: 10px 35px;
+            color: $piece-choice-SVG-color;
+            stroke: $piece-choice-SVG-border-color;
+            stroke-width: $piece-choice-SVG-stroke-width;
+            pointer-events: none;
+        }
+    }
+
+    .pawn-choice-box-tl {
+        border-top-left-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-end;
+        justify-content: end;
+    }
+
+    .pawn-choice-box-tr {
+        border-top-right-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-end;
+        justify-content: start;
+    }
+
+    .pawn-choice-box-bl {
+        border-bottom-left-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-start;
+        justify-content: end;
+    }
+
+    .pawn-choice-box-br {
+        border-bottom-right-radius: $pawn-piece-choice-size;
+        display: flex;
+        align-items: flex-start;
+        justify-content: start;
+    }
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.reset-button {
+    margin: 8px;
+    background-color: #ffffff;
+    color: #000000;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .reset-button,
+    .moves-counter,
+    .checked-box-input {
+        margin: 8px;
+    }
+
+    .reset-button,
+    .moves-counter,
+    .checked-box-input,
+    .check-shows-label {
+        background-color: #ffffff;
+        color: #000000;
+        height: 40px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+
+        .check-shows-input:not(:checked) + .check-shows-label::after,
+        .check-shows-input:checked + .check-shows-label::after {
+            margin-left: 10px;
+            font-weight: 600;
+            font-size: 20px;
+            text-align: center;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .check-shows-input:not(:checked) + .check-shows-label::after {
+            content: "✔";
+            color: #9c9c9c;
+            background-color: #9c9c9c;
+        }
+
+        .check-shows-input:checked + .check-shows-label::after {
+            content: "✔";
+            color: #000000;
+            background-color: #6a3425;
+        }
+    }
+
+    .checked-box-input {
+        padding: 0;
+    }
+}
+
+.table-box {
+    width: fit-content;
+    margin: 10px auto;
+    overflow: scroll;
+    max-width: 100%;
+
+    th,
+    td {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        text-align: center;
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    th {
+        font-weight: 700;
+        background-color: lightskyblue;
+    }
+
+    tr:nth-child(2n) {
+        background-color: lightpink;
+    }
+
+    tr:nth-child(2n + 1) {
+        background-color: lightgrey;
+    }
+
+    .emptyTD {
+        background-color: #242424;
+    }
+}
+
+.temporay-explanation {
+    color: var(--titleColor);
+    text-align: justify;
+}
+
+.test {
+    color: #ffffff;
+}
+</style>

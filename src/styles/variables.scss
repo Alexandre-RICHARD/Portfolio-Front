@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+//? Police d'écriture
+$kanit: "Kanit", sans-serif;
+
+//? Taille de police
+$tiny: 11px;
+$small: 13px;
+$medium: 15px;
+$large: 17px;
+$extra-large: 20px;
+$big-title: 25px;
+
+//? Couleur
+$transparent: #00000080;
+$color0: #ffffff;
+$color1: #e7e7e7;
+$color2: #ffd803; //!Unused
+$color3: #ff8e3c; //!Unused
+$color4: #ff8906; //!Unused
+$color5: #f25f4c; //!Unused
+$color6: #e53170; //!Unused
+$color7: #ef4565; //!Unused
+$color8: #e3f6f5;
+$color9: #bae8e8; //!Unused
+$color10: #90b4ce; //!Unused
+$color11: #3da9fc;
+$color12: #297fc2;
+$color13: #202a53;
+$color14: #151d3f;
+$color15: #152a7e;
+
+//? Z-index
+$z-index-bread-crumb: 1;
+$z-index-header: 2;
+$z-index-header-menu: 3;
+$z-index-header-menu-button: 4;
+$z-index-header-logo: 5;
+$z-index-loading-logo: 6;
+$z-index-versionning: 7;
+
+//? Duration
+// $animation-logo-duration: 320ms;
+$animation-logo-duration: 3ms;
+$animation-logo-duration-delay: calc($animation-logo-duration * 0.65);
+$transition-header-menu-duration: 300ms;
+
+//? Variables spécifiques
+$largeurF: 140px;
+$largeurB: calc($largeurF / 10);
+$longueurE: calc($largeurF / 5);
+$border: calc($largeurF * 1.39513 + 4px);
+$uq1: calc($largeurF * 0.07113);
+$uq2: calc($largeurF * 0.48301);
+$dc1: calc($largeurF * 0.45387);
+$dc2: calc($largeurF * 0.1799);
+$ts1: calc($largeurF * 0.38273);
+$ts2: calc($largeurF * 0.30311);
+$cache: calc($largeurF * 0.80774 + 2px);
+
+$loading-logo-size: 5px;
+$loading-logo-size-coefficient: 20;
+$loading-logo-cache: #000000b7;
+$loading-logo-transparent: #ffffff4b;
+
+$header-height: 90px;
+
+// On stocke quelques variables CSS ici
+$header-height-size: 75px;
+$header-theme-choice-size: 28px;
+$menu-modal-size: 300px;
+
+$small-font-size: 12px;
+$normal-font-size: 16px;
+$big-font-size: 18px;
+
+$transparent: #ffffff33;
+
+$loading-logo-size: 5px;
+$loading-logo-size-mult: 20;
+
+// La classe :root servant à stocker nos variables changeantes de thèmes
+:root {
+    --backgroundColor: #0f0e17;
+    --smoothBackgroundColor: #242230;
+    --titleColor: #ffffff;
+    --textColor: #a7a9be;
+    --textShadowColor: #0f0e178e;
+    --headerColor: #f25f4c;
+    --buttonColorOne: #ff8906;
+    --buttonColorTwo: #e53170;
+}

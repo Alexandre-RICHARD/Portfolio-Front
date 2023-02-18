@@ -10,7 +10,7 @@ export const cookieHandler = {
         }
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     },
-    
+
     getCookie: (name) => {
         const nameEQ = name + "=";
         const decodedCookie = decodeURIComponent(document.cookie);
@@ -18,7 +18,8 @@ export const cookieHandler = {
         for (let i = 0; i < ca.length; i++) {
             let c = ca[i];
             while (c.charAt(0) == " ") c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            if (c.indexOf(nameEQ) == 0)
+                return c.substring(nameEQ.length, c.length);
         }
         return null;
     },
@@ -35,23 +36,36 @@ export const cookieHandler = {
         }
     },
 
-    handleAccountSessionCookie: (context, callback, nickname = "", mail = "", days = 365) => {
+    handleAccountSessionCookie: (
+        context,
+        callback,
+        nickname = "",
+        mail = "",
+        days = 365
+    ) => {
         switch (context) {
-        case "collect" :
-            if (cookieHandler.getCookie("accountNickname") && cookieHandler.getCookie("accountMail")) {
-                callback(true, cookieHandler.getCookie("accountNickname"), cookieHandler.getCookie("accountMail"));
+        case "collect":
+            if (
+                cookieHandler.getCookie("accountNickname") &&
+                    cookieHandler.getCookie("accountMail")
+            ) {
+                callback(
+                    true,
+                    cookieHandler.getCookie("accountNickname"),
+                    cookieHandler.getCookie("accountMail")
+                );
             }
             break;
-        case "write" :
-            cookieHandler.setCookie("accountNickname",nickname, days);
+        case "write":
+            cookieHandler.setCookie("accountNickname", nickname, days);
             cookieHandler.setCookie("accountMail", mail, days);
             break;
-        case "erase" :
-            cookieHandler.setCookie("accountNickname",null, -days);
+        case "erase":
+            cookieHandler.setCookie("accountNickname", null, -days);
             cookieHandler.setCookie("accountMail", null, -days);
             break;
-        default :
+        default:
             break;
         }
-    },    
+    },
 };

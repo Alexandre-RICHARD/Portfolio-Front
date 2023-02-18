@@ -8,6 +8,13 @@ const route = useRoute();
 let matched = reactive([]);
 let lastLinkTitle = ref();
 
+defineProps({
+    visibility: {
+        type: Boolean,
+        required: true,
+    },
+});
+
 // On utilise le useRoute pour venir récupérer l'ininéraire de notre URl et venir le recréer en traçant une série de liens cliquables
 // On surveille route.watched afin de changer le breadCrumb automatiquement
 watch(
@@ -30,7 +37,7 @@ watch(
                     }
                 });
                 break;
-            default :
+            default:
                 break;
             }
         }
@@ -39,7 +46,7 @@ watch(
 </script>
 
 <template>
-    <div class="bread-crumb">
+    <div class="bread-crumb" :class="{ hidden: !visibility }">
         <div
             v-for="partPath in matched[0]"
             :key="partPath.name"
@@ -52,3 +59,46 @@ watch(
         </div>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.bread-crumb {
+    position: absolute;
+    top: $header-height;
+    left: 10px;
+    background-color: $color12;
+    color: $color8;
+    width: fit-content;
+    border-radius: 25px;
+    padding: 10px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: $z-index-bread-crumb;
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+
+    &.hidden {
+        transform: translateX(-250px);
+        opacity: 0;
+    }
+
+    .one-path-box {
+        .guillemet {
+            font-size: $medium;
+            font-weight: 400;
+        }
+
+        .link {
+            padding: 0 8px;
+            font-size: $medium;
+            font-weight: 300;
+
+            &:hover {
+                text-underline-offset: 3px;
+                text-decoration: underline 2px;
+            }
+        }
+    }
+}
+</style>

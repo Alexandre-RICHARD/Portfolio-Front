@@ -26,7 +26,7 @@ const age = Math.floor(
             <img
                 alt="illustration représentant du code javascript"
                 class="illustration"
-                src="../../../images/code-illustration.png"
+                src="@static/images/code-illustration.png"
             >
         </div>
 
@@ -90,3 +90,107 @@ const age = Math.floor(
         </router-link>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+//? Les élements réutilisés plusieurs fois
+.paragraph {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    padding: 3px 0;
+    text-align: justify;
+}
+
+.categories {
+    background-color: var(--backgroundColor);
+    color: var(--titleColor);
+    padding-top: 15px;
+    font-weight: 400;
+    font-size: $extra-large;
+}
+//? Les élements réutilisés plusieurs fois
+
+.portfolio-home {
+    background-color: var(--backgroundColor);
+    .home-first-container {
+        background-color: var(--backgroundColor);
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        .page-title {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            font-weight: 500;
+            font-size: 35px;
+            line-height: 35px;
+        }
+
+        .main-skills {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+        }
+
+        .illustration {
+            background-color: var(--backgroundColor);
+            width: calc(100% - 320px);
+            object-fit: cover;
+            padding-left: 40px;
+        }
+    }
+
+    .presentation-link-box {
+        background-color: var(--backgroundColor);
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .link-to-more {
+        background-color: var(--buttonColorOne);
+        color: var(--titleColor);
+        width: fit-content;
+        padding: 6px;
+        margin: 10px auto;
+        border-radius: 7px;
+        display: block;
+        text-align: center;
+
+        &.curriculum-pdf {
+            background-color: var(--buttonColorTwo);
+        }
+    }
+
+    .home-contact-box {
+        background-color: var(--backgroundColor);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .one-contact-box {
+            .contact-element {
+                margin: 10px;
+            }
+        }
+    }
+
+    .link-to-more {
+        &::before {
+            display: block;
+            content: attr(title);
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+
+    .link-to-more {
+        &::before {
+            font-weight: 600;
+        }
+        &:hover {
+            font-weight: 600;
+        }
+    }
+}
+</style>

@@ -180,7 +180,7 @@ const informationsList = [
                 <img
                     class="photo"
                     alt="Photographie de ma personne"
-                    src="../../../images/portrait.png"
+                    src="@static/images/portrait.png"
                 >
                 Je suis un jeune de {{ age }} ans qui s'est pris de passion pour
                 le développement web après des années à chercher l'étincelle.
@@ -324,3 +324,240 @@ const informationsList = [
         </div>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.curriculum-container {
+    li {
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+
+        &::before {
+            content: ">";
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--buttonColorTwo);
+            padding-right: 5px;
+        }
+    }
+}
+
+.curriculum-container {
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .categories {
+        background-color: var(--backgroundColor);
+        min-width: 28%;
+        margin-right: 6px;
+
+        .title-box {
+            background-color: var(--backgroundColor);
+            display: flex;
+            width: 100%;
+            margin: 10px 0;
+
+            .title {
+                color: var(--titleColor);
+                background-color: var(--smoothBackgroundColor);
+                padding: 3px 12px;
+                border-radius: 10px;
+                border: 4px solid var(--buttonColorOne);
+            }
+
+            .line-up {
+                background-color: var(--buttonColorOne);
+                margin-left: -20px;
+                width: 100%;
+                height: 2px;
+            }
+        }
+    }
+
+    .description-text {
+        background-color: var(--backgroundColor);
+        color: var(--textColor);
+        text-align: justify;
+        width: 100%;
+
+        .photo {
+            background-color: var(--backgroundColor);
+            margin-right: 12px;
+            width: 200px;
+            border: 2px solid var(--titleColor);
+            float: left;
+        }
+    }
+
+    .hobbies {
+        background-color: var(--backgroundColor);
+        .hobbies-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+
+    .quality {
+        background-color: var(--backgroundColor);
+        .qualities-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+
+    .further-information {
+        background-color: var(--backgroundColor);
+        .further-information-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+
+    .professional-experiences,
+    .education {
+        background-color: var(--backgroundColor);
+        overflow: hidden;
+
+        .one-of-them {
+            background-color: var(--backgroundColor);
+            display: flex;
+
+            .left {
+                padding-top: 50px;
+                background-color: var(--backgroundColor);
+                min-width: 30%;
+                border-bottom: 1px solid var(--smoothBackgroundColor);
+
+                .whichone {
+                    background-color: var(--backgroundColor);
+                    font-size: 15px;
+                    color: var(--titleColor);
+                }
+
+                .where {
+                    background-color: var(--backgroundColor);
+                    font-size: 12px;
+                    color: var(--textColor);
+                }
+            }
+
+            .middle {
+                background-color: var(--backgroundColor);
+                min-width: 25px;
+                max-width: 25px;
+                display: flex;
+                justify-content: center;
+                margin-right: 5px;
+
+                .date {
+                    z-index: 3;
+                    height: fit-content;
+                    position: absolute;
+                    background-color: var(--titleColor);
+                    color: var(--backgroundColor);
+                    padding: 3px;
+                    border-radius: 4px;
+
+                    p {
+                        letter-spacing: 0.5px;
+                        text-align: center;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+
+                .line-cache {
+                    z-index: 2;
+                    height: 100%;
+                    width: calc(50% - 1px);
+                    background-color: var(--backgroundColor);
+                }
+
+                .line {
+                    z-index: 1;
+                    height: 100%;
+                    width: 1px;
+                    background-color: var(--titleColor);
+                    box-shadow: 0px 0px 9px 1px var(--titleColor);
+                }
+
+                .line-uncache {
+                    z-index: 0;
+                    height: 100%;
+                    width: calc(50% - 1px);
+                    background-color: transparent;
+                }
+            }
+
+            .right {
+                padding-top: 50px;
+                background-color: var(--backgroundColor);
+                border-bottom: 1px solid var(--smoothBackgroundColor);
+                font-size: 16px;
+                color: var(--textColor);
+                text-align: justify;
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    .skills {
+        background-color: var(--backgroundColor);
+        .further-information-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+
+    .qualification {
+        background-color: var(--backgroundColor);
+        .further-information-list {
+            background-color: var(--backgroundColor);
+            font-size: 16px;
+            color: var(--textColor);
+        }
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    .curriculum-container {
+        .professional-experiences,
+        .education {
+            .one-of-them {
+                .left {
+                    padding-top: 0;
+
+                    .whichone {
+                        font-size: 18px;
+                    }
+
+                    .where {
+                        font-size: 14px;
+                    }
+                }
+
+                .middle {
+                    min-width: 115px;
+                    max-width: 115px;
+
+                    .line {
+                        box-shadow: 0px 0px 18px 2px var(--titleColor);
+                    }
+                }
+
+                .right {
+                    padding-top: 0;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+</style>

@@ -59,19 +59,21 @@ const updateStrengthPassword = () => {
 const toggleShowPassword = (event) => {
     event.preventDefault();
     const closestForm = event.target.closest("form");
-    const allButtonShowPassword = document.querySelectorAll(`.${closestForm.classList[0]} .toggle-show-password`);
-    allButtonShowPassword.forEach(element => {
+    const allButtonShowPassword = document.querySelectorAll(
+        `.${closestForm.classList[0]} .toggle-show-password`
+    );
+    allButtonShowPassword.forEach((element) => {
         const password = element.closest("div").querySelector("input");
         const img = document.createElement("img");
         element.innerHTML = "";
         if (element.showed) {
             element.showed = false;
             password.type = "password";
-            img.src = require("../../images/show-password.svg");
+            img.src = require("@static/images/show-password.svg");
         } else {
             element.showed = true;
             password.type = "text";
-            img.src = require("../../images/unshow-password.svg");
+            img.src = require("@static/images/unshow-password.svg");
         }
         element.appendChild(img);
     });
@@ -79,7 +81,10 @@ const toggleShowPassword = (event) => {
 </script>
 
 <template>
-    <div :id="props.name" :class="props.type === 'password' ? 'input password' : 'input'">
+    <div
+        :id="props.name"
+        :class="props.type === 'password' ? 'input password' : 'input'"
+    >
         <label :for="name">{{ title }}</label>
         <input
             :id="name"
@@ -91,8 +96,13 @@ const toggleShowPassword = (event) => {
             @input="handleChange"
             @blur="losingFocus"
         >
-        <button v-if="props.type === 'password'" class="toggle-show-password" showed="false" @click="toggleShowPassword">
-            <img src="../../images/show-password.svg">
+        <button
+            v-if="props.type === 'password'"
+            class="toggle-show-password"
+            showed="false"
+            @click="toggleShowPassword"
+        >
+            <img src="@static/images/show-password.svg">
         </button>
     </div>
     <div
@@ -111,3 +121,126 @@ const toggleShowPassword = (event) => {
         </p>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.new-mail-form,
+.new-password-form,
+.delete-account-form,
+.login-form,
+.register-form {
+    background-color: var(--backgroundColor);
+    color: var(--titleColor);
+    display: flex;
+    flex-direction: column;
+
+    .input {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        margin: 10px 0;
+
+        label {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            display: block;
+            padding: 3px;
+        }
+
+        input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            width: 100%;
+            padding: 4px;
+            border: 2px solid transparent;
+
+            &.good {
+                border-color: green;
+            }
+
+            &.error {
+                border-color: red;
+            }
+        }
+
+        &.password {
+            position: relative;
+
+            .toggle-show-password {
+                background-color: var(--titleColor);
+                z-index: 4;
+                position: absolute;
+                width: 40px;
+                height: 32px;
+                bottom: 2px;
+                right: 2px;
+                border-left: 1px solid #b1b1b1;
+            }
+        }
+    }
+
+    .strong-password-box {
+        position: relative;
+
+        .strong-password {
+            width: 100%;
+            position: absolute;
+            top: -10px;
+        }
+    }
+
+    .error-box {
+        background-color: var(--smoothBackgroundColor);
+        color: var(--textColor);
+        padding: 5px;
+        border-radius: 5px;
+
+        .title {
+            background-color: var(--smoothBackgroundColor);
+            color: var(--textColor);
+            font-size: 16px;
+        }
+
+        .error {
+            background-color: var(--smoothBackgroundColor);
+            color: var(--textColor);
+            font-size: 14px;
+        }
+    }
+
+    .submit-button {
+        background-color: var(--headerColor);
+        color: var(--titleColor);
+        font-weight: 600;
+        font-size: 16px;
+        text-shadow: 1px 1px 1px var(--textShadowColor);
+        cursor: pointer;
+        letter-spacing: 1px;
+        width: fit-content;
+        margin: 7px auto;
+        padding: 7px;
+        border-radius: 9px;
+        border: 2px solid transparent;
+
+        &:hover {
+            border-color: var(--titleColor);
+        }
+    }
+
+    .not-concerned {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        padding-top: 7px;
+        text-align: center;
+
+        &-button {
+            background-color: var(--backgroundColor);
+            color: var(--buttonColorTwo);
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+    }
+}
+</style>

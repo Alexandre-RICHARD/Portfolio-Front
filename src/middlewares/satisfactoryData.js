@@ -10,11 +10,9 @@ export const data = {
                     machinery: "smelter",
                     outputSize: 1,
                     craftDuration: 2,
-                    input: [
-                        ["ironOre", 1, "primary"]
-                    ]
-                }
-            ]
+                    input: [["ironOre", 1, "primary"]],
+                },
+            ],
         },
         ironPlate: {
             id: 2,
@@ -26,11 +24,9 @@ export const data = {
                     machinery: "constructor",
                     outputSize: 2,
                     craftDuration: 6,
-                    input: [
-                        ["ironIngot", 3, "secondary"]
-                    ]
-                }
-            ]
+                    input: [["ironIngot", 3, "secondary"]],
+                },
+            ],
         },
         ironRod: {
             id: 3,
@@ -42,11 +38,9 @@ export const data = {
                     machinery: "constructor",
                     outputSize: 1,
                     craftDuration: 4,
-                    input: [
-                        ["ironIngot", 1, "secondary"]
-                    ]
-                }
-            ]
+                    input: [["ironIngot", 1, "secondary"]],
+                },
+            ],
         },
         screw: {
             id: 4,
@@ -58,14 +52,10 @@ export const data = {
                     machinery: "constructor",
                     outputSize: 4,
                     craftDuration: 6,
-                    input: [
-                        ["ironRod", 1, "secondary"]
-                    ]
-                }
-            ]
+                    input: [["ironRod", 1, "secondary"]],
+                },
+            ],
         },
     },
-    machinery: {
-
-    },
+    machinery: {},
 };

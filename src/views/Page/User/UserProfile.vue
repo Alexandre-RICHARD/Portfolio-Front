@@ -634,7 +634,10 @@ const inputLosingFocus = (target) => {
                 >
             </form>
             <form class="new-password-form">
-                <div v-if="errorDataNewPassword[3].length !== 0" class="error-box">
+                <div
+                    v-if="errorDataNewPassword[3].length !== 0"
+                    class="error-box"
+                >
                     <p class="error">
                         {{ errorDataNewPassword[3][0] }}
                     </p>
@@ -680,7 +683,10 @@ const inputLosingFocus = (target) => {
                 >
             </form>
             <form class="delete-account-form">
-                <div v-if="errorDeleteAccount[1].length !== 0" class="error-box">
+                <div
+                    v-if="errorDeleteAccount[1].length !== 0"
+                    class="error-box"
+                >
                     <p class="error">
                         {{ errorDeleteAccount[1][0] }}
                     </p>
@@ -707,3 +713,51 @@ const inputLosingFocus = (target) => {
         </div>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.user-profile {
+    .account-parameters {
+        background-color: var(--backgroundColor);
+        color: var(--buttonColorOne);
+        font-weight: 500;
+        font-size: 25px;
+    }
+
+    .parameters-container {
+        background-color: var(--backgroundColor);
+        display: flex;
+        gap: 50px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .new-mail-form,
+        .new-password-form,
+        .delete-account-form {
+            min-width: 400px;
+        }
+
+        .delete-account-form {
+            .submit-button {
+                z-index: 2;
+            }
+
+            #deleteAccountPassword {
+                animation: 0.6s ease-out 1 displayInput;
+                z-index: 1;
+
+                @keyframes displayInput {
+                    0% {
+                        transform: translateY(-75px) scale(0);
+                    }
+
+                    100% {
+                        transform: translateY(0px) scale(1);
+                    }
+                }
+            }
+        }
+    }
+}
+</style>

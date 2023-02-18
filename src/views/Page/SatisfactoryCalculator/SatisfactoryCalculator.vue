@@ -50,7 +50,8 @@ const handleDisplayList = {
 const chooseRessource = (resources) => {
     handleDisplayList.closeMenu();
     currentResorces.value = data.resources[resources].name;
-    document.querySelector(".search-input").value = data.resources[resources].frenchName;
+    document.querySelector(".search-input").value =
+        data.resources[resources].frenchName;
     verifySubmit(false, null);
 };
 
@@ -63,37 +64,42 @@ const verifySubmit = (submit = false, event) => {
     type.blur();
     quantity.blur();
     const typeOk = data.resources[currentResorces.value] ? true : false;
-    const quantityOk = quantity.value >=0 && quantity.value < 100000;
-    
+    const quantityOk = quantity.value >= 0 && quantity.value < 100000;
+
     if (typeOk && quantityOk) {
         isOkToValidate.value = true;
     }
 
     if (submit === true) {
-        newResorcesSubmit(data.resources[currentResorces.value].name, quantity.value);
+        newResorcesSubmit(
+            data.resources[currentResorces.value].name,
+            quantity.value
+        );
     }
-
 };
-
 
 const newResorcesSubmit = (type, quantity) => {
     selectedResources.push([type, quantity]);
-    console.log(selectedResources);
     document.querySelector(".search-input").value = "";
     document.querySelector(".quantity-input").value = 10;
 };
-
 </script>
 
 <template>
     <div class="addRessorcesMenu">
         <div class="selected-resorces-container">
-            <div v-for="resorce, index in selectedResources" :key="index" class="one-resource">
-                <span class="one-resource-type">{{ data.resources[resorce[0]].frenchName }}</span>
+            <div
+                v-for="(resorce, index) in selectedResources"
+                :key="index"
+                class="one-resource"
+            >
+                <span class="one-resource-type">{{
+                    data.resources[resorce[0]].frenchName
+                }}</span>
                 <span class="one-resource-quantity">{{ resorce[1] }}</span>
             </div>
         </div>
-        <!-- <div class="input-box">
+        <div class="input-box">
             <input
                 class="search-input"
                 placeholder="Chercher ou sélectionner une ressource"
@@ -108,7 +114,13 @@ const newResorcesSubmit = (type, quantity) => {
                 value="10"
                 @change="verifySubmit(false, null)"
             >
-            <button class="submit-input" :class="{invalid: !isOkToValidate}" @click="verifySubmit(true)">Ajouter</button>
+            <button
+                class="submit-input"
+                :class="{ invalid: !isOkToValidate }"
+                @click="verifySubmit(true)"
+            >
+                Ajouter
+            </button>
         </div>
         <div class="search-result">
             <ul v-if="isAddRessorcesOpen" class="menu">
@@ -121,6 +133,117 @@ const newResorcesSubmit = (type, quantity) => {
                     {{ resources.frenchName }}
                 </li>
             </ul>
-        </div> -->
+        </div>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.addRessorcesMenu {
+    background-color: var(--textColor);
+    color: var(--textColor);
+    width: max-content;
+    width: 100%;
+    padding: 10px;
+
+    .selected-resorces-container {
+        color: var(--backgroundColor);
+
+        .one-resource {
+            display: flex;
+            flex-direction: row;
+
+            &-type {
+                background-color: var(--titleColor);
+                color: var(--backgroundColor);
+                font-size: 16px;
+                padding: 4px;
+                width: 340px;
+            }
+
+            &-quantity {
+                background-color: var(--titleColor);
+                color: var(--backgroundColor);
+                font-size: 16px;
+                padding: 4px;
+                margin-left: 10px;
+                width: 85px;
+            }
+        }
+    }
+
+    .input-box {
+        display: flex;
+
+        .search-input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            font-size: 16px;
+            padding: 4px;
+            width: 340px;
+        }
+
+        .quantity-input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            font-size: 16px;
+            padding: 4px;
+            margin-left: 10px;
+            width: 85px;
+        }
+
+        .submit-input {
+            background-color: var(--titleColor);
+            color: var(--backgroundColor);
+            margin-left: 10px;
+            padding: 4px;
+
+            :not(.invalid):hover {
+                background-color: var(--headerColor);
+            }
+        }
+
+        .invalid {
+            color: var(--textColor);
+            opacity: 0.4;
+            cursor: default;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+    .search-result {
+        width: 340px;
+        display: flex;
+        justify-content: center;
+
+        .menu {
+            background-color: var(--textColor);
+            width: inherit;
+            position: absolute;
+            width: inherit;
+            border: 1px solid var(--backgroundColor);
+            padding-top: 5px;
+            max-height: 255px;
+
+            &-open {
+                display: block;
+            }
+
+            .one-ressorces {
+                padding: 5px;
+                width: 100%;
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                transition: all 0.2s;
+                height: 40px;
+
+                &:hover {
+                    background-color: var(--buttonColorOne);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+</style>

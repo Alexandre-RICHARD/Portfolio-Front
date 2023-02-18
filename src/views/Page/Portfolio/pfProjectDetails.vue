@@ -22,7 +22,7 @@ if (!ourProject) {
     <div v-if="ourProject" class="detailled-project">
         <img
             class="detailled-project-illustration"
-            src="../../../images/projectIllustration/large/projectIllustrationPlaceholder.png"
+            src="@static/images/projectIllustration/large/projectIllustrationPlaceholder.png"
         >
         <router-link
             class="detailled-project-link-access"

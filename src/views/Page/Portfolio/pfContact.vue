@@ -4,7 +4,7 @@ import ContactButton from "../../Parts/ContactButton.vue";
 import { useMainStore } from "../../../store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
-// const API_URL = process.env.API_URL;
+const API_URL = process.env.API_URL;
 
 // A m'aide de Reactive, on créé cet objet de valeur qui seront affichés en temps réel dès qu'elles changeront
 const contactByMailValues = reactive({
@@ -20,19 +20,19 @@ const submitContactForm = (event) => {
     sendMail();
 };
 
-const sendMail =  () => {
-    // try {
-    //     fetch(API_URL + "/contact", {
-    //         headers: {
-    //             Accept: "application/json",
-    //             "Content-Type": "application/json",
-    //         },
-    //         method: "POST",
-    //         body: JSON.stringify(contactByMailValues),
-    //     });
-    // } catch (error) {
-    //     console.trace(error);
-    // }
+const sendMail = () => {
+    try {
+        fetch(API_URL + "/contact", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(contactByMailValues),
+        });
+    } catch (error) {
+        console.trace(error);
+    }
 };
 </script>
 
@@ -151,3 +151,97 @@ const sendMail =  () => {
         </form>
     </div>
 </template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.contact-box {
+    background-color: var(--backgroundColor);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .contact-sub-box {
+        background-color: var(--smoothBackgroundColor);
+        padding: 10px;
+        border-radius: 20px;
+        height: fit-content;
+        margin: 30px 0;
+
+        .contact-box-title {
+            background-color: var(--smoothBackgroundColor);
+            color: var(--titleColor);
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+    }
+}
+
+.contact-me {
+    background-color: var(--backgroundColor);
+    color: var(--titleColor);
+    margin: auto;
+    height: fit-content;
+    width: 100%;
+    margin: 20px 0;
+
+    &-form {
+        background-color: var(--backgroundColor);
+        color: var(--titleColor);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .input {
+            background-color: var(--backgroundColor);
+            color: var(--titleColor);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+
+            label {
+                background-color: var(--backgroundColor);
+                color: var(--titleColor);
+                padding: 4px;
+            }
+
+            input {
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                padding: 4px;
+                width: 100%;
+            }
+
+            textarea {
+                transition: all 0.4s, width 0s, height 0s;
+                background-color: var(--textColor);
+                color: var(--backgroundColor);
+                padding: 4px;
+                width: 100%;
+            }
+        }
+        .submit-button {
+            background-color: var(--buttonColorTwo);
+            width: 200px;
+            margin: auto;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .contact-box {
+        .contact-sub-box {
+            margin: 30px 10px;
+            .contact-box-title {
+                font-size: 20px;
+            }
+        }
+    }
+}
+</style>
