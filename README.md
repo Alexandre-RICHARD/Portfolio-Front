@@ -890,6 +890,11 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Le bouton du menu latéral est maintenant en fixed pour être le seul élément de la page hormis le versionning à rester toujours visible même en scroll.
 -   Ajout d'une bordure transparante si le menu n'est pas ouvert sur le bouton pour avoir une petite transition agréable
 
+### build 105 - 1.1.3 `18 février 2023`
+
+-   Tous les imports réguliers utilisent des alias adaptés, on compte : @middlewares, @parts, @root, @router, @src, @static, @store, @styles et @views
+-   Déplacer des pièces d'échecs SVG dans parts
+
 </details>
 
 ## Les problèmes du site actuellement

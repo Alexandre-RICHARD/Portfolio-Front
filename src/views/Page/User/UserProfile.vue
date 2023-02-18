@@ -1,7 +1,7 @@
 <script setup>
-import AccountInput from "../../Parts/AccountInput.vue";
+import AccountInput from "@parts/AccountInput.vue";
 import { ref, reactive } from "vue";
-import { useMainStore } from "../../../store/Main";
+import { useMainStore } from "@store/Main";
 const API_URL = process.env.API_URL;
 const MainStore = useMainStore();
 const { account, modalData } = MainStore;

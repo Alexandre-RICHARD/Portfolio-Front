@@ -1,22 +1,22 @@
 // On importe les éléments utiles de Vue Router
 import { createRouter, createWebHistory } from "vue-router";
-import { useMainStore } from "../store/Main";
+import { useMainStore } from "@store/Main";
 
 // On importe toutes les vues qui seront utilisées par notre router principal
-import HomePage from "../views/Page/HomePage.vue";
-import NotFound from "../views/Page/Other/NotFound.vue";
-import EtherumFollow from "../views/Page/Other/EtherumFollow.vue";
-import UserProfile from "../views/Page/User/UserProfile.vue";
+import HomePage from "@views/Page/HomePage.vue";
+import NotFound from "@views/Page/Other/NotFound.vue";
+import EtherumFollow from "@views/Page/Other/EtherumFollow.vue";
+import UserProfile from "@views/Page/User/UserProfile.vue";
 
-import SatisfactoryCalculator from "../views/Page/SatisfactoryCalculator/SatisfactoryCalculator.vue";
-import ChessGame from "../views/Page/Chess/ChessGame.vue";
-import GermanTest from "../views/Page/GermanTest/GermanTest.vue";
+import SatisfactoryCalculator from "@views/Page/SatisfactoryCalculator/SatisfactoryCalculator.vue";
+import ChessGame from "@views/Page/Chess/ChessGame.vue";
+import GermanTest from "@views/Page/GermanTest/GermanTest.vue";
 
-import pfHome from "../views/Page/Portfolio/pfHome.vue";
-import pfCurriculum from "../views/Page/Portfolio/pfCurriculum.vue";
-import pfProjects from "../views/Page/Portfolio/pfProjects.vue";
-import pfProjectDetails from "../views/Page/Portfolio/pfProjectDetails.vue";
-import pfContact from "../views/Page/Portfolio/pfContact.vue";
+import pfHome from "@views/Page/Portfolio/pfHome.vue";
+import pfCurriculum from "@views/Page/Portfolio/pfCurriculum.vue";
+import pfProjects from "@views/Page/Portfolio/pfProjects.vue";
+import pfProjectDetails from "@views/Page/Portfolio/pfProjectDetails.vue";
+import pfContact from "@views/Page/Portfolio/pfContact.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [

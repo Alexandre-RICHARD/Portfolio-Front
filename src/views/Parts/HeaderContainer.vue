@@ -1,17 +1,16 @@
 <script setup>
-import BreadCrumb from "../Parts/BreadCrumb.vue";
-import HeaderMenu from "./HeaderMenu.vue";
-import HeaderLogo from "./HeaderLogo.vue";
-import HeaderLink from "./HeaderLink.vue";
+import BreadCrumb from "@parts/BreadCrumb.vue";
+import HeaderMenu from "@parts/HeaderMenu.vue";
+import HeaderLogo from "@parts/HeaderLogo.vue";
+import HeaderLink from "@parts/HeaderLink.vue";
 import { ref } from "vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
-// import ThemePallet from "../Parts/ThemePallet.vue";
-import { useMainStore } from "../../store/Main";
+import { useMainStore } from "@store/Main";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const MainStore = useMainStore();
 const { account, headerLinks, headerModals, modalData } = MainStore;
-const { cookieHandler } = require("../../middlewares/cookieHandler.js");
+const { cookieHandler } = require("@middlewares/cookieHandler.js");
 
 const handleAccountModal = (open, type) => {
     modalData.open = open;

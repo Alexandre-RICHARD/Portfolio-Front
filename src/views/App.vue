@@ -1,13 +1,13 @@
 <script setup>
-import AccountModal from "./Parts/AccountModal.vue";
-import LoadingLogo from "./Parts/LoadingLogo.vue";
-import ProjectVersionning from "./Parts/ProjectVersionning.vue";
-import HeaderContainer from "./Parts/HeaderContainer.vue";
+import AccountModal from "@parts/AccountModal.vue";
+import LoadingLogo from "@parts/LoadingLogo.vue";
+import ProjectVersionning from "@parts/ProjectVersionning.vue";
+import HeaderContainer from "@parts/HeaderContainer.vue";
 
-import { useMainStore } from "./../store/Main";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { account, modalData } = MainStore;
-const { cookieHandler } = require("../middlewares/cookieHandler.js");
+const { cookieHandler } = require("@middlewares/cookieHandler.js");
 
 cookieHandler.handleVisitCookie(365);
 cookieHandler.handleAccountSessionCookie(

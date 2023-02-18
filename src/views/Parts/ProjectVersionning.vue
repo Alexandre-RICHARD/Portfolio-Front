@@ -1,5 +1,5 @@
 <script setup>
-import pjson from "../../../package.json";
+import pjson from "@root/package.json";
 </script>
 
 <template>

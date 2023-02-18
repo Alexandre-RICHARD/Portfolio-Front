@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from "vue";
-import ContactButton from "../../Parts/ContactButton.vue";
-import { useMainStore } from "../../../store/Main";
+import ContactButton from "@parts/ContactButton.vue";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
 const API_URL = process.env.API_URL;

@@ -1,10 +1,10 @@
 <script setup>
 import { ref, reactive } from "vue";
-import { useMainStore } from "./../../../store/Main";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { modalData } = MainStore;
 const API_URL = process.env.API_URL;
-const { data } = require("../../../middlewares/verbData.js");
+const { data } = require("@middlewares/verbData.js");
 
 const activate = ref(true);
 let error = ref("");

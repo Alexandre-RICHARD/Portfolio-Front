@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive } from "vue";
-const { data } = require("../../../middlewares/satisfactoryData.js");
+const { data } = require("@middlewares/satisfactoryData.js");
 
 const isAddRessorcesOpen = ref(false);
 const currentResorces = ref();

@@ -1,5 +1,5 @@
 <script setup>
-import { useMainStore } from "../../store/Main";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { projectList } = MainStore;
 

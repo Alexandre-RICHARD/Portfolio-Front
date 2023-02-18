@@ -65,9 +65,15 @@ module.exports = {
     },
     resolve: {
         alias: {
+            "@middlewares": path.resolve(__dirname, "src/middlewares"),
+            "@parts": path.resolve(__dirname, "src/views/parts"),
+            "@root": path.resolve(__dirname, ""),
+            "@router": path.resolve(__dirname, "src/router"),
             "@src": path.resolve(__dirname, "src"),
             "@static": path.resolve(__dirname, "src/static"),
+            "@store": path.resolve(__dirname, "src/store"),
             "@styles": path.resolve(__dirname, "src/styles"),
+            "@views": path.resolve(__dirname, "src/views"),
         },
     },
     plugins: [

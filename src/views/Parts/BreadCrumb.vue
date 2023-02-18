@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive, watch } from "vue";
 import { useRoute } from "vue-router";
-import { useMainStore } from "../../store/Main";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { projectList } = MainStore;
 const route = useRoute();

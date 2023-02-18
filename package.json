@@ -1,6 +1,6 @@
 {
     "name": "tryhard-but-slowrun-front",
-    "version": "Build 104 ; V-1.1.2",
+    "version": "Build 105 ; V-1.1.3",
     "description": "Projet TryHard but SlowRun par Alexandre Richard. Projet à but auto-formatif.",
     "main": "webpack.config.js",
     "scripts": {

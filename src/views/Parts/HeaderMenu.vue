@@ -1,13 +1,13 @@
 <script setup>
-import HeaderLink from "./HeaderLink.vue";
-import { useMainStore } from "../../store/Main";
+import HeaderLink from "@parts/HeaderLink.vue";
+import { useMainStore } from "@store/Main";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 const MainStore = useMainStore();
 const { account, headerLinks, headerModals, modalData } = MainStore;
 const router = useRouter();
-const { cookieHandler } = require("../../middlewares/cookieHandler.js");
+const { cookieHandler } = require("@middlewares/cookieHandler.js");
 
 const openingorClosingMenu = ref(false);
 const handleMenuModal = (entryMode) => {

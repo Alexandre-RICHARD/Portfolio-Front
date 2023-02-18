@@ -1,7 +1,7 @@
 <script setup>
-import ContactButton from "../../Parts/ContactButton.vue";
-import ProjectContainer from "../../Parts/ProjectContainer.vue";
-import { useMainStore } from "../../../store/Main";
+import ContactButton from "@parts/ContactButton.vue";
+import ProjectContainer from "@parts/ProjectContainer.vue";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
 

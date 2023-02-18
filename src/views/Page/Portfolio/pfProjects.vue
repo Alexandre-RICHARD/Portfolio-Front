@@ -1,5 +1,5 @@
 <script setup>
-import ProjectContainer from "../../Parts/ProjectContainer.vue";
+import ProjectContainer from "@parts/ProjectContainer.vue";
 // Composant très simple puisqu'il ne fait qu'appeler le sous-composant ProjectContainer en précisant qu'on les veut tous
 </script>
 

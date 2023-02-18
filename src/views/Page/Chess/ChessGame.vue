@@ -1,14 +1,14 @@
 <script setup>
 import { onMounted, reactive, ref } from "vue";
 
-import PieceBishop from "./PieceBishop.vue";
-import PieceKing from "./PieceKing.vue";
-import PieceKnight from "./PieceKnight.vue";
-import PiecePawn from "./PiecePawn.vue";
-import PieceQueen from "./PieceQueen.vue";
-import PieceRook from "./PieceRook.vue";
+import PieceBishop from "@parts/PieceBishop.vue";
+import PieceKing from "@parts/PieceKing.vue";
+import PieceKnight from "@parts/PieceKnight.vue";
+import PiecePawn from "@parts/PiecePawn.vue";
+import PieceQueen from "@parts/PieceQueen.vue";
+import PieceRook from "@parts/PieceRook.vue";
 
-import { useMainStore } from "./../../../store/Main";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { modalData } = MainStore;
 

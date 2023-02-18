@@ -1,10 +1,10 @@
 <script setup>
-import AccountInput from "./AccountInput.vue";
+import AccountInput from "@parts/AccountInput.vue";
 import { reactive } from "vue";
-import { useMainStore } from "../../store/Main";
+import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { account, modalData } = MainStore;
-const { cookieHandler } = require("../../middlewares/cookieHandler.js");
+const { cookieHandler } = require("@middlewares/cookieHandler.js");
 const API_URL = process.env.API_URL;
 
 // Utilisé pour détecter un clic en dehors de la modal, mais pas sur le header. En effet, le clic n'est détecté que sur le cache.
