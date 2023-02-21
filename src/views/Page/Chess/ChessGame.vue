@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted, reactive, ref } from "vue";
 
-import PieceBishop from "@parts/PieceBishop.vue";
-import PieceKing from "@parts/PieceKing.vue";
-import PieceKnight from "@parts/PieceKnight.vue";
-import PiecePawn from "@parts/PiecePawn.vue";
-import PieceQueen from "@parts/PieceQueen.vue";
-import PieceRook from "@parts/PieceRook.vue";
+import PieceBishop from "@svgs/PieceBishop.vue";
+import PieceKing from "@svgs/PieceKing.vue";
+import PieceKnight from "@svgs/PieceKnight.vue";
+import PiecePawn from "@svgs/PiecePawn.vue";
+import PieceQueen from "@svgs/PieceQueen.vue";
+import PieceRook from "@svgs/PieceRook.vue";
 
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();

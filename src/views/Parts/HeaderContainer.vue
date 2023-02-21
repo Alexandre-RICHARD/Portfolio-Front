@@ -3,6 +3,7 @@ import BreadCrumb from "@parts/BreadCrumb.vue";
 import HeaderMenu from "@parts/HeaderMenu.vue";
 import HeaderLogo from "@parts/HeaderLogo.vue";
 import HeaderLink from "@parts/HeaderLink.vue";
+import downloadIcon from "@svgs/downloadIcon.vue";
 import { ref } from "vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 import { useMainStore } from "@store/Main";
@@ -49,6 +50,8 @@ document.addEventListener("scroll", () => {
             <HeaderLogo />
         </router-link>
 
+        <div />
+
         <!-- LES 4 LIENS DANS LE HEADER -->
         <div class="link-header-container">
             <HeaderLink
@@ -59,6 +62,15 @@ document.addEventListener("scroll", () => {
                 :link="link.link"
                 class="menu-nav"
             />
+            <!-- LE CV -->
+            <a
+                :href="CurriculumVitae"
+                target="_blank"
+                class="resume"
+                title="Mon CV à télécharger"
+            >
+                <downloadIcon class="resume-download-icon" />
+            </a>
         </div>
 
         <span class="separator" />
@@ -86,15 +98,8 @@ document.addEventListener("scroll", () => {
             <button class="menu-nav" @click="disconnect">Déconnexion</button>
         </div>
 
-        <span class="separator" />
-
-        <!-- LE CV -->
-        <div class="resume-header-container">
-            <a :href="CurriculumVitae" class="menu-nav" target="_blank">Mon CV</a>
-        </div>
-
         <!-- LE MENU LATERAL -->
-        
+
         <BreadCrumb :visibility="headerVisibility" />
     </header>
     <HeaderMenu />
@@ -118,8 +123,7 @@ document.addEventListener("scroll", () => {
     }
 
     .link-header-container,
-    .account-header-container,
-    .resume-header-container {
+    .account-header-container {
         display: none;
         justify-content: space-evenly;
         align-items: center;
@@ -145,6 +149,36 @@ document.addEventListener("scroll", () => {
         }
     }
 
+    .link-header-container {
+        position: relative;
+        .menu-nav {
+            &:nth-child(2) {
+                margin-right: 25px;
+            }
+        }
+
+        .resume {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            left: 194px;
+            top: 10px;
+
+            .resume-download-icon {
+                color: $color14;
+                width: 25px;
+                height: 25px;
+            }
+
+            &:hover {
+                border: 1px solid $color14;
+                transform: scale(1.2);
+            }
+        }
+    }
+
     .separator {
         display: none;
         border-left: 1px solid $color14;
@@ -159,8 +193,7 @@ document.addEventListener("scroll", () => {
     }
 }
 
-// Au dessus de 1100 pixels
-@media only screen and (min-width: 820px) {
+@media only screen and (min-width: 750px) {
     .header {
         .separator {
             display: flex;
@@ -168,6 +201,7 @@ document.addEventListener("scroll", () => {
     }
 }
 
+// Au dessus de 1100 pixels
 @media only screen and (min-width: 1100px) {
     .header {
         .separator {
@@ -177,12 +211,11 @@ document.addEventListener("scroll", () => {
     }
 }
 
-// Au dessus de 820 pixels
-@media only screen and (min-width: 820px) {
+// Au dessus de 750 pixels
+@media only screen and (min-width: 750px) {
     .header {
         .link-header-container,
-        .account-header-container,
-        .resume-header-container {
+        .account-header-container {
             display: flex;
         }
     }

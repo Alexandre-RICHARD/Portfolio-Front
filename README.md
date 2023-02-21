@@ -902,7 +902,11 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 ### build 107 - 1.1.5 `21 février 2023`
 
--   
+-   Déplacement de tous les SVG de pièce d'échecs dans un nouveau sous-dossier de views : svg
+-   Création d'un nouvel alias pour et actualisation des importations
+-   Suppresion dans le header de la partie Mon CV pour l'ouvrir. C'est maintenant un simple icône à côté de Curriculum
+-   Cela ayant libéré de la place, le menu apparait maintenant à 750 pixels de large
+-   Rajout d'une div pour contrer la suppression de cette partie et garder les liens au centre
 
 </details>
 

@@ -36,7 +36,7 @@ const outsideMenuClickHandler = (event) => {
 };
 
 addEventListener("resize", () => {
-    if (modalData.menu === true && window.innerWidth > 819) {
+    if (modalData.menu === true && window.innerWidth >= 750) {
         handleMenuModal(false);
     }
 });
@@ -322,8 +322,8 @@ const disconnect = () => {
     }
 }
 
-// Au dessus de 820 pixels
-@media only screen and (min-width: 820px) {
+// Au dessus de 750 pixels
+@media only screen and (min-width: 750px) {
     .header-button-menu,
     .header-menu-blur {
         display: none;
