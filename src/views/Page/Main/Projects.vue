@@ -12,7 +12,7 @@ import ProjectContainer from "@parts/ProjectContainer.vue";
 
 .detailled-project {
     &-illustration {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         position: absolute;
         top: $header-height;
         left: 0;
@@ -23,8 +23,8 @@ import ProjectContainer from "@parts/ProjectContainer.vue";
     }
 
     &-link-access {
-        background-color: var(--titleColor);
-        color: var(--backgroundColor);
+        background-color: $color14;
+        color: $color0;
         font-weight: 500;
         font-size: 16px;
         padding: 2px 5px;
@@ -35,54 +35,54 @@ import ProjectContainer from "@parts/ProjectContainer.vue";
     }
 
     &-details {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         margin-top: 250px;
     }
 
     &-title {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         font-size: 30px;
         font-weight: 600;
         letter-spacing: 5px;
-        color: var(--buttonColorOne);
+        color: $color4;
     }
 
     &-description {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         font-size: 18px;
-        color: var(--titleColor);
+        color: $color14;
         text-align: justify;
     }
 
     &-features {
         margin: 20px 0 8px 0;
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         font-size: 20px;
-        color: var(--buttonColorTwo);
-        text-shadow: 1px 1px 1px var(--textShadowColor);
+        color: $color6;
+        text-shadow: 1px 1px 1px $color13;
         text-decoration: underline;
         text-underline-offset: 2px;
     }
 
     &-list-features {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
 
         .feature {
-            background-color: var(--smoothBackgroundColor);
+            background-color: $color9;
             padding: 6px;
             border-radius: 5px;
             margin: 6px 0;
             width: 100%;
             text-align: justify;
-            color: var(--titleColor);
+            color: $color14;
 
             &::before {
                 content: "> ";
                 font-weight: 700;
-                color: var(--buttonColorTwo);
+                color: $color6;
             }
         }
     }

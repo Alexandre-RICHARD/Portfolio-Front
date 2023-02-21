@@ -122,7 +122,7 @@ binanceSocket.onmessage = (event) => {
     // Ainsi, le z-index n'est pas définitif
     z-index: $z-index-etherum;
     background-color: black;
-    color: var(--textColor);
+    color: $color14;
     position: fixed;
     font-size: 5vw;
     top: 0;

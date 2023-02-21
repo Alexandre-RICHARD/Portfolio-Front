@@ -261,11 +261,11 @@ const unhighlightWrongAnswer = () => {
 @import "@styles/variables.scss";
 
 .german-test-container {
-    background-color: var(--backgroundColor);
+    background-color: $color0;
     overflow: auto;
 
     .german-test-sub-container {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -273,16 +273,16 @@ const unhighlightWrongAnswer = () => {
         padding: 15px;
 
         .activating-password {
-            background-color: var(--backgroundColor);
-            color: var(--textColor);
+            background-color: $color0;
+            color: $color14;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
 
             #german-password {
-                background-color: var(--textColor);
-                color: var(--backgroundColor);
+                background-color: $color14;
+                color: $color0;
                 padding: 7px;
                 margin: 4px;
                 border-radius: 5px;
@@ -296,8 +296,8 @@ const unhighlightWrongAnswer = () => {
         }
 
         .testList-container {
-            background-color: var(--backgroundColor);
-            color: var(--textColor);
+            background-color: $color0;
+            color: $color14;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -311,7 +311,7 @@ const unhighlightWrongAnswer = () => {
         .verb-test {
             margin: 10px;
             padding: 10px;
-            background-color: var(--textColor);
+            background-color: $color14;
             display: flex;
             flex-direction: column;
             align-items: center;

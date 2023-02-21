@@ -45,35 +45,35 @@ const shuffle = (array) => {
 @import "@styles/variables.scss";
 
 .project-container {
-    background-color: var(--backgroundColor);
+    background-color: $color0;
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
     .one-project {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         width: 31%;
         height: fit-content;
-        color: var(--titleColor);
+        color: $color14;
         padding: 5px;
         margin: 15px 0;
         border-radius: 8px;
         overflow: hidden;
         display: block;
-        border: 2px solid var(--buttonColorOne);
+        border: 2px solid $color4;
 
         &-title {
-            background-color: var(--backgroundColor);
-            color: var(--buttonColorOne);
+            background-color: $color0;
+            color: $color4;
             text-align: center;
             font-weight: 400;
             font-size: 18px;
         }
 
         &-description {
-            background-color: var(--backgroundColor);
-            color: var(--titleColor);
+            background-color: $color0;
+            color: $color14;
             padding: 0 5px 15px 5px;
             text-align: justify;
         }

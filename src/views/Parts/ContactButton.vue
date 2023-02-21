@@ -94,7 +94,7 @@ defineProps({
     position: relative;
 
     .contact-element {
-        background-color: var(--smoothBackgroundColor);
+        background-color: $color9;
         display: flex;
         align-items: stretch;
         height: 35px;
@@ -105,8 +105,8 @@ defineProps({
         overflow: hidden;
 
         .contact-title {
-            background-color: var(--buttonColorOne);
-            color: var(--backgroundColor);
+            background-color: $color4;
+            color: $color0;
             line-height: 35px;
             text-align: center;
             font-size: 16px;
@@ -115,15 +115,15 @@ defineProps({
             align-items: center;
 
             .launcher-logo {
-                background-color: var(--buttonColorOne);
+                background-color: $color4;
                 margin-right: 3px;
                 height: 20px;
             }
         }
 
         .contact-content {
-            background-color: var(--textColor);
-            color: var(--backgroundColor);
+            background-color: $color14;
+            color: $color0;
             line-height: 35px;
             text-align: center;
             font-size: 15px;
@@ -136,8 +136,8 @@ defineProps({
         }
 
         .copy-icon {
-            background-color: var(--buttonColorTwo);
-            color: var(--titleColor);
+            background-color: $color6;
+            color: $color14;
             display: flex;
             align-items: center;
             width: 20px;
@@ -151,7 +151,7 @@ defineProps({
         left: calc(50% - 65px / 2);
         width: 65px;
         text-align: center;
-        background-color: var(--buttonColorTwo);
+        background-color: $color6;
         padding: 3px 8px;
         border-radius: 4px;
         display: none;

@@ -719,14 +719,14 @@ const inputLosingFocus = (target) => {
 
 .user-profile {
     .account-parameters {
-        background-color: var(--backgroundColor);
-        color: var(--buttonColorOne);
+        background-color: $color0;
+        color: $color4;
         font-weight: 500;
         font-size: 25px;
     }
 
     .parameters-container {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         display: flex;
         gap: 50px;
         justify-content: space-between;

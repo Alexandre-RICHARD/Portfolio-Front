@@ -141,30 +141,30 @@ const newResorcesSubmit = (type, quantity) => {
 @import "@styles/variables.scss";
 
 .addRessorcesMenu {
-    background-color: var(--textColor);
-    color: var(--textColor);
+    background-color: $color14;
+    color: $color14;
     width: max-content;
     width: 100%;
     padding: 10px;
 
     .selected-resorces-container {
-        color: var(--backgroundColor);
+        color: $color0;
 
         .one-resource {
             display: flex;
             flex-direction: row;
 
             &-type {
-                background-color: var(--titleColor);
-                color: var(--backgroundColor);
+                background-color: $color14;
+                color: $color0;
                 font-size: 16px;
                 padding: 4px;
                 width: 340px;
             }
 
             &-quantity {
-                background-color: var(--titleColor);
-                color: var(--backgroundColor);
+                background-color: $color14;
+                color: $color0;
                 font-size: 16px;
                 padding: 4px;
                 margin-left: 10px;
@@ -177,16 +177,16 @@ const newResorcesSubmit = (type, quantity) => {
         display: flex;
 
         .search-input {
-            background-color: var(--titleColor);
-            color: var(--backgroundColor);
+            background-color: $color14;
+            color: $color0;
             font-size: 16px;
             padding: 4px;
             width: 340px;
         }
 
         .quantity-input {
-            background-color: var(--titleColor);
-            color: var(--backgroundColor);
+            background-color: $color14;
+            color: $color0;
             font-size: 16px;
             padding: 4px;
             margin-left: 10px;
@@ -194,18 +194,18 @@ const newResorcesSubmit = (type, quantity) => {
         }
 
         .submit-input {
-            background-color: var(--titleColor);
-            color: var(--backgroundColor);
+            background-color: $color14;
+            color: $color0;
             margin-left: 10px;
             padding: 4px;
 
             :not(.invalid):hover {
-                background-color: var(--headerColor);
+                background-color: $color6;
             }
         }
 
         .invalid {
-            color: var(--textColor);
+            color: $color14;
             opacity: 0.4;
             cursor: default;
             pointer-events: none;
@@ -218,11 +218,11 @@ const newResorcesSubmit = (type, quantity) => {
         justify-content: center;
 
         .menu {
-            background-color: var(--textColor);
+            background-color: $color14;
             width: inherit;
             position: absolute;
             width: inherit;
-            border: 1px solid var(--backgroundColor);
+            border: 1px solid $color0;
             padding-top: 5px;
             max-height: 255px;
 
@@ -233,13 +233,13 @@ const newResorcesSubmit = (type, quantity) => {
             .one-ressorces {
                 padding: 5px;
                 width: 100%;
-                background-color: var(--textColor);
-                color: var(--backgroundColor);
+                background-color: $color14;
+                color: $color0;
                 transition: all 0.2s;
                 height: 40px;
 
                 &:hover {
-                    background-color: var(--buttonColorOne);
+                    background-color: $color4;
                     cursor: pointer;
                 }
             }

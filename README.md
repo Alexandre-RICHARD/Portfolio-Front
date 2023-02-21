@@ -921,6 +921,18 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Fusion du contenu de Home et de l'ancien HomePage, on fera le tri bien après.
 -   Déplacement de tous les projets dans un sous-dossier projets
 
+### build 110 - 1.1.8 `21 février 2023`
+
+-   Remplacement de tous les appels aux anciennes variables CSS stockées dans :root par des nouvelles variables. Pas du tout définitif, c'est uniquement pour se séparer de l'ancien système
+-   Ajout d'une variante à la variable de transparance (transparent-white & transparent-black)
+-   Suppression du mastermind de la page principale. Il a maintenant sa propre page projet
+-   Suppression de la section theme dans le store. Elle n'est plus utilisé maintenant que le changement de thème n'est plus possible
+-   Supression des deux objets représentant des projets factice dans le store
+-   Rajout du MAstermind dans les projets, ainsi que de CryptoFollow
+-   Mais CryptoFollow et SatisfactoryCalculator seront en commentaires dans le store donc absent de la page projet tant qu'ils ne seront pas plus avancés.
+-   Ils sont toujours accessibles en connaissant le lien
+-   Remaniement et rangement dans le router afin de le rendre plus lisible. Rajout du Mastermind
+
 </details>
 
 ## Les problèmes du site actuellement

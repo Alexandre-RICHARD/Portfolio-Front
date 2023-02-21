@@ -330,46 +330,46 @@ const informationsList = [
 
 .curriculum-container {
     li {
-        background-color: var(--backgroundColor);
-        color: var(--textColor);
+        background-color: $color0;
+        color: $color14;
 
         &::before {
             content: ">";
             font-weight: 700;
             font-size: 18px;
-            color: var(--buttonColorTwo);
+            color: $color6;
             padding-right: 5px;
         }
     }
 }
 
 .curriculum-container {
-    background-color: var(--backgroundColor);
+    background-color: $color0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 
     .categories {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         min-width: 28%;
         margin-right: 6px;
 
         .title-box {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             display: flex;
             width: 100%;
             margin: 10px 0;
 
             .title {
-                color: var(--titleColor);
-                background-color: var(--smoothBackgroundColor);
+                color: $color14;
+                background-color: $color9;
                 padding: 3px 12px;
                 border-radius: 10px;
-                border: 4px solid var(--buttonColorOne);
+                border: 4px solid $color4;
             }
 
             .line-up {
-                background-color: var(--buttonColorOne);
+                background-color: $color4;
                 margin-left: -20px;
                 width: 100%;
                 height: 2px;
@@ -378,77 +378,77 @@ const informationsList = [
     }
 
     .description-text {
-        background-color: var(--backgroundColor);
-        color: var(--textColor);
+        background-color: $color0;
+        color: $color14;
         text-align: justify;
         width: 100%;
 
         .photo {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             margin-right: 12px;
             width: 200px;
-            border: 2px solid var(--titleColor);
+            border: 2px solid $color14;
             float: left;
         }
     }
 
     .hobbies {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         .hobbies-list {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             font-size: 16px;
-            color: var(--textColor);
+            color: $color14;
         }
     }
 
     .quality {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         .qualities-list {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             font-size: 16px;
-            color: var(--textColor);
+            color: $color14;
         }
     }
 
     .further-information {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         .further-information-list {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             font-size: 16px;
-            color: var(--textColor);
+            color: $color14;
         }
     }
 
     .professional-experiences,
     .education {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         overflow: hidden;
 
         .one-of-them {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             display: flex;
 
             .left {
                 padding-top: 50px;
-                background-color: var(--backgroundColor);
+                background-color: $color0;
                 min-width: 30%;
-                border-bottom: 1px solid var(--smoothBackgroundColor);
+                border-bottom: 1px solid $color9;
 
                 .whichone {
-                    background-color: var(--backgroundColor);
+                    background-color: $color0;
                     font-size: 15px;
-                    color: var(--titleColor);
+                    color: $color14;
                 }
 
                 .where {
-                    background-color: var(--backgroundColor);
+                    background-color: $color0;
                     font-size: 12px;
-                    color: var(--textColor);
+                    color: $color14;
                 }
             }
 
             .middle {
-                background-color: var(--backgroundColor);
+                background-color: $color0;
                 min-width: 25px;
                 max-width: 25px;
                 display: flex;
@@ -459,8 +459,8 @@ const informationsList = [
                     z-index: $z-index-four;
                     height: fit-content;
                     position: absolute;
-                    background-color: var(--titleColor);
-                    color: var(--backgroundColor);
+                    background-color: $color14;
+                    color: $color0;
                     padding: 3px;
                     border-radius: 4px;
 
@@ -476,15 +476,15 @@ const informationsList = [
                     z-index: $z-index-three;
                     height: 100%;
                     width: calc(50% - 1px);
-                    background-color: var(--backgroundColor);
+                    background-color: $color0;
                 }
 
                 .line {
                     z-index: $z-index-two;
                     height: 100%;
                     width: 1px;
-                    background-color: var(--titleColor);
-                    box-shadow: 0px 0px 9px 1px var(--titleColor);
+                    background-color: $color14;
+                    box-shadow: 0px 0px 9px 1px $color14;
                 }
 
                 .line-uncache {
@@ -497,10 +497,10 @@ const informationsList = [
 
             .right {
                 padding-top: 50px;
-                background-color: var(--backgroundColor);
-                border-bottom: 1px solid var(--smoothBackgroundColor);
+                background-color: $color0;
+                border-bottom: 1px solid $color9;
                 font-size: 16px;
-                color: var(--textColor);
+                color: $color14;
                 text-align: justify;
                 padding-bottom: 10px;
             }
@@ -508,20 +508,20 @@ const informationsList = [
     }
 
     .skills {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         .further-information-list {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             font-size: 16px;
-            color: var(--textColor);
+            color: $color14;
         }
     }
 
     .qualification {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         .further-information-list {
-            background-color: var(--backgroundColor);
+            background-color: $color0;
             font-size: 16px;
-            color: var(--textColor);
+            color: $color14;
         }
     }
 }
@@ -548,7 +548,7 @@ const informationsList = [
                     max-width: 115px;
 
                     .line {
-                        box-shadow: 0px 0px 18px 2px var(--titleColor);
+                        box-shadow: 0px 0px 18px 2px $color14;
                     }
                 }
 

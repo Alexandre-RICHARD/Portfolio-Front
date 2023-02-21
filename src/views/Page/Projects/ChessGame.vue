@@ -812,7 +812,7 @@ $piece-choice-SVG-stroke-width: 15px;
 }
 
 .temporay-explanation {
-    color: var(--titleColor);
+    color: $color14;
     text-align: justify;
 }
 

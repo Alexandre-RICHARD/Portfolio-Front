@@ -579,25 +579,25 @@ const inputLosingFocus = (target) => {
     height: 100vh;
 
     .account-modal {
-        background-color: var(--backgroundColor);
-        color: var(--titleColor);
+        background-color: $color0;
+        color: $color14;
         min-width: 350px;
         width: 350px;
         border-radius: 30px;
-        border: 2px solid var(--titleColor);
+        border: 2px solid $color14;
         overflow: hidden;
         padding: 15px;
         height: fit-content;
 
         .not-concerned {
-            background-color: var(--backgroundColor);
-            color: var(--titleColor);
+            background-color: $color0;
+            color: $color14;
             padding-top: 7px;
             text-align: center;
 
             &-button {
-                background-color: var(--backgroundColor);
-                color: var(--buttonColorTwo);
+                background-color: $color0;
+                color: $color6;
                 font-weight: 500;
                 cursor: pointer;
                 text-decoration: underline;

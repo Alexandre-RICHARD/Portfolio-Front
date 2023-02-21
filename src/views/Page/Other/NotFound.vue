@@ -39,7 +39,7 @@ const returnToHome = () => {
 @import "@styles/variables.scss";
 
 .page404page {
-    background-color: var(--backgroundColor);
+    background-color: $color0;
     padding: 10px;
     width: 100%;
     position: absolute;
@@ -51,22 +51,22 @@ const returnToHome = () => {
     overflow: hidden;
 
     .page404title {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         font-size: 60px;
         font-weight: 700;
         letter-spacing: 15px;
-        color: var(--titleColor);
+        color: $color14;
     }
     .page404text {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         font-size: 20px;
         font-weight: 400;
         letter-spacing: 1px;
-        color: var(--textColor);
+        color: $color14;
     }
 
     .dolorean {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         padding-top: 24vh;
         cursor: pointer;
 
@@ -76,7 +76,7 @@ const returnToHome = () => {
     }
 
     .fire {
-        background-color: var(--backgroundColor);
+        background-color: $color0;
         margin-left: 57px;
         align-self: flex-start;
         position: relative;

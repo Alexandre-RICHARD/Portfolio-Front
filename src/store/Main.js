@@ -41,49 +41,6 @@ export const useMainStore = defineStore("Main", {
                 link: "Contact",
             },
         ],
-        theme: {
-            selected: "classic",
-            classic: {
-                backgroundColor: "#0f0e17",
-                smoothBackgroundColor: "#242230",
-                titleColor: "#fffffe",
-                textColor: "#a7a9be",
-                textShadowColor: "#0f0e178e",
-                headerColor: "#f25f4c",
-                buttonColorOne: "#ff8906",
-                buttonColorTwo: "#e53170",
-            },
-            modern: {
-                backgroundColor: "#16161a",
-                smoothBackgroundColor: "#28282e",
-                titleColor: "#fffffe",
-                textColor: "#94a1b2",
-                textShadowColor: "#16161a8e",
-                headerColor: "#5a8ef0",
-                buttonColorOne: "#825af0",
-                buttonColorTwo: "#72757e",
-            },
-            light: {
-                backgroundColor: "#fffffe",
-                smoothBackgroundColor: "#d1d1d1",
-                titleColor: "#00214d",
-                textColor: "#1b2d45",
-                textShadowColor: "#fffffe8e",
-                headerColor: "#ff5470",
-                buttonColorOne: "#26d6c7",
-                buttonColorTwo: "#d6bc26",
-            },
-            dark: {
-                backgroundColor: "#16161a",
-                smoothBackgroundColor: "#232325",
-                titleColor: "#fffffe",
-                textColor: "#a7a9be",
-                textShadowColor: "#16161a8e",
-                headerColor: "#7f5af0",
-                buttonColorOne: "#2cb67d",
-                buttonColorTwo: "#72757e",
-            },
-        },
         projectList: [
             {
                 id: 1,
@@ -123,51 +80,49 @@ export const useMainStore = defineStore("Main", {
             },
             {
                 id: 3,
-                title: "Satisfactory Calculator",
-                link: "satisfactory/calculator",
-                linkAccess: "SatisfactoryCalculator",
+                title: "Test d'allemand",
+                link: "germantest",
+                linkAccess: "GermanTest",
                 abstract:
-                    "Un outil permettant de calculer la chaîne de production pour obtenir telle ou telle ressources dans le jeu Satisfactory",
+                    "Un tableau quiz permettant de réviser ses verbes irréguliers en allemand",
                 description:
-                    "C'est un outil qui permet de choisir une ressource du jeu Satisfactory ainsi que le rendement par minute souhaité. À partir de cela, le nombre de ressources initiale, ainsi que la chaine de production, le nombre de machine, leur puissance, leur consommation électrique seront calculées automatiquement, tout cela dans le but de prévoir plus efficacement la mise en place des usines. Un outil de perfectionniste farmeur en somme.",
-                features: ["Rien pour l'instant"],
+                    "Ce projet m'est venu de quelqu'un qui avait besoin pour ses études de réviser ses verbes irréguliers en allemand et j'y ai vu une bonne opportunité pour créer un test automatisé",
+                features: ["TO DO"],
             },
             {
                 id: 4,
-                title: "PROJET FACTICE 1",
-                link: "facticeprojectone",
-                linkAccess: "Project",
+                title: "Le Mastermind",
+                link: "mastermind",
+                linkAccess: "Mastermind",
                 abstract:
-                    "Texte de remplissage pour le projet factice numéro 1 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
+                    "Une reproduction avec une touche bien personnel du jeu Mastermind",
                 description:
-                    "Texte de remplissage pour le projet factice numéro 1 en attendant que j'ai intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
-                features: [
-                    "Features inexistante 1",
-                    "Features inexistante 2",
-                    "Features inexistante 3",
-                    "Features inexistante 4",
-                    "Features inexistante 5",
-                    "Features inexistante 6",
-                ],
+                    "TO DO",
+                features: ["TO DO"],
             },
-            {
-                id: 5,
-                title: "PROJET FACTICE 2",
-                link: "facticeprojecttwo",
-                linkAccess: "Project",
-                abstract:
-                    "Texte de remplissage pour le projet factice numéro 2 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
-                description:
-                    "Texte de remplissage pour le projet factice numéro 2 en attendant que j'ai intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
-                features: [
-                    "Features inexistante 1",
-                    "Features inexistante 2",
-                    "Features inexistante 3",
-                    "Features inexistante 4",
-                    "Features inexistante 5",
-                    "Features inexistante 6",
-                ],
-            },
+            //! TO DO
+            // {
+            //     id: 5,
+            //     title: "Satisfactory Calculator",
+            //     link: "satisfactory/calculator",
+            //     linkAccess: "SatisfactoryCalculator",
+            //     abstract:
+            //         "Un outil permettant de calculer la chaîne de production pour obtenir telle ou telle ressources dans le jeu Satisfactory",
+            //     description:
+            //         "C'est un outil qui permet de choisir une ressource du jeu Satisfactory ainsi que le rendement par minute souhaité. À partir de cela, le nombre de ressources initiale, ainsi que la chaine de production, le nombre de machine, leur puissance, leur consommation électrique seront calculées automatiquement, tout cela dans le but de prévoir plus efficacement la mise en place des usines. Un outil de perfectionniste farmeur en somme.",
+            //     features: ["TO DO"],
+            // },
+            // {
+            //     id: 6,
+            //     title: "Crypto Follow",
+            //     link: "cryptofollow",
+            //     linkAccess: "Crypto Follow",
+            //     abstract:
+            //         "Un utilitaire permettant de suivre la valeur d'un cours de Cryptomonnaie et de visualiser en direct perte ou gain",
+            //     description:
+            //         "TO DO",
+            //     features: ["TO DO"],
+            // },
         ],
         contactList: [
             {

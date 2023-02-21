@@ -219,7 +219,7 @@ const disconnect = () => {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $transparent;
+    background-color: $transparent-white;
     z-index: $z-index-header-menu;
     display: none;
     justify-content: end;

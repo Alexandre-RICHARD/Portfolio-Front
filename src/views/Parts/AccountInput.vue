@@ -130,26 +130,26 @@ const toggleShowPassword = (event) => {
 .delete-account-form,
 .login-form,
 .register-form {
-    background-color: var(--backgroundColor);
-    color: var(--titleColor);
+    background-color: $color0;
+    color: $color14;
     display: flex;
     flex-direction: column;
 
     .input {
-        background-color: var(--backgroundColor);
-        color: var(--titleColor);
+        background-color: $color0;
+        color: $color14;
         margin: 10px 0;
 
         label {
-            background-color: var(--backgroundColor);
-            color: var(--titleColor);
+            background-color: $color0;
+            color: $color14;
             display: block;
             padding: 3px;
         }
 
         input {
-            background-color: var(--titleColor);
-            color: var(--backgroundColor);
+            background-color: $color14;
+            color: $color0;
             width: 100%;
             padding: 4px;
             border: 2px solid transparent;
@@ -167,7 +167,7 @@ const toggleShowPassword = (event) => {
             position: relative;
 
             .toggle-show-password {
-                background-color: var(--titleColor);
+                background-color: $color14;
                 position: absolute;
                 width: 40px;
                 height: 32px;
@@ -189,30 +189,30 @@ const toggleShowPassword = (event) => {
     }
 
     .error-box {
-        background-color: var(--smoothBackgroundColor);
-        color: var(--textColor);
+        background-color: $color9;
+        color: $color14;
         padding: 5px;
         border-radius: 5px;
 
         .title {
-            background-color: var(--smoothBackgroundColor);
-            color: var(--textColor);
+            background-color: $color9;
+            color: $color14;
             font-size: 16px;
         }
 
         .error {
-            background-color: var(--smoothBackgroundColor);
-            color: var(--textColor);
+            background-color: $color9;
+            color: $color14;
             font-size: 14px;
         }
     }
 
     .submit-button {
-        background-color: var(--headerColor);
-        color: var(--titleColor);
+        background-color: $color6;
+        color: $color14;
         font-weight: 600;
         font-size: 16px;
-        text-shadow: 1px 1px 1px var(--textShadowColor);
+        text-shadow: 1px 1px 1px $color13;
         cursor: pointer;
         letter-spacing: 1px;
         width: fit-content;
@@ -222,19 +222,19 @@ const toggleShowPassword = (event) => {
         border: 2px solid transparent;
 
         &:hover {
-            border-color: var(--titleColor);
+            border-color: $color14;
         }
     }
 
     .not-concerned {
-        background-color: var(--backgroundColor);
-        color: var(--titleColor);
+        background-color: $color0;
+        color: $color14;
         padding-top: 7px;
         text-align: center;
 
         &-button {
-            background-color: var(--backgroundColor);
-            color: var(--buttonColorTwo);
+            background-color: $color0;
+            color: $color6;
             font-weight: 500;
             cursor: pointer;
             text-decoration: underline;

@@ -10,18 +10,18 @@ import ProjectDetails from "@views/Page/Main/ProjectDetails.vue";
 import Contact from "@views/Page/Main/Contact.vue";
 
 import NotFound from "@views/Page/Other/NotFound.vue";
-import EtherumFollow from "@views/Page/Other/EtherumFollow.vue";
 import UserProfile from "@views/Page/User/UserProfile.vue";
 
-import SatisfactoryCalculator from "@views/Page/Projects/SatisfactoryCalculator/SatisfactoryCalculator.vue";
-import ChessGame from "@views/Page/Projects/Chess/ChessGame.vue";
-import GermanTest from "@views/Page/Projects/GermanTest/GermanTest.vue";
-
+import ChessGame from "@views/Page/Projects/ChessGame.vue";
+import EtherumFollow from "@views/Page/Projects/EtherumFollow.vue";
+import GermanTest from "@views/Page/Projects/GermanTest.vue";
+import MasterMind from "@views/Page/Projects/MasterMind.vue";
+import SatisfactoryCalculator from "@views/Page/Projects/SatisfactoryCalculator.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
+    //HomePage
     {
-        //Home
         path: "/",
         name: "HomePage",
         components: { mainRouter: HomePage },
@@ -35,8 +35,8 @@ const routes = [
             ],
         },
     },
+    //Curriculum
     {
-        //Curriculum
         path: "/curriculum",
         name: "Curriculum",
         components: { mainRouter: Curriculum },
@@ -50,8 +50,8 @@ const routes = [
             ],
         },
     },
+    //Project
     {
-        //PortfolioProject
         path: "/project",
         name: "Project",
         components: { mainRouter: Projects },
@@ -65,8 +65,8 @@ const routes = [
             ],
         },
     },
+    //Details
     {
-        //ProjectDetails
         path: "/project/:projectName",
         name: "ProjectDetails",
         components: { mainRouter: ProjectDetails },
@@ -85,8 +85,8 @@ const routes = [
             ],
         },
     },
+    //Contact
     {
-        //PortfolioContact
         path: "/contact",
         name: "Contact",
         components: { mainRouter: Contact },
@@ -100,8 +100,8 @@ const routes = [
             ],
         },
     },
+    //UserProfile
     {
-        //UserProfile
         path: "/profile",
         name: "UserProfile",
         components: { mainRouter: UserProfile },
@@ -120,65 +120,8 @@ const routes = [
             requiredLogin: true,
         },
     },
+    //Chess
     {
-        //CurrentETH
-        path: "/gain",
-        name: "CurrentETH",
-        components: { mainRouter: EtherumFollow },
-        meta: {
-            documentTitle: "Etherum",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Etherum",
-                    link: "CurrentETH",
-                },
-            ],
-        },
-    },
-    {
-        //SatisfactoryCalculator
-        path: "/satisfactory/calculator",
-        name: "SatisfactoryCalculator",
-        components: { mainRouter: SatisfactoryCalculator },
-        meta: {
-            documentTitle: "Satisfactory Calculator",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Satisfactory Calculator",
-                    link: "SatisfactoryCalculator",
-                },
-            ],
-        },
-    },
-    {
-        //GermanTest
-        path: "/germantest",
-        name: "GermanTest",
-        components: { mainRouter: GermanTest },
-        meta: {
-            documentTitle: "Apprendre ses verbes irréguliers",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Apprendre ses verbes irréguliers",
-                    link: "GermanTest",
-                },
-            ],
-        },
-    },
-    {
-        //Chess
         path: "/chess",
         name: "Chess",
         components: { mainRouter: ChessGame },
@@ -196,8 +139,84 @@ const routes = [
             ],
         },
     },
+    //GermanTest
     {
-        //404
+        path: "/germantest",
+        name: "GermanTest",
+        components: { mainRouter: GermanTest },
+        meta: {
+            documentTitle: "Apprendre ses verbes irréguliers",
+            breadCrumb: [
+                {
+                    title: "Accueil",
+                    link: "HomePage",
+                },
+                {
+                    title: "Apprendre ses verbes irréguliers",
+                    link: "GermanTest",
+                },
+            ],
+        },
+    },
+    //GermanTest
+    {
+        path: "/mastermind",
+        name: "Mastermind",
+        components: { mainRouter: MasterMind },
+        meta: {
+            documentTitle: "Mastermind",
+            breadCrumb: [
+                {
+                    title: "Accueil",
+                    link: "HomePage",
+                },
+                {
+                    title: "Mastermind",
+                    link: "Mastermind",
+                },
+            ],
+        },
+    },
+    //SatisfactoryCalculator
+    {
+        path: "/satisfactory/calculator",
+        name: "SatisfactoryCalculator",
+        components: { mainRouter: SatisfactoryCalculator },
+        meta: {
+            documentTitle: "Satisfactory Calculator",
+            breadCrumb: [
+                {
+                    title: "Accueil",
+                    link: "HomePage",
+                },
+                {
+                    title: "Satisfactory Calculator",
+                    link: "SatisfactoryCalculator",
+                },
+            ],
+        },
+    },
+    //Crypto Follow
+    {
+        path: "/cryptofollow",
+        name: "Crypto Follow",
+        components: { mainRouter: EtherumFollow },
+        meta: {
+            documentTitle: "Etherum",
+            breadCrumb: [
+                {
+                    title: "Accueil",
+                    link: "HomePage",
+                },
+                {
+                    title: "Etherum",
+                    link: "Crypto Follow",
+                },
+            ],
+        },
+    },
+    //404
+    {
         path: "/:pathMatch(.*)*",
         name: "404",
         components: { mainRouter: NotFound },
