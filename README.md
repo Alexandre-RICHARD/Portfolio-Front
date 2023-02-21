@@ -908,6 +908,14 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Cela ayant libéré de la place, le menu apparait maintenant à 750 pixels de large
 -   Rajout d'une div pour contrer la suppression de cette partie et garder les liens au centre
 
+### build 108 - 1.1.6 `21 février 2023`
+
+-   Petits détails de CSS pour le bouton de téléchargement du CV
+-   Suppression de la notion de Portfolio dans le routeur, et donc suppression du groupe Portfolio. Tous les liens ont été mis à jour
+-   Suppression de la hauteur volontairement grande
+-   Déplacement des pages portfolio dans le dossier main avec la Home inutilisée pour l'instant
+-   Gestion des données meta de Breadcrumb pour les rendre cohérent aux changements
+
 </details>
 
 ## Les problèmes du site actuellement

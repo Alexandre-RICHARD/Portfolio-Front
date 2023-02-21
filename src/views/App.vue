@@ -42,7 +42,6 @@ cookieHandler.handleAccountSessionCookie(
     width: 100%;
     min-width: 200px;
     min-height: 100vh;
-    height: 3600px;
 
     main {
         padding-top: 135px;

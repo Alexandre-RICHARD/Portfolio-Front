@@ -44,7 +44,7 @@ const age = Math.floor(
             <router-link
                 title="En savoir un peu plus"
                 class="link-to-more"
-                :to="{ name: 'PortfolioCurriculum' }"
+                :to="{ name: 'Curriculum' }"
             >
                 En savoir un peu plus
             </router-link>
@@ -63,7 +63,7 @@ const age = Math.floor(
         <router-link
             title="Voir tous mes autres projets"
             class="link-to-more"
-            :to="{ name: 'PortfolioProject' }"
+            :to="{ name: 'Project' }"
         >
             Voir tous mes autres projets
         </router-link>
@@ -84,7 +84,7 @@ const age = Math.floor(
         <router-link
             title="Me retrouver partout"
             class="link-to-more"
-            :to="{ name: 'PortfolioContact' }"
+            :to="{ name: 'Contact' }"
         >
             Me retrouver partout
         </router-link>

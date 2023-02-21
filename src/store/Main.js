@@ -21,24 +21,24 @@ export const useMainStore = defineStore("Main", {
             loading: false,
         },
         headerLinks: [
-            { id: 0, type: "link", content: "Accueil", link: "PortfolioHome" },
+            { id: 0, type: "link", content: "Accueil", link: "HomePage" },
             {
                 id: 1,
                 type: "link",
                 content: "Curriculum",
-                link: "PortfolioCurriculum",
+                link: "Curriculum",
             },
             {
                 id: 2,
                 type: "link",
                 content: "Projets",
-                link: "PortfolioProject",
+                link: "Project",
             },
             {
                 id: 3,
                 type: "link",
                 content: "Contact",
-                link: "PortfolioContact",
+                link: "Contact",
             },
         ],
         theme: {
@@ -136,7 +136,7 @@ export const useMainStore = defineStore("Main", {
                 id: 4,
                 title: "PROJET FACTICE 1",
                 link: "facticeprojectone",
-                linkAccess: "PortfolioProject",
+                linkAccess: "Project",
                 abstract:
                     "Texte de remplissage pour le projet factice numéro 1 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
                 description:
@@ -154,7 +154,7 @@ export const useMainStore = defineStore("Main", {
                 id: 5,
                 title: "PROJET FACTICE 2",
                 link: "facticeprojecttwo",
-                linkAccess: "PortfolioProject",
+                linkAccess: "Project",
                 abstract:
                     "Texte de remplissage pour le projet factice numéro 2 en attendant d'avoir intégré plus de projet/jeux au site dans le but d'en avoir au moins 4 affichés pour le moment",
                 description:

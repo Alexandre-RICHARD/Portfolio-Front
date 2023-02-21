@@ -163,8 +163,11 @@ document.addEventListener("scroll", () => {
             align-items: center;
             width: 25px;
             height: 25px;
-            left: 194px;
+            left: 190px;
             top: 10px;
+            background-color: transparent;
+            border-radius: 7px;
+            transition: 100ms;
 
             .resume-download-icon {
                 color: $color14;

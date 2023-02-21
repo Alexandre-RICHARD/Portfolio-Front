@@ -3,7 +3,13 @@ import { createRouter, createWebHistory } from "vue-router";
 import { useMainStore } from "@store/Main";
 
 // On importe toutes les vues qui seront utilisées par notre router principal
-import HomePage from "@views/Page/HomePage.vue";
+import HomePage from "@views/Page/Main/HomePage.vue";
+import Home from "@views/Page/Main/Home.vue";
+import Curriculum from "@views/Page/Main/Curriculum.vue";
+import Projects from "@views/Page/Main/Projects.vue";
+import ProjectDetails from "@views/Page/Main/ProjectDetails.vue";
+import Contact from "@views/Page/Main/Contact.vue";
+
 import NotFound from "@views/Page/Other/NotFound.vue";
 import EtherumFollow from "@views/Page/Other/EtherumFollow.vue";
 import UserProfile from "@views/Page/User/UserProfile.vue";
@@ -12,11 +18,6 @@ import SatisfactoryCalculator from "@views/Page/SatisfactoryCalculator/Satisfact
 import ChessGame from "@views/Page/Chess/ChessGame.vue";
 import GermanTest from "@views/Page/GermanTest/GermanTest.vue";
 
-import pfHome from "@views/Page/Portfolio/pfHome.vue";
-import pfCurriculum from "@views/Page/Portfolio/pfCurriculum.vue";
-import pfProjects from "@views/Page/Portfolio/pfProjects.vue";
-import pfProjectDetails from "@views/Page/Portfolio/pfProjectDetails.vue";
-import pfContact from "@views/Page/Portfolio/pfContact.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
@@ -36,111 +37,69 @@ const routes = [
         },
     },
     {
-        //Portfolio
-        path: "/portfolio",
-        name: "Portfolio",
-        children: [
-            {
-                //PortfolioHome
-                path: "HomePage",
-                name: "PortfolioHome",
-                components: { mainRouter: pfHome },
-                meta: {
-                    documentTitle: "Alexandre Richard",
-                    breadCrumb: [
-                        {
-                            title: "Accueil",
-                            link: "HomePage",
-                        },
-                        {
-                            title: "Alexandre Richard",
-                            link: "PortfolioHome",
-                        },
-                    ],
+        //Curriculum
+        path: "/curriculum",
+        name: "Curriculum",
+        components: { mainRouter: Curriculum },
+        meta: {
+            documentTitle: "Curriculum",
+            breadCrumb: [
+                {
+                    title: "Curriculum",
+                    link: "Curriculum",
                 },
-            },
-            {
-                //PortfolioCurriculum
-                path: "curriculum",
-                name: "PortfolioCurriculum",
-                components: { mainRouter: pfCurriculum },
-                meta: {
-                    documentTitle: "Curriculum",
-                    breadCrumb: [
-                        {
-                            title: "Accueil",
-                            link: "HomePage",
-                        },
-                        {
-                            title: "Curriculum",
-                            link: "PortfolioCurriculum",
-                        },
-                    ],
+            ],
+        },
+    },
+    {
+        //PortfolioProject
+        path: "/project",
+        name: "Project",
+        components: { mainRouter: Projects },
+        meta: {
+            documentTitle: "Mes Projets",
+            breadCrumb: [
+                {
+                    title: "Projets",
+                    link: "Project",
                 },
-            },
-            {
-                //PortfolioProject
-                path: "project",
-                name: "PortfolioProject",
-                components: { mainRouter: pfProjects },
-                meta: {
-                    documentTitle: "Mes Projets",
-                    breadCrumb: [
-                        {
-                            title: "Accueil",
-                            link: "HomePage",
-                        },
-                        {
-                            title: "Projets",
-                            link: "PortfolioProject",
-                        },
-                    ],
+            ],
+        },
+    },
+    {
+        //ProjectDetails
+        path: "/project/:projectName",
+        name: "ProjectDetails",
+        components: { mainRouter: ProjectDetails },
+        meta: {
+            documentTitle: "N/A",
+            breadCrumb: [
+                {
+                    title: "Projets",
+                    link: "Project",
                 },
-            },
-            {
-                //ProjectDetails
-                path: "project/:projectName",
-                name: "ProjectDetails",
-                components: { mainRouter: pfProjectDetails },
-                meta: {
-                    documentTitle: "N/A",
-                    breadCrumb: [
-                        {
-                            title: "Accueil",
-                            link: "HomePage",
-                        },
-                        {
-                            title: "Projets",
-                            link: "PortfolioProject",
-                        },
-                        {
-                            params: "projectList",
-                            title: "N/A",
-                            link: "ProjectDetails",
-                        },
-                    ],
+                {
+                    params: "projectList",
+                    title: "N/A",
+                    link: "ProjectDetails",
                 },
-            },
-            {
-                //PortfolioContact
-                path: "contact",
-                name: "PortfolioContact",
-                components: { mainRouter: pfContact },
-                meta: {
-                    documentTitle: "Mes Contacts",
-                    breadCrumb: [
-                        {
-                            title: "Accueil",
-                            link: "HomePage",
-                        },
-                        {
-                            title: "Contacts",
-                            link: "PortfolioContact",
-                        },
-                    ],
+            ],
+        },
+    },
+    {
+        //PortfolioContact
+        path: "/contact",
+        name: "Contact",
+        components: { mainRouter: Contact },
+        meta: {
+            documentTitle: "Mes Contacts",
+            breadCrumb: [
+                {
+                    title: "Contacts",
+                    link: "Contact",
                 },
-            },
-        ],
+            ],
+        },
     },
     {
         //UserProfile
