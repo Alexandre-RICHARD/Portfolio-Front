@@ -1,7 +1,7 @@
 {
-    "name": "tryhard-but-slowrun-front",
-    "version": "Build 105 ; V-1.1.3",
-    "description": "Projet TryHard but SlowRun par Alexandre Richard. Projet à but auto-formatif.",
+    "name": "portfolio-front",
+    "version": "Build 106 ; V-1.1.4",
+    "description": "Portfolio d'Alexandre Richard. Projet à but auto-formatif.",
     "main": "webpack.config.js",
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack serve --history-api-fallback",
@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Alexandre-RICHARD/tryhard-but-slowrun-front.git"
+        "url": "git+https://github.com/Alexandre-RICHARD/Portfolio-Front.git"
     },
     "keywords": [],
     "author": "",

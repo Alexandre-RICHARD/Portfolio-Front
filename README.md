@@ -1,4 +1,4 @@
-# TryHard but SlowRun - Le front
+# Portfolio - Le front
 
 Bonjour, bienvenue sur le répo de mon portfolio. J'y ai entreposé ma présentation, mon CV, mes projets ainsi que mes contacts. Tout mes projets présentés sont hébergés sur le même site.
 Il s'agit ici du front avec ci-dessous l'historique des version et leur détails.
@@ -894,6 +894,11 @@ Voici [le site](https://alexandre-richard.fr) en question.
 
 -   Tous les imports réguliers utilisent des alias adaptés, on compte : @middlewares, @parts, @root, @router, @src, @static, @store, @styles et @views
 -   Déplacer des pièces d'échecs SVG dans parts
+
+### build 106 - 1.1.4 `21 février 2023`
+
+-   Mise à jour des packages
+-   Changement de nom du projet, plus question de l'appeler tryhard but slowrun. C'est un peu nul comme nom, c'est simplement mon portfolio
 
 </details>
 
