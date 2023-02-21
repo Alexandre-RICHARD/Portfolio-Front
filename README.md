@@ -916,6 +916,11 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Déplacement des pages portfolio dans le dossier main avec la Home inutilisée pour l'instant
 -   Gestion des données meta de Breadcrumb pour les rendre cohérent aux changements
 
+### build 109 - 1.1.7 `21 février 2023`
+
+-   Fusion du contenu de Home et de l'ancien HomePage, on fera le tri bien après.
+-   Déplacement de tous les projets dans un sous-dossier projets
+
 </details>
 
 ## Les problèmes du site actuellement
