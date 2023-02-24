@@ -968,6 +968,17 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Suppression du petit encadré "versionning" au profit de son intégration dans le footer
 -   2 petits détails CSS sur la homePage
 
+### build 114 - 1.1.12 `24 février 2023`
+
+-   Renommage de quelques vues pour convenir aux bonnes pratiques conseillés par Vue.JS avec des noms en deux mots
+-   Lors d'un changement de page nécessitant de faire remontant le scroll en haut, la propriété headerVisibility est mise sur true pour éviter des problèmes de disparition
+-   Modification de la durée de l'animation du logo initial afin que l'animation dure 2 500 ms
+-   Rajout d'une propriété Overflow: hidden dans le body qui est supprimé à la fin du logo pour éviter un rendu moche en cas de scroll
+-   Importation initial des projets dans la page principale afin de les styliser par la suite
+-   Suppression de tous ce qui était ancien de la page principale maintenant que ça a été remplacé
+-   Changement de style de l'animation des éléments appear
+-   Les animations appear se déclenche après un scroll d'au moins 200 pixels en dessous de l'élément
+
 </details>
 
 ## Les problèmes du site actuellement

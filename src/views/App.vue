@@ -37,6 +37,9 @@ cookieHandler.handleAccountSessionCookie(
 <style lang="scss">
 @import "@styles/variables.scss";
 
+body {
+    overflow: hidden;
+}
 #app {
     transition: 333ms;
     font-family: $kanit;

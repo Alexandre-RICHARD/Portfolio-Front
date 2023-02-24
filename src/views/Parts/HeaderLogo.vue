@@ -1,3 +1,10 @@
+<script setup>
+setTimeout(() => {
+    document.querySelector("body").style.overflowY = "visible";
+}, 261 * 9.55);
+</script>
+
+
 <template>
     <div class="header-logo-cache">
         <div class="header-logo-container">
@@ -53,7 +60,7 @@
     user-select: none;
     pointer-events: none;
     animation: handle-cache calc($animation-logo-duration * 2) 1 ease-in both;
-    animation-delay: calc(7.55 * $animation-logo-duration);
+    animation-delay: calc(11.62 * $animation-logo-duration-delay);
 
     .header-logo-container {
         width: calc($largeurF * 1.3733);
@@ -63,7 +70,7 @@
         align-items: center;
         animation: replace-logo calc($animation-logo-duration * 2) 1 ease-in
             both;
-        animation-delay: calc(7.55 * $animation-logo-duration);
+        animation-delay: calc(11.62 * $animation-logo-duration-delay);
 
         .header-logo-div {
             position: absolute;
@@ -159,7 +166,7 @@
             font-weight: 600;
             font-size: 100px;
             color: $color13;
-            animation: apparition-letter calc($animation-logo-duration * 3)
+            animation: apparition-letter calc(3 * $animation-logo-duration)
                 cubic-bezier(0.47, 0, 0.745, 0.715) both;
             animation-delay: calc(7 * $animation-logo-duration-delay);
         }

@@ -4,10 +4,10 @@ import { useMainStore } from "@store/Main";
 
 // On importe toutes les vues qui seront utilisées par notre router principal
 import HomePage from "@views/Page/Main/HomePage.vue";
-import Curriculum from "@views/Page/Main/Curriculum.vue";
-import Projects from "@views/Page/Main/Projects.vue";
+import CurriculumPage from "@views/Page/Main/CurriculumPage.vue";
+import ProjectsContainer from "@views/Page/Main/ProjectsContainer.vue";
 import ProjectDetails from "@views/Page/Main/ProjectDetails.vue";
-import Contact from "@views/Page/Main/Contact.vue";
+import ContactPage from "@views/Page/Main/ContactPage.vue";
 
 import NotFound from "@views/Page/Other/NotFound.vue";
 import UserProfile from "@views/Page/User/UserProfile.vue";
@@ -39,7 +39,7 @@ const routes = [
     {
         path: "/curriculum",
         name: "Curriculum",
-        components: { mainRouter: Curriculum },
+        components: { mainRouter: CurriculumPage },
         meta: {
             documentTitle: "Curriculum",
             breadCrumb: [
@@ -54,7 +54,7 @@ const routes = [
     {
         path: "/project",
         name: "Project",
-        components: { mainRouter: Projects },
+        components: { mainRouter: ProjectsContainer },
         meta: {
             documentTitle: "Mes Projets",
             breadCrumb: [
@@ -89,7 +89,7 @@ const routes = [
     {
         path: "/contact",
         name: "Contact",
-        components: { mainRouter: Contact },
+        components: { mainRouter: ContactPage },
         meta: {
             documentTitle: "Mes Contacts",
             breadCrumb: [
@@ -242,9 +242,12 @@ const router = createRouter({
     routes,
     // Lors d'un changement de composant/page, le scrolling revient en haut automatiquement
     scrollBehavior() {
+        const MainStore = useMainStore();
+        const { modalData } = MainStore;
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve({ left: 0, top: 0, behavior: "smooth" });
+                modalData.headerVisibility = true;
             }, 200);
         });
     },

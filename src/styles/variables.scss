@@ -48,8 +48,9 @@ $z-index-versionning: 12;
 $z-index-etherum: 100000;
 
 //? Duration
-// $animation-logo-duration: 320ms;
-$animation-logo-duration: 3ms;
+// Durée totale = D * 9.55
+$animation-logo-duration: 261ms;
+// $animation-logo-duration: 3ms;
 $animation-logo-duration-delay: calc($animation-logo-duration * 0.65);
 $transition-header-menu-duration: 300ms;
 
