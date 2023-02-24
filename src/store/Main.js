@@ -19,6 +19,7 @@ export const useMainStore = defineStore("Main", {
             open: false,
             type: null,
             loading: false,
+            headerVisibility: true,
         },
         headerLinks: [
             { id: 0, type: "link", content: "Accueil", link: "HomePage" },
@@ -46,7 +47,7 @@ export const useMainStore = defineStore("Main", {
                 id: 1,
                 title: "Portfolio",
                 link: "portfolio",
-                linkAccess: "Home",
+                linkAccess: "HomePage",
                 abstract:
                     "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel hébergé et placer mes différentes idées.",
                 description:

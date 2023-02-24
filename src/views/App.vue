@@ -2,6 +2,7 @@
 import AccountModal from "@parts/AccountModal.vue";
 import LoadingLogo from "@parts/LoadingLogo.vue";
 import ProjectVersionning from "@parts/ProjectVersionning.vue";
+import ScrollEmergence from "@parts/ScrollEmergence.vue";
 import HeaderContainer from "@parts/HeaderContainer.vue";
 
 import { useMainStore } from "@store/Main";
@@ -26,6 +27,7 @@ cookieHandler.handleAccountSessionCookie(
     <AccountModal v-if="modalData.open === true" />
     <LoadingLogo v-if="modalData.loading === true" />
     <ProjectVersionning />
+    <ScrollEmergence />
     <HeaderContainer />
     <main>
         <router-view name="mainRouter" />
@@ -44,7 +46,7 @@ cookieHandler.handleAccountSessionCookie(
     min-height: 100vh;
 
     main {
-        padding-top: 135px;
+        padding-top: $total-header-height;
     }
 }
 </style>

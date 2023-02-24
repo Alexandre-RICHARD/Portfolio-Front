@@ -4,7 +4,6 @@ import HeaderMenu from "@parts/HeaderMenu.vue";
 import HeaderLogo from "@parts/HeaderLogo.vue";
 import HeaderLink from "@parts/HeaderLink.vue";
 import downloadIcon from "@svgs/downloadIcon.vue";
-import { ref } from "vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 import { useMainStore } from "@store/Main";
 import { useRouter } from "vue-router";
@@ -27,24 +26,10 @@ const disconnect = () => {
     router.push({ name: "HomePage" });
 };
 
-let headerVisibility = ref(true);
-let lastScrollValue = 0;
-
-document.addEventListener("scroll", () => {
-    let currentScrollValue = window.scrollY;
-    if (currentScrollValue > 200) {
-        if (lastScrollValue < currentScrollValue) {
-            headerVisibility.value = false;
-        } else {
-            headerVisibility.value = true;
-        }
-        lastScrollValue = currentScrollValue;
-    }
-});
 </script>
 
 <template>
-    <header :class="{ hidden: !headerVisibility }" class="header">
+    <header :class="{ hidden: !modalData.headerVisibility }" class="header">
         <!-- LOGO -->
         <router-link class="header-logo" :to="{ name: 'HomePage' }">
             <HeaderLogo />
@@ -100,7 +85,7 @@ document.addEventListener("scroll", () => {
 
         <!-- LE MENU LATERAL -->
 
-        <BreadCrumb :visibility="headerVisibility" />
+        <BreadCrumb :visibility="modalData.headerVisibility" />
     </header>
     <HeaderMenu />
 </template>

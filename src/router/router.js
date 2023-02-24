@@ -26,7 +26,7 @@ const routes = [
         name: "HomePage",
         components: { mainRouter: HomePage },
         meta: {
-            documentTitle: "Accueil",
+            documentTitle: "Alexandre Richard",
             breadCrumb: [
                 {
                     title: "Accueil",

@@ -30,7 +30,6 @@ const handleMenuModal = (entryMode) => {
 };
 const outsideMenuClickHandler = (event) => {
     if (event.target.attributes.getNamedItem("menu-closer")) {
-        console.log("On passe en effet par ici");
         handleMenuModal(false);
     }
 };

@@ -5,7 +5,7 @@ Il s'agit ici du front avec ci-dessous l'historique des version et leur détails
 
 Voici [le site](https://alexandre-richard.fr) en question.
 
-## Historique des version
+## Historique des versions
 
 ### Version 0
 
@@ -775,6 +775,12 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Changement dans le fonctionnement de la réponse. Elle contient un objet donc une clé correspond à si oui ou non le gameData est initialisé ou vide
 -   Rajout d'une fonction resetAll qui va venir supprimer les classes supplémentaires et les events avant qu'ils soient tous remis correctement à chaque nouveau coup
 
+</details>
+
+### Version 1
+
+<details>
+
 ### build 96 - 1.0.0 `15 novembre 2022`
 
 -   Passage en 1.0 maintenant que j'ai commencé à postuler et que je pars du principe que mon objectif initial est atteind.
@@ -942,22 +948,38 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Réudction de la taille de l'icône de téléchargement du CV
 -   Changement d'un commentaire dans le router erroné
 
+### build 112 - 1.1.10 `24 février 2023`
+
+-   Changement de nom pour le document.title de la page d'accueil en Alexandre Richard au lieu de Accueil
+-   Rajout dans modalData du Store d'une propriété headerVisibility pour centraliser le système de gestion du scroll
+-   Création d'une vue qui n'a que pour objectif de s'occuper du scroll "ScrollEmergence"
+-   Rajout d'une variable CSS prennant en compte la hauteur total du header en prennant compte du BreadCrumb
+-   Correction d'un nom de route dans les projets stockés dans le store
+-   Appel du composant ScrollEmergence dans App.vue. Il s'occupe de cacher/montrer le header comme avant en modifiant la variable headerVisibility du Store
+-   Il s'occupe aussi à présent de vérifier tous les élements qui comportent la classe "appear". En dessous d'un certains scrolls, ils apparaissent avec animation
+-   Refonte en cours de la page d'accueil, première partie terminée
+-   Suppression d'un console.log qui trainaient.
+
 </details>
 
 ## Les problèmes du site actuellement
 
+<details>
+
 -   Sur mobile, les caractères fléchés sont différent, à changer.
--   Sur mobile, petit bug lors du changement de thème
 -   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
 -   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs (peut-être réglé sans le vouloir)
 -   Lors du choix de la nouvelle pièce, on peut encore jouer tout le reste
 -   Les requêtes qui devraient être en patch sont en post car les requêtes patch ne fonctionne plus du tout en prod
 
+</details>
+
 ## Les features à venir
+
+<details>
 
 En cours :
 
--   Créer un cookie ou autre manière de faire pour que l'utilisateur reste connecté et conserver le thème choisi par l'user
 -   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
 -   Intégrer le chat commun
 -   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment
@@ -977,7 +999,6 @@ Projets à intégrer :
 -   Liste des jeux avec toutes leur propriétés, Capacité de rajouter/modifier/supprimer des jeux, Temps de jeu indiqué + temps de jeu estimé en plus
 -   Le wiki des dinosaures dans ARK
 -   Les outils que j'ai fait pour ARK à Intégrer
--   The Journal
 -   Tenter de créer un système de génération de carte aléatoire avec système de GPS menant au plus court chemin
 -   Générateur de page aléatoire stylisé
 -   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
@@ -1012,8 +1033,6 @@ Détails et peaufinage :
 
 -   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
 -   Les données de projets seront par la suite récupérer en base de données, ainsi que leurs images
--   Changer le PDF du CV pour qu'il soit lisible avec le bon lecteur PDF
--   Régler l'image d'illustration de code pour qu'elle coïncide avec le thème
 -   Transformer le .eslintrc.json en .js
 -   Création d'une webpack modele
 -   Séparer les stores, account ? Theme ? Navigation ? Other ? Project/content ?
@@ -1023,10 +1042,6 @@ Détails et peaufinage :
 -   La pagfe etherum sera à refaire bien plus complète et propre afin de l'implémenter directement en tyant que projet dans notre site, je n'y touche pas plus que ça pour le moment
 -   Trouver un moyen d'indiquer à l'utilisateur que cliquer sur la Dolorean peut le faire evenir en arrière
 -   POur la force du mot de passe, mettre la progress bar en couleur avec une légende et peut-être une valeur
--   Le mastermind doit avoir son propre composant ainsi que son propre fichier scss
--   SVG du header dans son composant
--   Réorganiser le fichier App. vue
--   Factoriser themePallet
 -   Rajouter un web media sur les projets pour le responsive
 -   Quand on aura réussi a envoyer des mails serveur, il faudra envoyer un mail de confirmation lors de la création de compte
 -   Stocker des images en BDD
@@ -1044,3 +1059,5 @@ Détails et peaufinage :
 -   Colorier les inputs incorrect également lors du submit
 -   Détailler et passer un peu de temps à déterminer les vraies features intéressantes de mes différents projets
 -   Améliorer le cleanError pour qu'il enlève uniquement l'erreur du bon input
+
+</details>
