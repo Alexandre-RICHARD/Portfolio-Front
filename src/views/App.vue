@@ -41,6 +41,7 @@ body {
     overflow: hidden;
 }
 #app {
+    position: relative;
     transition: 333ms;
     font-family: $kanit;
     background-color: $color0;
@@ -50,6 +51,7 @@ body {
 
     main {
         padding-top: $total-header-height;
+        padding-bottom: $footer-height;
     }
 }
 </style>

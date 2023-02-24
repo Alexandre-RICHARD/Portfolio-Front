@@ -979,6 +979,12 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Changement de style de l'animation des éléments appear
 -   Les animations appear se déclenche après un scroll d'au moins 200 pixels en dessous de l'élément
 
+### build 115 - 1.1.13 `24 février 2023`
+
+-   Rajout d'une variable footer-height dans le scss pour pouvoir créer un padding artificiel au main. Le main et le header sont ainsi "protégé" du contenu
+-   Mise de la div app en position : relative, cela semble n'avoir rien cassé
+-   Suppression de style inutile dans projects
+
 </details>
 
 ## Les problèmes du site actuellement

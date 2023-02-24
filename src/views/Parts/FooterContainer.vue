@@ -18,14 +18,23 @@ import pjson from "@root/package.json";
 @import "@styles/variables.scss";
 
 .footer {
+    position: absolute;
     color: $color14;
     font-size: $tiny;
     text-align: center;
     font-weight: 500;
-    margin: 20px 0 8px 0;
-
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     a {
         text-decoration: underline;
+
+        &:hover {
+            letter-spacing: 0.5px;
+        }
     }
 }
 </style>
