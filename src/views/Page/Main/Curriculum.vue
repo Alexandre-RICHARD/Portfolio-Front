@@ -362,7 +362,7 @@ const informationsList = [
 
             .title {
                 color: $color14;
-                background-color: $color9;
+                background-color: $color111;
                 padding: 3px 12px;
                 border-radius: 10px;
                 border: 4px solid $color4;
@@ -432,7 +432,7 @@ const informationsList = [
                 padding-top: 50px;
                 background-color: $color0;
                 min-width: 30%;
-                border-bottom: 1px solid $color9;
+                border-bottom: 1px solid $color111;
 
                 .whichone {
                     background-color: $color0;
@@ -498,7 +498,7 @@ const informationsList = [
             .right {
                 padding-top: 50px;
                 background-color: $color0;
-                border-bottom: 1px solid $color9;
+                border-bottom: 1px solid $color111;
                 font-size: 16px;
                 color: $color14;
                 text-align: justify;

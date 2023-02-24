@@ -163,14 +163,14 @@ const sendMail = () => {
     justify-content: space-evenly;
 
     .contact-sub-box {
-        background-color: $color9;
+        background-color: $color111;
         padding: 10px;
         border-radius: 20px;
         height: fit-content;
         margin: 30px 0;
 
         .contact-box-title {
-            background-color: $color9;
+            background-color: $color111;
             color: $color14;
             font-weight: 500;
             font-size: 16px;

@@ -1,6 +1,5 @@
 <script setup>
 import ContactButton from "@parts/ContactButton.vue";
-import ProjectContainer from "@parts/ProjectContainer.vue";
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { contactList } = MainStore;
@@ -23,11 +22,6 @@ const age = Math.floor(
                     JS ; Node ; React ; Vue.js ; Express ; Webpack
                 </h3>
             </div>
-            <img
-                alt="illustration représentant du code javascript"
-                class="illustration"
-                src="@static/images/code-illustration.png"
-            >
         </div>
 
         <h2 class="categories">Présentation</h2>
@@ -59,7 +53,6 @@ const age = Math.floor(
 
         <h2 class="categories">Mes projets</h2>
         <!-- Importation des projets en précisant qu'on en veut que 3 qui seront choisi aléatoirement -->
-        <ProjectContainer :number="3" />
         <router-link
             title="Voir tous mes autres projets"
             class="link-to-more"

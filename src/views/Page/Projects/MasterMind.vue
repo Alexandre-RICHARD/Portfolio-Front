@@ -153,7 +153,7 @@ const changeNumber = (position, direction) => {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 3px solid $color9;
+                border: 3px solid $color111;
             }
 
             .arrow {

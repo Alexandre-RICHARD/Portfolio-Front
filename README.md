@@ -933,6 +933,15 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Ils sont toujours accessibles en connaissant le lien
 -   Remaniement et rangement dans le router afin de le rendre plus lisible. Rajout du Mastermind
 
+### build 111 - 1.1.9 `24 février 2023`
+
+-   Commencer à remanier la page principale du site. Suppression de l'illustration de code obsolète
+-   Suppression (peut-être temporaire) de l'import des projets sur la page principale
+-   Suppression du fichier ProjectContainer pour que son contenu soit dans Project tout simplement
+-   Rajout d'une couleur temporaire pour que les couleurs soient plus convenables le temps de finir la base
+-   Réudction de la taille de l'icône de téléchargement du CV
+-   Changement d'un commentaire dans le router erroné
+
 </details>
 
 ## Les problèmes du site actuellement

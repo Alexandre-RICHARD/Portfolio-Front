@@ -94,7 +94,7 @@ defineProps({
     position: relative;
 
     .contact-element {
-        background-color: $color9;
+        background-color: $color111;
         display: flex;
         align-items: stretch;
         height: 35px;

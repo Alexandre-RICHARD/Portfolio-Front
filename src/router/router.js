@@ -158,7 +158,7 @@ const routes = [
             ],
         },
     },
-    //GermanTest
+    //Mastermind
     {
         path: "/mastermind",
         name: "Mastermind",

@@ -161,18 +161,18 @@ document.addEventListener("scroll", () => {
             position: absolute;
             display: flex;
             align-items: center;
-            width: 25px;
-            height: 25px;
-            left: 190px;
-            top: 10px;
+            width: 18px;
+            height: 18px;
+            left: 188px;
+            top: 12px;
             background-color: transparent;
             border-radius: 7px;
             transition: 100ms;
 
             .resume-download-icon {
                 color: $color14;
-                width: 25px;
-                height: 25px;
+                width: 18px;
+                height: 18px;
             }
 
             &:hover {

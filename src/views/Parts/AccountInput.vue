@@ -189,19 +189,19 @@ const toggleShowPassword = (event) => {
     }
 
     .error-box {
-        background-color: $color9;
+        background-color: $color111;
         color: $color14;
         padding: 5px;
         border-radius: 5px;
 
         .title {
-            background-color: $color9;
+            background-color: $color111;
             color: $color14;
             font-size: 16px;
         }
 
         .error {
-            background-color: $color9;
+            background-color: $color111;
             color: $color14;
             font-size: 14px;
         }
