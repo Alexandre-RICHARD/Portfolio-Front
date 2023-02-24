@@ -1,7 +1,7 @@
 <script setup>
 import AccountModal from "@parts/AccountModal.vue";
+import FooterContainer from "@parts/FooterContainer.vue";
 import LoadingLogo from "@parts/LoadingLogo.vue";
-import ProjectVersionning from "@parts/ProjectVersionning.vue";
 import ScrollEmergence from "@parts/ScrollEmergence.vue";
 import HeaderContainer from "@parts/HeaderContainer.vue";
 
@@ -26,12 +26,12 @@ cookieHandler.handleAccountSessionCookie(
 <template>
     <AccountModal v-if="modalData.open === true" />
     <LoadingLogo v-if="modalData.loading === true" />
-    <ProjectVersionning />
     <ScrollEmergence />
     <HeaderContainer />
     <main>
         <router-view name="mainRouter" />
     </main>
+    <FooterContainer />
 </template>
 
 <style lang="scss">

@@ -162,7 +162,7 @@ const age = Math.floor(
 
     .home-section {
         margin: 0 auto;
-        margin-bottom: 100px;
+        margin-bottom: 150px;
         max-width: 600px;
 
         .title-box {
@@ -183,6 +183,7 @@ const age = Math.floor(
         }
 
         .content {
+            background-color: transparent;
             .link-to-more {
                 color: $color14;
                 border: 1px solid $color15;

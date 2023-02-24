@@ -5,6 +5,8 @@ Il s'agit ici du front avec ci-dessous l'historique des version et leur détails
 
 Voici [le site](https://alexandre-richard.fr) en question.
 
+Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Back).
+
 ## Historique des versions
 
 ### Version 0
@@ -959,6 +961,12 @@ Voici [le site](https://alexandre-richard.fr) en question.
 -   Il s'occupe aussi à présent de vérifier tous les élements qui comportent la classe "appear". En dessous d'un certains scrolls, ils apparaissent avec animation
 -   Refonte en cours de la page d'accueil, première partie terminée
 -   Suppression d'un console.log qui trainaient.
+
+### build 113 - 1.1.11 `24 février 2023`
+
+-   Création d'un footer simpliste mais suffisant
+-   Suppression du petit encadré "versionning" au profit de son intégration dans le footer
+-   2 petits détails CSS sur la homePage
 
 </details>
 
