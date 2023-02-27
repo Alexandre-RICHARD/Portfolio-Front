@@ -985,6 +985,15 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Mise de la div app en position : relative, cela semble n'avoir rien cassé
 -   Suppression de style inutile dans projects
 
+### build 116 - 1.1.14 `27 février 2023`
+
+-   Deux petites modifications de textes dans le Store
+-   Rajout d'un message temporaire indiquand le travail en cours effectué sur le site pour le rendr eplus agréable
+-   Rajout de style généraux temporaire pour forcer les pages à être mieux présentées
+-   Petit changement sur le message de non fonctionnement du formulaire de contact
+-   Importation et stylisation des projet-box dans la homePage
+-   Suppression temporaire des styles pour les projets de la page projets
+
 </details>
 
 ## Les problèmes du site actuellement

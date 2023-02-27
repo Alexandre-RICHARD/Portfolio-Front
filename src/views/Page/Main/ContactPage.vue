@@ -75,8 +75,7 @@ const sendMail = () => {
     <!-- Formulaire de contact inutilisable pour le moment, de plus il serait à factoriser -->
     <div class="contact-me">
         <h1 class="categories">
-            Me contacter directement (non fonctionnel, en attente de réussir à
-            trouver comment faire)
+            Me contacter directement (non fonctionnel pour le moment)
         </h1>
         <form class="contact-me-form">
             <div class="input">

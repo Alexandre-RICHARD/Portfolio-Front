@@ -29,6 +29,7 @@ cookieHandler.handleAccountSessionCookie(
     <ScrollEmergence />
     <HeaderContainer />
     <main>
+        <p class="info-temp">Je suis en train de retravailler le design global du site, il est normal que certaines choses ne soient pas encore cohérentes vis-à-vis du reste.</p>
         <router-view name="mainRouter" />
     </main>
     <FooterContainer />
@@ -48,10 +49,23 @@ body {
     width: 100%;
     min-width: 200px;
     min-height: 100vh;
-
+    
     main {
-        padding-top: $total-header-height;
-        padding-bottom: $footer-height;
+        padding: $total-header-height 30px $footer-height 30px;
+        margin: auto;
+        max-width: 1300px;
+
+        .info-temp {
+            width: 100%;
+            background-color: #c96b6b;
+            color: #000000;
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            padding: 12px;
+        }
+        // padding-top: $total-header-height;
+        // padding-bottom: $footer-height;
     }
 }
 </style>
