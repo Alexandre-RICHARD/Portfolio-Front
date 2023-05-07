@@ -2,27 +2,13 @@
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { projectList } = MainStore;
-
-defineProps({
-    number: {
-        type: Number,
-        required: true,
-    },
-});
-
-// La méthode shuffle, utilisé pour randomizer l'ordre d'un tableau et aisni le mélanger
-const shuffle = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-};
 </script>
 
 <template>
     <!-- On utilise ici un opérateur ternaire. Il fait que si on appelle ce sous-composant avec un nombre différente de 0, alors on renvoit le tableau mélangé des projets et tronqué pour en avoir le bon nombre. Sinon, on renvoi le tableau complet -->
     <div class="project-container">
-        <RouterLink
-            v-for="project in number != 0
-                ? shuffle(projectList).slice(projectList.length - number)
-                : projectList"
+        <div
+            v-for="project in projectList"
             :key="project.id"
             class="one-project"
             :to="{
@@ -35,136 +21,96 @@ const shuffle = (array) => {
                 src="@static/images/projectIllustration/overview/projectIllustrationPlaceholder.png"
                 alt="Une image temporaire le temps d'importer d'autre projet"
             >
-            <h3 class="one-project-title">{{ project.title }}</h3>
-            <p class="one-project-description">{{ project.abstract }}</p>
-        </RouterLink>
+            <div class="one-project-sub-container">
+                <h3 class="title">{{ project.title }}</h3>
+                <p class="description">{{ project.abstract }}</p>
+                <RouterLink
+                    :to="{
+                        name: 'ProjectDetails',
+                        params: { projectName: project.link },
+                    }"
+                    class="details"
+                >
+                    Voir les détails
+                </RouterLink>
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="scss">
 @import "@styles/variables.scss";
 
-// .detailled-project {
-//     &-illustration {
-//         background-color: $color0;
-//         position: absolute;
-//         top: $header-height;
-//         left: 0;
-//         height: 300px;
-//         width: 100%;
-//         object-fit: cover;
-//         opacity: 0.6;
-//     }
+.project-container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
-//     &-link-access {
-//         background-color: $color14;
-//         color: $color0;
-//         font-weight: 500;
-//         font-size: 16px;
-//         padding: 2px 5px;
-//         border-radius: 5px;
-//         position: absolute;
-//         top: calc($header-height + 250px);
-//         right: 30px;
-//     }
+    .one-project {
+        background: linear-gradient(56deg, $color110 0%, $color110 38%, $color0 100%);
+        width: 100%;
+        color: $color14;
+        margin: 25px 20px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 1px 1px 8px 2px $color112;
+        
+        &-sub-container {
+            width: 100%;
+            height: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            .title {
+                color: $color7;
+                text-align: center;
+                font-weight: 600;
+                font-size: 20px;
+                padding: 5px 15px 3px 15px;
+            }
+    
+            .description {
+                color: $color14;
+                padding: 0 15px 15px 15px;
+                text-align: justify;
+            }
+    
+            .details {
+                color: $color14;
+                background-color: $transparent-white;
+                box-shadow: 1px 1px 8px 4px $color112 inset;
+                text-align: center;
+                font-weight: 500;
+                font-size: $extra-large;
+                padding: 4px 10px;
+                margin: 10px 30px;
 
-//     &-details {
-//         background-color: $color0;
-//         margin-top: 250px;
-//     }
+                &:hover {
+                    margin: 10px 18px;
+                    border-radius: 19px;
+                }
+            }
+        }
+    }
+}
 
-//     &-title {
-//         background-color: $color0;
-//         font-size: 30px;
-//         font-weight: 600;
-//         letter-spacing: 5px;
-//         color: $color4;
-//     }
+@media only screen and (min-width: 450px) {
+    .project-container {
+        .one-project {
+            width: 45%;
+        }
+    }
+}
 
-//     &-description {
-//         background-color: $color0;
-//         font-size: 18px;
-//         color: $color14;
-//         text-align: justify;
-//     }
-
-//     &-features {
-//         margin: 20px 0 8px 0;
-//         background-color: $color0;
-//         font-size: 20px;
-//         color: $color6;
-//         text-shadow: 1px 1px 1px $color13;
-//         text-decoration: underline;
-//         text-underline-offset: 2px;
-//     }
-
-//     &-list-features {
-//         background-color: $color0;
-//         display: flex;
-//         flex-wrap: wrap;
-//         justify-content: space-between;
-
-//         .feature {
-//             background-color: $color111;
-//             padding: 6px;
-//             border-radius: 5px;
-//             margin: 6px 0;
-//             width: 100%;
-//             text-align: justify;
-//             color: $color14;
-
-//             &::before {
-//                 content: "> ";
-//                 font-weight: 700;
-//                 color: $color6;
-//             }
-//         }
-//     }
-// }
-
-// @media only screen and (min-width: 600px) {
-//     .detailled-project {
-//         &-list-features {
-//             .feature {
-//                 width: 47%;
-//             }
-//         }
-//     }
-// }
-
-// .project-container {
-//     background-color: $color0;
-//     padding: 20px 0;
-//     display: flex;
-//     justify-content: space-between;
-//     flex-wrap: wrap;
-
-//     .one-project {
-//         background-color: $color0;
-//         width: 31%;
-//         height: fit-content;
-//         color: $color14;
-//         padding: 5px;
-//         margin: 15px 0;
-//         border-radius: 8px;
-//         overflow: hidden;
-//         display: block;
-//         border: 2px solid $color4;
-
-//         &-title {
-//             background-color: $color0;
-//             color: $color4;
-//             text-align: center;
-//             font-weight: 400;
-//             font-size: 18px;
-//         }
-
-//         &-description {
-//             background-color: $color0;
-//             color: $color14;
-//             padding: 0 5px 15px 5px;
-//             text-align: justify;
-//         }
-//     }
-// }
+@media only screen and (min-width: 600px) {
+    .project-container {
+        .one-project {
+            width: 29%;
+        }
+    }
+}
 </style>

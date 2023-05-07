@@ -63,14 +63,14 @@ const age = Math.floor(
                             projectList.length - 3
                         )"
                         :key="project.id"
-                        class="appear one-project"
+                        class="appear one-project-homepage"
                     >
-                        <h3 class="one-project-title">{{ project.title }}</h3>
-                        <p class="one-project-description">
+                        <h3 class="one-project-homepage-title">{{ project.title }}</h3>
+                        <p class="one-project-homepage-description">
                             {{ project.abstract }}
                         </p>
                         <RouterLink
-                            class="one-project-access"
+                            class="one-project-homepage-access"
                             :to="{
                                 name: 'ProjectDetails',
                                 params: { projectName: project.link },
@@ -218,7 +218,7 @@ const age = Math.floor(
             .project-container {
                 background-color: transparent;
 
-                .one-project {
+                .one-project-homepage {
                     background-color: $color15;
                     color: $color0;
                     display: flex;

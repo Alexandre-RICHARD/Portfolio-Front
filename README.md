@@ -1008,6 +1008,17 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Agrandissement de la police du footer
 -   Mise en Majuscule de l'appel d'un composant Vue dans le HeaderContainer
 
+### build 118 - 1.1.16 `7 mai 2023`
+
+-   Rajout de 2 couleurs dans les variables pour plus de subtilités des gris clair
+-   Sur la page Curriculum, rajout de quelques classes "appear" sur certains éléments pour être cohérent avec la homepage
+-   Rajout d'une sécurité sur la logique de la gestion des scroll. Si on est inférieur à 200 pixels de scroll, on force l'affichage du header au cas où
+-   Suppression de la logique de random sur la sélection des projets à afficher globalement, celle-ci étant géré indépendemment par la homepage
+-   Rajout d'un bouton plus explicite pour accéder au projet en détails
+-   Refonte totale du style de la page ProjectsContainer
+-   Déplacement du style des projets détaillés de la vue ProjectsContainer à la page ProjectDetails
+-   Changement du nom de la classe des projets seuls sur la homepage pour que leur styles n'interfèrent pas avec la vue ProjectContainer
+
 </details>
 
 ## Les problèmes du site actuellement

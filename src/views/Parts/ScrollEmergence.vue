@@ -14,6 +14,8 @@ document.addEventListener("scroll", () => {
             modalData.headerVisibility = true;
         }
         lastScrollValue = currentScrollValue;
+    } else {
+        modalData.headerVisibility = true;
     }
 
     document.querySelectorAll(".appear").forEach((el) => {

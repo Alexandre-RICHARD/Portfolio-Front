@@ -227,7 +227,7 @@ const informationsList = [
             </ul>
         </div>
 
-        <div class="categories professional-experiences">
+        <div class="appear categories professional-experiences">
             <div class="title-box">
                 <h2 class="title">Expériences professionnelles</h2>
                 <div class="line-up" />
@@ -235,7 +235,7 @@ const informationsList = [
             <div
                 v-for="experience in professionalExperiences.reverse()"
                 :key="experience.key"
-                class="one-of-them"
+                class="appear one-of-them"
             >
                 <div class="left">
                     <p class="whichone">{{ experience.title }}</p>
@@ -258,7 +258,7 @@ const informationsList = [
             </div>
         </div>
 
-        <div class="categories education">
+        <div class="appear categories education">
             <div class="title-box">
                 <h2 class="title">Formation</h2>
                 <div class="line-up" />
@@ -266,7 +266,7 @@ const informationsList = [
             <div
                 v-for="study in schoolCurriculum.reverse()"
                 :key="study.key"
-                class="one-of-them"
+                class="appear one-of-them"
             >
                 <div class="left">
                     <p class="whichone">{{ study.title }}</p>
@@ -289,7 +289,7 @@ const informationsList = [
             </div>
         </div>
 
-        <div class="categories hobbies">
+        <div class="appear categories hobbies">
             <div class="title-box">
                 <h2 class="title">Loisirs</h2>
                 <div class="line-up" />
@@ -301,7 +301,7 @@ const informationsList = [
             </ul>
         </div>
 
-        <div class="categories quality">
+        <div class="appear categories quality">
             <div class="title-box">
                 <h2 class="title">Qualités</h2>
                 <div class="line-up" />
@@ -313,7 +313,7 @@ const informationsList = [
             </ul>
         </div>
 
-        <div class="categories further-information">
+        <div class="appear categories further-information">
             <div class="title-box">
                 <h2 class="title">Informations complémentaires</h2>
                 <div class="line-up" />
