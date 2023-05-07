@@ -988,11 +988,25 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 ### build 116 - 1.1.14 `27 février 2023`
 
 -   Deux petites modifications de textes dans le Store
--   Rajout d'un message temporaire indiquand le travail en cours effectué sur le site pour le rendr eplus agréable
+-   Rajout d'un message temporaire indiquand le travail en cours effectué sur le site pour le rendre plus agréable
 -   Rajout de style généraux temporaire pour forcer les pages à être mieux présentées
 -   Petit changement sur le message de non fonctionnement du formulaire de contact
 -   Importation et stylisation des projet-box dans la homePage
 -   Suppression temporaire des styles pour les projets de la page projets
+
+### build 117 - 1.1.15 `7 mai 2023`
+
+-   Mise à jour des packages NPM
+-   Déplacement des logos de contact du dossier launcherLogo au dossier contactLogo
+-   Changement dans l'organisation des données de contact dans le state
+-   Suppression du message "temporaire" d'avertissement de refonte du site
+-   Changement dans deux intitulés de la page contact et léger changement de couleurs
+-   Refonte du CSS de la page Curriculum
+-   Création d'un fichier Vue pour le stockage du svg copy-icon et suppression de celui-ci dans le fichier original
+-   Réorganisation de l'import de contactButton et de la logique de boucle de création de ceux-ci. CSS changés par la même occasion
+-   Suppression de 2 lignes de changement d'état dans la page 404. 
+-   Agrandissement de la police du footer
+-   Mise en Majuscule de l'appel d'un composant Vue dans le HeaderContainer
 
 </details>
 

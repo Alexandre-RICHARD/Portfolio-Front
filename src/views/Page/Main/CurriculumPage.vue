@@ -329,9 +329,11 @@ const informationsList = [
 @import "@styles/variables.scss";
 
 .curriculum-container {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1000px;
+
     li {
-        background-color: $color0;
-        color: $color14;
 
         &::before {
             content: ">";
@@ -344,47 +346,43 @@ const informationsList = [
 }
 
 .curriculum-container {
-    background-color: $color0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     .categories {
-        background-color: $color0;
         min-width: 28%;
         margin-right: 6px;
 
         .title-box {
-            background-color: $color0;
             display: flex;
             width: 100%;
             margin: 10px 0;
 
             .title {
+                font-weight: 500;
+                letter-spacing: 1.2px;
                 color: $color14;
-                background-color: $color111;
                 padding: 3px 12px;
                 border-radius: 10px;
-                border: 4px solid $color4;
+                border: 4px solid $color14;
             }
 
             .line-up {
-                background-color: $color4;
+                background-color: $color14;
                 margin-left: -20px;
                 width: 100%;
-                height: 2px;
+                height: 4px;
             }
         }
     }
 
     .description-text {
-        background-color: $color0;
         color: $color14;
         text-align: justify;
         width: 100%;
 
         .photo {
-            background-color: $color0;
             margin-right: 12px;
             width: 200px;
             border: 2px solid $color14;
@@ -393,27 +391,21 @@ const informationsList = [
     }
 
     .hobbies {
-        background-color: $color0;
         .hobbies-list {
-            background-color: $color0;
             font-size: 16px;
             color: $color14;
         }
     }
 
     .quality {
-        background-color: $color0;
         .qualities-list {
-            background-color: $color0;
             font-size: 16px;
             color: $color14;
         }
     }
 
     .further-information {
-        background-color: $color0;
         .further-information-list {
-            background-color: $color0;
             font-size: 16px;
             color: $color14;
         }
@@ -421,34 +413,28 @@ const informationsList = [
 
     .professional-experiences,
     .education {
-        background-color: $color0;
         overflow: hidden;
 
         .one-of-them {
-            background-color: $color0;
             display: flex;
 
             .left {
                 padding-top: 50px;
-                background-color: $color0;
                 min-width: 30%;
                 border-bottom: 1px solid $color111;
 
                 .whichone {
-                    background-color: $color0;
                     font-size: 15px;
                     color: $color14;
                 }
 
                 .where {
-                    background-color: $color0;
                     font-size: 12px;
                     color: $color14;
                 }
             }
 
             .middle {
-                background-color: $color0;
                 min-width: 25px;
                 max-width: 25px;
                 display: flex;
@@ -497,7 +483,6 @@ const informationsList = [
 
             .right {
                 padding-top: 50px;
-                background-color: $color0;
                 border-bottom: 1px solid $color111;
                 font-size: 16px;
                 color: $color14;
@@ -508,7 +493,6 @@ const informationsList = [
     }
 
     .skills {
-        background-color: $color0;
         .further-information-list {
             background-color: $color0;
             font-size: 16px;
@@ -517,9 +501,7 @@ const informationsList = [
     }
 
     .qualification {
-        background-color: $color0;
         .further-information-list {
-            background-color: $color0;
             font-size: 16px;
             color: $color14;
         }

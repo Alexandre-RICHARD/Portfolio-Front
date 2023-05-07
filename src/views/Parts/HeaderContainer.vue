@@ -3,7 +3,7 @@ import BreadCrumb from "@parts/BreadCrumb.vue";
 import HeaderMenu from "@parts/HeaderMenu.vue";
 import HeaderLogo from "@parts/HeaderLogo.vue";
 import HeaderLink from "@parts/HeaderLink.vue";
-import downloadIcon from "@svgs/downloadIcon.vue";
+import DownloadIcon from "@svgs/DownloadIcon.vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 import { useMainStore } from "@store/Main";
 import { useRouter } from "vue-router";
@@ -54,7 +54,7 @@ const disconnect = () => {
                 class="resume"
                 title="Mon CV à télécharger"
             >
-                <downloadIcon class="resume-download-icon" />
+                <DownloadIcon class="resume-download-icon" />
             </a>
         </div>
 

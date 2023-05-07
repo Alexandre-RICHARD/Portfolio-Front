@@ -11,9 +11,7 @@ const returnToHome = () => {
     dolorean.classList.toggle("animate");
     fire.classList.toggle("animate");
     setTimeout(() => {
-        dolorean.classList.toggle("animate");
-        fire.classList.toggle("animate");
-        router.push({ name: "Home" });
+        router.push({ name: "HomePage" });
     }, 1250);
 };
 </script>

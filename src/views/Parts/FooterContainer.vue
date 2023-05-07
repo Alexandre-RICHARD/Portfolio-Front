@@ -20,7 +20,7 @@ import pjson from "@root/package.json";
 .footer {
     position: absolute;
     color: $color14;
-    font-size: $tiny;
+    font-size: $small;
     text-align: center;
     font-weight: 500;
     bottom: 10px;

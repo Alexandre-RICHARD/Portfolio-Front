@@ -1,7 +1,8 @@
 <script setup>
+import ContactButton from "@parts/ContactButton.vue";
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
-const { projectList } = MainStore;
+const { projectList, contactList } = MainStore;
 
 // La méthode shuffle, utilisé pour randomizer l'ordre d'un tableau et aisni le mélanger
 const shuffle = (array) => {
@@ -84,30 +85,30 @@ const age = Math.floor(
                 </router-link>
             </div>
         </section>
-        <section class="home-section presentation">
+        <section class="home-section contacts">
             <div class="appear title-box">
                 <h2 class="text-box">N'hésitez pas à me contacter</h2>
             </div>
             <div class="appear content">
-                <p class="description">CONTACTS</p>
+                <p class="annoncement">Vous pouvez me retrouver sur</p>
+                <div class="contact-container">
+                    <ContactButton
+                        v-for="contact in contactList.filter(
+                            (el) => el.id <= 3
+                        )"
+                        :key="contact.id"
+                        :copyid="contact.copyId"
+                        :type="contact.type"
+                        :title="contact.title"
+                        :content="contact.content"
+                        :section="contact.section"
+                    />
+                </div>
                 <router-link class="link-to-more" :to="{ name: 'Contact' }">
                     Tous mes contacts
                 </router-link>
             </div>
         </section>
-        <!-- <h2 class="categories">Mes projets</h2>
-        Importation des projets en précisant qu'on en veut que 3 qui seront choisi aléatoirement
-
-        Importation de notre sous-composant de contact qui va uniquement créé les 3 premiers
-            <ContactButton
-                v-for="contact in contactList.filter((el) => el.id <= 3)"
-                :key="contact.id"
-                :copyid="contact.copyId"
-                :type="contact.type"
-                :title="contact.title"
-                :content="contact.content"
-            />
-        </router-link> -->
     </div>
 </template>
 
@@ -237,7 +238,7 @@ const age = Math.floor(
                     }
 
                     &-description {
-                        color: $color8;
+                        color: $color0;
                         width: 100%;
                         padding: 9px 18px;
                         text-align: justify;
@@ -249,6 +250,8 @@ const age = Math.floor(
                         display: block;
                         align-self: flex-end;
                         margin-top: 10px;
+                        font-weight: 500;
+                        font-size: $large;
 
                         &:after {
                             content: "";
@@ -269,7 +272,7 @@ const age = Math.floor(
                         }
                     }
 
-                    &:before {
+                    &:after {
                         content: "";
                         position: absolute;
                         bottom: 0;
@@ -279,16 +282,32 @@ const age = Math.floor(
                         border-style: solid;
                         box-shadow: 2px 2px 10px $transparent-black;
                         border-width: 0;
-                        border-color: $transparent-white
-                        $transparent-white $color0 $color0;
+                        border-color: $transparent-white $transparent-white
+                            $color0 $color0;
                         // border-radius: 0 5px 0 0;
                         transition: border-width 0.2s;
                     }
-                    
-                    &:hover:before {
+
+                    &:hover:after {
                         border-width: 22px;
                     }
                 }
+            }
+        }
+    }
+
+    .contacts {
+        .content {
+            .annoncement {
+                font-size: large;
+                font-weight: 400;
+            }
+
+            .contact-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-wrap: wrap;
             }
         }
     }

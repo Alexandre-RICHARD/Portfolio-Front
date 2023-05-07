@@ -56,7 +56,7 @@ const sendMail = () => {
         <!-- On rentre ici les pseudos "games", filtrés à l'aide de la données section contenu dans notre tableau de contact -->
         <div class="contact-sub-box games">
             <h2 class="contact-box-title">
-                J'ai dit que j'aimais les jeux vidéos ?
+                J'aime aussi les jeux vidéo
             </h2>
             <ContactButton
                 v-for="contact in contactList.filter(
@@ -75,7 +75,7 @@ const sendMail = () => {
     <!-- Formulaire de contact inutilisable pour le moment, de plus il serait à factoriser -->
     <div class="contact-me">
         <h1 class="categories">
-            Me contacter directement (non fonctionnel pour le moment)
+            Me contacter directement
         </h1>
         <form class="contact-me-form">
             <div class="input">
@@ -162,15 +162,14 @@ const sendMail = () => {
     justify-content: space-evenly;
 
     .contact-sub-box {
-        background-color: $color111;
+        background-color: $color14;
         padding: 10px;
-        border-radius: 20px;
+        border-radius: 8px;
         height: fit-content;
         margin: 30px 0;
 
         .contact-box-title {
-            background-color: $color111;
-            color: $color14;
+            color: $color0;
             font-weight: 500;
             font-size: 16px;
             margin-bottom: 7px;
@@ -183,8 +182,8 @@ const sendMail = () => {
     color: $color14;
     margin: auto;
     height: fit-content;
-    width: 100%;
-    margin: 20px 0;
+    margin: 0 auto;
+    max-width: 900px;
 
     &-form {
         background-color: $color0;
