@@ -8,10 +8,10 @@ const API_URL = process.env.API_URL;
 
 // A m'aide de Reactive, on créé cet objet de valeur qui seront affichés en temps réel dès qu'elles changeront
 const contactByMailValues = reactive({
-    contactFormName: null,
-    contactFormMail: null,
-    contactFormSubject: null,
-    contactFormMessage: null,
+    contactFormName: "",
+    contactFormMail: "",
+    contactFormSubject: "",
+    contactFormMessage: "",
 });
 
 // Rien n'est fonctionnel dans cet envoi de mail et aucune vérification n'est faite au niveau des valeurs, mais ça viendra un jour
@@ -21,6 +21,7 @@ const submitContactForm = (event) => {
 };
 
 const sendMail = () => {
+    console.log(contactByMailValues);
     try {
         fetch(API_URL + "/contact", {
             headers: {
@@ -75,7 +76,7 @@ const sendMail = () => {
     <!-- Formulaire de contact inutilisable pour le moment, de plus il serait à factoriser -->
     <div class="contact-me">
         <h1 class="categories">
-            Me contacter directement
+            Me contacter directement (pas encore fonctionnel)
         </h1>
         <form class="contact-me-form">
             <div class="input">
@@ -155,6 +156,7 @@ const sendMail = () => {
 @import "@styles/variables.scss";
 
 .contact-box {
+    margin: 5px;
     background-color: $color0;
     width: 100%;
     display: flex;
@@ -182,7 +184,7 @@ const sendMail = () => {
     color: $color14;
     margin: auto;
     height: fit-content;
-    margin: 0 auto;
+    margin: 0 5px;
     max-width: 900px;
 
     &-form {
@@ -240,6 +242,10 @@ const sendMail = () => {
                 font-size: 20px;
             }
         }
+    }
+    .contact-me {
+        padding: 15px;
+        margin: 0 auto;
     }
 }
 </style>

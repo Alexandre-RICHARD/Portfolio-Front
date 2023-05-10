@@ -1019,6 +1019,11 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Déplacement du style des projets détaillés de la vue ProjectsContainer à la page ProjectDetails
 -   Changement du nom de la classe des projets seuls sur la homepage pour que leur styles n'interfèrent pas avec la vue ProjectContainer
 
+### build 119 - 1.1.17 `10 mai 2023`
+
+-   Suppression d'un effet de text-shadow plus du tout adapté aux nouvelles couleurs.
+-   Petits ajouts de CSS pour rendre la page userProfile et Contact plus agréable.
+
 </details>
 
 ## Les problèmes du site actuellement

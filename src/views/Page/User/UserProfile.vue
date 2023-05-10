@@ -718,11 +718,13 @@ const inputLosingFocus = (target) => {
 @import "@styles/variables.scss";
 
 .user-profile {
+
     .account-parameters {
         background-color: $color0;
         color: $color4;
         font-weight: 500;
         font-size: 25px;
+        text-align: center;
     }
 
     .parameters-container {
@@ -731,6 +733,9 @@ const inputLosingFocus = (target) => {
         gap: 50px;
         justify-content: space-between;
         flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 25px;
 
         .new-mail-form,
         .new-password-form,

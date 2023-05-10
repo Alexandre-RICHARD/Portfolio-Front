@@ -212,7 +212,6 @@ const toggleShowPassword = (event) => {
         color: $color14;
         font-weight: 600;
         font-size: 16px;
-        text-shadow: 1px 1px 1px $color13;
         cursor: pointer;
         letter-spacing: 1px;
         width: fit-content;
