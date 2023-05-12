@@ -124,7 +124,7 @@ export const data = {
         {Infinitif : "ziehen" , Present : "zieht" , Preterit : "zog" , Parfait : "ist gezogen" , Traduction : "tirer (vers soi)" ,},
         {Infinitif : "zwingen" , Present : "zwingt" , Preterit : "zwang" , Parfait : "hat gezwungen" , Traduction : "contraindre, obliger" ,},
     ],
-    dateTest: [
+    verbTest: [
         {title: "Page 1", number: 1, testLength:32, testStart: 0, testEnd: 31},
         {title: "Page 2", number: 2, testLength:32, testStart: 32, testEnd: 63},
         {title: "Page 3", number: 3, testLength:32, testStart: 64, testEnd: 95},

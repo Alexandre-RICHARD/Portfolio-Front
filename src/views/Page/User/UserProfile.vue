@@ -721,7 +721,7 @@ const inputLosingFocus = (target) => {
 
     .account-parameters {
         background-color: $color0;
-        color: $color4;
+        color: $color7;
         font-weight: 500;
         font-size: 25px;
         text-align: center;

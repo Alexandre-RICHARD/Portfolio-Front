@@ -34,6 +34,11 @@ defineProps({
         required: false,
         default: "pro",
     },
+    link: {
+        type: String,
+        required: false,
+        default: "1",
+    },
 });
 </script>
 

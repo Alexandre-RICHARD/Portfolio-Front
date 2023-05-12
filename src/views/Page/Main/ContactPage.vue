@@ -52,6 +52,7 @@ const sendMail = () => {
                 :title="contact.title"
                 :content="contact.content"
                 :section="contact.section"
+                :link="contact.link"
             />
         </div>
         <!-- On rentre ici les pseudos "games", filtrés à l'aide de la données section contenu dans notre tableau de contact -->

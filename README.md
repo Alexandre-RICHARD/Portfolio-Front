@@ -1024,6 +1024,23 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Suppression d'un effet de text-shadow plus du tout adapté aux nouvelles couleurs.
 -   Petits ajouts de CSS pour rendre la page userProfile et Contact plus agréable.
 
+### build 120 - 1.2.0 `10 mai 2023`
+
+-   Changement du nom de variable répendu "dateTest" en "verbTest" dans le germanTest
+-   Rajout d'une couleur dans le CSS
+-   Inversion de 2 z-index dans le fichier de variable
+-   Correction du bug du link pour les deux contact github et linkedin
+-   Modification de nombreuses tournures de phrase ou même de contenu dans les différents textes de la homepage et du curriculum
+-   Changement du contenu de quelques projets dans le store et mise à jour des nouveautés/retrait/changement
+-   Dans la page Curriculum, déplacement d'une catégories plus haut et rajout d'une div pour pouvoir améliorer la mise en page
+-   Petit ajout d'un encard de description plus personnel
+-   Dans le germanTest, suppression de toute notion d'accès à la page par mot de passe et de la logique du formulaire utilisé
+-   Rajout d'une variable pour définir si nous sommes en phase de correction ou non afin d'afficher ou non les bonnes réponses en temps voulu
+-   Mise à jour du CSS du germanTest pour le rendre plus compatible avec la volonté d'améliorer le design du site en général
+-   Changement de la couleur du titre principale de la page UserProfile
+-   Changement des couleurs d'input pour les formulaires de connexions
+-   
+
 </details>
 
 ## Les problèmes du site actuellement

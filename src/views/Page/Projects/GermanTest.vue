@@ -1,15 +1,8 @@
 <script setup>
 import { ref, reactive } from "vue";
-import { useMainStore } from "@store/Main";
-const MainStore = useMainStore();
-const { modalData } = MainStore;
-const API_URL = process.env.API_URL;
 const { data } = require("@middlewares/verbData.js");
-
-const activate = ref(true);
-let error = ref("");
-let password = ref("");
 let currentTest = ref(-1);
+let correctionTime = ref(false);
 const verbSelection = reactive([]);
 const typeArray = [
     "",
@@ -19,47 +12,6 @@ const typeArray = [
     "Parfait",
     "Traduction",
 ];
-
-const changeInputValue = (event) => {
-    password.value = event.target.value;
-};
-
-const submitPassword = async () => {
-    const connectionData = {
-        password: password.value,
-    };
-    modalData.loading = true;
-    try {
-        const response = await fetch(API_URL + "/germanTest/connect", {
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify(connectionData),
-        });
-        passwordAccessResult(await response.json(), response.status);
-    } catch (error) {
-        console.trace(error);
-    }
-    modalData.loading = false;
-};
-
-const passwordAccessResult = (message, status) => {
-    if (message) {
-        switch (message) {
-        case "login-success":
-            activate.value = true;
-            break;
-        case "login-failed":
-            error.value = "Identifiants ou mot de passe incorrect";
-            break;
-        }
-    }
-    if (status === 500) {
-        error.value = "Une erreur serveur est survenue. Veuillez réessayer";
-    }
-};
 
 const randomizer = (limit) => {
     return Math.floor(Math.random() * limit);
@@ -94,6 +46,7 @@ const changeTest = (testInfo) => {
 const submitGermanTest = (event) => {
     event.preventDefault();
     unhighlightWrongAnswer();
+    correctionTime.value = true;
 
     const dataAnswer = [];
     const userAnswer = [];
@@ -111,7 +64,7 @@ const submitGermanTest = (event) => {
 
     let verificationCounter = 0;
     let score = 0;
-    for (let i = 0; i < data.dateTest[currentTest.value - 1].testLength; i++) {
+    for (let i = 0; i < data.verbTest[currentTest.value - 1].testLength; i++) {
         for (let y = 0; y < 5; y++) {
             if (y !== 4) {
                 if (
@@ -141,8 +94,8 @@ const submitGermanTest = (event) => {
     }
 
     document.querySelector(".test-result").textContent = `${
-        score - data.dateTest[currentTest.value - 1].testLength
-    } / ${data.dateTest[currentTest.value - 1].testLength * 4}`;
+        score - data.verbTest[currentTest.value - 1].testLength
+    } / ${data.verbTest[currentTest.value - 1].testLength * 4}`;
 };
 
 const highlightWrongAnswer = (x, y) => {
@@ -155,32 +108,16 @@ const unhighlightWrongAnswer = () => {
     verb.forEach((element) => {
         element.classList.remove("wrong");
     });
+    correctionTime.value = false;
 };
 </script>
 
 <template>
     <div class="german-test-container">
         <div class="german-test-sub-container">
-            <form v-if="!activate" class="activating-password">
-                <label for="german-password">MOT DE PASSE</label>
-                <p v-if="error !== ''">{{ error }}</p>
-                <input
-                    id="german-password"
-                    name="german-password"
-                    required
-                    :value="password"
-                    @input="changeInputValue"
-                >
-                <input
-                    class="submit-button"
-                    type="submit"
-                    value="Valider"
-                    @click.prevent="submitPassword"
-                >
-            </form>
-            <div v-if="activate" class="testList-container">
+            <div class="testList-container">
                 <button
-                    v-for="test in data.dateTest"
+                    v-for="test in data.verbTest"
                     :key="test.number"
                     @click="changeTest(test)"
                 >
@@ -192,7 +129,7 @@ const unhighlightWrongAnswer = () => {
                     <thead>
                         <tr>
                             <th>Infinitif</th>
-                            <th>Present</th>
+                            <th>Présent</th>
                             <th>Preterit</th>
                             <th>Parfait</th>
                             <th>Traduction</th>
@@ -225,7 +162,8 @@ const unhighlightWrongAnswer = () => {
                                 >
                                 <p
                                     v-if="
-                                        verbSelection[index].wrongAnswer[n - 1]
+                                        verbSelection[index].wrongAnswer[n - 1] &&
+                                            correctionTime === true
                                     "
                                     class="correction"
                                 >
@@ -311,7 +249,6 @@ const unhighlightWrongAnswer = () => {
         .verb-test {
             margin: 10px;
             padding: 10px;
-            background-color: $color14;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -322,8 +259,10 @@ const unhighlightWrongAnswer = () => {
                     border: 1px solid black;
                     tr {
                         th {
-                            background-color: #b47070;
+                            background-color: #c44e4e;
                             border: 1px solid black;
+                            font-weight: 500;
+                            letter-spacing: 1px;
                         }
                     }
                 }
@@ -333,7 +272,6 @@ const unhighlightWrongAnswer = () => {
                     font-size: 14px;
 
                     tr:nth-child(2n) {
-                        background-color: #919191;
                         td {
                             background-color: #c7c7c7;
                             border: 1px solid #000000;
@@ -345,9 +283,8 @@ const unhighlightWrongAnswer = () => {
                         }
                     }
                     tr:nth-child(2n + 1) {
-                        background-color: #f0ffff;
                         td {
-                            background-color: #f0ffff;
+                            background-color: #f5f5f5;
                             border: 1px solid #000000;
                             padding: 3.5px;
 
@@ -375,13 +312,17 @@ const unhighlightWrongAnswer = () => {
                 cursor: pointer;
 
                 &:hover {
-                    background-color: #b47070;
+                    background-color: #c44e4e;
                 }
             }
 
             .unhighlight-button {
                 font-size: 18px;
                 padding-top: 10px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }

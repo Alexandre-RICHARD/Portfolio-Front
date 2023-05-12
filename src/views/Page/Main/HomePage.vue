@@ -24,9 +24,9 @@ const age = Math.floor(
                 Jeune de <span>{{ age }}</span> ans investi, la passion du code
                 m'attire vers de nouvelles expériences, de nouveaux projets. En
                 quête d'algorithmes, je
-                <span>recherche ma première expérience professionnelle</span> en
-                tant que <span>Développeur Web Front</span> ou bien
-                <span>Fullstack</span> dans l'environnement
+                <span>recherche ma première expérience</span> professionnelle en
+                tant qu'<span>alternant</span> en
+                <span>Développement Web</span> dans l'environnement
                 <span>Javascript</span> et <span>Node.JS</span> sur
                 <span>Angers</span> ou en télétravail.
             </p>
@@ -44,8 +44,14 @@ const age = Math.floor(
                     vraiment que le web, à savoir HTML, CSS, Javascript et ses
                     framework et l'environnement Node.JS. J'ai pour objectif de
                     paufiner ce portfolio et d'ensuite apprendre TypeScript,
-                    Angular, JQuery et PHP ainsi que d'explorer petit à petit
+                    Angular, NextJS, JQuery et PHP ainsi que d'explorer petit à petit
                     chaque domaine de ce vaste océan qu'est la programmation.
+                </p>
+                <p class="description">
+                    À côté du code, je suis passionné de nature, de jeux vidéos,
+                    de cinéma, idéaliste et faciné par l'humain, la science et
+                    la connaissances en général. J'aime rire, voir la vie du bon
+                    côté et j'essaie de ne jamais faillir à mes valeurs.
                 </p>
                 <router-link class="link-to-more" :to="{ name: 'Curriculum' }">
                     En savoir plus
@@ -65,7 +71,9 @@ const age = Math.floor(
                         :key="project.id"
                         class="appear one-project-homepage"
                     >
-                        <h3 class="one-project-homepage-title">{{ project.title }}</h3>
+                        <h3 class="one-project-homepage-title">
+                            {{ project.title }}
+                        </h3>
                         <p class="one-project-homepage-description">
                             {{ project.abstract }}
                         </p>
@@ -209,6 +217,7 @@ const age = Math.floor(
         .content {
             .description {
                 text-align: justify;
+                margin: 15px;
             }
         }
     }

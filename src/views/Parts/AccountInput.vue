@@ -148,8 +148,8 @@ const toggleShowPassword = (event) => {
         }
 
         input {
-            background-color: $color14;
-            color: $color0;
+            background-color: $color81;
+            color: $color14;
             width: 100%;
             padding: 4px;
             border: 2px solid transparent;
@@ -167,7 +167,7 @@ const toggleShowPassword = (event) => {
             position: relative;
 
             .toggle-show-password {
-                background-color: $color14;
+                background-color: $color81;
                 position: absolute;
                 width: 40px;
                 height: 32px;
@@ -209,7 +209,7 @@ const toggleShowPassword = (event) => {
 
     .submit-button {
         background-color: $color6;
-        color: $color14;
+        color: $color81;
         font-weight: 600;
         font-size: 16px;
         cursor: pointer;
