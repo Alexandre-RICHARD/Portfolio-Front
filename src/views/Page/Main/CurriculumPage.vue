@@ -1,4 +1,5 @@
 <script setup>
+import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 const age = Math.floor(
     (Date.now() - new Date(1999, 5, 24).getTime()) / 1000 / 60 / 60 / 24 / 365
 );
@@ -171,6 +172,16 @@ const informationsList = [
 
 <template>
     <div class="curriculum-container">
+        <p class="cv-indication">
+            Retrouvez mon CV pdf
+            <a
+                :href="CurriculumVitae"
+                target="_blank"
+                class="cv-indication-link"
+                title="Mon CV à télécharger"
+            >ici
+            </a>
+        </p>
         <div class="categories description">
             <div class="title-box">
                 <h2 class="title">Description</h2>
@@ -334,6 +345,26 @@ const informationsList = [
     margin: 0 auto;
     padding: 0 20px;
     max-width: 1000px;
+
+    .cv-indication {
+        margin: 20px auto;
+        font-weight: 400;
+        font-size: 20px;
+
+        &-link {
+            color: $color6;
+            font-weight: 600;
+            border: 3px solid $color6;
+            padding: 2px 5px;
+            border-radius: 8px;
+
+            &:hover {
+                background: $color14;
+                color: $color1;
+                border-color: transparent;
+            }
+        }
+    }
 
     li {
         &::before {

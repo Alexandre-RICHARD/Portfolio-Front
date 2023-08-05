@@ -10,13 +10,8 @@ import ProjectDetails from "@views/Page/Main/ProjectDetails.vue";
 import ContactPage from "@views/Page/Main/ContactPage.vue";
 
 import NotFound from "@views/Page/Other/NotFound.vue";
+import AccountHandler from "@views/Page/User/AccountHandler.vue";
 import UserProfile from "@views/Page/User/UserProfile.vue";
-
-import ChessGame from "@views/Page/Projects/ChessGame.vue";
-import EtherumFollow from "@views/Page/Projects/EtherumFollow.vue";
-import GermanTest from "@views/Page/Projects/GermanTest.vue";
-import MasterMind from "@views/Page/Projects/MasterMind.vue";
-import SatisfactoryCalculator from "@views/Page/Projects/SatisfactoryCalculator.vue";
 
 // On liste toutes les routes qui seront gérées par le router principal
 const routes = [
@@ -100,6 +95,25 @@ const routes = [
             ],
         },
     },
+    //AccountHandler
+    {
+        path: "/account",
+        name: "AccountHandler",
+        components: { mainRouter: AccountHandler },
+        meta: {
+            documentTitle: "Page de connexion",
+            breadCrumb: [
+                {
+                    title: "Accueil",
+                    link: "HomePage",
+                },
+                {
+                    title: "Mon profil",
+                    link: "AccountHandler",
+                },
+            ],
+        },
+    },
     //UserProfile
     {
         path: "/profile",
@@ -118,101 +132,6 @@ const routes = [
                 },
             ],
             requiredLogin: true,
-        },
-    },
-    //Chess
-    {
-        path: "/chess",
-        name: "Chess",
-        components: { mainRouter: ChessGame },
-        meta: {
-            documentTitle: "Jeu d'échecs",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Jeu d'échecs",
-                    link: "Chess",
-                },
-            ],
-        },
-    },
-    //GermanTest
-    {
-        path: "/germantest",
-        name: "GermanTest",
-        components: { mainRouter: GermanTest },
-        meta: {
-            documentTitle: "Apprendre ses verbes irréguliers",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Apprendre ses verbes irréguliers",
-                    link: "GermanTest",
-                },
-            ],
-        },
-    },
-    //Mastermind
-    {
-        path: "/mastermind",
-        name: "Mastermind",
-        components: { mainRouter: MasterMind },
-        meta: {
-            documentTitle: "Mastermind",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Mastermind",
-                    link: "Mastermind",
-                },
-            ],
-        },
-    },
-    //SatisfactoryCalculator
-    {
-        path: "/satisfactory/calculator",
-        name: "SatisfactoryCalculator",
-        components: { mainRouter: SatisfactoryCalculator },
-        meta: {
-            documentTitle: "Satisfactory Calculator",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Satisfactory Calculator",
-                    link: "SatisfactoryCalculator",
-                },
-            ],
-        },
-    },
-    //Crypto Follow
-    {
-        path: "/cryptofollow",
-        name: "Crypto Follow",
-        components: { mainRouter: EtherumFollow },
-        meta: {
-            documentTitle: "Etherum",
-            breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
-                    title: "Etherum",
-                    link: "Crypto Follow",
-                },
-            ],
         },
     },
     //404

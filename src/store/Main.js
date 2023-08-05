@@ -63,51 +63,61 @@ export const useMainStore = defineStore("Main", {
                     // "Un formulaire de contact ayant pour but de rentrer des informations et qu'en validant, un mail me soit automatiquement envoyé.",
                 ],
             },
-            {
-                id: 2,
-                title: "Jeu d'échecs",
-                link: "chess",
-                linkAccess: "Chess",
-                abstract:
-                    "Le jeu d'échec que j'ai créé de toute pièce. Il est jouable pour le moment seul et il manque quelques détails pour que les véritables règles des échecs soient respectées. À pour but d'être jouable en ligne.",
-                description:
-                    "Il s'agit d'un jeu d'échec que j'avais créé à l'origine durant mes études au sein d'O'clock. Quasiment terminé, je l'avais délaissé pour me concentrer sur les dernières semaines de cours. C'est par celui-ci que j'ai décidé de commencer ce projet de portfolio en le reprenant du début. Il n'est pour le moment pas encore tout à fait terminé et n'est jouable qu'en solo, mais quand j'aurai intégré la connexion au site et les différentes fonctionnalités de websocket, je ferai en sorte que deux joueurs puissent créer une partie, personnaliser leur règles et jouer l'un contre l'autre. La sauvegarde des parties et des statistiques sont également prévues.",
-                features: [
-                    "Gestion des différentes pièces à partir de case dynamiques comportant plusieurs informations.",
-                    "Les mouvements sont calculés côté serveur afin que les joueurs ne puissent tricher en réalisant des coups impossibles.",
-                    "Un mode permettant de mettre en surbrillance toutes les pièces capable de bouger",
-                    "Un indicateur montrant le nombre de coups possible pour le joueur dont c'est le tour actuellement",
-                ],
-            },
-            {
-                id: 3,
-                title: "Test d'allemand",
-                link: "germantest",
-                linkAccess: "GermanTest",
-                abstract:
-                    "Un tableau quiz permettant de réviser ses verbes irréguliers en allemand",
-                description:
-                    "Ce projet m'est venu de quelqu'un qui avait besoin pour ses études de réviser ses verbes irréguliers en allemand et j'y ai vu une bonne opportunité pour créer un test automatisé",
-                features: [
-                    "Un bouton permettant de valider ou non chacune de nos réponses, corrigeant celles-ci si besoin",
-                    "Une note donné à la fin",
-                    "Génération aléatoire de quelles informations seront données et lesquelles seront demandées",
-                ]
-            },
-            {
-                id: 4,
-                title: "Mastermind",
-                link: "mastermind",
-                linkAccess: "Mastermind",
-                abstract:
-                    "Une reproduction avec une touche bien personnel du jeu Mastermind",
-                description:
-                    "TO DO",
-                features: ["TO DO"],
-            },
-            //! TO DO
+            // {
+            //     id: 2,
+            //     title: "Jeu d'échecs",
+            //     link: "chess",
+            //     linkAccess: "Chess",
+            //     abstract:
+            //         "Le jeu d'échec que j'ai créé de toute pièce. Il est jouable pour le moment seul et il manque quelques détails pour que les véritables règles des échecs soient respectées. À pour but d'être jouable en ligne.",
+            //     description:
+            //         "Il s'agit d'un jeu d'échec que j'avais créé à l'origine durant mes études au sein d'O'clock. Quasiment terminé, je l'avais délaissé pour me concentrer sur les dernières semaines de cours. C'est par celui-ci que j'ai décidé de commencer ce projet de portfolio en le reprenant du début. Il n'est pour le moment pas encore tout à fait terminé et n'est jouable qu'en solo, mais quand j'aurai intégré la connexion au site et les différentes fonctionnalités de websocket, je ferai en sorte que deux joueurs puissent créer une partie, personnaliser leur règles et jouer l'un contre l'autre. La sauvegarde des parties et des statistiques sont également prévues.",
+            //     features: [
+            //         "Gestion des différentes pièces à partir de case dynamiques comportant plusieurs informations.",
+            //         "Les mouvements sont calculés côté serveur afin que les joueurs ne puissent tricher en réalisant des coups impossibles.",
+            //         "Un mode permettant de mettre en surbrillance toutes les pièces capable de bouger",
+            //         "Un indicateur montrant le nombre de coups possible pour le joueur dont c'est le tour actuellement",
+            //     ],
+            // },
+            // {
+            //     id: 3,
+            //     title: "Test d'allemand",
+            //     link: "germantest",
+            //     linkAccess: "GermanTest",
+            //     abstract:
+            //         "Un tableau quiz permettant de réviser ses verbes irréguliers en allemand",
+            //     description:
+            //         "Ce projet m'est venu de quelqu'un qui avait besoin pour ses études de réviser ses verbes irréguliers en allemand et j'y ai vu une bonne opportunité pour créer un test automatisé",
+            //     features: [
+            //         "Un bouton permettant de valider ou non chacune de nos réponses, corrigeant celles-ci si besoin",
+            //         "Une note donné à la fin",
+            //         "Génération aléatoire de quelles informations seront données et lesquelles seront demandées",
+            //     ]
+            // },
+            // {
+            //     id: 4,
+            //     title: "Genshin Statisfyer",
+            //     link: "genshinstatisfyer",
+            //     linkAccess: "GenshinStatisfyer",
+            //     abstract:
+            //         "Un outil permettant de prévoir à l'avance les statistiques optimales de ses personnages sur Genshin afin d'essayer de s'en rapprocher",
+            //     description:
+            //         "TO DO",
+            //     features: ["TO DO"],
+            // },
             // {
             //     id: 5,
+            //     title: "Mastermind",
+            //     link: "mastermind",
+            //     linkAccess: "Mastermind",
+            //     abstract:
+            //         "Une reproduction avec une touche bien personnel du jeu Mastermind",
+            //     description:
+            //         "TO DO",
+            //     features: ["TO DO"],
+            // },
+            // {
+            //     id: 6,
             //     title: "Satisfactory Calculator",
             //     link: "satisfactory/calculator",
             //     linkAccess: "SatisfactoryCalculator",
@@ -118,7 +128,7 @@ export const useMainStore = defineStore("Main", {
             //     features: ["TO DO"],
             // },
             // {
-            //     id: 6,
+            //     id: 7,
             //     title: "Crypto Follow",
             //     link: "cryptofollow",
             //     linkAccess: "Crypto Follow",

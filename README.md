@@ -1039,7 +1039,20 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Mise à jour du CSS du germanTest pour le rendre plus compatible avec la volonté d'améliorer le design du site en général
 -   Changement de la couleur du titre principale de la page UserProfile
 -   Changement des couleurs d'input pour les formulaires de connexions
--   
+
+### build 121 - 2.0.0 `5 août 2023`
+
+-   Changement important dans la manière de gérer tous les projets et dissociation complète du versionning du back et du front
+-   Mise à jour des dépendances
+-   Modification du fichier de sortie de .dist en .build
+-   Changement de npm en pnpm passant de package-lock à pnpm-lock
+-   Mise à jour des commandes clean dans package.json
+-   La grosse modification de cette 2.0 est de sortir et d'extraire tous les projets qui étaient hébergé directement sur celui-ci pour tous les rendre indépendant
+-   Ainsi, tous les fichiers liés ont été supprimé. Cela concerne satisfactoryData.js ; verbData.js ; ChessGame.vue ; EtherumFollow.vue ; GermanTest.vue ; MasterMind.vue ; SatisfactoryCalculator.vue ; Les 6 fichiers SVG.vue du jeu d'échecs.
+-   Aussi, suppression de toutes leurs mentions dans le router de vue et mise en commantaire de ces projets dans le store
+-   Création d'une page de connexion dédiée dans le but de permettre la connexion à ce site à partir des autres projets héberger sur une autre adresse. formulaire accessible à partir d'un popup.
+-   Cette page reprend pour le moment toute la logique précédemment utilisée ce qui cause des duplicats mais ça sera réglé par la suite 
+-   Rajout d'un lien vers mon CV sur la page Curriculum directement
 
 </details>
 

@@ -1,4 +1,4 @@
-.dist/
+.build/
 .vscode/
 .temp/
 node_modules/
