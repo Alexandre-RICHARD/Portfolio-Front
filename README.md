@@ -1067,4 +1067,8 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Dossier de compilation changé de dist en build
 -   Simplification de la regex pour la vérification de l'adresse-mail après avoir découvert que la précédente comptait invalide des adresse-mail valide.
 
+### build 123 - 2.0.2 `13 août 2023`
+
+-   Retrait de file-loader pour les fichiers de police d'écriture
+
 </details>

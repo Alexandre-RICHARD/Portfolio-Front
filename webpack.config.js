@@ -156,14 +156,6 @@ module.exports = {
                     },
                 },
             },
-            // Fonts loader
-            {
-                test: /\.(woff2?|eot|ttf|otf)$/,
-                loader: "file-loader",
-                options: {
-                    outputPath: "fonts/",
-                },
-            },
             // Pas de loader pour les images, elles sont traités comme des assets, ce qui change leurs utilisations surtout pour les petites images transformées en base64 sinon
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
