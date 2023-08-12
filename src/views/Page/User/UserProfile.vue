@@ -37,7 +37,7 @@ const regexTest = {
 
     newMail: (mail) => {
         const testGlobal = mail.match(
-            /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
+            /.+@.+\..+/gm
         );
         if (testGlobal === null) {
             errorDataNewMail[0].push(

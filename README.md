@@ -1,9 +1,9 @@
 # Portfolio - Le front
 
-Bonjour, bienvenue sur le répo de mon portfolio. J'y ai entreposé ma présentation, mon CV, mes projets ainsi que mes contacts. Tout mes projets présentés sont hébergés sur le même site.
+Bonjour, bienvenue sur le répo de mon portfolio. J'y présente mon CV, mes projets ainsi que mes contacts. Les projets présentés sont accessibles depuis le site mais hébergés séparemment sur des sous-domaines afin d'être libre sur les technologies utilisées.
 Il s'agit ici du front avec ci-dessous l'historique des version et leur détails.
 
-Voici [le site](https://alexandre-richard.fr) en question.
+Voici [le site](http://rial7539.odns.fr/) en question.
 
 Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Back).
 
@@ -1040,6 +1040,12 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Changement de la couleur du titre principale de la page UserProfile
 -   Changement des couleurs d'input pour les formulaires de connexions
 
+</details>
+
+### Version 2
+
+<details>
+
 ### build 121 - 2.0.0 `5 août 2023`
 
 -   Changement important dans la manière de gérer tous les projets et dissociation complète du versionning du back et du front
@@ -1054,104 +1060,11 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Cette page reprend pour le moment toute la logique précédemment utilisée ce qui cause des duplicats mais ça sera réglé par la suite 
 -   Rajout d'un lien vers mon CV sur la page Curriculum directement
 
-</details>
+### build 122 - 2.0.1 `12 août 2023`
 
-## Les problèmes du site actuellement
-
-<details>
-
--   Sur mobile, les caractères fléchés sont différent, à changer.
--   Sur mobile, Le mastermind a un petit problème d'overflow, sûrement à cause des caractères utilisées
--   L'autocomplétion Chrome et peut-être d'autre navigateur fait foiré les styles des inputs (peut-être réglé sans le vouloir)
--   Lors du choix de la nouvelle pièce, on peut encore jouer tout le reste
--   Les requêtes qui devraient être en patch sont en post car les requêtes patch ne fonctionne plus du tout en prod
-
-</details>
-
-## Les features à venir
-
-<details>
-
-En cours :
-
--   Utiliser un token pour toute requêtes effectuées par l'utilisateur en lien avec son compte
--   Intégrer le chat commun
--   Intégrer le jeu d'échec avec pour but uniquement de jouer seul pour le moment
--   Mettre des notifs lors de la connexion au compte, de l'inscription, du changement de mot de passe ou d'adresse-mail ainsi que changer de page et/ou vider les inputs
-
-Mastermind :
-
--   Bulle d'info sur le Mastermind pour expliquer les règles (simple, certes, mais nécessaires)
--   Rajouter un bouton pour recommencer
--   Rajouter un "petit quelque chose" quand le joueur à trouver la bonne combinaison
--   Rajouter un scroll molette pour changer les nombres, ainsi qu'une animation au changement en mode carroussel
--   Bouton démarrer avec potentiellement choix de la longueur du code à trouver
-
-Projets à intégrer :
-
--   Une petite modal sur la gauche de l'écran, un peu discrète mais ayant pour fonction de justement lister les fonctionnalités à venir
--   Liste des jeux avec toutes leur propriétés, Capacité de rajouter/modifier/supprimer des jeux, Temps de jeu indiqué + temps de jeu estimé en plus
--   Le wiki des dinosaures dans ARK
--   Les outils que j'ai fait pour ARK à Intégrer
--   Tenter de créer un système de génération de carte aléatoire avec système de GPS menant au plus court chemin
--   Générateur de page aléatoire stylisé
--   Rajouter les mentions légales, la protection des données utilisateurs et gloabalement, un footer indiquant ce genre d'informations. Noté l'hébergeur aussi.
-
-Jeu d'échecs :
-
--   Roque
--   Égalité
--   Le Pat
--   La répétition de Patern
--   Rajouter une manière de noter la partie d'échecs en suivant la règlementation
--   Gérer un historique de parties avec stats etc
--   Gérer les ids avec le -1 qui est répétitif et chiant
--   AbsolutePin, enlever les lettres et les moves, les mettre en XY
--   Transférer les infos de pins dans l'objet du CurrentPlayer
--   Transformer les moves en array
--   Mettre une fausse IA
--   Transformer le jeu en vue.js
--   Rajouter un délai minimal et maximal (un compteur total ?) pour les coup de chaque joueur
--   Rajouter une option en début de partie pour paramétrer (jouer seul / à deux en local / à deux en ligne)
--   Rajouter une animation quand une pièce se déplace d'une case à une autre
--   Rajouter une animation et une option pour déplacer les pièces sorties dans un cimetière
--   Un enregistrement de toutes les parties joués, un moyen de les consulter (voir les fiches lors des championnats) et un moyen de les faire rejouer.
--   Affichage du contrôle de chaque joueur
--   Affichage particulier des pièces en cas de vitoires + animations ?
--   Afficher un tableau dynamique / compteur sur la droite du jeu qui récapitulera tous les coup (avec mise en forme des coup lorsque MEURTRE)
--   En activant le mode DangerZone, survoler une case, mettrait en surbrillance les pièces responsables du contrôle
--   Intégrer une règle dans la page
--   Dans le back, s'occuper des fichiers gérant le jeu d'échec (commentaires etc...)
-
-Détails et peaufinage :
-
--   Réfléchir davantage sur les thèmes et les valider à un moment ou à un autre
--   Les données de projets seront par la suite récupérer en base de données, ainsi que leurs images
--   Transformer le .eslintrc.json en .js
--   Création d'une webpack modele
--   Séparer les stores, account ? Theme ? Navigation ? Other ? Project/content ?
--   Vérifier les variables/data des link de contact et leur cohérence vis à vis d eleurs utilisations
--   Séparer le styles entre pfproject et pfprojectdetails
--   LA page d'accueil aura toujours son mastermind mais maintenant, elle auras tous les projets d'affichés sous une forme légèrement différentes afin que le site soit à la fois portfolio et support de projet
--   La pagfe etherum sera à refaire bien plus complète et propre afin de l'implémenter directement en tyant que projet dans notre site, je n'y touche pas plus que ça pour le moment
--   Trouver un moyen d'indiquer à l'utilisateur que cliquer sur la Dolorean peut le faire evenir en arrière
--   POur la force du mot de passe, mettre la progress bar en couleur avec une légende et peut-être une valeur
--   Rajouter un web media sur les projets pour le responsive
--   Quand on aura réussi a envoyer des mails serveur, il faudra envoyer un mail de confirmation lors de la création de compte
--   Stocker des images en BDD
--   Système de création de serveur de jeu, privé, invitation
--   Faire des tests unitaires
--   Rajouter une partie admin avec gestion des BDD, des users
--   A terme, changement de mot de passe avec envoi de mail comme confirmation
--   Changement d'adresse-mail avec envoi de mail aux deux adresse
--   Mot de passe oublié avec envoi de lien de récupération
--   Inscription avec mail de confirmation et BAse de données temporaires
--   Rendre plus accueillant la page d'accueil avec les projets
--   Dans le router, trouver le moyen de mettre les bon titres pour les routes à paramètres
--   Mise en verte des conditions de password inscription en direct
--   Il faudrait créer une spécificité pour que la perte du focus sur le mot de passe ou sa confirmation engendre un test sur les deux
--   Colorier les inputs incorrect également lors du submit
--   Détailler et passer un peu de temps à déterminer les vraies features intéressantes de mes différents projets
--   Améliorer le cleanError pour qu'il enlève uniquement l'erreur du bon input
+-   Mise à jour des packages npm
+-   Rajout d'un script pnpm pour mettre à jour plus facilement les dépendances
+-   Dossier de compilation changé de dist en build
+-   Simplification de la regex pour la vérification de l'adresse-mail après avoir découvert que la précédente comptait invalide des adresse-mail valide.
 
 </details>

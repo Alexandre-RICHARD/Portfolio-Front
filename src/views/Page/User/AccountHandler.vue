@@ -43,7 +43,7 @@ const regexTest = {
     // Test regex du mail, regex complexe prise sur internet qui vérifie normalement tous les formats d'adresse-mail, sauf la longueur de celle-ci. Une erreur est inscrite si ça ne correspond pas
     loginMail: (mail) => {
         const testGlobal = mail.match(
-            /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
+            /.+@.+\..+/gm
         );
         if (testGlobal === null) {
             errorDataLogin[0].push(
@@ -146,7 +146,7 @@ const regexTest = {
     registerMail: (mail) => {
         // Même test, même erreur qu'en login
         const testGlobal = mail.match(
-            /^(^([a-z])+([a-z0-9]+)[.\-_]?)+[a-z0-9]+@(([a-z\-0-9])+([.]{1})?(([a-z\-0-9])+([.]{1})+[a-z]{2,}))$/gm
+            /.+@.+\..+/gm
         );
         if (testGlobal === null) {
             errorDataRegister[1].push(
@@ -565,5 +565,30 @@ const inputLosingFocus = (target) => {
     bottom: 0;
     left: 0;
     right: 0;
+
+    .account-handler {
+        background-color: $color0;
+        color: $color14;
+        min-width: 350px;
+        width: 350px;
+        padding: 15px;
+        height: fit-content;
+
+        .not-concerned {
+            background-color: $color0;
+            color: $color14;
+            padding-top: 7px;
+            text-align: center;
+
+            &-button {
+                background-color: $color0;
+                color: $color6;
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+        }
+    }
 }
 </style>
