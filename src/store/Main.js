@@ -48,6 +48,14 @@ export const useMainStore = defineStore("Main", {
                 title: "Portfolio",
                 link: "portfolio",
                 linkAccess: "HomePage",
+                techno: [
+                    "VueJS",
+                    "Pinia",
+                    "SCSS",
+                    "Zxcvbn",
+                ],
+                progression_purcent: "89",
+                progression: "Fini, reste des finiolages et d'autres features en projet",
                 abstract:
                     "Le site sur lequel vous vous trouvez, toujours en construction, toujours plus d'idée que j'ai envie d'intégrer. Il me sert de Portfolio, de CV mais également de site sur lequel héberger et placer mes différentes idées.",
                 description:

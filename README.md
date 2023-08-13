@@ -1071,4 +1071,12 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 
 -   Retrait de file-loader pour les fichiers de police d'écriture
 
+### build 124 - 2.0.3 `13 août 2023`
+
+-   Amélioration de la page des différents projets sur la présentation. Ajout d'un petit encadré avec l'état du projet, son avancement.
+-   Création avec GeoGebra et Inkscape d'un svg pour représenter à l'aide d'un pourcentage cette progression de manière automatique.
+-   Rajout d'un tableau de donnée pour les projets pour stocker les technologies utilisées (à utiliser plus tard).
+-   Rajout d'une couleur dans variable.scss
+-   Petit changement dans le style des projets affichés
+
 </details>

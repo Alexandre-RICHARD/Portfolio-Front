@@ -1,4 +1,5 @@
 <script setup>
+import ProgressionCircle from "@svgs/ProgressionCircle.vue";
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
 const { projectList } = MainStore;
@@ -23,6 +24,16 @@ const { projectList } = MainStore;
             >
             <div class="one-project-sub-container">
                 <h3 class="title">{{ project.title }}</h3>
+                <div class="state">
+                    <div class="progression">
+                        <ProgressionCircle
+                            class="progression-svg"
+                            :progression="project.progression_purcent"
+                        />
+                        <p class="progression-purcent">{{ project.progression_purcent }} %</p>
+                    </div>
+                    <p class="progression-description">{{ project.progression }}</p>
+                </div>
                 <p class="description">{{ project.abstract }}</p>
                 <RouterLink
                     :to="{
@@ -52,6 +63,7 @@ const { projectList } = MainStore;
     .one-project {
         background: linear-gradient(56deg, $color110 0%, $color110 38%, $color0 100%);
         width: 100%;
+        max-width: 280px;
         color: $color14;
         margin: 25px 20px;
         border-radius: 8px;
@@ -64,7 +76,7 @@ const { projectList } = MainStore;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            
+
             .title {
                 color: $color7;
                 text-align: center;
@@ -72,7 +84,40 @@ const { projectList } = MainStore;
                 font-size: 20px;
                 padding: 5px 15px 3px 15px;
             }
-    
+
+            .state {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                border: solid $color112;
+                border-width: 1px 0;
+                background-color: $color111;
+                
+                .progression {
+                    width: 70px;
+                    margin: 4px 10px;
+                    position: relative;
+
+                    .progression-svg {
+                        width: 70px;
+                        height: 35px;
+                    }
+
+                    .progression-purcent {
+                        position: absolute;
+                        top: 18px;
+                        left: 18px;
+                    }
+                }
+
+                .progression-description {
+                    text-align: justify;
+                    font-size: 0.9rem;
+                    width: calc(100% - 70px);
+                    margin: 4px 10px;
+                }
+            }
+
             .description {
                 color: $color14;
                 padding: 0 15px 15px 15px;
@@ -98,7 +143,7 @@ const { projectList } = MainStore;
     }
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 680px) {
     .project-container {
         .one-project {
             width: 45%;
@@ -106,7 +151,7 @@ const { projectList } = MainStore;
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px) {
     .project-container {
         .one-project {
             width: 29%;
