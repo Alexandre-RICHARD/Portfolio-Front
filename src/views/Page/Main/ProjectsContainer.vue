@@ -37,14 +37,14 @@ const { projectList, technosData } = MainStore;
                     </a>
                 </div>
                 <div class="project-link">
-                    <RouterLink
+                    <router-link
                         :to="{
                             name: 'ProjectDetails',
                             params: { projectName: project.linkDetails },
                         }" class="project-link details"
                     >
                         Détails
-                    </RouterLink>
+                    </router-link>
                     <a class="project-link access" target="_blank" :href="project.linkAccess">
                         Lien direct
                     </a>
@@ -69,6 +69,7 @@ const { projectList, technosData } = MainStore;
         background: linear-gradient(56deg, $color110 0%, $color110 38%, $color0 100%);
         width: 100%;
         max-width: 290px;
+        height: fit-content;
         color: $color14;
         margin: 25px 20px;
         border-radius: 8px;
@@ -187,7 +188,8 @@ const { projectList, technosData } = MainStore;
                     margin: 10px 10px;
                 }
 
-                .details:hover, .access:hover {
+                .details:hover,
+                .access:hover {
                     border-radius: 21px;
                     box-shadow: 0px 0px 6px 2px $color112 inset;
                 }
@@ -212,7 +214,7 @@ const { projectList, technosData } = MainStore;
                 }
 
                 .project-link {
-                flex-direction: row;
+                    flex-direction: row;
 
                     .details:hover {
                         border-radius: 21px 0 0 21px;

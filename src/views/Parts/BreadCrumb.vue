@@ -43,6 +43,23 @@ watch(
         }
     }
 );
+
+const breadCrumbData = reactive([]);
+
+watch(
+    () => route.matched,
+    (ourRoute) => {
+        for (let i = 0; i < ourRoute.length; i++) {
+            console.log(ourRoute[i].path.split("/"));
+            console.log(ourRoute[i].path);
+            console.log(ourRoute[i].meta);
+            breadCrumbData.map(element => {
+            });
+        }
+        matched[0] = ourRoute[ourRoute.length - 1].meta.breadCrumb;
+    }
+);
+
 </script>
 
 <template>

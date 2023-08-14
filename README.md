@@ -1094,4 +1094,14 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Adaptation des nouveautes des encadrés des projets en terme de taille et de responsive
 -   Changement du nom de la variable du lien vers les détails d'un projet
 
+### build 127 - 2.0.6 `14 août 2023`
+
+-   Ajout d'autres technologies pour les projets   
+-   Ajout d'autres logo d'autres technologies
+-   Changement des RouterLink en router-link
+-   Les projets passent en height: fit-content pour ne pas avoir de blanc inutiles dans leurs encadrés
+-   Changement des liens dans ProjectsDetails
+-   Changement du router-link de ProjectDetails en une simple balise a vu qu'on est sur un lien dorénavent externe
+-   Rajout au propres de tous les projets dans le store
+
 </details>

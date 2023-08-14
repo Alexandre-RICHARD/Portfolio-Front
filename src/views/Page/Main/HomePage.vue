@@ -77,7 +77,7 @@ const age = Math.floor(
                         <p class="one-project-homepage-description">
                             {{ project.abstract }}
                         </p>
-                        <RouterLink
+                        <router-link
                             class="one-project-homepage-access"
                             :to="{
                                 name: 'ProjectDetails',
@@ -85,7 +85,7 @@ const age = Math.floor(
                             }"
                         >
                             Voir en détail
-                        </RouterLink>
+                        </router-link>
                     </div>
                 </div>
                 <router-link class="link-to-more" :to="{ name: 'Project' }">

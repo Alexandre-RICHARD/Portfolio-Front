@@ -8,7 +8,7 @@ const route = useRoute();
 
 // Composant simple dans son fonctionnement, on change le titre de la page en fonction de quel projet on est en train de parler
 const ourProject = projectList.find(
-    (element) => element.link === route.params.projectName
+    (element) => element.linkDetails === route.params.projectName
 );
 
 if (!ourProject) {
@@ -24,12 +24,12 @@ if (!ourProject) {
             class="detailled-project-illustration"
             src="@static/images/projectIllustration/large/projectIllustrationPlaceholder.png"
         >
-        <router-link
+        <a
             class="detailled-project-link-access"
-            :to="{ name: ourProject.linkAccess }"
+            target="_blank" :href="ourProject.linkAccess"
         >
             Lien vers le projet
-        </router-link>
+        </a>
         <div class="detailled-project-details">
             <h1 class="detailled-project-title">{{ ourProject.title }}</h1>
             <p class="detailled-project-description">
