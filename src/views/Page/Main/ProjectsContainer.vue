@@ -2,17 +2,14 @@
 import ProgressionCircle from "@svgs/ProgressionCircle.vue";
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
-const { projectList } = MainStore;
+const { projectList, technosData } = MainStore;
 </script>
 
 <template>
     <!-- On utilise ici un opérateur ternaire. Il fait que si on appelle ce sous-composant avec un nombre différente de 0, alors on renvoit le tableau mélangé des projets et tronqué pour en avoir le bon nombre. Sinon, on renvoi le tableau complet -->
     <div class="project-container">
         <div
-            v-for="project in projectList"
-            :key="project.id"
-            class="one-project"
-            :to="{
+            v-for="project in projectList" :key="project.id" class="one-project" :to="{
                 name: 'ProjectDetails',
                 params: { projectName: project.link },
             }"
@@ -26,21 +23,29 @@ const { projectList } = MainStore;
                 <h3 class="title">{{ project.title }}</h3>
                 <div class="state">
                     <div class="progression">
-                        <ProgressionCircle
-                            class="progression-svg"
-                            :progression="project.progression_purcent"
-                        />
+                        <ProgressionCircle class="progression-svg" :progression="project.progression_purcent" />
                         <p class="progression-purcent">{{ project.progression_purcent }} %</p>
                     </div>
                     <p class="progression-description">{{ project.progression }}</p>
                 </div>
                 <p class="description">{{ project.abstract }}</p>
+                <div class="technos">
+                    <a
+                        v-for="techno in project.technos" :key="techno" class="techno" target="_blank"
+                        :href="technosData[techno].external_link"
+                    >
+                        <img
+                            class="techno-logo"
+                            :src="require(`@static/images/technoLogo/${technosData[techno].logo_code}.png`)"
+                        >
+                        <p class="techno-name">{{ technosData[techno].name }}</p>
+                    </a>
+                </div>
                 <RouterLink
                     :to="{
                         name: 'ProjectDetails',
                         params: { projectName: project.link },
-                    }"
-                    class="details"
+                    }" class="details"
                 >
                     Voir les détails
                 </RouterLink>
@@ -63,13 +68,13 @@ const { projectList } = MainStore;
     .one-project {
         background: linear-gradient(56deg, $color110 0%, $color110 38%, $color0 100%);
         width: 100%;
-        max-width: 280px;
+        max-width: 310px;
         color: $color14;
         margin: 25px 20px;
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 1px 1px 8px 2px $color112;
-        
+
         &-sub-container {
             width: 100%;
             height: inherit;
@@ -88,11 +93,12 @@ const { projectList } = MainStore;
             .state {
                 width: 100%;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 border: solid $color112;
                 border-width: 1px 0;
                 background-color: $color111;
-                
+
                 .progression {
                     width: 70px;
                     margin: 4px 10px;
@@ -123,7 +129,42 @@ const { projectList } = MainStore;
                 padding: 0 15px 15px 15px;
                 text-align: justify;
             }
-    
+
+            .technos {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-around;
+                border: solid $color112;
+                border-width: 1px 0;
+                padding: 6px;
+                background-color: $color111;
+
+                .techno {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 6px;
+                    border-radius: 5px;
+                    transition: none;
+
+                    &-logo {
+                        max-width: 32px;
+                    }
+
+                    &-name {
+                        text-align: center;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+
+                    &:hover {
+                        background-color: $color110;
+                    }
+                }
+            }
+
             .details {
                 color: $color14;
                 background-color: $transparent-white;
@@ -137,6 +178,18 @@ const { projectList } = MainStore;
                 &:hover {
                     margin: 10px 18px;
                     border-radius: 19px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 415px) {
+    .project-container {
+        .one-project {
+            &-sub-container {
+                .state {
+                    flex-direction: row;
                 }
             }
         }

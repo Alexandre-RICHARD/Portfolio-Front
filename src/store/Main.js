@@ -48,12 +48,7 @@ export const useMainStore = defineStore("Main", {
                 title: "Portfolio",
                 link: "portfolio",
                 linkAccess: "HomePage",
-                techno: [
-                    "VueJS",
-                    "Pinia",
-                    "SCSS",
-                    "Zxcvbn",
-                ],
+                technos: [1, 2, 3, 4],
                 progression_purcent: "89",
                 progression: "Fini, reste des finiolages et d'autres features en projet",
                 abstract:
@@ -247,5 +242,27 @@ export const useMainStore = defineStore("Main", {
                 content: "Andromeda-CTZ",
             },
         ],
+        technosData: {
+            1: {
+                name: "VueJS",
+                logo_code: "vuejs",
+                external_link: "https://vuejs.org/",
+            },
+            2: {
+                name: "Pinia",
+                logo_code: "pinia",
+                external_link: "https://pinia.vuejs.org/",
+            },
+            3: {
+                name: "Scss",
+                logo_code: "scss",
+                external_link: "https://sass-lang.com/",
+            },
+            4: {
+                name: "Zxcvbn",
+                logo_code: "notfound",
+                external_link: "https://github.com/dropbox/zxcvbn",
+            },
+        }
     }),
 });

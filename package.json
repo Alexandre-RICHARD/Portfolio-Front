@@ -1,6 +1,6 @@
 {
     "name": "portfolio-front",
-    "version": "Build 124 ; V-2.0.3",
+    "version": "Build 125 ; V-2.0.4",
     "description": "Portfolio d'Alexandre Richard. Projet à but auto-formatif.",
     "main": "webpack.config.js",
     "scripts": {

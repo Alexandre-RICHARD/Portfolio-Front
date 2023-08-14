@@ -1079,4 +1079,13 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Rajout d'une couleur dans variable.scss
 -   Petit changement dans le style des projets affichés
 
+### build 125 - 2.0.4 `14 août 2023`
+
+-   Mise à jour des packages npm
+-   Ajout d'un encadré dans la page des projets pour les technologies utilisées dans chaque projet.
+-   Cet encadre comprend le nom et le logo de la techno en plus de renvoyé vers le site de celle-ci
+-   Petit changement dans le style global des projets pour les rendre plus lisible
+-   L'encadré sur l'avancement du projet à un peu de responsive pour les pages de petites taille ou le flex-direction passe de column à row au dessus de 415px
+-   Ajout des différents logo de chaque technologies ainsi qu'un logo Not Found pour celle n'en ayant pas
+
 </details>
