@@ -1088,4 +1088,10 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   L'encadré sur l'avancement du projet à un peu de responsive pour les pages de petites taille ou le flex-direction passe de column à row au dessus de 415px
 -   Ajout des différents logo de chaque technologies ainsi qu'un logo Not Found pour celle n'en ayant pas
 
+### build 126 - 2.0.5 `14 août 2023`
+
+-   Changement dans les liens en bas des encadrés des projets. En plus des détails, on peut accéder directement au projet. Lien gérer depuis dotenv
+-   Adaptation des nouveautes des encadrés des projets en terme de taille et de responsive
+-   Changement du nom de la variable du lien vers les détails d'un projet
+
 </details>

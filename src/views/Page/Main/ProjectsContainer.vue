@@ -8,12 +8,7 @@ const { projectList, technosData } = MainStore;
 <template>
     <!-- On utilise ici un opérateur ternaire. Il fait que si on appelle ce sous-composant avec un nombre différente de 0, alors on renvoit le tableau mélangé des projets et tronqué pour en avoir le bon nombre. Sinon, on renvoi le tableau complet -->
     <div class="project-container">
-        <div
-            v-for="project in projectList" :key="project.id" class="one-project" :to="{
-                name: 'ProjectDetails',
-                params: { projectName: project.link },
-            }"
-        >
+        <div v-for="project in projectList" :key="project.id" class="one-project">
             <!-- On utilise pour le moment une image d'illustration factice tant que trop peu de projet sont finis -->
             <img
                 src="@static/images/projectIllustration/overview/projectIllustrationPlaceholder.png"
@@ -41,14 +36,19 @@ const { projectList, technosData } = MainStore;
                         <p class="techno-name">{{ technosData[techno].name }}</p>
                     </a>
                 </div>
-                <RouterLink
-                    :to="{
-                        name: 'ProjectDetails',
-                        params: { projectName: project.link },
-                    }" class="details"
-                >
-                    Voir les détails
-                </RouterLink>
+                <div class="project-link">
+                    <RouterLink
+                        :to="{
+                            name: 'ProjectDetails',
+                            params: { projectName: project.linkDetails },
+                        }" class="project-link details"
+                    >
+                        Détails
+                    </RouterLink>
+                    <a class="project-link access" target="_blank" :href="project.linkAccess">
+                        Lien direct
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@ const { projectList, technosData } = MainStore;
     .one-project {
         background: linear-gradient(56deg, $color110 0%, $color110 38%, $color0 100%);
         width: 100%;
-        max-width: 310px;
+        max-width: 290px;
         color: $color14;
         margin: 25px 20px;
         border-radius: 8px;
@@ -138,14 +138,15 @@ const { projectList, technosData } = MainStore;
                 justify-content: space-around;
                 border: solid $color112;
                 border-width: 1px 0;
-                padding: 6px;
+                padding: 7px 0;
                 background-color: $color111;
 
                 .techno {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    margin: 6px;
+                    margin: 0 3px;
+                    padding: 5px 2px 1px 2px;
                     border-radius: 5px;
                     transition: none;
 
@@ -165,21 +166,39 @@ const { projectList, technosData } = MainStore;
                 }
             }
 
-            .details {
-                color: $color14;
-                background-color: $transparent-white;
-                box-shadow: 1px 1px 8px 4px $color112 inset;
-                text-align: center;
-                font-weight: 500;
-                font-size: $extra-large;
-                padding: 4px 10px;
-                margin: 10px 30px;
+            .project-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
 
-                &:hover {
-                    margin: 10px 18px;
-                    border-radius: 19px;
+                .details,
+                .access {
+                    display: block;
+                    width: 125px;
+                    text-align: center;
+                    background-color: $transparent-white;
+                    color: $color14;
+                    box-shadow: 0px 0px 2px 1px $color112 inset;
+                    padding: 8px 3px;
+                    font-weight: 500;
+                    font-size: $large;
+                    border-radius: 4px;
+                    margin: 10px 10px;
+                }
+
+                .details:hover, .access:hover {
+                    border-radius: 21px;
+                    box-shadow: 0px 0px 6px 2px $color112 inset;
+                }
+
+                &:hover .details:hover,
+                &:hover .access:hover {
+                    width: 90%;
+                    max-width: 200px;
                 }
             }
+
         }
     }
 }
@@ -190,6 +209,25 @@ const { projectList, technosData } = MainStore;
             &-sub-container {
                 .state {
                     flex-direction: row;
+                }
+
+                .project-link {
+                flex-direction: row;
+
+                    .details:hover {
+                        border-radius: 21px 0 0 21px;
+                        box-shadow: 3px 0px 2px 1px $color112 inset;
+                    }
+
+                    .access:hover {
+                        border-radius: 0 21px 21px 0;
+                        box-shadow: -3px 0px 2px 1px $color112 inset;
+                    }
+
+                    &:hover .details:hover,
+                    &:hover .access:hover {
+                        width: 200px;
+                    }
                 }
             }
         }

@@ -81,7 +81,7 @@ const age = Math.floor(
                             class="one-project-homepage-access"
                             :to="{
                                 name: 'ProjectDetails',
-                                params: { projectName: project.link },
+                                params: { projectName: project.linkDetails },
                             }"
                         >
                             Voir en détail
