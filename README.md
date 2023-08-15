@@ -1125,6 +1125,6 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 
 ### build 131 - 2.0.10 `15 août 2023`
 
--   
+-   Le formulaire de contact est enfin fonctionnel après des mois en attente. C'est fait !!
 
 </details>
