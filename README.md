@@ -1123,4 +1123,8 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Rajout des images large et overview de chaque projet. Certains sont pas très parlantes mais c'est mieux que le placeholder
 -   Adaptation des require src des images des projets
 
+### build 131 - 2.0.10 `15 août 2023`
+
+-   
+
 </details>

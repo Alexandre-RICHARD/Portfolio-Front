@@ -6,7 +6,7 @@ const MainStore = useMainStore();
 const { contactList } = MainStore;
 const API_URL = process.env.API_URL;
 
-// A m'aide de Reactive, on créé cet objet de valeur qui seront affichés en temps réel dès qu'elles changeront
+// À l'aide de Reactive, on créé cet objet qui seront affichés en temps réel dès qu'elles changeront
 const contactByMailValues = reactive({
     contactFormName: "",
     contactFormMail: "",
@@ -72,11 +72,9 @@ const sendMail = () => {
             />
         </div>
     </div>
-
-    <!-- Formulaire de contact inutilisable pour le moment, de plus il serait à factoriser -->
     <div class="contact-me">
         <h1 class="categories">
-            Me contacter directement (pas encore fonctionnel)
+            Me contacter directement
         </h1>
         <form class="contact-me-form">
             <div class="input">
