@@ -91,7 +91,7 @@ export const useMainStore = defineStore("Main", {
             {
                 id: 3,
                 title: "Genshin - Fan Tool Site",
-                linkDetails: "genshinstatisfyer",
+                linkDetails: "genshin",
                 linkAccess: process.env.GENSHIN_IMPACT_URL,
                 technos: [1, 2, 3],
                 progression_purcent: "15",
@@ -128,7 +128,7 @@ export const useMainStore = defineStore("Main", {
             {
                 id: 5,
                 title: "Satisfactory Calculator",
-                linkDetails: "satisfactory/calculator",
+                linkDetails: "satisfactory",
                 linkAccess: process.env.SATISFACTORY_CALCULATOR_URL,
                 technos: [1, 2, 3],
                 progression_purcent: "5",

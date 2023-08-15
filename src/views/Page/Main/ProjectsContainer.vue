@@ -11,7 +11,7 @@ const { projectList, technosData } = MainStore;
         <div v-for="project in projectList.sort((a, b) => {return a.id - b.id})" :key="project.id" class="one-project">
             <!-- On utilise pour le moment une image d'illustration factice tant que trop peu de projet sont finis -->
             <img
-                src="@static/images/projectIllustration/overview/projectIllustrationPlaceholder.png"
+                :src="require(`@static/images/projectIllustration/overview/${project.linkDetails}.png`)"
                 alt="Une image temporaire le temps d'importer d'autre projet"
             >
             <div class="one-project-sub-container">

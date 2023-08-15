@@ -1117,4 +1117,10 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Rajout et adaptation du style de ces deux nouvelles parties
 -   Adaptation également en responsive
 
+### build 130 - 2.0.9 `15 août 2023`
+
+-   Changement dans les noms des variables linkDetails de 2 projets
+-   Rajout des images large et overview de chaque projet. Certains sont pas très parlantes mais c'est mieux que le placeholder
+-   Adaptation des require src des images des projets
+
 </details>

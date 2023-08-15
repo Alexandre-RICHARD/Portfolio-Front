@@ -22,7 +22,7 @@ if (!ourProject) {
     <div v-if="ourProject" class="detailled-project">
         <img
             class="detailled-project-illustration"
-            src="@static/images/projectIllustration/large/projectIllustrationPlaceholder.png"
+            :src="require(`@static/images/projectIllustration/large/${ourProject.linkDetails}.png`)"
         >
         <a
             class="detailled-project-link-access"
