@@ -1110,4 +1110,11 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Tri dans l'ordre des id (ordre désiré mais pas toujours respecté par vue) des projets dans la page projets
 -   Changement d'une partie de la logique du BreadCrumb. Il est plus fiable et mieux géré avec moins d'informations nécessaire pour le faire fonctionner.
 
+### build 129 - 2.0.8 `15 août 2023`
+
+-   Suppression de l'aléatoirisation des projets montrés sur la page d'accueil
+-   Rajout de la petit roue de progression et de l'affichage des technologies sur les projets de la page d'accueil
+-   Rajout et adaptation du style de ces deux nouvelles parties
+-   Adaptation également en responsive
+
 </details>

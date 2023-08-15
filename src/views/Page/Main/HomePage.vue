@@ -1,13 +1,9 @@
 <script setup>
 import ContactButton from "@parts/ContactButton.vue";
+import ProgressionCircle from "@svgs/ProgressionCircle.vue";
 import { useMainStore } from "@store/Main";
 const MainStore = useMainStore();
-const { projectList, contactList } = MainStore;
-
-// La méthode shuffle, utilisé pour randomizer l'ordre d'un tableau et aisni le mélanger
-const shuffle = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-};
+const { contactList, projectList, technosData } = MainStore;
 
 const age = Math.floor(
     (Date.now() - new Date(1999, 5, 24).getTime()) / 1000 / 60 / 60 / 24 / 365
@@ -65,11 +61,9 @@ const age = Math.floor(
             <div class="appear content">
                 <div class="project-container">
                     <div
-                        v-for="project in shuffle(projectList).slice(
-                            projectList.length - 3
-                        )"
-                        :key="project.id"
-                        class="appear one-project-homepage"
+                        v-for="project in projectList.filter(
+                            (el) => el.id <= 3
+                        )" :key="project.id" class="appear one-project-homepage"
                     >
                         <h3 class="one-project-homepage-title">
                             {{ project.title }}
@@ -77,15 +71,32 @@ const age = Math.floor(
                         <p class="one-project-homepage-description">
                             {{ project.abstract }}
                         </p>
-                        <router-link
-                            class="one-project-homepage-access"
-                            :to="{
-                                name: 'ProjectDetails',
-                                params: { projectName: project.linkDetails },
-                            }"
-                        >
-                            Voir en détail
-                        </router-link>
+                        <div class="one-project-homepage-footer">
+                            <div class="progression">
+                                <ProgressionCircle class="progression-svg" :progression="project.progression_purcent" />
+                                <p class="progression-purcent">{{ project.progression_purcent }} %</p>
+                            </div>
+                            <div class="technos">
+                                <a
+                                    v-for="techno in project.technos" :key="techno" class="techno" target="_blank"
+                                    :href="technosData[techno].external_link"
+                                >
+                                    <img
+                                        class="techno-logo"
+                                        :src="require(`@static/images/technoLogo/${technosData[techno].logo_code}.png`)"
+                                    >
+                                    <p class="techno-name">{{ technosData[techno].name }}</p>
+                                </a>
+                            </div>
+                            <router-link
+                                class="access" :to="{
+                                    name: 'ProjectDetails',
+                                    params: { projectName: project.linkDetails },
+                                }"
+                            >
+                                Voir en détail
+                            </router-link>
+                        </div>
                     </div>
                 </div>
                 <router-link class="link-to-more" :to="{ name: 'Project' }">
@@ -103,13 +114,9 @@ const age = Math.floor(
                     <ContactButton
                         v-for="contact in contactList.filter(
                             (el) => el.id <= 3
-                        )"
-                        :key="contact.id"
-                        :copyid="contact.copyId"
-                        :type="contact.type"
+                        )" :key="contact.id" :copyid="contact.copyId" :type="contact.type"
                         :title="contact.title"
-                        :content="contact.content"
-                        :section="contact.section"
+                        :content="contact.content" :section="contact.section"
                     />
                 </div>
                 <router-link class="link-to-more" :to="{ name: 'Contact' }">
@@ -194,6 +201,7 @@ const age = Math.floor(
 
         .content {
             background-color: transparent;
+
             .link-to-more {
                 color: $color14;
                 border: 1px solid $color15;
@@ -254,30 +262,87 @@ const age = Math.floor(
                         border-radius: 5px;
                     }
 
-                    &-access {
-                        position: relative;
-                        display: block;
-                        align-self: flex-end;
-                        margin-top: 10px;
-                        font-weight: 500;
-                        font-size: $large;
+                    &-footer {
+                        display: flex;
+                        justify-content: end;
+                        align-items: center;
 
-                        &:after {
-                            content: "";
-                            position: absolute;
-                            width: 100%;
-                            transform: scaleX(0);
-                            height: 3px;
-                            bottom: 0;
-                            left: 0;
-                            background-color: $color0;
-                            transform-origin: bottom right;
-                            transition: transform 0.25s ease-out;
+                        .progression {
+                            display: none;
+                            width: 70px;
+                            margin: 4px 0 4px 30px;
+                            position: relative;
+
+                            .progression-svg {
+                                width: 70px;
+                                height: 35px;
+                            }
+
+                            .progression-purcent {
+                                position: absolute;
+                                top: 18px;
+                                left: 18px;
+                            }
                         }
 
-                        &:hover::after {
-                            transform: scaleX(1);
-                            transform-origin: bottom left;
+                        .technos {
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 7px;
+
+                            .techno {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                margin: 0 6px;
+                                padding: 2px;
+                                border-radius: 5px;
+                                transition: none;
+
+                                &-logo {
+                                    max-width: 25px;
+                                }
+
+                                &-name {
+                                    text-align: center;
+                                    font-size: 0.8rem;
+                                    font-weight: 300;
+                                }
+
+                                &:hover {
+                                    background-color: $color12;
+                                }
+                            }
+                        }
+
+                        .access {
+                            position: relative;
+                            display: block;
+                            align-self: flex-end;
+                            margin-top: 10px;
+                            font-weight: 500;
+                            font-size: $large;
+
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                width: 100%;
+                                transform: scaleX(0);
+                                height: 3px;
+                                bottom: 0;
+                                left: 0;
+                                background-color: $color0;
+                                transform-origin: bottom right;
+                                transition: transform 0.25s ease-out;
+                            }
+
+                            &:hover::after {
+                                transform: scaleX(1);
+                                transform-origin: bottom left;
+                            }
                         }
                     }
 
@@ -291,8 +356,7 @@ const age = Math.floor(
                         border-style: solid;
                         box-shadow: 2px 2px 10px $transparent-black;
                         border-width: 0;
-                        border-color: $transparent-white $transparent-white
-                            $color0 $color0;
+                        border-color: $transparent-white $transparent-white $color0 $color0;
                         // border-radius: 0 5px 0 0;
                         transition: border-width 0.2s;
                     }
@@ -335,6 +399,26 @@ const age = Math.floor(
 
             .job {
                 font-size: 38px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 430px) {
+    .home-page {
+        .projects {
+            .content {
+                .project-container {
+                    .one-project-homepage {
+                        &-footer {
+                            justify-content: space-between;
+
+                            .progression {
+                                display: block;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
