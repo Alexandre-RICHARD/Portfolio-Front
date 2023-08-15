@@ -155,7 +155,7 @@ export const useMainStore = defineStore("Main", {
                 description:
                     "Le jeu du Mastermind est un jeu dans lequel il faut deviner la bonne combinaison de couleur que l'autre a choisi. Ici, ce sont des nombres. À chaque essai de combinaison, il est indiqué le nombre de bonne réponse, de nombre bon à la mauvaise place mais aussi les mauvaises réponses.",
                 features: [
-                    "",
+                    "Indication des résultats fluides et faciles à comprendre",
                 ],
             },
             // Etherum Follow

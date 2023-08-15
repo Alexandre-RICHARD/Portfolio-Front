@@ -8,7 +8,7 @@ const { projectList, technosData } = MainStore;
 <template>
     <!-- On utilise ici un opérateur ternaire. Il fait que si on appelle ce sous-composant avec un nombre différente de 0, alors on renvoit le tableau mélangé des projets et tronqué pour en avoir le bon nombre. Sinon, on renvoi le tableau complet -->
     <div class="project-container">
-        <div v-for="project in projectList" :key="project.id" class="one-project">
+        <div v-for="project in projectList.sort((a, b) => {return a.id - b.id})" :key="project.id" class="one-project">
             <!-- On utilise pour le moment une image d'illustration factice tant que trop peu de projet sont finis -->
             <img
                 src="@static/images/projectIllustration/overview/projectIllustrationPlaceholder.png"

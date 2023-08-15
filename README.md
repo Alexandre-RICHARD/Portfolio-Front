@@ -1104,4 +1104,10 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Changement du router-link de ProjectDetails en une simple balise a vu qu'on est sur un lien dorénavent externe
 -   Rajout au propres de tous les projets dans le store
 
+### build 128 - 2.0.7 `15 août 2023`
+
+-   Suppression de toutes les notions de page d'Accueil/HomePage dans les meta du router. C'est maintenant géré automatiquement.
+-   Tri dans l'ordre des id (ordre désiré mais pas toujours respecté par vue) des projets dans la page projets
+-   Changement d'une partie de la logique du BreadCrumb. Il est plus fiable et mieux géré avec moins d'informations nécessaire pour le faire fonctionner.
+
 </details>

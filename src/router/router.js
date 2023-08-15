@@ -23,10 +23,6 @@ const routes = [
         meta: {
             documentTitle: "Alexandre Richard",
             breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
             ],
         },
     },
@@ -73,9 +69,7 @@ const routes = [
                     link: "Project",
                 },
                 {
-                    params: "projectList",
-                    title: "N/A",
-                    link: "ProjectDetails",
+                    params: "projectName",
                 },
             ],
         },
@@ -104,10 +98,6 @@ const routes = [
             documentTitle: "Page de connexion",
             breadCrumb: [
                 {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
-                {
                     title: "Mon profil",
                     link: "AccountHandler",
                 },
@@ -122,10 +112,6 @@ const routes = [
         meta: {
             documentTitle: "Mon profil",
             breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
                 {
                     title: "Mon profil",
                     link: "UserProfile",
@@ -142,10 +128,6 @@ const routes = [
         meta: {
             documentTitle: "Perdition complète",
             breadCrumb: [
-                {
-                    title: "Accueil",
-                    link: "HomePage",
-                },
                 {
                     title: "Perdition complète",
                     link: "404",

@@ -21,7 +21,6 @@ const submitContactForm = (event) => {
 };
 
 const sendMail = () => {
-    console.log(contactByMailValues);
     try {
         fetch(API_URL + "/contact", {
             headers: {

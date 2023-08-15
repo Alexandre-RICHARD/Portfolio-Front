@@ -1,12 +1,7 @@
 <script setup>
-import { ref, reactive, watch } from "vue";
+import { reactive, watch } from "vue";
 import { useRoute } from "vue-router";
-import { useMainStore } from "@store/Main";
-const MainStore = useMainStore();
-const { projectList } = MainStore;
 const route = useRoute();
-let matched = reactive([]);
-let lastLinkTitle = ref();
 
 defineProps({
     visibility: {
@@ -15,63 +10,45 @@ defineProps({
     },
 });
 
-// On utilise le useRoute pour venir récupérer l'ininéraire de notre URl et venir le recréer en traçant une série de liens cliquables
-// On surveille route.watched afin de changer le breadCrumb automatiquement
-watch(
-    () => route.matched,
-    (ourRoute) => {
-        matched[0] = ourRoute[ourRoute.length - 1].meta.breadCrumb;
-    }
-);
+let data = reactive([{
+    id: 0,
+    type: "path",
+    title: "Accueil",
+    link: "/",
+}]);
+let params = reactive([]);
+let path = reactive([]);
+let matched = reactive([]);
 
 watch(
-    () => route.params,
-    (params) => {
-        const param = Object.entries(params)[0];
-        if (Object.entries(params).length > 0) {
-            switch (param[0]) {
-            case "projectName":
-                projectList.forEach((element) => {
-                    if (element.link === param[1]) {
-                        lastLinkTitle.value = element.title;
-                    }
-                });
-                break;
-            default:
-                break;
-            }
-        }
-    }
-);
+    [() => route.matched, () => route.params],
+    ([ourRoute, ourParam]) => {
+        params = ourParam;
+        matched = ourRoute[0].meta.breadCrumb;
+        path = ourRoute[0].path.slice(1).replaceAll(":", "").split("/");
+        let link = ("");
+        data.length = 1;
 
-const breadCrumbData = reactive([]);
-
-watch(
-    () => route.matched,
-    (ourRoute) => {
-        for (let i = 0; i < ourRoute.length; i++) {
-            console.log(ourRoute[i].path.split("/"));
-            console.log(ourRoute[i].path);
-            console.log(ourRoute[i].meta);
-            breadCrumbData.map(element => {
+        
+        matched.forEach((el, index) => {
+            data.push({
+                id: index + 1,
+                type: el.title ? "path" : "param",
+                title: el.title ? el.title : params[path[index]],
+                link: el.title ? `${link}/${path[index]}` : `${link}/${params[path[index]]}`,
             });
-        }
-        matched[0] = ourRoute[ourRoute.length - 1].meta.breadCrumb;
+            link += el.title ? `/${path[index]}` : `/${params[path[index]]}`;
+        });
     }
 );
-
 </script>
 
 <template>
     <div class="bread-crumb" :class="{ hidden: !visibility }">
-        <div
-            v-for="partPath in matched[0]"
-            :key="partPath.name"
-            class="one-path-box"
-        >
+        <div v-for="partPath in data" :key="partPath.id" class="one-path-box">
             <span class="guillemet">></span>
-            <router-link class="link" :to="{ name: partPath.link }">
-                {{ !partPath.params ? partPath.title : lastLinkTitle }}
+            <router-link class="link" :to="partPath.link">
+                {{ partPath.title }}
             </router-link>
         </div>
     </div>
