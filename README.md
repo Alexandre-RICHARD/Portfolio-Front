@@ -1127,4 +1127,12 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 
 -   Le formulaire de contact est enfin fonctionnel après des mois en attente. C'est fait !!
 
+### build 132 - 2.0.11 `18 août 2023`
+
+-   Mise à jour des packages npm
+-   Indication comme quoi le formulaire de contact fonctionne mais est volontairement désactivé
+-   Petit changement de style pour ne pouvoir redimensionner la zone de texte du message que verticalement
+-   Rajout de deux lignes de configurations pour webpack et vueJS
+-   
+
 </details>

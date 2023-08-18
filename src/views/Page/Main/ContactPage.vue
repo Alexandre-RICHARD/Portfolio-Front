@@ -74,7 +74,7 @@ const sendMail = () => {
     </div>
     <div class="contact-me">
         <h1 class="categories">
-            Me contacter directement
+            Me contacter directement (fonctionnel mais désactiver car pas encore empêcher le spam)
         </h1>
         <form class="contact-me-form">
             <div class="input">
@@ -219,6 +219,8 @@ const sendMail = () => {
                 color: $color0;
                 padding: 4px;
                 width: 100%;
+                min-height: 50px;
+                resize: vertical;
             }
         }
         .submit-button {
