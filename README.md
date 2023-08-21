@@ -3,9 +3,10 @@
 Bonjour, bienvenue sur le répo de mon portfolio. J'y présente mon CV, mes projets ainsi que mes contacts. Les projets présentés sont accessibles depuis le site mais hébergés séparemment sur des sous-domaines afin d'être libre sur les technologies utilisées.
 Il s'agit ici du front avec ci-dessous l'historique des version et leur détails.
 
-Voici [le site](http://rial7539.odns.fr/) en question.
+Voici [le site](https://alexandre-richard.fr/) en question.
 
-Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Back).
+Voici le [répo du projet](https://github.com/Alexandre-RICHARD/Portfolio-Front).
+Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Back).
 
 ## Historique des versions
 
@@ -1133,6 +1134,9 @@ Et voici [le répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Indication comme quoi le formulaire de contact fonctionne mais est volontairement désactivé
 -   Petit changement de style pour ne pouvoir redimensionner la zone de texte du message que verticalement
 -   Rajout de deux lignes de configurations pour webpack et vueJS
--   
+
+### build 133 - 2.0.12 `21 août 2023`
+
+-   Maintenant que j'ai récupéré le nom de domaine, actualisation de tous les liens sortant
 
 </details>
