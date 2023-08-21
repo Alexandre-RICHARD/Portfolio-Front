@@ -1139,4 +1139,8 @@ Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 
 -   Maintenant que j'ai récupéré le nom de domaine, actualisation de tous les liens sortant
 
+### build 134 - 2.0.13 `21 août 2023`
+
+-   Mise à jour des packages npm
+
 </details>
