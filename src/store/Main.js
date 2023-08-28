@@ -94,7 +94,7 @@ export const useMainStore = defineStore("Main", {
                 linkDetails: "genshin",
                 linkAccess: process.env.GENSHIN_IMPACT_URL,
                 technos: [1, 2, 3],
-                progression_purcent: "15",
+                progression_purcent: "85",
                 progression: "Le projet ne fait que commencer, mais selon mes prévisions, c'est le plus ambitieux de tous.",
                 abstract:
                     "Un outil permettant de prévoir à l'avance les statistiques optimales de ses personnages sur Genshin afin d'essayer de s'en rapprocher, et par la suite d'optimiser son farm de ressources à l'aide de toutes les infos nécessaires.",

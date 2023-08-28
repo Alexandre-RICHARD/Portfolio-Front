@@ -1143,4 +1143,12 @@ Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 
 -   Mise à jour des packages npm
 
+### build 135 - 2.0.14 `28 août 2023`
+
+-   Mise à jour des packages npm
+-   Mise à jour du CV
+-   Changement dans les données du projets Genshin
+-   Réactivation du formulaire de contact avec vidage automatique des input lors de l'envoi
+-   Micro modif de styles
+
 </details>

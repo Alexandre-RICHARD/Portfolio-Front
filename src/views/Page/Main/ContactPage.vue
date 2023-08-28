@@ -14,7 +14,6 @@ const contactByMailValues = reactive({
     contactFormMessage: "",
 });
 
-// Rien n'est fonctionnel dans cet envoi de mail et aucune vérification n'est faite au niveau des valeurs, mais ça viendra un jour
 const submitContactForm = (event) => {
     event.preventDefault();
     sendMail();
@@ -30,6 +29,10 @@ const sendMail = () => {
             method: "POST",
             body: JSON.stringify(contactByMailValues),
         });
+        contactByMailValues.contactFormName = "";
+        contactByMailValues.contactFormMail = "";
+        contactByMailValues.contactFormSubject = "";
+        contactByMailValues.contactFormMessage = "";
     } catch (error) {
         console.trace(error);
     }
@@ -74,7 +77,7 @@ const sendMail = () => {
     </div>
     <div class="contact-me">
         <h1 class="categories">
-            Me contacter directement (fonctionnel mais désactiver car pas encore empêcher le spam)
+            Me contacter directement
         </h1>
         <form class="contact-me-form">
             <div class="input">

@@ -286,7 +286,6 @@ const age = Math.floor(
                         }
 
                         .technos {
-                            width: 100%;
                             display: flex;
                             flex-wrap: wrap;
                             align-items: center;
@@ -325,6 +324,7 @@ const age = Math.floor(
                             margin-top: 10px;
                             font-weight: 500;
                             font-size: $large;
+                            width: fit-content;
 
                             &:after {
                                 content: "";
