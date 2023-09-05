@@ -1151,4 +1151,10 @@ Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Réactivation du formulaire de contact avec vidage automatique des input lors de l'envoi
 -   Micro modif de styles
 
+### build 136 - 2.0.15 `6 septembre 2023`
+
+-   Mise à jour des packages npm
+-   Mise à jour du pseudo Discord après leur nouvelles manières de les gérer
+-   Refonte de la fonction d'envoi de requête pour l'incrémentation des visites
+
 </details>

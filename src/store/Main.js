@@ -232,7 +232,7 @@ export const useMainStore = defineStore("Main", {
                 type: "copy",
                 section: "pro",
                 title: "Discord",
-                content: "Shadowmere#5754",
+                content: "shadowmere_s",
             },
             // Steam
             {

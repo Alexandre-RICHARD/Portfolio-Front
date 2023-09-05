@@ -24,12 +24,27 @@ export const cookieHandler = {
         return null;
     },
 
-    handleVisitCookie: (days = 365) => {
+    handleVisitCookie: async (days = 365) => {
         let visits = "";
         if (!cookieHandler.getCookie("visits")) {
             visits = 1;
             cookieHandler.setCookie("visits", visits, days);
-            fetch(API_URL + "/visit/counter/add");
+
+            try {
+                const response = await fetch(API_URL + "/visit/counter/add", {
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    method: "POST",
+                    body: JSON.stringify({ target: "portfolio" }),
+                });
+                return response;
+            } catch (error) {
+                return error;
+            }
+
+
         } else {
             visits = parseInt(cookieHandler.getCookie("visits")) + 1;
             cookieHandler.setCookie("visits", visits, days);
