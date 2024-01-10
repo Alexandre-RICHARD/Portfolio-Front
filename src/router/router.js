@@ -58,7 +58,7 @@ const routes = [
     },
     //Details
     {
-        path: "/project/:projectName",
+        path: "/project/:projectLinkName",
         name: "ProjectDetails",
         components: { mainRouter: ProjectDetails },
         meta: {
@@ -69,7 +69,8 @@ const routes = [
                     link: "Project",
                 },
                 {
-                    params: "projectName",
+                    params: ["projectLinkName", "projectTitle"],
+
                 },
             ],
         },

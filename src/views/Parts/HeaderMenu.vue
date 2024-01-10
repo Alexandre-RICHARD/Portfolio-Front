@@ -5,7 +5,8 @@ import { useRouter } from "vue-router";
 import { ref } from "vue";
 import CurriculumVitae from "@static/pdf/CurriculumVitae.pdf";
 const MainStore = useMainStore();
-const { account, headerLinks, headerModals, modalData } = MainStore;
+const { account, modalData } = MainStore;
+const { dataObject: {headerLinks, headerModals}} = require("@middlewares/data.js");
 const router = useRouter();
 const { cookieHandler } = require("@middlewares/cookieHandler.js");
 

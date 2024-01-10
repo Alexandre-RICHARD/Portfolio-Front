@@ -9,7 +9,8 @@ import { useMainStore } from "@store/Main";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const MainStore = useMainStore();
-const { account, headerLinks, headerModals, modalData } = MainStore;
+const { account, modalData } = MainStore;
+const { dataObject: {headerLinks, headerModals}} = require("@middlewares/data.js");
 const { cookieHandler } = require("@middlewares/cookieHandler.js");
 
 const handleAccountModal = (open, type) => {

@@ -28,7 +28,7 @@ import pjson from "@root/package.json";
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     a {
         text-decoration: underline;
 

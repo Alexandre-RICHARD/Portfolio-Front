@@ -1,13 +1,7 @@
 <script setup>
 import ContactButton from "@parts/ContactButton.vue";
 import ProgressionCircle from "@svgs/ProgressionCircle.vue";
-import { useMainStore } from "@store/Main";
-const MainStore = useMainStore();
-const { contactList, projectList, technosData } = MainStore;
-
-const age = Math.floor(
-    (Date.now() - new Date(1999, 5, 24).getTime()) / 1000 / 60 / 60 / 24 / 365
-);
+const { dataObject, dataObject: {contactList, projectList, technosData}} = require("@middlewares/data.js");
 </script>
 
 <template>
@@ -16,39 +10,15 @@ const age = Math.floor(
             <h2 class="welcome-in">Bienvenue sur le portfolio d'</h2>
             <h1 class="fullname">Alexandre RICHARD</h1>
             <h1 class="job">Développeur Web Junior</h1>
-            <p class="description">
-                Jeune de <span>{{ age }}</span> ans investi, la passion du code
-                m'attire vers de nouvelles expériences, de nouveaux projets. En
-                quête d'algorithmes, je
-                <span>recherche ma première expérience</span> professionnelle en
-                tant qu'<span>alternant</span> en
-                <span>Développement Web</span> dans l'environnement
-                <span>Javascript</span> et <span>Node.JS</span> sur
-                <span>Angers</span> ou en télétravail.
-            </p>
+            <div v-html="dataObject.homeIntro" />
         </section>
         <section class="home-section presentation">
             <div class="appear title-box">
-                <h2 class="text-box">J'ai oublié de me présenter</h2>
+                <h2 class="text-box">Ai-je oublié de me présenter ?</h2>
             </div>
             <div class="appear content">
-                <p class="description">
-                    Je m'appelle donc Alexandre Richard. Tombé amoureux
-                    d'internet, j'ai été pris de passion par la capacité à créer
-                    des choses comme on le souhaite, de trouver des solutions à
-                    des problèmes de logique. Je n'ai pour le moment exploré
-                    vraiment que le web, à savoir HTML, CSS, Javascript et ses
-                    framework et l'environnement Node.JS. J'ai pour objectif de
-                    paufiner ce portfolio et d'ensuite apprendre TypeScript,
-                    Angular, NextJS, JQuery et PHP ainsi que d'explorer petit à petit
-                    chaque domaine de ce vaste océan qu'est la programmation.
-                </p>
-                <p class="description">
-                    À côté du code, je suis passionné de nature, de jeux vidéos,
-                    de cinéma, idéaliste et faciné par l'humain, la science et
-                    la connaissances en général. J'aime rire, voir la vie du bon
-                    côté et j'essaie de ne jamais faillir à mes valeurs.
-                </p>
+                <p class="description">{{ dataObject.homeDescOne }}</p>
+                <p class="description">{{ dataObject.homeDescTwo }}</p>
                 <router-link class="link-to-more" :to="{ name: 'Curriculum' }">
                     En savoir plus
                 </router-link>
@@ -91,7 +61,10 @@ const age = Math.floor(
                             <router-link
                                 class="access" :to="{
                                     name: 'ProjectDetails',
-                                    params: { projectName: project.linkDetails },
+                                    params: {
+                                        projectLinkName: project.linkDetails,
+                                        projectTitle: project.title
+                                    },
                                 }"
                             >
                                 Voir en détail

@@ -1,9 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import ContactButton from "@parts/ContactButton.vue";
-import { useMainStore } from "@store/Main";
-const MainStore = useMainStore();
-const { contactList } = MainStore;
+const { dataObject: {contactList}} = require("@middlewares/data.js");
 const API_URL = process.env.API_URL;
 
 // À l'aide de Reactive, on créé cet objet qui seront affichés en temps réel dès qu'elles changeront

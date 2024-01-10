@@ -27,9 +27,11 @@ watch(
         matched = ourRoute[0].meta.breadCrumb;
         path = ourRoute[0].path.slice(1).replaceAll(":", "").split("/");
         let link = ("");
+        let tempDocumentTitle = "";
         data.length = 1;
 
-        
+        console.log(ourParam);
+
         matched.forEach((el, index) => {
             data.push({
                 id: index + 1,

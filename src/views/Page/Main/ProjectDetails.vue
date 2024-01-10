@@ -1,14 +1,12 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
-import { useMainStore } from "@store/Main";
-const MainStore = useMainStore();
-const { projectList } = MainStore;
+const { dataObject: {projectList}} = require("@middlewares/data.js");
 const router = useRouter();
 const route = useRoute();
 
 // Composant simple dans son fonctionnement, on change le titre de la page en fonction de quel projet on est en train de parler
 const ourProject = projectList.find(
-    (element) => element.linkDetails === route.params.projectName
+    (element) => element.projectLinkName === route.params.projectLinkName
 );
 
 if (!ourProject) {

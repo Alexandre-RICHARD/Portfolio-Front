@@ -1,3 +1,9 @@
+# ⚠️⚠️⚠️⚠️⚠️
+
+## Ce projet est à l'arrêt. Bien qu'avancé à un stade quasi fini, il pourrait être amélioré mais je me concentre sur d'autre projet. Il est cependant fonctionnel.
+
+# ⚠️⚠️⚠️⚠️⚠️
+
 # Portfolio - Le front
 
 Bonjour, bienvenue sur le répo de mon portfolio. J'y présente mon CV, mes projets ainsi que mes contacts. Les projets présentés sont accessibles depuis le site mais hébergés séparemment sur des sous-domaines afin d'être libre sur les technologies utilisées.
@@ -1005,7 +1011,7 @@ Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Refonte du CSS de la page Curriculum
 -   Création d'un fichier Vue pour le stockage du svg copy-icon et suppression de celui-ci dans le fichier original
 -   Réorganisation de l'import de contactButton et de la logique de boucle de création de ceux-ci. CSS changés par la même occasion
--   Suppression de 2 lignes de changement d'état dans la page 404. 
+-   Suppression de 2 lignes de changement d'état dans la page 404.
 -   Agrandissement de la police du footer
 -   Mise en Majuscule de l'appel d'un composant Vue dans le HeaderContainer
 
@@ -1058,7 +1064,7 @@ Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 -   Ainsi, tous les fichiers liés ont été supprimé. Cela concerne satisfactoryData.js ; verbData.js ; ChessGame.vue ; EtherumFollow.vue ; GermanTest.vue ; MasterMind.vue ; SatisfactoryCalculator.vue ; Les 6 fichiers SVG.vue du jeu d'échecs.
 -   Aussi, suppression de toutes leurs mentions dans le router de vue et mise en commantaire de ces projets dans le store
 -   Création d'une page de connexion dédiée dans le but de permettre la connexion à ce site à partir des autres projets héberger sur une autre adresse. formulaire accessible à partir d'un popup.
--   Cette page reprend pour le moment toute la logique précédemment utilisée ce qui cause des duplicats mais ça sera réglé par la suite 
+-   Cette page reprend pour le moment toute la logique précédemment utilisée ce qui cause des duplicats mais ça sera réglé par la suite
 -   Rajout d'un lien vers mon CV sur la page Curriculum directement
 
 ### build 122 - 2.0.1 `12 août 2023`
@@ -1097,7 +1103,7 @@ Et celui du [répo du serveur](https://github.com/Alexandre-RICHARD/Portfolio-Ba
 
 ### build 127 - 2.0.6 `14 août 2023`
 
--   Ajout d'autres technologies pour les projets   
+-   Ajout d'autres technologies pour les projets
 -   Ajout d'autres logo d'autres technologies
 -   Changement des RouterLink en router-link
 -   Les projets passent en height: fit-content pour ne pas avoir de blanc inutiles dans leurs encadrés

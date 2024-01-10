@@ -1,8 +1,6 @@
 <script setup>
 import ProgressionCircle from "@svgs/ProgressionCircle.vue";
-import { useMainStore } from "@store/Main";
-const MainStore = useMainStore();
-const { projectList, technosData } = MainStore;
+const { dataObject: {projectList, technosData}} = require("@middlewares/data.js");
 </script>
 
 <template>
@@ -40,7 +38,10 @@ const { projectList, technosData } = MainStore;
                     <router-link
                         :to="{
                             name: 'ProjectDetails',
-                            params: { projectName: project.linkDetails },
+                            params: {
+                                projectLinkName: project.linkDetails,
+                                projectTitle: project.title
+                            },
                         }" class="project-link details"
                     >
                         Détails

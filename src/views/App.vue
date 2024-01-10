@@ -48,7 +48,7 @@ body {
     width: 100%;
     min-width: 200px;
     min-height: 100vh;
-    
+
     main {
         margin: auto;
         padding-top: $total-header-height;
