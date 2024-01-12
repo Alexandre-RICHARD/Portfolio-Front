@@ -36,7 +36,7 @@ let performance = {
 // Si on est en production, les variables ci-desosus sont modifiées
 if (process.env.NODE_ENV === "production") {
     mode = "production";
-    envPath = "./.env";
+    envPath = "./.env.prod";
     filename = "/html/index.html";
     publicPath = "../";
     devtool = false;
