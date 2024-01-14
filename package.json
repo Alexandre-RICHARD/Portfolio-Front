@@ -6,11 +6,11 @@
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack serve --history-api-fallback",
         "build": "cross-env NODE_ENV=production webpack",
-        "update": "pnpm up",
+        "update": "pnpm update || yarn upgrade || npm update",
         "lint": "eslint src/**/*.{js,vue}",
         "lint:fix": "eslint --fix src/**/*.{js,vue}",
-        "clean": "rd /s /q build",
-        "clean:all": "rd /s /q node_modules build"
+        "clean": "rd /s /q build 2> nul || rm -rf build",
+        "clean:all": "rd /s /q build node_modules 2> nul || rm -rf build node_modules"
     },
     "repository": {
         "type": "git",
