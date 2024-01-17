@@ -30,8 +30,6 @@ watch(
         let tempDocumentTitle = "";
         data.length = 1;
 
-        console.log(ourParam);
-
         matched.forEach((el, index) => {
             data.push({
                 id: index + 1,
