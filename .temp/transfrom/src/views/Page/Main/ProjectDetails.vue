@@ -1,0 +1,173 @@
+<script setup>
+import { useRoute, useRouter } from "vue-router";
+const { dataObject: {projectList}} = require("@middlewares/data.js");
+const router = useRouter();
+const route = useRoute();
+
+// Composant simple dans son fonctionnement, on change le titre de la page en fonction de quel projet on est en train de parler
+const ourProject = projectList.find(
+    (element) => element.projectLinkName === route.params.projectLinkName
+);
+
+if (!ourProject) {
+    router.push({ name: "404" });
+} else {
+    document.title = `Projet : ${ourProject.title}`;
+}
+</script>
+
+<template>
+    <div v-if="ourProject" class="detailled-project">
+        <img
+            class="detailled-project-illustration"
+            :src="require(`@static/images/projectIllustration/large/${ourProject.linkDetails}.png`)"
+        >
+        <a
+            class="detailled-project-link-access"
+            target="_blank" :href="ourProject.linkAccess"
+        >
+            Lien vers le projet
+        </a>
+        <div class="detailled-project-details">
+            <h1 class="detailled-project-title">{{ ourProject.title }}</h1>
+            <p class="detailled-project-description">
+                {{ ourProject.description }}
+            </p>
+            <h3 class="detailled-project-features">
+                Quelques features intéressantes qui s'y trouvent
+            </h3>
+            <div class="detailled-project-list-features">
+                <p
+                    v-for="feature in ourProject.features"
+                    :key="feature"
+                    class="feature"
+                >
+                    {{ feature }}
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.detailled-project {
+    &-illustration {
+        background-color: $color0;
+        position: absolute;
+        top: $header-height;
+        left: 0;
+        height: $project-details-illustration-height;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+    }
+
+    &-link-access {
+        box-shadow: 0px 0px 6px 2px $color6 inset;
+        background-color: $color5;
+        color: $color0;
+        font-weight: 500;
+        font-size: $large;
+        padding: 3px 5px;
+        border-radius: 5px;
+        position: absolute;
+        top: calc($header-height + ($project-details-illustration-height * 0.88));
+        left: 50%;
+        transform: translateX(-50%);
+        width: 155px;
+        text-align: center;
+
+        &:hover {
+            background-color: $color7;
+        }
+    }
+
+    &-details {
+        background-color: $color0;
+        padding: 260px 20px 20px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .detailled-project {
+            &-title {
+                background-color: $color0;
+                font-size: 30px;
+                font-weight: 600;
+                letter-spacing: 3px;
+                color: $color7;
+                text-align: center;
+            }
+
+            &-description {
+                background-color: $color0;
+                font-size: 18px;
+                color: $color14;
+                text-align: justify;
+            }
+
+            &-features {
+                margin: 20px 0 8px 0;
+                background-color: $color0;
+                font-size: 20px;
+                color: $color6;
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+
+            &-list-features {
+                background-color: $color0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .feature {
+                    background-color: $color111;
+                    padding: 6px;
+                    border-radius: 5px;
+                    margin: 6px 0;
+                    width: 100%;
+                    text-align: justify;
+                    color: $color14;
+
+                    &::before {
+                        content: "> ";
+                        font-weight: 700;
+                        color: $color6;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .detailled-project {
+        &-link-access {
+            font-weight: 500;
+            font-size: $big-title;
+            padding: 4px 8px;
+            width: fit-content;
+            top: calc($header-height + ($project-details-illustration-height * 0.81));
+            transform: none;
+            left: auto;
+            right: 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .detailled-project {
+        &-details {
+            .detailled-project {
+                &-list-features {
+                    .feature {
+                        width: 47%;
+                    }
+                }
+            }
+        }
+    }
+}
+</style>

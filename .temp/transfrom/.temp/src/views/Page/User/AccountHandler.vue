@@ -1,0 +1,594 @@
+<script setup>
+import AccountInput from "@parts/AccountInput.vue";
+import { ref, reactive } from "vue";
+import { useMainStore } from "@store/Main";
+const MainStore = useMainStore();
+const { account, modalData } = MainStore;
+const { cookieHandler } = require("@middlewares/cookieHandler.js");
+const API_URL = process.env.API_URL;
+
+const accountHandleType = ref("login");
+// const accountHandleType = ref("register");
+// const accountHandleType = ref("connected");
+
+const changeAccountHandleType = (type) => {
+    accountHandleType.value = type;
+};
+
+// Nos valeurs de nos différents inputs sont stockées ici en reactive
+const accountInformations = reactive({
+    loginMail: "",
+    loginPassword: "",
+    registerNickname: "",
+    registerMail: "",
+    registerPassword: "",
+    registerPasswordConfirmation: "",
+});
+
+// On créé un tableau d'erreur ici, un pour le login et un pour le register. Chaque sous-tableau contiendra les erreurs des tests s'il y en a pour chaque input
+let errorDataLogin = reactive([[], [], []]);
+let errorDataRegister = reactive([[], [], [], [], []]);
+
+// Nos différentes fonctions de test de validité
+const regexTest = {
+    cleanError: () => {
+        errorDataLogin.forEach((element) => {
+            element.length = 0;
+        });
+        errorDataRegister.forEach((element) => {
+            element.length = 0;
+        });
+    },
+
+    // Test regex du mail, regex complexe prise sur internet qui vérifie normalement tous les formats d'adresse-mail, sauf la longueur de celle-ci. Une erreur est inscrite si ça ne correspond pas
+    loginMail: (mail) => {
+        const testGlobal = mail.match(
+            /.+@.+\..+/gm
+        );
+        if (testGlobal === null) {
+            errorDataLogin[0].push(
+                "Le format de l'adresse-mail ne correspond pas"
+            );
+        }
+
+        if (errorDataLogin[0].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    // Test du password du login, un seul message d'erreur sera transmit si ça ne match pas, contrairement à register, mais les mêmes tests sont effectués
+    loginPassword: (password) => {
+        const testResult = {
+            lowercase: 0,
+            uppercase: 0,
+            numero: 0,
+            special: 0,
+            space: 0,
+            length: 0,
+        };
+        // Minuscule
+        const testMin = password.match(/([a-z])/g);
+        if (testMin !== null) {
+            testResult.lowercase = testMin.join("").length;
+        }
+
+        // Majuscule
+        const testMax = password.match(/([A-Z])/g);
+        if (testMax !== null) {
+            testResult.uppercase = testMax.join("").length;
+        }
+
+        // Nombre
+        const testNum = password.match(/([0-9])/g);
+        if (testNum !== null) {
+            testResult.numero = testNum.join("").length;
+        }
+
+        // Caractères spéciaux autorisés
+        const testSpe = password.match(/([~!@#$%^&*()\-_=+[\]{};:,.<>/?\\|])/g);
+        if (testSpe !== null) {
+            testResult.special = testSpe.join("").length;
+        }
+
+        // Espace et autre
+        const testSpace = password.match(/[\s\b\n\t]/g);
+        if (testSpace !== null) {
+            testResult.space = testSpace.join("").length;
+        }
+
+        // Longueur
+        testResult.length = password.length;
+
+        if (
+            testResult.lowercase < 2 ||
+            testResult.uppercase < 2 ||
+            testResult.numero < 2 ||
+            testResult.special < 1 ||
+            testResult.space > 0 ||
+            testResult.length < 8 ||
+            testResult.length > 60
+        ) {
+            errorDataLogin[1].push(
+                "Le format du mot de passe ne correspond pas aux prérequis"
+            );
+        }
+
+        if (errorDataLogin[1].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    registerNickname: (nickname) => {
+        // Test du pseudo, on ne vérifie que la composition et la longueur. Ainsi, si le regex.match trouve autre chose que 0-9a-zA-Z, une erreur est donnée
+        const testGlobal = nickname.match(/[^0-9a-zA-Z-_]/gm);
+        if (testGlobal !== null) {
+            errorDataRegister[0].push(
+                "Seuls les lettres a/A, chiffres et \"_\" et \"-\" sont autorisés pour le pseudo"
+            );
+        }
+
+        if (nickname.length < 3 || nickname.length > 25) {
+            errorDataRegister[0].push(
+                "Le pseudo doit comprendre entre 3 et 25 caractères"
+            );
+        }
+
+        if (errorDataRegister[0].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    registerMail: (mail) => {
+        // Même test, même erreur qu'en login
+        const testGlobal = mail.match(
+            /.+@.+\..+/gm
+        );
+        if (testGlobal === null) {
+            errorDataRegister[1].push(
+                "Le format de l'adresse-mail ne correspond pas"
+            );
+        }
+
+        if (errorDataRegister[1].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    registerPassword: (password) => {
+        // Même test qu'en login mais les erreurs sont reportées individuellement
+        const testResult = {
+            lowercase: 0,
+            uppercase: 0,
+            numero: 0,
+            special: 0,
+            space: 0,
+            length: 0,
+        };
+
+        // Minuscule
+        const testMin = password.match(/([a-z])/g);
+        if (testMin !== null) {
+            testResult.lowercase = testMin.join("").length;
+        }
+        if (testResult.lowercase < 2) {
+            errorDataRegister[2].push("...contenir au moins 2 minuscules");
+        }
+
+        // Majuscule
+        const testMax = password.match(/([A-Z])/g);
+        if (testMax !== null) {
+            testResult.uppercase = testMax.join("").length;
+        }
+        if (testResult.uppercase < 2) {
+            errorDataRegister[2].push("...contenir au moins 2 majuscules");
+        }
+
+        // Nombre
+        const testNum = password.match(/([0-9])/g);
+        if (testNum !== null) {
+            testResult.numero = testNum.join("").length;
+        }
+        if (testResult.numero < 2) {
+            errorDataRegister[2].push("...contenir au moins 2 chiffres");
+        }
+
+        // Caractères spéciaux autorisés
+        const testSpe = password.match(/([~!@#$%^&*()\-_=+[\]{};:,.<>/?\\|])/g);
+        if (testSpe !== null) {
+            testResult.special = testSpe.join("").length;
+        }
+        if (testResult.special < 1) {
+            errorDataRegister[2].push(
+                "...contenir au moins 1 caractère spécial"
+            );
+        }
+
+        // Espace et autre
+        const testSpace = password.match(/[\s\b\n\t]/g);
+        if (testSpace !== null) {
+            testResult.space = testSpace.join("").length;
+        }
+        if (testResult.space > 0) {
+            errorDataRegister[2].push("...être sans espace");
+        }
+
+        // Longueur
+        testResult.length = password.length;
+        if (testResult.length < 8 || testResult.length > 60) {
+            errorDataRegister[2].push("...faire entre 8 et 60 caractères");
+        }
+
+        if (errorDataRegister[2].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    registerPasswordConfirmation: (passwordConfirmation) => {
+        // Test entre les deux mots de passe pour leur similarité
+        if (passwordConfirmation !== accountInformations.registerPassword) {
+            errorDataRegister[3].push(
+                "Les mots de passe ne sont pas identiques"
+            );
+        }
+
+        if (errorDataRegister[3].length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+};
+
+// Appelé lors du clic sur le bouton S'enregister
+// On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente l'inscription
+const submitRegisterForm = (event) => {
+    event.preventDefault();
+    const registrationData = {
+        nickname: accountInformations.registerNickname,
+        mail: accountInformations.registerMail,
+        password: accountInformations.registerPassword,
+        passwordConfirmation: accountInformations.registerPasswordConfirmation,
+    };
+    regexTest.cleanError();
+    regexTest.registerNickname(registrationData.nickname);
+    regexTest.registerMail(registrationData.mail);
+    regexTest.registerPassword(registrationData.password);
+    regexTest.registerPasswordConfirmation(
+        registrationData.passwordConfirmation
+    );
+    if (errorDataRegister.every((element) => element.length === 0)) {
+        registration(registrationData);
+    }
+};
+
+const registration = async (registrationData) => {
+    modalData.loading = true;
+    try {
+        const response = await fetch(API_URL + "/registration", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(registrationData),
+        });
+        registrationResult(await response.json(), response.status);
+    } catch (error) {
+        console.trace(error);
+    }
+    modalData.loading = false;
+};
+
+const registrationResult = (data, status) => {
+    data.forEach((element) => {
+        switch (element) {
+        case "register-success":
+            account.connected = true;
+            account.nickname = data[1].nickname;
+            account.mail = data[1].mail;
+            cookieHandler.handleAccountSessionCookie(
+                "write",
+                null,
+                data[1].nickname,
+                data[1].mail,
+                365
+            );
+            break;
+        case "account-already-exist":
+            errorDataRegister[4].push(
+                "Un compte avec cette adresse-mail existe déjà"
+            );
+            break;
+        case "format-mail":
+            errorDataRegister[0].push(
+                "Le serveur n'accepte pas ce format d'adresse-mail"
+            );
+            break;
+        case "format-nickname":
+            errorDataRegister[1].push(
+                "Le serveur n'accepte pas ce format de pseudo"
+            );
+            break;
+        case "format-password":
+            errorDataRegister[2].push(
+                "Le serveur n'accepte pas ce format de mot de passe"
+            );
+            break;
+        case "match-password":
+            errorDataRegister[3].push(
+                "Les deux mots de passe entrés ne correspondent pas"
+            );
+            break;
+        }
+    });
+    if (status === 500) {
+        errorDataRegister[4].push(
+            "Une erreur serveur est survenue. Veuillez réessayer"
+        );
+    }
+};
+
+// Appelé lors du clic sur le bouton Se connecter
+// On appelle donc les fonction vues plus haut et on vient ensuite tester le tableau d'erreur correspondant. S'il ne contient aucune erreur, on tente la connexion
+const submitLoginForm = (event) => {
+    event.preventDefault();
+    const connectionData = {
+        mail: accountInformations.loginMail,
+        password: accountInformations.loginPassword,
+    };
+
+    regexTest.cleanError();
+    regexTest.loginMail(connectionData.mail);
+    regexTest.loginPassword(connectionData.password);
+
+    if (errorDataLogin.every((element) => element.length === 0)) {
+        connection(connectionData);
+    }
+};
+
+const connection = async (connectionData) => {
+    modalData.loading = true;
+    try {
+        const response = await fetch(API_URL + "/connection", {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(connectionData),
+        });
+        connectionResult(await response.json(), response.status);
+    } catch (error) {
+        console.trace(error);
+    }
+    modalData.loading = false;
+};
+
+const connectionResult = (data, status) => {
+    if (data) {
+        data.forEach((element) => {
+            switch (element) {
+            case "login-success":
+                account.connected = true;
+                account.nickname = data[1].nickname;
+                account.mail = data[1].mail;
+                cookieHandler.handleAccountSessionCookie(
+                    "write",
+                    null,
+                    data[1].nickname,
+                    data[1].mail,
+                    365
+                );
+                break;
+            case "login-failed":
+                errorDataLogin[2].push(
+                    "Identifiants ou mot de passe incorrect"
+                );
+                break;
+            case "format-mail":
+                errorDataLogin[0].push(
+                    "Le serveur n'accepte pas ce format d'adresse-mail"
+                );
+                break;
+            case "format-nickname":
+                errorDataLogin[1].push(
+                    "Le serveur n'accepte pas ce format de mot de passe"
+                );
+                break;
+            }
+        });
+    }
+    if (status === 500) {
+        errorDataLogin[2].push(
+            "Une erreur serveur est survenue. Veuillez réessayer"
+        );
+    }
+};
+
+// Fonction appelé à chaque changement dans la valeur des inputs pour changer la valeur dans l'objet reactive
+const changeInputValue = (value, valuename) => {
+    accountInformations[valuename] = value;
+};
+
+// Lors de la perte de focus sur un input, si la valeur de l'input n'est pas null, alors on appelle la fonction test lié à l'input qui renvoi une valeur bool de test. On vient ajouter une classe good ou error qui colorera la bordure de l'input en fonction du test
+const inputLosingFocus = (target) => {
+    if (accountInformations[target.id].length > 0) {
+        regexTest.cleanError();
+        const testOk = regexTest[target.id](accountInformations[target.id]);
+        if (testOk === true) {
+            target.classList.add("good");
+            target.classList.remove("error");
+        } else {
+            target.classList.add("error");
+            target.classList.remove("good");
+        }
+    }
+};
+</script>
+
+<template>
+    <!-- Si la modal est input ou register, on affiche tout ça -->
+    <div class="account-cache">
+        <!-- On affiche 2 ou 4 inputs en fonction du type de modal. Tout est factorisé en appelant un sous-composant -->
+        <div class="account-handler">
+            <form v-if="accountHandleType === 'login'" class="login-form">
+                <div v-if="errorDataLogin[2].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDataLogin[2][0] }}
+                    </p>
+                </div>
+                <AccountInput
+                    title="Adresse mail : "
+                    name="loginMail"
+                    type="email"
+                    autocomplete="email"
+                    valuename="loginMail"
+                    :value="accountInformations.loginMail"
+                    :errordata="errorDataLogin[0]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Mot de passe : "
+                    name="loginPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    valuename="loginPassword"
+                    :value="accountInformations.loginPassword"
+                    :errordata="errorDataLogin[1]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <input
+                    class="submit-button"
+                    type="submit"
+                    value="Se connecter"
+                    @click="submitLoginForm"
+                >
+                <p class="not-concerned">
+                    Pas encore de compte ?
+                    <span
+                        class="not-concerned-button"
+                        @click="changeAccountHandleType('register')"
+                    >Inscrivez-vous</span>
+                </p>
+            </form>
+
+            <form v-if="accountHandleType === 'register'" class="register-form">
+                <div v-if="errorDataRegister[4].length !== 0" class="error-box">
+                    <p class="error">
+                        {{ errorDataRegister[4][0] }}
+                    </p>
+                </div>
+                <AccountInput
+                    title="Pseudo : "
+                    name="registerNickname"
+                    type="text"
+                    autocomplete="nickname"
+                    valuename="registerNickname"
+                    :value="accountInformations.registerNickname"
+                    :errordata="errorDataRegister[0]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Adresse mail : "
+                    name="registerMail"
+                    type="email"
+                    autocomplete="email"
+                    valuename="registerMail"
+                    :value="accountInformations.registerMail"
+                    :errordata="errorDataRegister[1]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Mot de passe : "
+                    name="registerPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    valuename="registerPassword"
+                    :value="accountInformations.registerPassword"
+                    :errordata="errorDataRegister[2]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <AccountInput
+                    title="Confirmez le mot de passe : "
+                    name="registerPasswordConfirmation"
+                    type="password"
+                    autocomplete="new-password"
+                    valuename="registerPasswordConfirmation"
+                    :value="accountInformations.registerPasswordConfirmation"
+                    :errordata="errorDataRegister[3]"
+                    @change-input-value="changeInputValue"
+                    @input-losing-focus="inputLosingFocus"
+                />
+                <input
+                    class="submit-button"
+                    type="submit"
+                    value="S'inscrire"
+                    @click="submitRegisterForm"
+                >
+                <p class="not-concerned">
+                    Vous avez déjà un compte ?
+                    <span
+                        class="not-concerned-button"
+                        @click="changeAccountHandleType('login')"
+                    >Connectez-vous</span>
+                </p>
+            </form>
+        </div>
+    </div>
+</template>
+
+<style lang="scss">
+@import "@styles/variables.scss";
+
+.account-cache {
+    z-index: $z-index-account-modal;
+    background-color: $color0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .account-handler {
+        background-color: $color0;
+        color: $color14;
+        min-width: 350px;
+        width: 350px;
+        padding: 15px;
+        height: fit-content;
+
+        .not-concerned {
+            background-color: $color0;
+            color: $color14;
+            padding-top: 7px;
+            text-align: center;
+
+            &-button {
+                background-color: $color0;
+                color: $color6;
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+        }
+    }
+}
+</style>
