@@ -1,3 +1,4 @@
+// Utilities files to handle all error append in back and save them to DB
 export const errorSaver = async (context: string, errorMessage: string) => {
     const errorApiUrl = import.meta.env.VITE_ERROR_API_URL;
 

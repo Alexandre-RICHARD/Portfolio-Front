@@ -1,9 +1,3 @@
-# ⚠️⚠️⚠️⚠️⚠️
-
-## Ce projet est à l'arrêt. Bien qu'avancé à un stade quasi fini, il pourrait être amélioré mais je me concentre sur d'autre projet. Il est cependant fonctionnel.
-
-# ⚠️⚠️⚠️⚠️⚠️
-
 # Portfolio - Le front
 
 Bonjour, bienvenue sur le répo de mon portfolio. J'y présente mon CV, mes projets ainsi que mes contacts. Les projets présentés sont accessibles depuis le site mais hébergés séparemment sur des sous-domaines afin d'être libre sur les technologies utilisées.

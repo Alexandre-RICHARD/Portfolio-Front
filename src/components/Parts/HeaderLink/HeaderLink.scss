@@ -1,0 +1,43 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.nav-link {
+    color: $color14;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    font-size: $large;
+    margin: 0 9px;
+    padding: 6px 5px;
+    border-radius: 0 0 15px 0;
+
+    &.menu-nav-link {
+        text-align: center;
+        margin: 2px 0;
+        padding: 25px 0;
+        width: 100%;
+        background-color: $color14;
+        color: $color8;
+        letter-spacing: 2px;
+        font-size: $extra-large;
+        font-weight: 500;
+
+        &:hover {
+            color: $color11;
+        }
+    }
+
+    &.header-nav-link {
+        &:nth-child(2) {
+            margin-right: 25px;
+        }
+
+        &:hover {
+            box-shadow: 3px 3px 0px 0px $color14;
+        }
+    }
+
+    &.active {
+        text-underline-offset: 3px;
+        text-decoration: underline 3px;
+    }
+}

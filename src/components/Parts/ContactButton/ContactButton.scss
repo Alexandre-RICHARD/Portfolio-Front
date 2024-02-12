@@ -1,0 +1,101 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.contact-box {
+    .one-contact-container {
+        box-shadow:
+            0 0,
+            0 0;
+        color: rgba($color1, 0.5);
+
+        &:hover {
+            box-shadow:
+                -16px -16px,
+                16px 16px;
+            color: rgba($color1, 0);
+            transition: 0.3s;
+        }
+    }
+}
+
+.one-contact-container {
+    background-color: $color1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 15px 20px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: none;
+    box-shadow:
+        0 0,
+        0 0;
+    color: $color15;
+
+    &:hover {
+        box-shadow:
+            -16px -16px,
+            16px 16px;
+        color: rgba($color15, 0);
+        transition: 0.3s;
+    }
+
+    .contact-icon {
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+    }
+
+    .contact-title {
+        font-weight: 400;
+        font-size: $large;
+        transition: none;
+        color: $color15;
+
+        &-link {
+            text-underline-offset: 3px;
+            text-decoration: underline 2px;
+        }
+    }
+
+    .copy-confirm-alert {
+        position: absolute;
+        top: -15px;
+        left: calc(50% - 65px / 2);
+        width: 65px;
+        text-align: center;
+        background-color: $color11;
+        color: $color0;
+        padding: 3px 8px;
+        border-radius: 4px;
+        display: none;
+
+        &.displayed {
+            display: block;
+            animation: showQuickMessage 2s ease normal;
+        }
+
+        @keyframes showQuickMessage {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+        }
+    }
+}
