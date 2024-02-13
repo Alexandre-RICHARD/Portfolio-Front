@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
-import {Dolorean} from "@/IndexImporter";
+import {imageImporter} from "@/IndexImporter";
 import "./NotFound.scss";
 
 const NotFound: React.FC = () => {
@@ -33,7 +33,7 @@ const NotFound: React.FC = () => {
             <img
                 alt="La dolorean de retour vers le futur"
                 className="dolorean"
-                src={Dolorean}
+                src={imageImporter("Dolorean.png")}
                 onClick={returnToHome}
             />
             <div className="fire" />

@@ -3,8 +3,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import type {RootState} from "@/IndexImporter";
 
 interface PortfolioState {
-    loading: boolean;
-    headerVisibility: boolean;
+    "loading": boolean;
+    "headerVisibility": boolean;
 }
 
 const initialState: PortfolioState = {

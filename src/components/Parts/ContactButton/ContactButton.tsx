@@ -1,14 +1,14 @@
 import React from "react";
 
-import {CopyIcon} from "@/IndexImporter";
+import {CopyIcon, imageImporter} from "@/IndexImporter";
 import "./ContactButton.scss";
 
 const ContactButton: React.FC<{
-    copyid: string;
-    type: string;
-    title: string;
-    content: string;
-    link?: string;
+    "copyid": string;
+    "type": string;
+    "title": string;
+    "content": string;
+    "link"?: string;
 }> = ({
     copyid, type, title, content, link,
 }) => {
@@ -28,7 +28,7 @@ const ContactButton: React.FC<{
             <img
                 alt="logo représentant le launcher cité"
                 className="contact-icon"
-                src={`/src/assets/images/contactLogo/${copyid}.png`}
+                src={imageImporter(`contactLogo/${copyid}.png`)}
             />
             {type === "link"
                 ? (

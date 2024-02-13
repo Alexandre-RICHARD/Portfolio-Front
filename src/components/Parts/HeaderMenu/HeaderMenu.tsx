@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/max-len */
 import React, {useState} from "react";
 
 import {
@@ -38,7 +37,10 @@ const HeaderMenu: React.FC = () => {
         }
     };
     const outsideMenuClickHandler = (event: MouseEvent) => {
-        if (event.target instanceof HTMLElement && event.target.attributes.getNamedItem("data-menu-closer")) {
+        if (
+            event.target instanceof HTMLElement &&
+            event.target.attributes.getNamedItem("data-menu-closer")
+        ) {
             handleMenuModal(false);
         }
     };

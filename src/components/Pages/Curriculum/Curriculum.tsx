@@ -1,6 +1,10 @@
 import React from "react";
 
-import {CurriculumVitae, dataObject} from "@/IndexImporter";
+import {
+    CurriculumVitae,
+    dataObject,
+    imageImporter
+} from "@/IndexImporter";
 import "./Curriculum.scss";
 
 const Curriculum: React.FC = () => {
@@ -32,7 +36,7 @@ const Curriculum: React.FC = () => {
                     <img
                         alt="Photographie de ma personne"
                         className="photo"
-                        src="/src/assets/images/portrait.png"
+                        src={imageImporter("portrait.png")}
                     />
                     {dataObject.curriculumDesc}
                 </p>

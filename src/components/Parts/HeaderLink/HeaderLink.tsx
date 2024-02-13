@@ -4,9 +4,9 @@ import {NavLink} from "react-router-dom";
 import "./HeaderLink.scss";
 
 const HeaderLink: React.FC<{
-    link: string;
-    title: string;
-    type: string;
+    "link": string;
+    "title": string;
+    "type": string;
 }> = ({
     link, title, type,
 }) => {

@@ -1,11 +1,13 @@
-/* eslint-disable max-lines */
 /* eslint-disable @stylistic/max-len */
 /* eslint-disable max-lines-per-function */
 import React from "react";
 import {Link} from "react-router-dom";
 
 import {
-    ContactButton, dataObject, ProgressionCircle
+    ContactButton,
+    dataObject,
+    imageImporter,
+    ProgressionCircle
 } from "@/IndexImporter";
 import "./HomePage.scss";
 
@@ -123,45 +125,41 @@ const HomePage: React.FC = () => {
                                                     )}
                                                 />
                                                 <p className="progression-purcent">
-                                                    {
-                                                        project.progressionPurcent
-                                                    }
+                                                    {project.progressionPurcent}
                                                     %
                                                 </p>
                                             </div>
                                             <div className="technos">
-                                                {project.technos.map(
-                                                    (el) => {
-                                                        const techno = dataObject.technosData
-                                                            .find((techno) => techno.id === el);
-
-                                                        if (!techno) {
-                                                            return null;
-                                                        }
-
-                                                        return (
-                                                            <a
-                                                                className="techno"
-                                                                href={
-                                                                    techno.external_link
-                                                                }
-                                                                key={el}
-                                                                rel="noreferrer"
-                                                                target="_blank"
-                                                            >
-                                                                <img
-                                                                    className="techno-logo"
-                                                                    src={`/src/assets/images/technoLogo/${techno.logo_code}.png`}
-                                                                />
-                                                                <p className="techno-name">
-                                                                    {
-                                                                        techno.name
-                                                                    }
-                                                                </p>
-                                                            </a>
+                                                {project.technos.map((el) => {
+                                                    const techno =
+                                                        dataObject.technosData.find(
+                                                            (techno) => techno.id === el
                                                         );
+
+                                                    if (!techno) {
+                                                        return null;
                                                     }
-                                                )}
+
+                                                    return (
+                                                        <a
+                                                            className="techno"
+                                                            href={
+                                                                techno.external_link
+                                                            }
+                                                            key={el}
+                                                            rel="noreferrer"
+                                                            target="_blank"
+                                                        >
+                                                            <img
+                                                                className="techno-logo"
+                                                                src={imageImporter(`technoLogo/${techno.logo_code}.png`)}
+                                                            />
+                                                            <p className="techno-name">
+                                                                {techno.name}
+                                                            </p>
+                                                        </a>
+                                                    );
+                                                })}
                                             </div>
                                             <Link
                                                 className="access"

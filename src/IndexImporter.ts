@@ -1,6 +1,7 @@
 // =============================================================================
 
 // ? Components
+
 import App from "@components/App";
 
 export {App};
@@ -8,6 +9,7 @@ export {App};
 // =============================================================================
 
 // ? Pages
+
 import Contact from "@pages/Contact/Contact";
 import Curriculum from "@pages/Curriculum/Curriculum";
 import HomePage from "@pages/HomePage/HomePage";
@@ -22,6 +24,7 @@ export {
 // =============================================================================
 
 // ? Parts
+
 import BreadCrumb from "@parts/BreadCrumb/BreadCrumb";
 import ContactButton from "@parts/ContactButton/ContactButton";
 import Footer from "@parts/Footer/Footer";
@@ -45,6 +48,7 @@ export {
 // =============================================================================
 
 // ? SVGs
+
 import CopyIcon from "@svgs/CopyIcon/CopyIcon";
 import DownloadIcon from "@svgs/DownloadIcon/DownloadIcon";
 import LoadingIcon from "@svgs/LoadingIcon/LoadingIcon";
@@ -56,14 +60,8 @@ export {
 
 // =============================================================================
 
-// ? Image
-import Dolorean from "@assets/images/Dolorean.png";
-
-export {Dolorean};
-
-// =============================================================================
-
 // ? Other
+
 import CurriculumVitae from "@assets/pdf/CurriculumVitae.pdf";
 import {dataObject} from "@assets/data";
 
@@ -71,15 +69,22 @@ export {CurriculumVitae, dataObject};
 
 // =============================================================================
 
-// ? Functions middlewares
+// ? Functions utilities
+
 import {cookieHandler} from "@utilities/cookieHandler";
 import {errorSaver} from "@utilities/errorSaver";
+import {imageImporter} from "@utilities/imageImporter";
 
-export {cookieHandler, errorSaver};
+export {
+    cookieHandler,
+    errorSaver,
+    imageImporter
+};
 
 // =============================================================================
 
 // ? Store and slice
+
 import {setupStore} from "@store/store";
 import {useAppDispatch, useAppSelector} from "@store/hooks";
 import {portfolioActions, portfolioState} from "@slices/portfolioSlice";
@@ -97,12 +102,19 @@ export {
 // =============================================================================
 
 // ? Types and interfaces
+
 import type {
-    AppDispatch, AppStore, RootState
+    AppDispatch,
+    AppStore,
+    RootState
 } from "@store/store";
+import type {ProjectTypes} from "@pages/ProjectDetails/ProjectDetails";
 
 export {
-    AppDispatch, AppStore, RootState
+    AppDispatch,
+    AppStore,
+    RootState,
+    ProjectTypes
 };
 
 // =============================================================================

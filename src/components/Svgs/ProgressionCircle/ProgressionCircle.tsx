@@ -2,7 +2,7 @@ import React from "react";
 
 import "./ProgressionCircle.scss";
 
-const ProgressionCircle: React.FC<{progression: number}> = ({progression}) => {
+const ProgressionCircle: React.FC<{"progression": number}> = ({progression}) => {
     return (
         <svg
             className="progression-svg"

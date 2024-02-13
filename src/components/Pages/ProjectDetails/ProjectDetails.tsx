@@ -2,20 +2,20 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
-import {dataObject} from "@/IndexImporter";
+import {dataObject, imageImporter} from "@/IndexImporter";
 import "./ProjectDetails.scss";
 
-interface Project {
-    "showed": boolean;
-    "title": string;
-    "linkDetails": string;
-    "linkAccess": string;
-    "technos": number[];
-    "progressionPurcent": string;
-    "progression": string;
+export interface ProjectTypes {
     "abstract": string;
     "description": string;
     "features": string[];
+    "linkAccess": string;
+    "linkDetails": string;
+    "progression": string;
+    "progressionPurcent": string;
+    "showed": boolean;
+    "technos": number[];
+    "title": string;
 }
 
 const ProjectDetails: React.FC = () => {
@@ -25,7 +25,7 @@ const ProjectDetails: React.FC = () => {
     const [
         ourProject,
         setOurProject
-    ] = useState<Project>({
+    ] = useState<ProjectTypes>({
         "showed": false,
         "title": "",
         "linkDetails": "",
@@ -60,7 +60,7 @@ const ProjectDetails: React.FC = () => {
                     <div className="detailled-project">
                         <img
                             className="detailled-project-illustration"
-                            src={`/src/assets/images/projectIllustration/large/${ourProject.linkDetails}.png`}
+                            src={imageImporter(`projectIllustration/large/${ourProject.linkDetails}.png`)}
                         />
                         <a
                             className="detailled-project-link-access"

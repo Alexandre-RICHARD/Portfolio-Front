@@ -3,7 +3,7 @@ import React from "react";
 import "./CopyIcon.scss";
 
 interface CopyIcon {
-    handleCopy: React.MouseEventHandler<SVGSVGElement>;
+    "handleCopy": React.MouseEventHandler<SVGSVGElement>;
 }
 
 const CopyIcon: React.FC<CopyIcon> = ({handleCopy}) => {
