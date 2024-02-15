@@ -1,3 +1,5 @@
+/* eslint-disable @stylistic/max-len */
+/* eslint-disable max-lines-per-function */
 import React from "react";
 
 import "./ProgressionCircle.scss";

@@ -25,23 +25,27 @@ export {
 
 // ? Parts
 
-import BreadCrumb from "@parts/BreadCrumb/BreadCrumb";
+import ChronologicalData from "@parts/ChronologicalData/ChronologicalData";
 import ContactButton from "@parts/ContactButton/ContactButton";
+import ContactForm from "@parts/ContactForm/ContactForm";
 import Footer from "@parts/Footer/Footer";
 import Header from "@parts/Header/Header";
 import HeaderLogo from "@parts/HeaderLogo/HeaderLogo";
 import HeaderLink from "@parts/HeaderLink/HeaderLink";
 import HeaderMenu from "@parts/HeaderMenu/HeaderMenu";
+import ProjectParts from "@parts/ProjectParts/ProjectParts";
 import ScrollEmergence from "@parts/ScrollEmergence/ScrollEmergence";
 
 export {
-    BreadCrumb,
+    ChronologicalData,
     ContactButton,
+    ContactForm,
     Footer,
     Header,
     HeaderLogo,
     HeaderLink,
     HeaderMenu,
+    ProjectParts,
     ScrollEmergence
 };
 
@@ -63,9 +67,9 @@ export {
 // ? Other
 
 import CurriculumVitae from "@assets/pdf/CurriculumVitae.pdf";
-import {dataObject} from "@assets/data";
+import {portfolioData as data} from "@assets/data.json";
 
-export {CurriculumVitae, dataObject};
+export {CurriculumVitae, data};
 
 // =============================================================================
 
@@ -73,12 +77,11 @@ export {CurriculumVitae, dataObject};
 
 import {cookieHandler} from "@utilities/cookieHandler";
 import {errorSaver} from "@utilities/errorSaver";
+import {getAge} from "@/utilities/getAge";
 import {imageImporter} from "@utilities/imageImporter";
 
 export {
-    cookieHandler,
-    errorSaver,
-    imageImporter
+    cookieHandler, errorSaver, getAge, imageImporter
 };
 
 // =============================================================================
@@ -104,17 +107,12 @@ export {
 // ? Types and interfaces
 
 import type {
-    AppDispatch,
-    AppStore,
-    RootState
+    AppDispatch, AppStore, RootState
 } from "@store/store";
-import type {ProjectTypes} from "@pages/ProjectDetails/ProjectDetails";
+import type {ProjectTypes} from "@/types/ProjectTypes";
 
 export {
-    AppDispatch,
-    AppStore,
-    RootState,
-    ProjectTypes
+    AppDispatch, AppStore, RootState, ProjectTypes
 };
 
 // =============================================================================

@@ -1,27 +1,17 @@
-/* eslint-disable @stylistic/max-len */
 /* eslint-disable max-lines-per-function */
 import React from "react";
 import {Link} from "react-router-dom";
 
 import {
     ContactButton,
-    dataObject,
-    imageImporter,
-    ProgressionCircle
+    data,
+    getAge,
+    ProjectParts
 } from "@/IndexImporter";
 import "./HomePage.scss";
 
 const HomePage: React.FC = () => {
     document.title = "Alexandre Richard";
-
-    const age = Math.floor(
-        (Date.now() - new Date(1999, 5, 24).getTime()) /
-            1000 /
-            60 /
-            60 /
-            24 /
-            365
-    );
 
     return (
         <div className="home-page">
@@ -40,14 +30,14 @@ const HomePage: React.FC = () => {
                         Jeune de
                         {" "}
                         <span>
-                            {age}
+                            {getAge("1999-06-24")}
                             {" "}
                             ans
                         </span>
                         {" "}
-                        investi, la passion du
-                        code m'attire vers de nouvelles expériences, de nouveaux
-                        projets. En quête d'algorithmes, je
+                        investi, la passion du code m'attire vers de nouvelles
+                        expériences, de nouveaux projets. En quête
+                        d'algorithmes, je
                         {" "}
                         <span>
                             recherche ma première expérience
@@ -82,10 +72,10 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="appear content">
                     <p className="description">
-                        {dataObject.homeDescOne}
+                        {data.homeDescOne}
                     </p>
                     <p className="description">
-                        {dataObject.homeDescTwo}
+                        {data.homeDescTwo}
                     </p>
                     <Link
                         className="appear link-to-more"
@@ -103,72 +93,14 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="appear content">
                     <div className="project-container">
-                        {dataObject.projectList
+                        {data.projectList
                             .filter((el, index) => index <= 2 && el.showed)
                             .map((project, index) => {
                                 return (
-                                    <div
-                                        className="appear one-project-homepage"
+                                    <ProjectParts
                                         key={index}
-                                    >
-                                        <h3 className="one-project-homepage-title">
-                                            {project.title}
-                                        </h3>
-                                        <p className="one-project-homepage-description">
-                                            {project.abstract}
-                                        </p>
-                                        <div className="one-project-homepage-footer">
-                                            <div className="progression">
-                                                <ProgressionCircle
-                                                    progression={parseInt(
-                                                        project.progressionPurcent
-                                                    )}
-                                                />
-                                                <p className="progression-purcent">
-                                                    {project.progressionPurcent}
-                                                    %
-                                                </p>
-                                            </div>
-                                            <div className="technos">
-                                                {project.technos.map((el) => {
-                                                    const techno =
-                                                        dataObject.technosData.find(
-                                                            (techno) => techno.id === el
-                                                        );
-
-                                                    if (!techno) {
-                                                        return null;
-                                                    }
-
-                                                    return (
-                                                        <a
-                                                            className="techno"
-                                                            href={
-                                                                techno.external_link
-                                                            }
-                                                            key={el}
-                                                            rel="noreferrer"
-                                                            target="_blank"
-                                                        >
-                                                            <img
-                                                                className="techno-logo"
-                                                                src={imageImporter(`technoLogo/${techno.logo_code}.png`)}
-                                                            />
-                                                            <p className="techno-name">
-                                                                {techno.name}
-                                                            </p>
-                                                        </a>
-                                                    );
-                                                })}
-                                            </div>
-                                            <Link
-                                                className="access"
-                                                to="/projects"
-                                            >
-                                                Voir en détail
-                                            </Link>
-                                        </div>
-                                    </div>
+                                        project={project}
+                                    />
                                 );
                             })}
                     </div>
@@ -191,7 +123,7 @@ const HomePage: React.FC = () => {
                         Vous pouvez me retrouver sur
                     </p>
                     <div className="contact-container">
-                        {dataObject.contactList
+                        {data.contactList
                             .filter((el) => el.id <= 3)
                             .map((contact, index) => {
                                 return (

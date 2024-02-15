@@ -1,9 +1,8 @@
-/* eslint-disable @stylistic/max-len */
 import React from "react";
 import {Link} from "react-router-dom";
 
 import {
-    dataObject,
+    data,
     imageImporter,
     ProgressionCircle,
     ProjectTypes
@@ -12,11 +11,11 @@ import "./Projects.scss";
 
 const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
     return (
-        <div
-            className="one-project"
-        >
+        <div className="one-project">
             <img
-                src={imageImporter(`projectIllustration/overview/${project.linkDetails}.png`)}
+                src={imageImporter(
+                    `projectIllustration/overview/${project.linkDetails}.png`
+                )}
             />
             <div className="one-project-sub-container">
                 <h3 className="title">
@@ -25,9 +24,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                 <div className="state">
                     <div className="progression">
                         <ProgressionCircle
-                            progression={parseInt(
-                                project.progressionPurcent
-                            )}
+                            progression={parseInt(project.progressionPurcent)}
                         />
                         <p className="progression-purcent">
                             {project.progressionPurcent}
@@ -44,18 +41,10 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                 </p>
                 <div className="technos">
                     {project.technos.map(
-                        (
-                            technoId: keyof typeof dataObject.technosData,
-                            index
-                        ) => {
-                            const techno =
-                                dataObject.technosData.find(
-                                    (el) => {
-                                        return (
-                                            el.id === technoId
-                                        );
-                                    }
-                                );
+                        (technoId: keyof typeof data.technosData, index) => {
+                            const techno = data.technosData.find((el) => {
+                                return el.id === technoId;
+                            });
 
                             if (!techno) {
                                 return null;
@@ -71,7 +60,9 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                                 >
                                     <img
                                         className="techno-logo"
-                                        src={imageImporter(`technoLogo/${techno.logo_code}.png`)}
+                                        src={imageImporter(
+                                            `technoLogo/${techno.logo_code}.png`
+                                        )}
                                     />
                                     <p className="techno-name">
                                         {techno.name}
@@ -90,7 +81,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                     </Link>
                     <a
                         className="project-link access"
-                        href={project.linkAccess}
+                        href={`import.meta.env${project.linkAccess}`}
                         rel="noreferrer"
                         target="_blank"
                     >
@@ -112,7 +103,7 @@ const Projects: React.FC = () => {
                     Mes projets principaux
                 </h2>
                 <div className="projects-box">
-                    {dataObject.projectList
+                    {data.projectList
                         .filter((el) => el.showed)
                         .map((project, index) => {
                             return (
@@ -129,7 +120,7 @@ const Projects: React.FC = () => {
                     Autres projets plus secondaires
                 </h2>
                 <div className="projects-box">
-                    {dataObject.projectList
+                    {data.projectList
                         .filter((el) => !el.showed)
                         .map((project, index) => {
                             return (

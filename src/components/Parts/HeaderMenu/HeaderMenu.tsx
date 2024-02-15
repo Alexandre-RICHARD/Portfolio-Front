@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import {
-    CurriculumVitae, dataObject, HeaderLink
+    CurriculumVitae, data, HeaderLink
 } from "@/IndexImporter";
 import "./HeaderMenu.scss";
 
@@ -76,7 +76,7 @@ const HeaderMenu: React.FC = () => {
                     }`}
                 >
                     <div className="header-menu-nav">
-                        {dataObject.headerLinks.map((el, index) => {
+                        {data.headerLinks.map((el, index) => {
                             return (
                                 <React.Fragment key={index}>
                                     <HeaderLink
