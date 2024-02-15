@@ -1,8 +1,7 @@
-/* eslint-disable @stylistic/max-len */
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
-import {dataObject, imageImporter} from "@/IndexImporter";
+import {data, imageImporter} from "@/IndexImporter";
 import "./ProjectDetails.scss";
 
 export interface ProjectTypes {
@@ -25,7 +24,7 @@ const ProjectDetails: React.FC = () => {
     const [
         ourProject,
         setOurProject
-    ] = useState<ProjectTypes>({
+    ] = useState({
         "showed": false,
         "title": "",
         "linkDetails": "",
@@ -39,7 +38,7 @@ const ProjectDetails: React.FC = () => {
     });
 
     useEffect(() => {
-        const finded = dataObject.projectList.find((el) => {
+        const finded = data.projectList.find((el: ProjectTypes) => {
             return el.linkDetails === projectName;
         });
         if (finded) {
@@ -53,6 +52,10 @@ const ProjectDetails: React.FC = () => {
         navigate
     ]);
 
+    const illustration = imageImporter(
+        `projectIllustration/large/${ourProject.linkDetails}.png`
+    );
+
     return (
         <>
             {ourProject
@@ -60,11 +63,11 @@ const ProjectDetails: React.FC = () => {
                     <div className="detailled-project">
                         <img
                             className="detailled-project-illustration"
-                            src={imageImporter(`projectIllustration/large/${ourProject.linkDetails}.png`)}
+                            src={illustration}
                         />
                         <a
                             className="detailled-project-link-access"
-                            href={ourProject.linkAccess}
+                            href={`import.meta.env${ourProject.linkAccess}`}
                             rel="noreferrer"
                             target="_blank"
                         >

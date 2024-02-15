@@ -1181,4 +1181,15 @@
 -   Delete all account linked code, move it to an external project wich will be used in the future
 -   Delete breadcrumb, to difficult to maintain it and it doesn't make sense to have one with to small amount of page
 
+### build 137 - 3.0.0 `15 février 2024`
+
+-   Adjusting the precision of the rule linked to extra parentheses in eslint
+-   In the footer, change version to date of the last version
+-   Transformation of the data.ts file to a json file to avoid lot of errors due to too much longer file
+-   Move the contact form from Contact component to a new parts component
+-   Add an extra utiliti file to getAge with one date
+-   Some arrangements on types
+-   Delete breadcrumb residual files
+-   Add a part components ChronologicalData to the futur
+
 </details>

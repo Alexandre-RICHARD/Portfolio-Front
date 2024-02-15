@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import {
     CurriculumVitae,
-    dataObject,
+    data,
     portfolioState,
     useAppSelector,
     DownloadIcon,
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
                 <HeaderLogo />
             </Link>
             <div className="link-header-container">
-                {dataObject.headerLinks.map((el) => {
+                {data.headerLinks.map((el) => {
                     return (
                         <HeaderLink
                             key={el.id}

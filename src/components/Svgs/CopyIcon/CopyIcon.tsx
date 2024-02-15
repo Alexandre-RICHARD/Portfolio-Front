@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import React from "react";
 
 import "./CopyIcon.scss";

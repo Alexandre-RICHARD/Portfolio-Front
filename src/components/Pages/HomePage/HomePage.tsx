@@ -1,11 +1,11 @@
-/* eslint-disable @stylistic/max-len */
 /* eslint-disable max-lines-per-function */
 import React from "react";
 import {Link} from "react-router-dom";
 
 import {
     ContactButton,
-    dataObject,
+    data,
+    getAge,
     imageImporter,
     ProgressionCircle
 } from "@/IndexImporter";
@@ -13,15 +13,6 @@ import "./HomePage.scss";
 
 const HomePage: React.FC = () => {
     document.title = "Alexandre Richard";
-
-    const age = Math.floor(
-        (Date.now() - new Date(1999, 5, 24).getTime()) /
-            1000 /
-            60 /
-            60 /
-            24 /
-            365
-    );
 
     return (
         <div className="home-page">
@@ -40,14 +31,14 @@ const HomePage: React.FC = () => {
                         Jeune de
                         {" "}
                         <span>
-                            {age}
+                            {getAge("1999-06-24")}
                             {" "}
                             ans
                         </span>
                         {" "}
-                        investi, la passion du
-                        code m'attire vers de nouvelles expériences, de nouveaux
-                        projets. En quête d'algorithmes, je
+                        investi, la passion du code m'attire vers de nouvelles
+                        expériences, de nouveaux projets. En quête
+                        d'algorithmes, je
                         {" "}
                         <span>
                             recherche ma première expérience
@@ -82,10 +73,10 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="appear content">
                     <p className="description">
-                        {dataObject.homeDescOne}
+                        {data.homeDescOne}
                     </p>
                     <p className="description">
-                        {dataObject.homeDescTwo}
+                        {data.homeDescTwo}
                     </p>
                     <Link
                         className="appear link-to-more"
@@ -103,7 +94,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="appear content">
                     <div className="project-container">
-                        {dataObject.projectList
+                        {data.projectList
                             .filter((el, index) => index <= 2 && el.showed)
                             .map((project, index) => {
                                 return (
@@ -132,7 +123,7 @@ const HomePage: React.FC = () => {
                                             <div className="technos">
                                                 {project.technos.map((el) => {
                                                     const techno =
-                                                        dataObject.technosData.find(
+                                                        data.technosData.find(
                                                             (techno) => techno.id === el
                                                         );
 
@@ -152,7 +143,9 @@ const HomePage: React.FC = () => {
                                                         >
                                                             <img
                                                                 className="techno-logo"
-                                                                src={imageImporter(`technoLogo/${techno.logo_code}.png`)}
+                                                                src={imageImporter(
+                                                                    `technoLogo/${techno.logo_code}.png`
+                                                                )}
                                                             />
                                                             <p className="techno-name">
                                                                 {techno.name}
@@ -191,7 +184,7 @@ const HomePage: React.FC = () => {
                         Vous pouvez me retrouver sur
                     </p>
                     <div className="contact-container">
-                        {dataObject.contactList
+                        {data.contactList
                             .filter((el) => el.id <= 3)
                             .map((contact, index) => {
                                 return (

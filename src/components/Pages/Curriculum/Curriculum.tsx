@@ -1,9 +1,7 @@
 import React from "react";
 
 import {
-    CurriculumVitae,
-    dataObject,
-    imageImporter
+    CurriculumVitae, data, imageImporter
 } from "@/IndexImporter";
 import "./Curriculum.scss";
 
@@ -38,7 +36,7 @@ const Curriculum: React.FC = () => {
                         className="photo"
                         src={imageImporter("portrait.png")}
                     />
-                    {dataObject.curriculumDesc}
+                    {data.curriculumDesc}
                 </p>
             </div>
             <div className="categories skills">
@@ -49,7 +47,7 @@ const Curriculum: React.FC = () => {
                     <div className="line-up" />
                 </div>
                 <ul className="skills-list">
-                    {dataObject.skillsList.map((el, index) => {
+                    {data.skillsList.map((el, index) => {
                         return (
                             <li key={index}>
                                 {el}
@@ -67,7 +65,7 @@ const Curriculum: React.FC = () => {
                         <div className="line-up" />
                     </div>
                     <ul className="qualification-list">
-                        {dataObject.qualificationsList.map((el, index) => {
+                        {data.qualificationsList.map((el, index) => {
                             return (
                                 <li key={index}>
                                     {el}
@@ -84,7 +82,7 @@ const Curriculum: React.FC = () => {
                         <div className="line-up" />
                     </div>
                     <ul className="further-information-list">
-                        {dataObject.informationsList.map((el, index) => {
+                        {data.informationsList.map((el, index) => {
                             return (
                                 <li key={index}>
                                     {el}
@@ -101,45 +99,43 @@ const Curriculum: React.FC = () => {
                     </h2>
                     <div className="line-up" />
                 </div>
-                {dataObject.professionalExperiences
-                    .reverse()
-                    .map((el, index) => {
-                        return (
-                            <div
-                                className="appear one-of-them"
-                                key={index}
-                            >
-                                <div className="left">
-                                    <p className="whichone">
-                                        {el.title}
-                                    </p>
-                                    <p className="where">
-                                        {el.location}
-                                    </p>
-                                </div>
-                                <div className="middle">
-                                    <div className="date">
-                                        <p>
-                                            {el.firstDate}
-                                        </p>
-                                        {el.secondDate
-                                            ? (
-                                                <p>
-                                                    {el.secondDate}
-                                                </p>
-                                            )
-                                            : null}
-                                    </div>
-                                    <div className="line-cache" />
-                                    <div className="line" />
-                                    <div className="line-uncache" />
-                                </div>
-                                <div className="right">
-                                    {el.description}
-                                </div>
+                {data.professionalExperiences.reverse().map((el, index) => {
+                    return (
+                        <div
+                            className="appear one-of-them"
+                            key={index}
+                        >
+                            <div className="left">
+                                <p className="whichone">
+                                    {el.title}
+                                </p>
+                                <p className="where">
+                                    {el.location}
+                                </p>
                             </div>
-                        );
-                    })}
+                            <div className="middle">
+                                <div className="date">
+                                    <p>
+                                        {el.firstDate}
+                                    </p>
+                                    {el.secondDate
+                                        ? (
+                                            <p>
+                                                {el.secondDate}
+                                            </p>
+                                        )
+                                        : null}
+                                </div>
+                                <div className="line-cache" />
+                                <div className="line" />
+                                <div className="line-uncache" />
+                            </div>
+                            <div className="right">
+                                {el.description}
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
             <div className="appear categories education">
                 <div className="title-box">
@@ -148,7 +144,7 @@ const Curriculum: React.FC = () => {
                     </h2>
                     <div className="line-up" />
                 </div>
-                {dataObject.schoolCurriculum.reverse().map((el, index) => {
+                {data.schoolCurriculum.reverse().map((el, index) => {
                     return (
                         <div
                             className="appear one-of-them"
@@ -194,7 +190,7 @@ const Curriculum: React.FC = () => {
                     <div className="line-up" />
                 </div>
                 <ul className="hobbies-list">
-                    {dataObject.hobbiesList.map((el, index) => {
+                    {data.hobbiesList.map((el, index) => {
                         return (
                             <li key={index}>
                                 {el}
@@ -211,7 +207,7 @@ const Curriculum: React.FC = () => {
                     <div className="line-up" />
                 </div>
                 <ul className="qualities-list">
-                    {dataObject.qualitiesList.map((el, index) => {
+                    {data.qualitiesList.map((el, index) => {
                         return (
                             <li key={index}>
                                 {el}
