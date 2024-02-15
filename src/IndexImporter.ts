@@ -33,6 +33,7 @@ import Header from "@parts/Header/Header";
 import HeaderLogo from "@parts/HeaderLogo/HeaderLogo";
 import HeaderLink from "@parts/HeaderLink/HeaderLink";
 import HeaderMenu from "@parts/HeaderMenu/HeaderMenu";
+import ProjectParts from "@parts/ProjectParts/ProjectParts";
 import ScrollEmergence from "@parts/ScrollEmergence/ScrollEmergence";
 
 export {
@@ -44,6 +45,7 @@ export {
     HeaderLogo,
     HeaderLink,
     HeaderMenu,
+    ProjectParts,
     ScrollEmergence
 };
 
@@ -107,7 +109,7 @@ export {
 import type {
     AppDispatch, AppStore, RootState
 } from "@store/store";
-import type {ProjectTypes} from "@pages/ProjectDetails/ProjectDetails";
+import type {ProjectTypes} from "@/types/ProjectTypes";
 
 export {
     AppDispatch, AppStore, RootState, ProjectTypes

@@ -1,21 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
-import {data, imageImporter} from "@/IndexImporter";
+import {
+    data,
+    imageImporter,
+    ProjectTypes
+} from "@/IndexImporter";
 import "./ProjectDetails.scss";
-
-export interface ProjectTypes {
-    "abstract": string;
-    "description": string;
-    "features": string[];
-    "linkAccess": string;
-    "linkDetails": string;
-    "progression": string;
-    "progressionPurcent": string;
-    "showed": boolean;
-    "technos": number[];
-    "title": string;
-}
 
 const ProjectDetails: React.FC = () => {
     const navigate = useNavigate();
@@ -24,7 +15,7 @@ const ProjectDetails: React.FC = () => {
     const [
         ourProject,
         setOurProject
-    ] = useState({
+    ] = useState<ProjectTypes>({
         "showed": false,
         "title": "",
         "linkDetails": "",
