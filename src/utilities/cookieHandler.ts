@@ -1,4 +1,4 @@
-const {API_URL} = import.meta.env;
+const {VITE_API_URL} = import.meta.env;
 
 import {errorSaver} from "@/IndexImporter";
 
@@ -33,7 +33,7 @@ export const cookieHandler = {
             cookieHandler.setCookie("visits", visits.toString(), days);
 
             try {
-                fetch(API_URL + "/visit/counter/add", {
+                fetch(VITE_API_URL + "/visit/counter/add", {
                     "headers": {
                         "Accept": "application/json",
                         "Content-Type": "application/json",
