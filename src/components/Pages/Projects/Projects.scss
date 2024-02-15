@@ -1,0 +1,226 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.all-projects-container {
+    margin: 0 auto;
+    padding: 90px 0;
+    max-width: 1000px;
+
+    .main-projects,
+    .secondary-projects {      
+        .projects-category-title {
+            font-weight: 400;
+            font-size: 18px;
+            border: 3px solid $color14;
+            margin: 0 20px;
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+        }
+        
+        .projects-box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .one-project {
+            background: linear-gradient(
+                56deg,
+                $color110 0%,
+                $color110 38%,
+                $color0 100%
+            );
+            width: 100%;
+            max-width: 290px;
+            height: fit-content;
+            color: $color14;
+            margin: 25px 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 1px 1px 8px 2px $color112;
+
+            &-sub-container {
+                width: 100%;
+                height: inherit;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .title {
+                    color: $color7;
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 20px;
+                    padding: 5px 15px 3px 15px;
+                }
+
+                .state {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border: solid $color112;
+                    border-width: 1px 0;
+                    background-color: $color111;
+
+                    .progression {
+                        width: 70px;
+                        margin: 4px 10px;
+                        position: relative;
+
+                        .progression-svg {
+                            width: 70px;
+                            height: 35px;
+                        }
+
+                        .progression-purcent {
+                            position: absolute;
+                            top: 18px;
+                            left: 18px;
+                        }
+                    }
+
+                    .progression-description {
+                        text-align: justify;
+                        font-size: 0.9rem;
+                        width: calc(100% - 70px);
+                        margin: 4px 10px;
+                    }
+                }
+
+                .description {
+                    color: $color14;
+                    padding: 0 15px 15px 15px;
+                    text-align: justify;
+                }
+
+                .technos {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-around;
+                    border: solid $color112;
+                    border-width: 1px 0;
+                    padding: 7px 0;
+                    background-color: $color111;
+
+                    .techno {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 0 3px;
+                        padding: 5px 2px 1px 2px;
+                        border-radius: 5px;
+                        transition: none;
+
+                        &-logo {
+                            max-width: 32px;
+                        }
+
+                        &-name {
+                            text-align: center;
+                            font-size: 0.9rem;
+                            font-weight: 500;
+                        }
+
+                        &:hover {
+                            background-color: $color110;
+                        }
+                    }
+                }
+
+                .project-link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .details,
+                    .access {
+                        display: block;
+                        width: 125px;
+                        text-align: center;
+                        background-color: $transparent-white;
+                        color: $color14;
+                        box-shadow: 0px 0px 2px 1px $color112 inset;
+                        padding: 8px 3px;
+                        font-weight: 500;
+                        font-size: $large;
+                        border-radius: 4px;
+                        margin: 10px 10px;
+                    }
+
+                    .details:hover,
+                    .access:hover {
+                        border-radius: 21px;
+                        box-shadow: 0px 0px 6px 2px $color112 inset;
+                    }
+
+                    &:hover .details:hover,
+                    &:hover .access:hover {
+                        width: 90%;
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 415px) {
+    .all-projects-container {
+        .main-project,
+        .secondary-projects {
+            .one-project {
+                &-sub-container {
+                    .state {
+                        flex-direction: row;
+                    }
+
+                    .project-link {
+                        flex-direction: row;
+
+                        .details:hover {
+                            border-radius: 21px 0 0 21px;
+                            box-shadow: 3px 0px 2px 1px $color112 inset;
+                        }
+
+                        .access:hover {
+                            border-radius: 0 21px 21px 0;
+                            box-shadow: -3px 0px 2px 1px $color112 inset;
+                        }
+
+                        &:hover .details:hover,
+                        &:hover .access:hover {
+                            width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 680px) {
+    .all-projects-container {
+        .main-project,
+        .secondary-projects {
+            .one-project {
+                width: 45%;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .project-container {
+        .main-project,
+        .secondary-projects {
+            .one-project {
+                width: 29%;
+            }
+        }
+    }
+}

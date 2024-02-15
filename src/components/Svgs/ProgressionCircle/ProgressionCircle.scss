@@ -1,0 +1,24 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.progression-svg {
+    width: 70px;
+    height: 35px;
+
+    .progression {
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: none;
+        stroke-opacity: 1;
+    }
+
+    .progression-empty {
+        fill: none;
+        stroke: $color113;
+    }
+
+    .progression-fill {
+        fill: $color12;
+        stroke: $color12;
+    }
+}

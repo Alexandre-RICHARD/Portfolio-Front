@@ -1,0 +1,84 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.page404page {
+    background-color: $color0;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    .page404title {
+        background-color: $color0;
+        font-size: 60px;
+        font-weight: 700;
+        letter-spacing: 15px;
+        color: $color14;
+    }
+    .page404text {
+        background-color: $color0;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: $color14;
+    }
+
+    .dolorean {
+        background-color: $color0;
+        padding-top: 24svh;
+        cursor: pointer;
+
+        &.animate {
+            animation: backToTheFutur 1 2.5s ease;
+        }
+    }
+
+    .fire {
+        background-color: $color0;
+        margin-left: 57px;
+        align-self: flex-start;
+        position: relative;
+        top: -18px;
+        width: 0px;
+        height: 15px;
+        background: url("@assets/images/fire.png") repeat-x left;
+        background-size: auto 15px;
+
+        &.animate {
+            animation: backToTheFuturFire 1 2.5s ease;
+        }
+    }
+
+    // Les deux animations, avec des valeurs précises qui correspondent à toutes tailles d'écran
+    @keyframes backToTheFutur {
+        0% {
+        }
+
+        30% {
+            transform: translateX(calc(-50vw + 115px));
+        }
+
+        100% {
+            transform: translateX(245vw);
+        }
+    }
+
+    @keyframes backToTheFuturFire {
+        0% {
+            width: 0;
+        }
+
+        30% {
+            width: 0;
+        }
+
+        100% {
+            width: 282vw;
+        }
+    }
+}

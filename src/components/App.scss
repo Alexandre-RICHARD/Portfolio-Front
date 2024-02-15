@@ -1,0 +1,18 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+#app {
+    position: relative;
+    transition: 333ms;
+    font-family: $kanit;
+    background-color: $color0;
+    width: 100%;
+    min-width: 200px;
+    min-height: 100svh;
+
+    main {
+        margin: auto;
+        padding-top: $total-header-height;
+        padding-bottom: $footer-height;
+    }
+}
