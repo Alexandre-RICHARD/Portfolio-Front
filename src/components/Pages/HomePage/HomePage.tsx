@@ -1,69 +1,71 @@
-/* eslint-disable max-lines-per-function */
 import React from "react";
 import {Link} from "react-router-dom";
 
 import {
-    ContactButton,
-    data,
-    getAge,
-    ProjectParts
+    ContactButton, data, getAge, ProjectParts
 } from "@/IndexImporter";
 import "./HomePage.scss";
+
+const WelcomeContainer: React.FC = () => {
+    return (
+        <section className="welcome-container">
+            <h2 className="welcome-in">
+                Bienvenue sur le portfolio d'
+            </h2>
+            <h1 className="fullname">
+                Alexandre RICHARD
+            </h1>
+            <h1 className="job">
+                Développeur Web
+            </h1>
+            <div>
+                <p className="description">
+                    Jeune de
+                    {" "}
+                    <span>
+                        {getAge("1999-06-24")}
+                        {" "}
+                        ans
+                    </span>
+                    {" "}
+                    investi, la
+                    passion du code m'attire vers de nouvelles expériences, de
+                    nouveaux projets. En quête d'algorithmes, je
+                    {" "}
+                    <span>
+                        recherche ma première expérience
+                    </span>
+                    {" "}
+                    professionnelle en tant qu'
+                    <span>
+                        alternant
+                    </span>
+                    {" "}
+                    en
+                    <span>
+                        {" "}
+                        Développement Web
+                    </span>
+                    {" "}
+                    sur
+                    {" "}
+                    <span>
+                        Angers et ses alentours
+                    </span>
+                    {" "}
+                    ou en télétravail.
+                </p>
+            </div>
+        </section>
+    );
+};
 
 const HomePage: React.FC = () => {
     document.title = "Alexandre Richard";
 
     return (
         <div className="home-page">
-            <section className="welcome-container">
-                <h2 className="welcome-in">
-                    Bienvenue sur le portfolio d'
-                </h2>
-                <h1 className="fullname">
-                    Alexandre RICHARD
-                </h1>
-                <h1 className="job">
-                    Développeur Web
-                </h1>
-                <div>
-                    <p className="description">
-                        Jeune de
-                        {" "}
-                        <span>
-                            {getAge("1999-06-24")}
-                            {" "}
-                            ans
-                        </span>
-                        {" "}
-                        investi, la passion du code m'attire vers de nouvelles
-                        expériences, de nouveaux projets. En quête
-                        d'algorithmes, je
-                        {" "}
-                        <span>
-                            recherche ma première expérience
-                        </span>
-                        {" "}
-                        professionnelle en tant qu'
-                        <span>
-                            alternant
-                        </span>
-                        {" "}
-                        en
-                        <span>
-                            {" "}
-                            Développement Web
-                        </span>
-                        {" "}
-                        sur
-                        {" "}
-                        <span>
-                            Angers et ses alentours
-                        </span>
-                        {" "}
-                        ou en télétravail.
-                    </p>
-                </div>
-            </section>
+            <WelcomeContainer />
             <section className="home-section presentation">
                 <div className="appear title-box">
                     <h2 className="text-box">
@@ -141,7 +143,7 @@ const HomePage: React.FC = () => {
                         className="link-to-more"
                         to="/contacts"
                     >
-                        Tous mes contacts
+                        Contactez-moi
                     </Link>
                 </div>
             </section>

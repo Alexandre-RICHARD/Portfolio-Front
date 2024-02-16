@@ -11,19 +11,7 @@ const ScrollEmergence: React.FC = () => {
 
     let lastScrollValue = 0;
 
-    document.addEventListener("scroll", () => {
-        const currentScrollValue = window.scrollY;
-        if (currentScrollValue > 200) {
-            if (lastScrollValue < currentScrollValue) {
-                changeHeaderVisibility(false);
-            } else {
-                changeHeaderVisibility(true);
-            }
-            lastScrollValue = currentScrollValue;
-        } else {
-            changeHeaderVisibility(true);
-        }
-
+    const handleApparition = () => {
         document.querySelectorAll(".appear").forEach((el) => {
             const info = el.getBoundingClientRect();
             if ((info.y || info.top) + 200 < window.innerHeight) {
@@ -31,9 +19,28 @@ const ScrollEmergence: React.FC = () => {
                 el.classList.remove("appear");
             }
         });
-    });
+    };
 
-    return <></>;
+    setTimeout(() => {
+        document.addEventListener("scroll", () => {
+            const currentScrollValue = window.scrollY;
+            if (currentScrollValue > 200) {
+                if (lastScrollValue < currentScrollValue) {
+                    changeHeaderVisibility(false);
+                } else {
+                    changeHeaderVisibility(true);
+                }
+                lastScrollValue = currentScrollValue;
+            } else {
+                changeHeaderVisibility(true);
+            }
+
+            handleApparition();
+        });
+        handleApparition();
+    }, 261 * 9.55);
+
+    return null;
 };
 
 export default ScrollEmergence;

@@ -2,6 +2,7 @@
 @import "@styles/index.scss";
 
 .footer {
+    flex-shrink: 0;
     position: static;
     color: $color14;
     font-size: $small;
@@ -16,9 +17,5 @@
 
     a {
         text-decoration: underline;
-
-        &:hover {
-            letter-spacing: 0.5px;
-        }
     }
 }

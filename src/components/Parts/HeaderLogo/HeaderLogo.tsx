@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 
 import "./HeaderLogo.scss";
 
 const HeaderLogo: React.FC = () => {
-    setTimeout(() => {
+    useLayoutEffect(() => {
         const body = document.querySelector("body");
         if (body) {
-            body.style.overflowY = "visible";
+            setTimeout(() => {
+                body.style.overflowY = "visible";
+            }, 261 * 9.55);
         }
-    }, 261 * 9.55);
+    }, []);
 
     return (
         <div className="header-logo-cache">

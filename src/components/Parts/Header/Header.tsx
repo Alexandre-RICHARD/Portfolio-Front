@@ -2,11 +2,9 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import {
-    CurriculumVitae,
     data,
     portfolioState,
     useAppSelector,
-    DownloadIcon,
     HeaderLogo,
     HeaderLink
 } from "@/IndexImporter";
@@ -34,15 +32,6 @@ const Header: React.FC = () => {
                         />
                     );
                 })}
-                <a
-                    className="resume"
-                    href={CurriculumVitae}
-                    rel="noreferrer"
-                    target="_blank"
-                    title="Mon CV à télécharger"
-                >
-                    <DownloadIcon />
-                </a>
             </div>
             <div />
             {/* <BreadCrumb :visibility="modalData.headerVisibility" /> */}

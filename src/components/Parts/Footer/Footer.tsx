@@ -1,25 +1,28 @@
 import React from "react";
 
-import pjson from "@/../package.json";
 import "./Footer.scss";
 
 const Footer: React.FC = () => {
+    const year = new Date().getFullYear();
+
     return (
         <footer className="footer">
             <p>
-                Site designé et créé par Alexandre Richard
+                Site créé par Alexandre Richard
             </p>
-            <a
-                href="https://github.com/Alexandre-RICHARD/Portfolio-Front"
-                target="blank"
-            >
-                &gt; Répertoire Github du portfolio &lt;
-            </a>
             <p>
-                Hébergé chez O2 Switch
+                {`© ${year} - Tout droits réservés`}
             </p>
-            <p className="versionning">
-                {pjson.version}
+            <p>
+                Hébergé chez
+                {" "}
+                <a
+                    href="https://www.o2switch.fr/"
+                    rel="noreferrer"
+                    target="_blank"
+                >
+                    O2Switch
+                </a>
             </p>
         </footer>
     );

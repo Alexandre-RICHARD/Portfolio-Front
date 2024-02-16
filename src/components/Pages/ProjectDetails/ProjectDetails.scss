@@ -2,8 +2,6 @@
 @import "@styles/index.scss";
 
 .detailled-project {
-    padding-top: 90px;
-
     &-illustration {
         background-color: $color0;
         position: absolute;
@@ -81,7 +79,6 @@
                     border-radius: 5px;
                     margin: 6px 0;
                     width: 100%;
-                    text-align: justify;
                     color: $color14;
 
                     &::before {

@@ -27,10 +27,6 @@
     }
 
     &.header-nav-link {
-        &:nth-child(2) {
-            margin-right: 25px;
-        }
-
         &:hover {
             box-shadow: 3px 3px 0px 0px $color14;
         }

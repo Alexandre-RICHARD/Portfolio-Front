@@ -3,8 +3,13 @@
 
 .curriculum-container {
     margin: 0 auto;
-    padding: 90px 20px;
+    padding: 0 20px;
     max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 
     .cv-indication {
         margin: 20px auto;
@@ -12,16 +17,16 @@
         font-size: 20px;
 
         &-link {
-            color: $color6;
+            color: $color11;
             font-weight: 600;
-            border: 3px solid $color6;
+            border: 3px solid $color11;
             padding: 2px 5px;
             margin: 0 8px;
             border-radius: 8px;
 
             &:hover {
                 background: $color14;
-                color: $color1;
+                color: $color0;
                 border-color: transparent;
             }
         }
@@ -32,179 +37,181 @@
             content: ">";
             font-weight: 700;
             font-size: 18px;
-            color: $color6;
+            color: $color11;
             padding-right: 5px;
         }
     }
 }
 
-.curriculum-container {
+.group-flex {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .group-flex {
-        display: flex;
-        flex-direction: column;
-    }
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
 
     .categories {
-        min-width: 28%;
-        margin-right: 6px;
-
-        .title-box {
-            display: flex;
-            width: 100%;
-            margin: 10px 0;
-
-            .title {
-                font-weight: 500;
-                letter-spacing: 1.2px;
-                color: $color14;
-                padding: 3px 12px;
-                border-radius: 10px;
-                border: 4px solid $color14;
-            }
-
-            .line-up {
-                background-color: $color14;
-                margin-left: -20px;
-                width: 100%;
-                height: 4px;
-            }
-        }
-    }
-
-    .description-text {
-        color: $color14;
-        text-align: justify;
         width: 100%;
-
-        .photo {
-            margin-right: 12px;
-            width: 200px;
-            border: 2px solid $color14;
-            float: left;
-        }
+        max-width: 100%;
     }
+}
 
-    .hobbies {
-        .hobbies-list {
-            font-size: 16px;
+.categories {
+    min-width: 28%;
+    margin-right: 6px;
+
+    .title-box {
+        display: flex;
+        width: 100%;
+        margin: 10px 0;
+        align-items: end;
+
+        .title {
+            font-weight: 500;
+            letter-spacing: 1.2px;
             color: $color14;
+            padding: 3px 12px;
+            border-radius: 10px;
+            border: 4px solid $color14;
+        }
+
+        .line-up {
+            background-color: $color14;
+            margin-left: -20px;
+            width: 100%;
+            height: 4px;
         }
     }
+}
 
-    .quality {
-        .qualities-list {
-            font-size: 16px;
-            color: $color14;
-        }
+.description-text {
+    color: $color14;
+    text-align: justify;
+    width: 100%;
+
+    .photo {
+        margin-right: 12px;
+        width: 200px;
+        border: 2px solid $color14;
+        float: left;
     }
+}
 
-    .further-information {
-        .further-information-list {
-            font-size: 16px;
-            color: $color14;
-        }
+.hobbies {
+    .hobbies-list {
+        font-size: 16px;
+        color: $color14;
     }
+}
 
-    .professional-experiences,
-    .education {
-        overflow: hidden;
+.quality {
+    .qualities-list {
+        font-size: 16px;
+        color: $color14;
+    }
+}
 
-        .one-of-them {
-            display: flex;
+.informations {
+    .informations-list {
+        font-size: 16px;
+        color: $color14;
+    }
+}
 
-            .left {
-                padding-top: 50px;
-                min-width: 30%;
-                border-bottom: 1px solid $color111;
+.professional-experiences,
+.education {
+    overflow: hidden;
 
-                .whichone {
-                    font-size: 15px;
-                    color: $color14;
-                }
+    .one-of-them {
+        display: flex;
 
-                .where {
-                    font-size: 12px;
-                    color: $color14;
-                }
-            }
+        .left {
+            padding-top: 50px;
+            min-width: 30%;
+            border-bottom: 1px solid $color111;
 
-            .middle {
-                min-width: 25px;
-                max-width: 25px;
-                display: flex;
-                justify-content: center;
-                margin-right: 5px;
-
-                .date {
-                    z-index: $z-index-four;
-                    height: fit-content;
-                    position: absolute;
-                    background-color: $color14;
-                    color: $color0;
-                    padding: 3px;
-                    border-radius: 4px;
-
-                    p {
-                        letter-spacing: 0.5px;
-                        text-align: center;
-                        font-size: 14px;
-                        font-weight: 500;
-                    }
-                }
-
-                .line-cache {
-                    z-index: $z-index-three;
-                    height: 100%;
-                    width: calc(50% - 1px);
-                    background-color: $color0;
-                }
-
-                .line {
-                    z-index: $z-index-two;
-                    height: 100%;
-                    width: 1px;
-                    background-color: $color14;
-                    box-shadow: 0px 0px 9px 1px $color14;
-                }
-
-                .line-uncache {
-                    z-index: $z-index-one;
-                    height: 100%;
-                    width: calc(50% - 1px);
-                    background-color: transparent;
-                }
-            }
-
-            .right {
-                padding-top: 50px;
-                border-bottom: 1px solid $color111;
-                font-size: 16px;
+            .whichone {
+                font-size: 15px;
                 color: $color14;
-                text-align: justify;
-                padding-bottom: 10px;
+            }
+
+            .where {
+                font-size: 12px;
+                color: $color14;
             }
         }
-    }
 
-    .skills {
-        max-width: 50%;
+        .middle {
+            min-width: 25px;
+            max-width: 25px;
+            display: flex;
+            justify-content: center;
+            margin-right: 5px;
 
-        .further-information-list {
-            background-color: $color0;
+            .date {
+                z-index: $z-index-four;
+                height: fit-content;
+                position: absolute;
+                background-color: $color15;
+                color: $color0;
+                padding: 3px;
+                border-radius: 4px;
+
+                p {
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+
+            .line-cache {
+                z-index: $z-index-three;
+                height: 100%;
+                width: calc(50% - 1px);
+                background-color: $color0;
+            }
+
+            .line {
+                z-index: $z-index-two;
+                height: 100%;
+                width: 1px;
+                background-color: $color14;
+                box-shadow: 0px 0px 9px 1px $color14;
+            }
+
+            .line-uncache {
+                z-index: $z-index-one;
+                height: 100%;
+                width: calc(50% - 1px);
+                background-color: transparent;
+            }
+        }
+
+        .right {
+            padding-top: 50px;
+            border-bottom: 1px solid $color111;
             font-size: 16px;
             color: $color14;
+            text-align: justify;
+            padding-bottom: 10px;
         }
     }
+}
 
-    .qualification {
-        .further-information-list {
-            font-size: 16px;
-            color: $color14;
-        }
+.skills {
+    max-width: 50%;
+
+    .informations-list {
+        background-color: $color0;
+        font-size: 16px;
+        color: $color14;
+    }
+}
+
+.qualifications {
+    .informations-list {
+        font-size: 16px;
+        color: $color14;
     }
 }
 
@@ -230,7 +237,7 @@
                     max-width: 115px;
 
                     .line {
-                        box-shadow: 0px 0px 18px 2px $color14;
+                        box-shadow: 0px 0px 9px 1.5px $color14;
                     }
                 }
 
@@ -239,6 +246,19 @@
                     padding-bottom: 10px;
                 }
             }
+        }
+    }
+}
+
+@media only screen and (min-width: 920px) {
+    .group-flex {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+
+        & > .categories {
+            max-width: 45%;
         }
     }
 }

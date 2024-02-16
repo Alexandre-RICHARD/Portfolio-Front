@@ -10,6 +10,7 @@
             "@root/*": ["/*"],
             "@store/*": ["src/store/*"],
             "@slices/*": ["src/store/slices/*"],
+            "@specials/*": ["src/components/Specials/*"],
             "@styles/*": ["src/styles/*"],
             "@svgs/*": ["src/components/Svgs/*"],
             "@tests/*": ["src/tests/*"],

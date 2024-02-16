@@ -10,11 +10,8 @@ import {
 import "./ProjectParts.scss";
 
 const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
-
     return (
-        <div
-            className="appear one-project-homepage"
-        >
+        <div className="appear one-project-homepage">
             <h3 className="one-project-homepage-title">
                 {project.title}
             </h3>
@@ -24,9 +21,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
             <div className="one-project-homepage-footer">
                 <div className="progression">
                     <ProgressionCircle
-                        progression={parseInt(
-                            project.progressionPurcent
-                        )}
+                        progression={parseInt(project.progressionPurcent)}
                     />
                     <p className="progression-purcent">
                         {project.progressionPurcent}
@@ -35,8 +30,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                 </div>
                 <div className="technos">
                     {project.technos.map((el) => {
-                        const techno =
-                        data.technosData.find(
+                        const techno = data.technosData.find(
                             (techno) => techno.id === el
                         );
 
@@ -47,9 +41,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                         return (
                             <a
                                 className="techno"
-                                href={
-                                    techno.external_link
-                                }
+                                href={techno.external_link}
                                 key={el}
                                 rel="noreferrer"
                                 target="_blank"

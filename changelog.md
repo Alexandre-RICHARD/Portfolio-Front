@@ -1198,4 +1198,27 @@
 -   Create new folder for types, and a dedicated file for project type
 -   Some change in alias
 
+### build 140 - 3.1.0 `16 février 2024`
+
+-   Deletion of versionning and build number in package.json and consequently in footer
+-   Add a specials folder and alias for it. It contains component wich only handle some functions, but doesn' render anything
+-   Move ScrollEmergence to special Component
+-   Deletion of ChronologicalData wich will not be used
+-   Deletion of DownloadIcon because the CV file is no longer accessible from the header, so this svg is no longer useful
+-   Rearrangement of my presentation text on Curriculum page
+-   Update portfolio progression purcent
+-   Delete All contacts button in contact page, and consequently delete all icon linked to them
+-   Deletion of Contact Form, because with the removal of the contact buttons, only the contact form remains which therefore returns to its original place
+-   Add main element to frame the page, and so have a consistent style between pages
+-   Few change on the contact form to make it prettier and ergonomic
+-   Some factorisation and types in CurriculumPage to make it more easily readable
+-   Lot of style change in curriculum, and make it more responsive
+-   Remove some text-align: justify to prevent accessibility issue
+-   Little CSS changes on project page
+-   Upgrade the animation on homepage's contact buttons
+-   Force footer to be on bottom of the page
+-   Modify footer to show only interesting informations
+-   Add ScrollTop specialComponent to manage that when changing pages, we go to the top of the new one
+-   Adapt the scrollLogic of header hide/show to prevent issue when reloading the page that make entrance logo bug
+
 </details>

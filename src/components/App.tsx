@@ -17,7 +17,8 @@ import {
     NotFound,
     Projects,
     ProjectDetails,
-    ScrollEmergence
+    ScrollEmergence,
+    ScrollTop
 } from "@/IndexImporter";
 import "./App.scss";
 
@@ -30,34 +31,37 @@ const App: React.FC = () => {
         <Router>
             {loading ? <LoadingIcon /> : null}
             <ScrollEmergence />
+            <ScrollTop />
             <Header />
             <HeaderMenu />
-            <Routes>
-                <Route
-                    element={<HomePage />}
-                    path="/"
-                />
-                <Route
-                    element={<Curriculum />}
-                    path="/curriculum"
-                />
-                <Route
-                    element={<Projects />}
-                    path="/projects"
-                />
-                <Route
-                    element={<ProjectDetails />}
-                    path="/projects/:projectName"
-                />
-                <Route
-                    element={<Contact />}
-                    path="/contacts"
-                />
-                <Route
-                    element={<NotFound />}
-                    path="/*"
-                />
-            </Routes>
+            <main>
+                <Routes>
+                    <Route
+                        element={<HomePage />}
+                        path="/"
+                    />
+                    <Route
+                        element={<Curriculum />}
+                        path="/curriculum"
+                    />
+                    <Route
+                        element={<Projects />}
+                        path="/projects"
+                    />
+                    <Route
+                        element={<ProjectDetails />}
+                        path="/projects/:projectName"
+                    />
+                    <Route
+                        element={<Contact />}
+                        path="/contacts"
+                    />
+                    <Route
+                        element={<NotFound />}
+                        path="/*"
+                    />
+                </Routes>
+            </main>
             <Footer />
         </Router>
     );

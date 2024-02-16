@@ -13,6 +13,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
     return (
         <div className="one-project">
             <img
+                className="one-project-image"
                 src={imageImporter(
                     `projectIllustration/overview/${project.linkDetails}.png`
                 )}
@@ -85,7 +86,7 @@ const ProjectParts: React.FC<{"project": ProjectTypes}> = ({project}) => {
                         rel="noreferrer"
                         target="_blank"
                     >
-                        Lien direct
+                        Y accéder
                     </a>
                 </div>
             </div>

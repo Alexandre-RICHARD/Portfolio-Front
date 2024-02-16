@@ -16,6 +16,7 @@ export default defineConfig(({mode}) => {
                 "@root": path.resolve(__dirname, ""),
                 "@store": path.resolve(__dirname, "src/store"),
                 "@slices": path.resolve(__dirname, "src/store/slices"),
+                "@specials": path.resolve(__dirname, "src/components/Specials"),
                 "@styles": path.resolve(__dirname, "src/styles"),
                 "@svgs": path.resolve(__dirname, "src/components/Svgs"),
                 "@tests": path.resolve(__dirname, "src/tests"),

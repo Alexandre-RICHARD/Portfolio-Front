@@ -1,9 +1,45 @@
+/* eslint-disable max-lines-per-function */
 import React from "react";
 
 import {
     CurriculumVitae, data, imageImporter
 } from "@/IndexImporter";
 import "./Curriculum.scss";
+
+export interface DataTypes {
+    "skillsList": string[];
+    "qualificationsList": string[];
+    "informationsList": string[];
+    "hobbiesList": string[];
+    "qualitiesList": string[];
+}
+
+const ListItem: React.FC<{
+    "category": string;
+    "title": string;
+}> = ({category, title}) => {
+    const stringData: string[] = data[`${category}List` as keyof DataTypes];
+
+    return (
+        <div className={`appear categories ${category}`}>
+            <div className="title-box">
+                <h2 className="title">
+                    {title}
+                </h2>
+                <div className="line-up" />
+            </div>
+            <ul className={`${category}-list`}>
+                {stringData.map((el: string) => {
+                    return (
+                        <li key={el}>
+                            {el}
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
+    );
+};
 
 const Curriculum: React.FC = () => {
     document.title = "Mon parcours";
@@ -39,57 +75,20 @@ const Curriculum: React.FC = () => {
                     {data.curriculumDesc}
                 </p>
             </div>
-            <div className="categories skills">
-                <div className="title-box">
-                    <h2 className="title">
-                        Compétences en développement
-                    </h2>
-                    <div className="line-up" />
-                </div>
-                <ul className="skills-list">
-                    {data.skillsList.map((el, index) => {
-                        return (
-                            <li key={index}>
-                                {el}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
             <div className="group-flex">
-                <div className="categories qualification">
-                    <div className="title-box">
-                        <h2 className="title">
-                            Diplômes et Certification
-                        </h2>
-                        <div className="line-up" />
-                    </div>
-                    <ul className="qualification-list">
-                        {data.qualificationsList.map((el, index) => {
-                            return (
-                                <li key={index}>
-                                    {el}
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-                <div className="categories further-information">
-                    <div className="title-box">
-                        <h2 className="title">
-                            Informations complémentaires
-                        </h2>
-                        <div className="line-up" />
-                    </div>
-                    <ul className="further-information-list">
-                        {data.informationsList.map((el, index) => {
-                            return (
-                                <li key={index}>
-                                    {el}
-                                </li>
-                            );
-                        })}
-                    </ul>
+                <ListItem
+                    category="skills"
+                    title="Compétences en développement"
+                />
+                <div>
+                    <ListItem
+                        category="qualifications"
+                        title="Diplômes et Certification"
+                    />
+                    <ListItem
+                        category="informations"
+                        title="Informations complémentaires"
+                    />
                 </div>
             </div>
             <div className="appear categories professional-experiences">
@@ -182,39 +181,15 @@ const Curriculum: React.FC = () => {
                     );
                 })}
             </div>
-            <div className="appear categories hobbies">
-                <div className="title-box">
-                    <h2 className="title">
-                        Loisirs
-                    </h2>
-                    <div className="line-up" />
-                </div>
-                <ul className="hobbies-list">
-                    {data.hobbiesList.map((el, index) => {
-                        return (
-                            <li key={index}>
-                                {el}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-            <div className="appear categories quality">
-                <div className="title-box">
-                    <h2 className="title">
-                        Qualités
-                    </h2>
-                    <div className="line-up" />
-                </div>
-                <ul className="qualities-list">
-                    {data.qualitiesList.map((el, index) => {
-                        return (
-                            <li key={index}>
-                                {el}
-                            </li>
-                        );
-                    })}
-                </ul>
+            <div className="group-flex">
+                <ListItem
+                    category="hobbies"
+                    title="Loisirs"
+                />
+                <ListItem
+                    category="qualities"
+                    title="Qualités"
+                />
             </div>
         </div>
     );

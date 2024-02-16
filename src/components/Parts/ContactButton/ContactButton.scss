@@ -3,17 +3,31 @@
 
 .contact-box {
     .one-contact-container {
-        box-shadow:
-            0 0,
-            0 0;
-        color: rgba($color1, 0.5);
-
         &:hover {
-            box-shadow:
-                -16px -16px,
-                16px 16px;
-            color: rgba($color1, 0);
-            transition: 0.3s;
+            animation: contact-border 1 0.6s forwards;
+        }
+
+        @keyframes contact-border {
+            0% {
+                box-shadow:
+                    0 0,
+                    0 0;
+                color: rgba($color1, 0.5);
+            }
+            40% {
+                box-shadow:
+                    -16px -16px,
+                    16px 16px;
+                color: rgba($color1, 0);
+            }
+            45% {
+                box-shadow: 0px 0px;
+                color: rgba($color1, 0);
+            }
+            100% {
+                box-shadow: 5px 5px;
+                color: rgba($color1, 0.75);
+            }
         }
     }
 }
@@ -29,17 +43,33 @@
     border-radius: 4px;
     cursor: pointer;
     transition: none;
-    box-shadow:
-        0 0,
-        0 0;
-    color: $color15;
 
     &:hover {
-        box-shadow:
-            -16px -16px,
-            16px 16px;
-        color: rgba($color15, 0);
         transition: 0.3s;
+        animation: contact-border-homepage 1 0.6s forwards;
+    }
+
+    @keyframes contact-border-homepage {
+        0% {
+            box-shadow:
+                0 0,
+                0 0;
+            color: rgba($color15, 0.5);
+        }
+        40% {
+            box-shadow:
+                -16px -16px,
+                16px 16px;
+            color: rgba($color15, 0);
+        }
+        45% {
+            box-shadow: 0px 0px;
+            color: rgba($color15, 0);
+        }
+        100% {
+            box-shadow: 5px 5px;
+            color: rgba($color15, 0.75);
+        }
     }
 
     .contact-icon {

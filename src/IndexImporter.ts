@@ -25,28 +25,22 @@ export {
 
 // ? Parts
 
-import ChronologicalData from "@parts/ChronologicalData/ChronologicalData";
 import ContactButton from "@parts/ContactButton/ContactButton";
-import ContactForm from "@parts/ContactForm/ContactForm";
 import Footer from "@parts/Footer/Footer";
 import Header from "@parts/Header/Header";
 import HeaderLogo from "@parts/HeaderLogo/HeaderLogo";
 import HeaderLink from "@parts/HeaderLink/HeaderLink";
 import HeaderMenu from "@parts/HeaderMenu/HeaderMenu";
 import ProjectParts from "@parts/ProjectParts/ProjectParts";
-import ScrollEmergence from "@parts/ScrollEmergence/ScrollEmergence";
 
 export {
-    ChronologicalData,
     ContactButton,
-    ContactForm,
     Footer,
     Header,
     HeaderLogo,
     HeaderLink,
     HeaderMenu,
-    ProjectParts,
-    ScrollEmergence
+    ProjectParts
 };
 
 // =============================================================================
@@ -54,13 +48,21 @@ export {
 // ? SVGs
 
 import CopyIcon from "@svgs/CopyIcon/CopyIcon";
-import DownloadIcon from "@svgs/DownloadIcon/DownloadIcon";
 import LoadingIcon from "@svgs/LoadingIcon/LoadingIcon";
 import ProgressionCircle from "@svgs/ProgressionCircle/ProgressionCircle";
 
 export {
-    CopyIcon, DownloadIcon, LoadingIcon, ProgressionCircle
+    CopyIcon, LoadingIcon, ProgressionCircle
 };
+
+// =============================================================================
+
+// ? Specials
+
+import ScrollEmergence from "@specials/ScrollEmergence/ScrollEmergence";
+import ScrollTop from "@specials/ScrollTop/ScrollTop";
+
+export {ScrollEmergence, ScrollTop};
 
 // =============================================================================
 

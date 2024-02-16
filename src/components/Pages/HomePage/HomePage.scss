@@ -7,7 +7,6 @@
     padding: 0 10px;
 
     .welcome-container {
-        padding-top: 115px;
         min-height: calc(80svh - $total-header-height);
         width: 100%;
         margin: auto;
@@ -39,7 +38,6 @@
             color: $color14;
             font-weight: 300;
             font-size: $large;
-            text-align: justify;
 
             span {
                 font-weight: 500;
@@ -60,7 +58,7 @@
             box-shadow:
                 4px 4px 0 2px $color15,
                 3px 12px 25px -3px $color15;
-            margin-bottom: 15px; //! TEMPORAIRE
+            margin-bottom: 30px;
 
             .text-box {
                 position: relative;
