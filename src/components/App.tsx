@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 import {
+    Advertissement,
     cookieHandler,
     portfolioState,
     useAppSelector,
@@ -30,6 +31,7 @@ const App: React.FC = () => {
     return (
         <Router>
             {loading ? <LoadingIcon /> : null}
+            <Advertissement />
             <ScrollEmergence />
             <ScrollTop />
             <Header />

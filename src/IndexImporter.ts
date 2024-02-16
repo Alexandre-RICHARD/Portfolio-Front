@@ -25,6 +25,7 @@ export {
 
 // ? Parts
 
+import Advertissement from "@parts/Advertissement/Advertissement";
 import ContactButton from "@parts/ContactButton/ContactButton";
 import Footer from "@parts/Footer/Footer";
 import Header from "@parts/Header/Header";
@@ -34,6 +35,7 @@ import HeaderMenu from "@parts/HeaderMenu/HeaderMenu";
 import ProjectParts from "@parts/ProjectParts/ProjectParts";
 
 export {
+    Advertissement,
     ContactButton,
     Footer,
     Header,
@@ -47,12 +49,14 @@ export {
 
 // ? SVGs
 
+import CloseIcon from "@svgs/CloseIcon/CloseIcon";
 import CopyIcon from "@svgs/CopyIcon/CopyIcon";
 import LoadingIcon from "@svgs/LoadingIcon/LoadingIcon";
 import ProgressionCircle from "@svgs/ProgressionCircle/ProgressionCircle";
+import SuccessIcon from "@svgs/SuccessIcon/SuccessIcon";
 
 export {
-    CopyIcon, LoadingIcon, ProgressionCircle
+    CloseIcon, CopyIcon, LoadingIcon, ProgressionCircle, SuccessIcon
 };
 
 // =============================================================================
@@ -78,12 +82,12 @@ export {CurriculumVitae, data};
 // ? Functions utilities
 
 import {cookieHandler} from "@utilities/cookieHandler";
-import {errorSaver} from "@utilities/errorSaver";
 import {getAge} from "@/utilities/getAge";
 import {imageImporter} from "@utilities/imageImporter";
+import {requestHandler} from "@utilities/requestHandler";
 
 export {
-    cookieHandler, errorSaver, getAge, imageImporter
+    cookieHandler, getAge, imageImporter, requestHandler
 };
 
 // =============================================================================

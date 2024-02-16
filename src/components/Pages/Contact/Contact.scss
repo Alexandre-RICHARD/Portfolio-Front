@@ -5,6 +5,7 @@
     color: $color14;
     max-width: 700px;
     margin: auto;
+    padding: 0 10px;
 
     &-title {
         font-weight: 400;
@@ -17,6 +18,14 @@
         flex-direction: column;
         width: 100%;
         margin: 5px 0;
+
+        .indication {
+            font-size: 14px;
+            margin: 0;
+            position: relative;
+            top: -6px;
+            line-height: 14px;
+        }
 
         .submit-button {
             color: $color14;
@@ -44,7 +53,8 @@
 
             label {
                 background-color: $color0;
-                color: $color15;
+                font-style: oblique;
+                color: rgba($color15, 0.7);
                 font-size: 16px;
                 position: absolute;
                 left: 15px;

@@ -1,0 +1,90 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.advertissement-box {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    width: fit-content;
+    padding: 9px 15px 15px 15px;
+    background-color: $color1;
+    z-index: $z-index-loading-logo;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: alertMessage 1 5600ms;
+
+    .advertissement-message-box {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+
+        .message-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            p {
+                font-weight: 500;
+                font-size: 18px;
+            }
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .closing-button {
+            align-self: baseline;
+            padding: 4px;
+            transition: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                transform: rotate(90deg);
+                transition: all 0.25s;
+            }
+        }
+    }
+
+    .progress-bar {
+        width: 100%;
+        position: absolute;
+        height: 5px;
+        bottom: 0;
+        left: 0;
+        background-color: $color71;
+        animation: alertMessageProgress 1 5600ms linear;
+    }
+}
+
+@keyframes alertMessage {
+    0% {
+        transform: translateX(300px);
+    }
+    6% {
+        transform: translateX(0);
+    }
+    94% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(300px);
+    }
+}
+
+@keyframes alertMessageProgress {
+    0% {
+        width: 100%;
+    }
+    5% {
+        width: 100%;
+    }
+    95% {
+        width: 0%;
+    }
+    100% {
+        width: 0%;
+    }
+}

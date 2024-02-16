@@ -1,0 +1,12 @@
+// To retrieve default styles and variables
+@import "@styles/index.scss";
+
+.success-svg {
+    width: 35px;
+    height: 35px;
+    margin: 8px;
+
+    path {
+        fill: $color71;
+    }
+}

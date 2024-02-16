@@ -1,6 +1,4 @@
-const {VITE_API_URL} = import.meta.env;
-
-import {errorSaver} from "@/IndexImporter";
+import {requestHandler} from "@/IndexImporter";
 
 export const cookieHandler = {
     "setCookie": (name: string, value: string, days = 365) => {
@@ -33,18 +31,11 @@ export const cookieHandler = {
             cookieHandler.setCookie("visits", visits.toString(), days);
 
             try {
-                fetch(VITE_API_URL + "/visit/counter/add", {
-                    "headers": {
-                        "Accept": "application/json",
-                        "Content-Type": "application/json",
-                    },
-                    "method": "POST",
-                    "body": JSON.stringify({"target": "portfolio"}),
-                });
+                requestHandler.visitCounter();
             } catch (error) {
                 const errorF = error as Error;
-                errorSaver(
-                    "visit-counter-add-fail",
+                requestHandler.errorSaver(
+                    "send-mail-from-contact",
                     JSON.stringify(errorF.stack)
                 );
             }

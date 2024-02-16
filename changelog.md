@@ -1221,4 +1221,16 @@
 -   Add ScrollTop specialComponent to manage that when changing pages, we go to the top of the new one
 -   Adapt the scrollLogic of header hide/show to prevent issue when reloading the page that make entrance logo bug
 
+### build 141 - 3.2 `16 février 2024`
+
+-   Add an advertissement box to indicate to user the successful sending of mail
+-   Add two svg icon to it
+-   Light change on placeholder input in contact form
+-   Addition of 2 details text under the contact form
+-   Group all request fetch in one file to make easier new request (using of param to control how request work)
+-   For HeaderMenu, move code part to a sub component to mke the file more readable
+-   Correct the issue in HeaderMenu where one function was called before its initialization
+-   Add one variable in portfolio state to handle the display message
+-   Add one color in variable and delete some z-index not used
+
 </details>

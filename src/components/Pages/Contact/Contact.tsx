@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 
-import {errorSaver} from "@/IndexImporter";
+import {
+    portfolioActions,
+    requestHandler,
+    useAppDispatch
+} from "@/IndexImporter";
 import "./Contact.scss";
 
 const FormInput: React.FC<{
@@ -69,9 +73,8 @@ const formData = [
 ];
 
 const Contact: React.FC = () => {
+    const dispatch = useAppDispatch();
     document.title = "Me contacter";
-
-    const {VITE_API_URL} = import.meta.env;
 
     const [
         contactValue,
@@ -89,7 +92,6 @@ const Contact: React.FC = () => {
             ...data,
         }));
     };
-
     const sendMail = async () => {
         if (
             contactValue.contactFormMail &&
@@ -98,15 +100,14 @@ const Contact: React.FC = () => {
             contactValue.contactFormSubject
         ) {
             try {
-                const response = await fetch(VITE_API_URL + "/contact", {
-                    "headers": {
-                        "Accept": "application/json",
-                        "Content-Type": "application/json",
-                    },
-                    "method": "POST",
-                    "body": JSON.stringify(contactValue),
-                });
-                if (response.status === 200) {
+                dispatch(portfolioActions.changeLoadingState(true));
+                const response = await requestHandler.sendMail(contactValue);
+                if (response !== "error" && response.status === 200) {
+                    dispatch(
+                        portfolioActions.changeAdvertMessage(
+                            "Le mail a bien été envoyé"
+                        )
+                    );
                     groupSetContactValue({
                         "contactFormName": "",
                         "contactFormMail": "",
@@ -114,9 +115,10 @@ const Contact: React.FC = () => {
                         "contactFormMessage": "",
                     });
                 }
+                dispatch(portfolioActions.changeLoadingState(false));
             } catch (error) {
                 const errorF = error as Error;
-                errorSaver(
+                requestHandler.errorSaver(
                     "send-mail-from-contact",
                     JSON.stringify(errorF.stack)
                 );
@@ -128,7 +130,6 @@ const Contact: React.FC = () => {
         event.preventDefault();
         sendMail();
     };
-
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
@@ -154,6 +155,13 @@ const Contact: React.FC = () => {
                         />
                     );
                 })}
+                <p className="indication">
+                    * Tous les champs sont requis
+                </p>
+                <p className="indication">
+                    ** En envoyant un message, j'accepte que mes informations
+                    soient utilisées pour être recontacté plus tard
+                </p>
                 <input
                     className="submit-button"
                     type="submit"
